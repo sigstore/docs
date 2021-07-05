@@ -52,6 +52,8 @@ export default {
 
     '@nuxtjs/redirect-module',
 
+    '@nuxtjs/sitemap',
+
   ],
 
   apollo: {
