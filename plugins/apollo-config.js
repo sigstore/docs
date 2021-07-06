@@ -1,8 +1,7 @@
 const {IntrospectionFragmentMatcher, InMemoryCache} = require('apollo-cache-inmemory');
 const introspectionQueryResultData = require('../fragmentTypes.json');
 
-export default function ({env}) {
-
+export default function(context) {
     // Add support for matrix
     const fragmentMatcher = new IntrospectionFragmentMatcher({
         introspectionQueryResultData

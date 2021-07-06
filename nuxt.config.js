@@ -60,10 +60,19 @@ export default {
 
   ],
 
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: process.env.VUE_APP_FRONTEND,
+    generate: true,
+    cacheTime: 86400,
+    trailingSlash: true
+  },
+
   apollo: {
     clientConfigs: {
-      default: '../plugins/apollo-config.js',
-    }
+      default: '@/plugins/apollo-config.js',
+    },
+    includeNodeModules: true
   },
 
   /**
