@@ -23,6 +23,7 @@ export default {
         title: this.title,
         titleTemplate: "%s · " + process.env.VUE_APP_SITENAME,
         script: [
+          { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
           {
             json: {
               "@context": "https://schema.org",

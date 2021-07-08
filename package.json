@@ -17,6 +17,7 @@
     "*.{css,vue}": "stylelint"
   },
   "dependencies": {
+    "@nuxt/content": "^1.14.0",
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dotenv": "^1.4.1",
@@ -24,6 +25,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/redirect-module": "^0.3.1",
     "@nuxtjs/sitemap": "^2.4.0",
+    "@tailwindcss/typography": "^0.4.1",
     "core-js": "^3.15.1",
     "graphql-tag": "^2.12.5",
     "nuxt": "^2.15.7"

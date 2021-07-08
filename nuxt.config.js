@@ -58,7 +58,13 @@ export default {
 
     '@nuxtjs/sitemap',
 
+    '@nuxt/content',
+
   ],
+
+  content: {
+    fullTextSearchFields: ['title', 'description', 'slug', 'text']
+  },
 
   sitemap: {
     path: '/sitemap.xml',
