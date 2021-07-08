@@ -1,6 +1,5 @@
 <template>
   <ul>
-      {{article.toc}}
     <li
       v-for="link in article"
       :key="link.id"
