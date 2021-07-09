@@ -1,7 +1,8 @@
+import GitHubLogo from "@/assets/icons/github.svg?inline"
 export default {
 
     components: {
-
+        GitHubLogo
     },
     data: () => ({
     }),
