@@ -44,6 +44,8 @@ export default {
         Navigation
     },
     data: () => ({
+        globalHeader: null,
+        globalHeaderMenu: null
     }),
 
     computed: {
@@ -60,6 +62,10 @@ export default {
     },
 
     methods: {
+        async getGlobalHeader(){
+            const globalData = await this.$content('header').fetch()
+            this.globalHeaderMenu = globalData[0].menu;
+        }
     },
 
     apollo: {
@@ -70,6 +76,7 @@ export default {
     },
 
     mounted() {
+        this.getGlobalHeader()
     }
 
 };
