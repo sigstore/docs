@@ -1,4 +1,5 @@
 import Navigation from "@/modules/Navigation/Navigation.vue"
+import Logo from "@/assets/icons/logo.svg?inline"
 import gql from 'graphql-tag'
 
 const NAV_QUERY = gql`
@@ -41,7 +42,8 @@ const NAV_QUERY = gql`
 export default {
 
     components: {
-        Navigation
+        Navigation,
+        Logo
     },
     data: () => ({
         globalHeader: null,
@@ -59,13 +61,10 @@ export default {
     },
 
     props: {
+        navigation: Array,
     },
 
     methods: {
-        async getGlobalHeader(){
-            const globalData = await this.$content('header').fetch()
-            this.globalHeaderMenu = globalData[0].menu;
-        }
     },
 
     apollo: {
@@ -76,7 +75,6 @@ export default {
     },
 
     mounted() {
-        this.getGlobalHeader()
     }
 
 };
