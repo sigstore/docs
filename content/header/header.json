@@ -1,6 +1,11 @@
 {
   "menu": [
     {
+      "name": "Overview",
+      "position": "0",
+      "menuLink": "overview"
+    },
+    {
       "name": "How sigstore works",
       "position": "1",
       "menuLink": "community"
@@ -9,6 +14,11 @@
       "name": "Community",
       "position": "0",
       "menuLink": "community-1"
+    },
+    {
+      "name": "Trust and Security",
+      "position": "3",
+      "menuLink": "trust-security"
     }
   ]
 }
