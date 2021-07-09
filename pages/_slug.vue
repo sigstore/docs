@@ -11,7 +11,7 @@
 export default {
   async asyncData({ $content, params }) {
     const slug = params.slug || "index";
-    const page = await $content('blog', slug)
+    const page = await $content(slug)
       .fetch();
 
     return {
