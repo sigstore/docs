@@ -1,0 +1,14 @@
+{
+  "menu": [
+    {
+      "name": "How sigstore works",
+      "position": "1",
+      "menuLink": "community"
+    },
+    {
+      "name": "Community",
+      "position": "0",
+      "menuLink": "community-1"
+    }
+  ]
+}
