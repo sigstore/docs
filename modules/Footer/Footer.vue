@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Navigation navType="footer" :navList="globalSet.navList" />
+        <Navigation navType="footer" :navList="globalFooter" />
     </div>
 </template>
 <script lang="js" src="./Footer.js" />

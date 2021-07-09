@@ -44,6 +44,7 @@ export default {
         Navigation
     },
     data: () => ({
+        globalFooter: null
     }),
 
     computed: {
@@ -60,6 +61,10 @@ export default {
     },
 
     methods: {
+        async getGlobalFooter(){
+            const globalData = await this.$content('footer').fetch()
+            this.globalFooter = globalData[0].footerMenu;
+        }
     },
 
     apollo: {
@@ -70,6 +75,7 @@ export default {
     },
 
     mounted() {
+        this.getGlobalFooter();
     }
 
 };
