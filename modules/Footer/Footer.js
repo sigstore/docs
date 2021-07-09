@@ -58,13 +58,11 @@ export default {
     },
 
     props: {
+        navigation: Array,
+        socialLinks: Array
     },
 
     methods: {
-        async getGlobalFooter(){
-            const globalData = await this.$content('footer').fetch()
-            this.globalFooter = globalData[0].footerMenu;
-        }
     },
 
     apollo: {
@@ -75,7 +73,6 @@ export default {
     },
 
     mounted() {
-        this.getGlobalFooter();
     }
 
 };
