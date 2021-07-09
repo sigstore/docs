@@ -1,0 +1,61 @@
+.color,
+%color {
+  &--black {
+    color: color('black');
+  }
+
+  &--white {
+    color: color('white');
+  }
+
+  &--dark-blue {
+    color: color('dark-blue');
+  }
+
+  &--blue {
+    color: color('blue');
+  }
+
+  &--purple {
+    color: color('purple');
+  }
+
+  &--yellow {
+    color: color('yellow');
+  }
+
+  &--egg-white {
+    color: color('egg-white');
+  }
+
+  &--red {
+    color: color('red');
+  }
+
+  &--green {
+    color: color('green');
+  }
+}
+
+.bg,
+%bg {
+  &--black {
+    background-color: color(primary);
+  }
+
+  &--white {
+    background-color: color('white');
+  }
+
+  &--transparent {
+    background-color: transparent;
+  }
+
+  &--warning {
+    background-color: lighten($c-yellow, 5%);
+  }
+
+  &--alert {
+    background-color: lighten($c-red, 8%);
+  }
+}

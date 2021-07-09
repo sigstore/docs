@@ -1,0 +1,20 @@
+@mixin object-fit($fit: cover, $position: center) {
+  font-family: "object-fit: #{$fit}; object-position: #{$position};";
+  object-fit: $fit;
+  object-position: $position;
+}
+
+@mixin img-retina($image, $extension, $size: 100%, $position: center, $repeat: no-repeat) {
+  background: url("~@/assets/"+$image+"."+$extension) $repeat $position;
+
+  @media screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-moz-device-pixel-ratio: 2),
+    screen and (-moz-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (-webkit-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background: url("~@/assets/"+$image+"@2x"+"."+$extension) $repeat $position;
+    background-size: $size;
+  }
+}

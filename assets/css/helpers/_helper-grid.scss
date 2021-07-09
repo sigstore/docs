@@ -1,0 +1,13 @@
+.container {
+  @include margin--auto;
+  max-width: 1440px;
+}
+
+.container-bleed {
+  @include margin--auto;
+  max-width: 1440px;
+}
+
+.wrapper {
+  overflow-x: hidden;
+}

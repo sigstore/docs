@@ -1,0 +1,181 @@
+// Base copy
+@at-root html {
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.15;
+  padding: env(safe-area-inset);
+  -webkit-text-size-adjust: 100%;
+}
+
+@at-root body {
+  font-family: $font-sans;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+// Headings
+h1,
+.h1 {
+  @include h1;
+  color: $c-heading;
+}
+
+h2,
+.h2 {
+  @include h2;
+  color: $c-heading;
+}
+
+h3,
+.h3 {
+  @include h3;
+  color: $c-heading;
+}
+
+h4,
+.h4,
+h5,
+h6 {
+  @include h4;
+  color: $c-heading;
+}
+
+p {
+  @extend %text--body-1;
+
+  &.subheading {
+    @extend %text--subheading;
+
+    &.t-black {
+      color: $c-black;
+    }
+    &.text-white {
+      color: $c-white;
+    }
+  }
+}
+
+a {
+  @extend %text--link;
+  transition: 300ms cubic-bezier(0.77, 0, 0.175, 1);
+  width: fit-content;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &[disabled="disabled"],
+  &.disabled {
+    cursor: default;
+    color: white;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &.inline {
+    @extend %inline--link;
+  }
+}
+
+// Paragraph styles
+
+.text {
+  &--body-1 {
+    @extend %text--body-1;
+  }
+  &--small {
+    @extend %text--body-small;
+    font-weight: $weight-medium;
+    color: inherit;
+  }
+}
+
+blockquote,
+.blockquote {
+  @include h4;
+  display: block;
+}
+
+ol {
+  @extend %text--body-1;
+  counter-reset: numbered-list;
+  list-style: none;
+  padding-left: 30px;
+
+  li {
+    counter-increment: numbered-list;
+    margin-bottom: 10px;
+    position: relative;
+
+    &:before {
+      @extend %text--body-1;
+      content: "0" counter(numbered-list) ".";
+      font-family: $font-sans;
+      left: -30px;
+      position: absolute;
+      top: 0;
+      width: 20px;
+    }
+  }
+}
+
+ul {
+  @extend %text--body-1;
+  list-style: none;
+
+  &.bullet {
+    @extend %bullet;
+  }
+}
+
+.tooltip {
+  display: inline;
+  position: relative;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    &:after {
+      background: rgba($c-black, 0.8);
+      border-radius: 5px;
+      // bottom: 18px;
+      bottom: 103%;
+      color: #fff;
+      content: attr(tooltip);
+      display: block;
+      max-width: 165px;
+      padding: 5px 15px;
+      position: absolute;
+      right: -38%;
+      width: max-content;
+      // top: -30px;
+      // white-space: nowrap;
+      z-index: 98;
+
+      @include media-breakpoint-up(md) {
+        left: -5%;
+        right: auto;
+      }
+    }
+
+    &:before {
+      border: solid;
+      border-color: $c-black transparent;
+      border-width: 6px 6px 0;
+      bottom: 12px;
+      content: "";
+      display: block;
+      left: 35%;
+      position: absolute;
+      top: -3px;
+      z-index: 99;
+    }
+  }
+}

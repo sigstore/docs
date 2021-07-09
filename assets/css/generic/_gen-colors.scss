@@ -1,0 +1,6 @@
+// CSS Vars setup
+:root {
+  @each $name, $color in $colors {
+    #{$color-prefix}#{$name}: $color;
+  }
+}
