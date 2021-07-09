@@ -6,6 +6,11 @@ export default {
     fallback: true
   },
 
+  loading: {
+    color: 'blue',
+    height: '5px'
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'sigstore',
@@ -22,6 +27,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/css/base.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -45,6 +51,8 @@ export default {
   modules: [
 
     '@nuxtjs/axios',
+
+    '@nuxtjs/svg',
 
     '@nuxtjs/pwa',
 
