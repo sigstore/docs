@@ -4,18 +4,152 @@ backend:
 
 media_folder: static/img
 public_folder: /img
+local_backend: true
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: 'testimonials' # Used in routes, e.g., /admin/collections/blog
+    label: 'Testimonials' # Used in the UI
+    folder: 'content/testimonials' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     format: 'frontmatter'
-    create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: false
-    fields:
+    sort: 'date:desc' # Default is title:asc
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Publish Date',
+          name: 'date',
+          widget: 'datetime',
+          format: 'dddd MMMM Do, YYYY',
+        }
+      - {
+          label: 'Featured Image',
+          name: 'thumbnail',
+          widget: 'image',
+          required: false,
+        }
+      - {
+          label: 'Brand',
+          name: 'brand',
+          widget: 'relation',
+          collection: 'brandCategories',
+          searchFields: ['title'],
+          valueField: 'title',
+          displayFields: ['title'],
+          required: true,
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'page' # Used in routes, e.g., /admin/collections/page
+    label: 'Pages' # Used in the UI
+    folder: 'content' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    format: 'frontmatter'
+    fields: # The fields for each document, usually in front matter
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
+      - {
+          label: 'Featured Image',
+          name: 'thumbnail',
+          widget: 'image',
+          required: false,
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  - label: 'Globals'
+    name: 'globals'
+    files:
+      - label: 'Site Info'
+        name: 'siteInfo'
+        format: 'json'
+        file: 'content/setup/info.json'
+        fields:
+          - { label: Site Name, name: sitename, widget: string }
+          - { label: Site Description, name: sitedescription, widget: string }
+          - {
+              label: Logo (Must be 512x512 or larger square PNG),
+              name: siteLogo,
+              widget: image,
+              default: '/icon.png',
+            }
+          - { label: Show Icon in Menu, name: showmenu, widget: boolean }
+          - {
+              label: Email Newsletter Signup,
+              name: emailsignup,
+              widget: boolean,
+            }
+          - { label: Full Page Alt Layout, name: altlayout, widget: boolean }
+          - { label: Link Color, name: linkcolor, widget: color }
+      - label: 'Social links'
+        name: 'socialLinks'
+        format: 'json'
+        file: 'content/setup/connect.json'
+        fields:
+          - label: 'Links'
+            name: 'links'
+            widget: 'list'
+            fields:
+              - { label: Link Name, name: name, widget: string }
+              - { label: URL, name: url, widget: string }
+      - label: 'Header'
+        name: 'header'
+        format: 'json'
+        file: 'content/header/header.json'
+        fields:
+          - label: Menu Links
+            name: menu
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Position, name: position, widget: string }
+              - {
+                  label: 'Page Menu Link',
+                  name: 'menuLink',
+                  widget: 'relation',
+                  collection: 'page',
+                  searchFields: ['title'],
+                  valueField: '{{slug}}',
+                  displayFields: ['title'],
+                  required: false,
+                }
+      - label: 'Footer'
+        name: 'footer'
+        format: 'json'
+        file: 'content/footer/footer.json'
+        fields:
+          - label: Footer Menu Links
+            name: footerMenu
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Position, name: position, widget: string }
+              - {
+                  label: 'Footer Menu Link',
+                  name: 'footerMenuLink',
+                  widget: 'relation',
+                  collection: 'page',
+                  searchFields: ['title', 'slug', 'description'],
+                  valueField: 'slug',
+                  displayFields: ['title'],
+                  required: false,
+                }
+  - label: 'Brands'
+    name: 'brandCategories'
+    folder: 'content/category' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    format: 'json'
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Position, name: position, widget: string }
+      - {
+          label: Description,
+          name: description,
+          widget: string,
+          required: false,
+        }
+      - {
+          label: Brand logo (Must be 512x512 or smaller preferred svg file but png is acceptable),
+          name: brandLogo,
+          widget: image,
+          default: '/icon.png',
+        }
