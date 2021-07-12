@@ -54,6 +54,7 @@ collections:
           widget: 'image',
           required: false,
         }
+      - { label: 'Description', name: 'description', widget: 'text' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - label: 'Globals'
     name: 'globals'
