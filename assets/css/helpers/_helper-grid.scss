@@ -1,6 +1,8 @@
 .container {
   @include margin--auto;
   max-width: 1440px;
+  @apply pl-8;
+  @apply pr-8;
 }
 
 .container-bleed {
