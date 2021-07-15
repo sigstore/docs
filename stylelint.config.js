@@ -8,6 +8,6 @@ module.exports = {
   // stylelint.config.js
   // other stuff
   rules: {
-      'at-rule-no-unknown': null
+    'at-rule-no-unknown': null
   }
 }

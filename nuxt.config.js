@@ -27,11 +27,12 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/base.scss'
+    '@/assets/css/base'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~plugins/components.client'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -40,11 +41,13 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
-    '@nuxtjs/stylelint-module',
+    // '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+
+    '@nuxtjs/google-fonts',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -68,7 +71,20 @@ export default {
 
     '@nuxt/content',
 
+    '@nuxtjs/markdownit'
+
   ],
+
+  markdownit: {
+    runtime: true // Support `$md()`
+  },
+
+  googleFonts: {
+    families: {
+      Inter: [400],
+    },
+    display: 'swap' // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
+  },
 
   content: {
     fullTextSearchFields: ['title', 'description', 'slug', 'text']

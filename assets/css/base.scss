@@ -1,3 +1,4 @@
+/* stylelint-disable */
 // ==================================
 //  VARIABLES, MIXINS AND FUNCTIONS
 // ==================================
@@ -10,7 +11,7 @@
 // ==================================
 //  HELPER CLASSES
 // ==================================
-@import "helpers/helpers";
+@import "./helpers/helpers";
 
 // ==================================
 //  GENERIC
@@ -37,6 +38,12 @@
 hr {
   border-top: 1px solid $c-black;
   opacity: 0.1;
+}
+
+.fill-white {
+  path {
+    fill: $c-white;
+  }
 }
 
 .fill-blue {

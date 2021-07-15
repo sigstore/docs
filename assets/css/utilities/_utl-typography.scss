@@ -20,7 +20,7 @@
   @include media-breakpoint-up(lg) {
     font-size: $size-xx-large; // 40px;
     letter-spacing: 0.05rem;
-    line-height: 5rem;
+    line-height: 4.45rem;
   }
 }
 
@@ -65,7 +65,6 @@
 }
 
 %text--body-1 {
-  color: $c-body;
   font-family: $font-sans-light;
   //font-size: $size-small; // 14px
   letter-spacing: 0.05rem;
@@ -138,14 +137,13 @@
 }
 
 %text--subheading {
-  color: $c-blue;
   font-family: $font-sans-regular;
-  font-size: $size-small;
+  font-size: $size-x-large;
   font-weight: $weight-medium;
   line-height: 1.5rem;
 
   @include media-breakpoint-up(lg) {
-    font-size: $size-medium; // 16px
+    font-size: $size-large; // 16px
   }
 }
 

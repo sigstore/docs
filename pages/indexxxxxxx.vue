@@ -6,18 +6,16 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
-
-const HOME_QUERY = gql`
-  query HOME_QUERY {
-    entry(section: "Home") {
-      id
-      title
-    }
-  }
-`;
 
 export default {
+  async asyncData({ $content }) {
+    const home = await $content('home')
+      .fetch();
+
+    return {
+      home
+    };
+  },
   head() {
       return {
         title: this.title,
@@ -93,12 +91,12 @@ export default {
       return this.entry.title;
     }
   },
-  apollo: {
-    entry: {
-      prefetch: true,
-      query: HOME_QUERY
-    }
-  },
+  // apollo: {
+  //   entry: {
+  //     prefetch: true,
+  //     query: HOME_QUERY
+  //   }
+  // },
   mounted() {
   }
 }

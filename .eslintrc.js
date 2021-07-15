@@ -18,6 +18,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'camelcase': 0,
-    'dot-notation': 0
+    'dot-notation': 0,
+    'snakecase': 0
   }
 }

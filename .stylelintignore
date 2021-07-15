@@ -1,2 +1,2 @@
-assets/css/*.scss
+assets/css/base.scss
 assets/css/**/*.scss

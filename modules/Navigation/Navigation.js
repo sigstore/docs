@@ -19,7 +19,8 @@ export default {
 
     props: {
         navType: null,
-        navList: Array
+        navList: Array,
+        scrolled: Boolean,
     },
 
     methods: {
