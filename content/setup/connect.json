@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "name": "Blog",
+      "url": "https://medium.com"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/sigstore"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/sigstore"
+    }
+  ]
+}

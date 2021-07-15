@@ -18,19 +18,18 @@
 h1,
 .h1 {
   @include h1;
-  color: $c-heading;
+  @apply text-purple-dark;
 }
 
 h2,
 .h2 {
   @include h2;
-  color: $c-heading;
 }
 
 h3,
 .h3 {
   @include h3;
-  color: $c-heading;
+  @apply text-purple-dark;
 }
 
 h4,
@@ -38,7 +37,15 @@ h4,
 h5,
 h6 {
   @include h4;
-  color: $c-heading;
+  @apply text-purple-dark;
+}
+
+.subheading {
+  @extend %text--subheading;
+
+  & p{
+    font-size: inherit;
+  }
 }
 
 p {

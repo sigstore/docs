@@ -1,23 +1,35 @@
 <template>
   <div>
-    <h1>{{ page.title }}</h1>
-    <p>{{ page.description }}</p>
-    <nuxt-content class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto" :document="page"/>
+    <!-- <h1>{{ page.title }}</h1>
+    <p>{{ page.description }}</p> -->
+
+    <!-- <nuxt-content class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto" :document="page"/> -->
+    <section v-for="(section, index) in page.sections" :key="index">
+      <component :is="section.type" v-bind="section" />
+    </section>
+
   </div>
 </template>
 
 <script>
-
 export default {
+  components: {
+
+  },
 
   async asyncData({ $content, params }) {
-    const slug = params.slug || "index";
+    const slug = params.slug || "home";
     const page = await $content(slug)
       .fetch();
 
     return {
       page
     };
+  },
+  data () {
+    return {
+      animation: ''
+    }
   },
   head() {
       return this.page ? {

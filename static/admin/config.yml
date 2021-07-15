@@ -7,9 +7,31 @@ public_folder: /img
 local_backend: true
 
 collections:
-  - name: 'testimonials' # Used in routes, e.g., /admin/collections/blog
-    label: 'Testimonials' # Used in the UI
-    folder: 'content/testimonials' # The path to the folder where the documents are stored
+  - name: 'events' # Used in routes, e.g., /admin/collections/blog
+    label: 'Events' # Used in the UI
+    folder: 'content/events' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    format: 'frontmatter'
+    sort: 'date:desc' # Default is title:asc
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Publish Date',
+          name: 'date',
+          widget: 'datetime',
+          format: 'dddd MMMM Do, YYYY',
+        }
+      - {
+          label: 'Featured Image',
+          name: 'thumbnail',
+          widget: 'image',
+          required: false,
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'caseStudies' # Used in routes, e.g., /admin/collections/blog
+    label: 'Case Studies' # Used in the UI
+    folder: 'content/caseStudies' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     format: 'frontmatter'
@@ -48,13 +70,296 @@ collections:
     fields: # The fields for each document, usually in front matter
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'text' }
       - {
           label: 'Featured Image',
           name: 'thumbnail',
           widget: 'image',
           required: false,
         }
-      - { label: 'Description', name: 'description', widget: 'text' }
+      - label: 'Page Blocks'
+        name: 'sections'
+        widget: 'list'
+        types:
+          - label: 'Carousel'
+            name: 'carousel'
+            widget: object
+            summary: '{{fields.header}}'
+            fields:
+              - {
+                  label: Header,
+                  name: header,
+                  widget: string,
+                  default: 'Image Gallery',
+                }
+              - {
+                  label: Template,
+                  name: template,
+                  widget: string,
+                  default: 'carousel.html',
+                }
+              - label: Images
+                name: images
+                widget: list
+                field: { label: Image, name: image, widget: image }
+          - label: 'Text Banner'
+            name: 'textBanner'
+            widget: object
+            fields:
+              - {
+                  label: Header,
+                  name: header,
+                  widget: string,
+                  default: 'Spotlight',
+                  required: false,
+                }
+              - {
+                  label: Text,
+                  name: text,
+                  widget: markdown,
+                  default: 'Hello World',
+                  required: false,
+                }
+              - {
+                  label: Is Screen Height,
+                  name: isScreenHeight,
+                  widget: boolean,
+                  required: false,
+                  default: true,
+                }
+              - {
+                  label: Show Beta Card,
+                  name: showBetaCard,
+                  widget: boolean,
+                  required: false,
+                  default: false,
+                }
+              - {
+                  label: Text Color,
+                  name: textColour,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Light', value: 'text-white' },
+                      { label: 'Dark', value: 'text-dark-purple' },
+                    ],
+                }
+              - { label: Background Colour, name: bgColour, widget: color }
+              - {
+                  label: Text Align,
+                  name: textAlign,
+                  widget: string,
+                  default: 'left',
+                }
+              - {
+                  label: 'CTA buttons',
+                  name: 'ctaButtons',
+                  widget: 'relation',
+                  collection: 'ctas',
+                  multiple: true,
+                  searchFields: ['title'],
+                  valueField: '{{slug}}',
+                  displayFields: ['title'],
+                  required: false,
+                }
+              - {
+                  label: CTA Style,
+                  name: ctaStyle,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Transparent CTA', value: 'transparentCta' },
+                      { label: 'Solid CTA Purple', value: 'solidCtaPurple' },
+                      { label: 'Solid CTA Blue', value: 'solidCtaBlue' },
+                    ],
+                }
+          - label: 'Full Width Text Banner'
+            name: 'fullWidthTextBanner'
+            widget: object
+            fields:
+              - {
+                  label: Header,
+                  name: header,
+                  widget: string,
+                  default: 'Spotlight',
+                }
+              - { label: Sub Header, name: subHeader, widget: string }
+              - {
+                  label: Is a Quote Banner?,
+                  name: isQuote,
+                  widget: boolean,
+                  required: false,
+                }
+              - {
+                  label: Text,
+                  name: text,
+                  widget: markdown,
+                  default: 'Hello World',
+                }
+              - { label: Background Colour, name: bgColour, widget: color }
+              - {
+                  label: Text Align,
+                  name: textAlign,
+                  widget: string,
+                  default: 'left',
+                }
+              - {
+                  label: 'CTA buttons',
+                  name: 'ctaButtons',
+                  widget: 'relation',
+                  collection: 'ctas',
+                  multiple: true,
+                  search_fields: ['title'],
+                  display_fields: ['title'],
+                  value_field: '{{slug}}',
+                  required: false,
+                }
+              - {
+                  label: CTA Style,
+                  name: ctaStyle,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Transparent CTA', value: 'transparentCta' },
+                      { label: 'Solid CTA Purple', value: 'solidCtaPurple' },
+                      { label: 'Solid CTA Blue', value: 'solidCtaBlue' },
+                    ],
+                }
+          - label: 'Two Column Text Banner'
+            name: 'twoColumnBanner'
+            widget: object
+            fields:
+              - {
+                  label: Header,
+                  name: header,
+                  widget: string,
+                  default: 'Spotlight',
+                }
+              - {
+                  label: Image Asset,
+                  name: imageAsset,
+                  widget: image,
+                  default: '',
+                  required: false,
+                }
+              - {
+                  label: Text,
+                  name: text,
+                  widget: markdown,
+                  default: 'Hello World',
+                }
+              - {
+                  label: Background Colour,
+                  name: bgColour,
+                  widget: color,
+                  required: false,
+                }
+              - {
+                  label: Alignment,
+                  name: alignment,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Image left', value: 'imageLeft' },
+                      { label: 'Image Right', value: 'imageRight' },
+                    ],
+                }
+              - {
+                  label: 'CTA buttons',
+                  name: 'ctaButtons',
+                  widget: 'relation',
+                  collection: 'ctas',
+                  multiple: true,
+                  search_fields: ['title'],
+                  display_fields: ['title'],
+                  value_field: '{{slug}}',
+                  required: false,
+                }
+              - {
+                  label: CTA Style,
+                  name: ctaStyle,
+                  widget: select,
+                  required: false,
+                  options:
+                    [
+                      { label: 'Transparent CTA', value: 'transparentCta' },
+                      { label: 'Solid CTA Purple', value: 'solidCtaPurple' },
+                      { label: 'Solid CTA Blue', value: 'solidCtaBlue' },
+                    ],
+                }
+          - label: 'Three Column Text Grid'
+            name: 'threeColumnTextGrid'
+            widget: object
+            fields:
+              - label: 'Column 1'
+                name: 'column1'
+                widget: object
+                fields:
+                  - {
+                      label: Header,
+                      name: header,
+                      widget: string,
+                      default: 'Spotlight',
+                    }
+                  - {
+                      label: Image Asset,
+                      name: imageAsset,
+                      widget: image,
+                      default: '',
+                      required: false,
+                    }
+                  - {
+                      label: Text,
+                      name: text,
+                      widget: markdown,
+                      default: 'Hello World',
+                    }
+              - label: 'Column 2'
+                name: 'column2'
+                widget: object
+                fields:
+                  - {
+                      label: Header,
+                      name: header,
+                      widget: string,
+                      default: 'Spotlight',
+                    }
+                  - {
+                      label: Image Asset,
+                      name: imageAsset,
+                      widget: image,
+                      default: '',
+                      required: false,
+                    }
+                  - {
+                      label: Text,
+                      name: text,
+                      widget: markdown,
+                      default: 'Hello World',
+                    }
+              - label: 'Column 3'
+                name: 'column3'
+                widget: object
+                fields:
+                  - {
+                      label: Header,
+                      name: header,
+                      widget: string,
+                      default: 'Spotlight',
+                    }
+                  - {
+                      label: Image Asset,
+                      name: imageAsset,
+                      widget: image,
+                      default: '',
+                      required: false,
+                    }
+                  - {
+                      label: Text,
+                      name: text,
+                      widget: markdown,
+                      default: 'Hello World',
+                    }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - label: 'Globals'
     name: 'globals'
@@ -128,8 +433,8 @@ collections:
                   name: 'footerMenuLink',
                   widget: 'relation',
                   collection: 'page',
-                  searchFields: ['title', 'slug', 'description'],
-                  valueField: 'slug',
+                  searchFields: ['title'],
+                  valueField: '{{slug}}',
                   displayFields: ['title'],
                   required: false,
                 }
@@ -153,4 +458,18 @@ collections:
           name: brandLogo,
           widget: image,
           default: '/icon.png',
+        }
+  - label: 'CTAs'
+    name: 'ctas'
+    format: 'json'
+    folder: 'content/ctas' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Link Url/slug, name: link, widget: string, required: true }
+      - {
+          label: Icon(if cta style is using icon),
+          name: ctaicon,
+          widget: image,
         }
