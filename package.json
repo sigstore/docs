@@ -7,13 +7,13 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint:js": "eslint --ext \".js,.vue\" --no-error-on-unmatched-pattern .gitignore .",
-    "lint:style": "stylelint \"./**/*.{vue,css,scss}\" --no-error-on-unmatched-pattern .gitignore",
+    "lint:js": "eslint --ext \".js,.vue\" .gitignore .",
+    "lint:style": "stylelint \"./**/*.{vue,css,scss}\" .gitignore",
     "prepare": "husky install",
     "lint": "yarn lint:js && yarn lint:style"
   },
   "lint-staged": {
-    "*.{js,vue}": "eslint --no-error-on-unmatched-pattern",
+    "*.{js,vue}": "eslint",
     "**/*.{vue}": "stylelint",
     "/assets/css/**/*.{scss}": "stylelint --allow-empty-input"
   },
@@ -33,6 +33,8 @@
     "graphql-tag": "^2.12.5",
     "nuxt": "^2.15.7",
     "stylelint-scss": "^3.19.0",
+    "swiper": "5.x",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-intersect": "^1.1.6",
     "vue-intersect-directive": "^1.1.1"
   },

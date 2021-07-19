@@ -1,12 +1,12 @@
 <template>
-    <section>
+    <article>
         {{heading}}
         {{text}}
         {{bgColour}}
         {{alignment}}
         {{imageAsset}}
         {{cta}}
-    </section>
+    </article>
 </template>
 <script lang="js">
 export default {

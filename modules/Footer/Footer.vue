@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer py-16 bg-gray-greyBkg">
+    <footer class="footer py-64 bg-gray-greyBkg">
         <div class="flex flex-wrap justify-between items-start container">
             <div class="w-full md:w-1/2">
                 <Logo />

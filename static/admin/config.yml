@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
+  branch: main
 
 media_folder: static/img
 public_folder: /img
@@ -45,8 +45,8 @@ collections:
           format: 'dddd MMMM Do, YYYY',
         }
       - {
-          label: 'Featured Image',
-          name: 'thumbnail',
+          label: 'Case Study Image',
+          name: 'caseStudyImage',
           widget: 'image',
           required: false,
         }
@@ -93,15 +93,22 @@ collections:
                   default: 'Image Gallery',
                 }
               - {
-                  label: Template,
-                  name: template,
-                  widget: string,
-                  default: 'carousel.html',
+                  label: 'Carousel Image',
+                  name: 'carouselImage',
+                  widget: 'image',
+                  required: false,
                 }
-              - label: Images
-                name: images
-                widget: list
-                field: { label: Image, name: image, widget: image }
+              - {
+                  label: 'Carousel case study items',
+                  name: 'carouselCaseItems',
+                  widget: 'relation',
+                  collection: 'caseStudies',
+                  multiple: true,
+                  search_fields: ['title'],
+                  display_fields: ['title'],
+                  value_field: '{{slug}}',
+                  required: false,
+                }
           - label: 'Text Banner'
             name: 'textBanner'
             widget: object
@@ -128,8 +135,15 @@ collections:
                   default: true,
                 }
               - {
-                  label: Show Beta Card,
-                  name: showBetaCard,
+                  label: Show Stats banner,
+                  name: showStatsBanner,
+                  widget: boolean,
+                  required: false,
+                  default: false,
+                }
+              - {
+                  label: Show Supported By,
+                  name: showSupportedBy,
                   widget: boolean,
                   required: false,
                   default: false,
@@ -144,7 +158,12 @@ collections:
                       { label: 'Dark', value: 'text-dark-purple' },
                     ],
                 }
-              - { label: Background Colour, name: bgColour, widget: color }
+              - {
+                  label: Background Colour,
+                  name: bgColour,
+                  widget: color,
+                  allowInput: true,
+                }
               - {
                   label: Text Align,
                   name: textAlign,
@@ -262,6 +281,7 @@ collections:
                     [
                       { label: 'Image left', value: 'imageLeft' },
                       { label: 'Image Right', value: 'imageRight' },
+                      { label: 'Text Right', value: 'textRight' },
                     ],
                 }
               - {
@@ -287,6 +307,124 @@ collections:
                       { label: 'Solid CTA Blue', value: 'solidCtaBlue' },
                     ],
                 }
+          - label: 'Two Column Text Banner with Card Grid'
+            name: 'twoColumnBannerWithCard'
+            widget: object
+            fields:
+              - {
+                  label: Header,
+                  name: header,
+                  widget: string,
+                  default: 'Spotlight',
+                }
+              - {
+                  label: Card Header,
+                  name: cardTitle,
+                  widget: string,
+                  default: '',
+                  required: false,
+                }
+              - {
+                  label: Card Text,
+                  name: cardText,
+                  widget: markdown,
+                  default: '',
+                  required: false,
+                }
+              - {
+                  label: Image Asset,
+                  name: imageAsset,
+                  widget: image,
+                  default: '',
+                  required: false,
+                }
+              - { label: Text, name: text, widget: markdown, default: '' }
+              - {
+                  label: Background Colour,
+                  name: bgColour,
+                  widget: color,
+                  required: false,
+                }
+              - {
+                  label: Alignment,
+                  name: alignment,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Image left', value: 'imageLeft' },
+                      { label: 'Image Right', value: 'imageRight' },
+                      { label: 'Text Right', value: 'textRight' },
+                    ],
+                }
+              - label: 'Column 1'
+                name: 'column1'
+                widget: object
+                fields:
+                  - {
+                      label: Header,
+                      name: header,
+                      widget: string,
+                      default: 'Spotlight',
+                    }
+                  - {
+                      label: Image Asset,
+                      name: imageAsset,
+                      widget: image,
+                      default: '',
+                      required: false,
+                    }
+                  - {
+                      label: Text,
+                      name: text,
+                      widget: markdown,
+                      default: 'Hello World',
+                    }
+              - label: 'Column 2'
+                name: 'column2'
+                widget: object
+                fields:
+                  - {
+                      label: Header,
+                      name: header,
+                      widget: string,
+                      default: 'Spotlight',
+                    }
+                  - {
+                      label: Image Asset,
+                      name: imageAsset,
+                      widget: image,
+                      default: '',
+                      required: false,
+                    }
+                  - {
+                      label: Text,
+                      name: text,
+                      widget: markdown,
+                      default: 'Hello World',
+                    }
+              - label: 'Column 3'
+                name: 'column3'
+                widget: object
+                fields:
+                  - {
+                      label: Header,
+                      name: header,
+                      widget: string,
+                      default: 'Spotlight',
+                    }
+                  - {
+                      label: Image Asset,
+                      name: imageAsset,
+                      widget: image,
+                      default: '',
+                      required: false,
+                    }
+                  - {
+                      label: Text,
+                      name: text,
+                      widget: markdown,
+                      default: 'Hello World',
+                    }
           - label: 'Three Column Text Grid'
             name: 'threeColumnTextGrid'
             widget: object
