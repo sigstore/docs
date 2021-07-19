@@ -18,7 +18,7 @@
 h1,
 .h1 {
   @include h1;
-  @apply text-purple-dark;
+  // apply text-purple-dark;
 }
 
 h2,
@@ -29,7 +29,7 @@ h2,
 h3,
 .h3 {
   @include h3;
-  @apply text-purple-dark;
+  // apply text-purple-dark;
 }
 
 h4,
@@ -37,14 +37,14 @@ h4,
 h5,
 h6 {
   @include h4;
-  @apply text-purple-dark;
+  // apply text-purple-dark;
 }
 
 .subheading {
   @extend %text--subheading;
 
   & p{
-    font-size: inherit;
+    @extend %text--subheading;
   }
 }
 
@@ -53,13 +53,6 @@ p {
 
   &.subheading {
     @extend %text--subheading;
-
-    &.t-black {
-      color: $c-black;
-    }
-    &.text-white {
-      color: $c-white;
-    }
   }
 }
 
@@ -89,14 +82,11 @@ a {
 
 // Paragraph styles
 
-.text {
-  &--body-1 {
-    @extend %text--body-1;
-  }
-  &--small {
-    @extend %text--body-small;
-    font-weight: $weight-medium;
-    color: inherit;
+// markdown hack
+
+.nuxt-content {
+  & .f-header.text-24 {
+    // apply text-24;
   }
 }
 

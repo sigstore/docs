@@ -1,5 +1,9 @@
 import Vue from 'vue'
 
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
+Vue.use(VueAwesomeSwiper)
+
 const animateOnScrollObserver = new IntersectionObserver(
   (entries, animateOnScrollObserver) => {
     entries.forEach(entry => {
@@ -19,3 +23,7 @@ Vue.directive('animate-on-scroll', {
     animateOnScrollObserver.observe(el)
   }
 })
+
+
+// register widget here
+// window.CMS.registerWidget("color", ColorControl, ColorPreview);

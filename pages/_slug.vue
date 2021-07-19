@@ -1,13 +1,8 @@
 <template>
   <div>
-    <!-- <h1>{{ page.title }}</h1>
-    <p>{{ page.description }}</p> -->
-
-    <!-- <nuxt-content class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto" :document="page"/> -->
-    <section v-for="(section, index) in page.sections" :key="index">
-      <component :is="section.type" v-bind="section" />
-    </section>
-
+      <div v-for="(section, index) in page.sections" :key="index">
+        <component :is="section.type" v-bind="section" />
+      </div>
   </div>
 </template>
 

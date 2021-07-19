@@ -1,10 +1,10 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-    <section :style="backgroundColour" :class="[isScreenHeight ? 'min-h-screen h-screen' : 'h-auto py-32']">
+    <section :style="backgroundColour" class="overflow-auto" :class="[isScreenHeight ? 'min-h-screen h-screen' : 'h-auto py-128']">
         <div class="flex items-center justify-center h-full">
-            <div class="container inner relative" :class="`text-${textAlign}`">
-                <h1 v-animate-on-scroll :class="[textColour]" class="delay-step_1 mb-8">{{header}}</h1>
-                <div v-animate-on-scroll :class="[textColour]" class="subheading text-24 delay-step_3 mb-8" v-html="$md.render(text)"></div>
+            <div class="container inner relative" :class="[showSupportedBy ? 'min-h-bannerInner' : '',`text-${textAlign}`]">
+                <h1 v-if="header" v-animate-on-scroll :class="[textColour]" class="delay-step_1 mb-30 text-gray-dark">{{header}}</h1>
+                <div v-animate-on-scroll :class="[textColour]" class="subheading text-24 delay-step_3 mb-26 text-gray-dark" v-html="$md.render(text)"></div>
 
                 <div v-if="ctaButtons" v-animate-on-scroll class="delay-step_5">
                     <!-- ctas need to be this data; {name: 'outlineButton', title: 'Find out more', link: 'https://sigstore.dev/story', style: 'outlined'} -->
@@ -13,9 +13,11 @@
                     </div>
                 </div>
 
-                <div v-if="showBetaCard" v-animate-on-scroll class="delay-step_5 container absolute bottom-0 left-0 inner">
-                    <BetaCard />
+                <div v-if="showSupportedBy" v-animate-on-scroll class="delay-step_5 md:mt-140">
+                    <p>Supported by</p>
                 </div>
+            </div>
+            <div v-if="showStatsBanner" v-animate-on-scroll class="delay-step_5 container absolute bottom-0 left-0 inner">
             </div>
         </div>
     </section>
@@ -38,7 +40,11 @@ export default {
             type: Boolean,
             default: true
         },
-        showBetaCard: {
+        showSupportedBy: {
+            type: Boolean,
+            default: false
+        },
+        showStatsBanner: {
             type: Boolean,
             default: false
         }

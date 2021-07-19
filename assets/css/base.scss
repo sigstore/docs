@@ -3,10 +3,12 @@
 //  VARIABLES, MIXINS AND FUNCTIONS
 // ==================================
 @use 'sass:math';
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+// tailwindcss style
+// @import 'tailwindcss/base';
+// @import 'tailwindcss/components';
+// @import 'tailwindcss/utilities';
 @import "modules";
+@import "_mixins";
 
 // ==================================
 //  HELPER CLASSES
@@ -43,6 +45,12 @@ hr {
 .fill-white {
   path {
     fill: $c-white;
+  }
+}
+
+.fill-grey {
+  path {
+    fill: #AFAFAF;
   }
 }
 
@@ -130,8 +138,6 @@ hr {
 
 .img-mask {
   //Place on container element for image component
-  -webkit-mask-image: url("https://yoke-space.imgix.net/images/svgs/egg-white.svg");
-  mask-image: url("https://yoke-space.imgix.net/images/svgs/egg-white.svg");
   -webkit-mask-position: center;
   mask-position: center;
   -webkit-mask-repeat: no-repeat;
@@ -264,48 +270,5 @@ hr {
 
     font-size: 2.5rem;
     line-height: 0;
-  }
-}
-
-.articles {
-  &__prismic-richtext {
-    & .block-img {
-      @apply my-32;
-      @extend %text--body-small;
-      & img {
-        @apply mb-6;
-      }
-      & a {
-        @extend %text--body-small;
-      }
-    }
-    p {
-      @extend %text--body-1;
-      margin-bottom: 1.3rem;
-    }
-
-    a {
-      font-family: $font-sans-light;
-      font-size: $size-medium;
-      font-weight: $weight-regular;
-      text-decoration: underline;
-    
-      &:hover {
-        text-decoration: none;
-        color: $c-black;
-      }
-    }
-
-    h1,h2,h3,h4 {
-      margin-bottom: 1.2rem;
-    }
-
-    h1,h2 {
-      line-height: 2.9rem;
-      @include media-breakpoint-up(md) {
-        line-height: 4.1rem;
-        margin-bottom: 1.4rem;
-      }
-    }
   }
 }

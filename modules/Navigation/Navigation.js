@@ -1,32 +1,13 @@
 import GitHubLogo from "@/assets/icons/github.svg?inline"
+import TwitterLogo from "@/assets/icons/twitter.svg?inline"
 export default {
-
     components: {
-        GitHubLogo
+        GitHubLogo,
+        TwitterLogo
     },
-    data: () => ({
-    }),
-
-    computed: {
-
-    },
-
-    watch: {
-        $route() {
-
-        }
-    },
-
     props: {
-        navType: null,
-        navList: Array,
-        scrolled: Boolean,
+        navType: { type: String, default: null },
+        navList: { type: Array, default: null },
+        scrolled: { type: Boolean, default: false }
     },
-
-    methods: {
-    },
-
-    mounted() {
-    }
-
 };

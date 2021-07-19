@@ -1,11 +1,11 @@
 .container {
   @include margin--auto;
   max-width: 1440px;
-  @apply pl-8;
-  @apply pr-8;
+  @apply pl-38;
+  @apply pr-38;
   &.inner{    
-    @apply pl-44;
-    @apply pr-44;
+    @apply pl-122;
+    @apply pr-122;
   }
 }
 

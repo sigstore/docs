@@ -27,7 +27,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/base'
+    '@/assets/css/base',
+    'swiper/css/swiper.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -47,23 +48,17 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
 
-    '@nuxtjs/google-fonts',
+    '@nuxtjs/google-fonts'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
 
-    '@nuxtjs/axios',
-
     '@nuxtjs/svg',
 
     '@nuxtjs/pwa',
 
-    '@nuxtjs/apollo',
-
     '@nuxtjs/dotenv',
-
-    '@nuxtjs/proxy',
 
     '@nuxtjs/redirect-module',
 
@@ -71,8 +66,21 @@ export default {
 
     '@nuxt/content',
 
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
 
+    '@nuxtjs/proxy',
+
+  ],
+
+  proxy: [
+      // // Proxies /foo to http://example.com/foo
+      // 'http://example.com/foo',
+  
+      // // Proxies /api/books/*/**.json to http://example.com:8000
+      // 'http://example.com:8000/api/books/*/**.json',
+  
+      // // You can also pass more options
+      // [ 'http://example.com/foo', { ws: false } ]
   ],
 
   markdownit: {
@@ -96,25 +104,6 @@ export default {
     generate: true,
     cacheTime: 86400,
     trailingSlash: true
-  },
-
-  apollo: {
-    clientConfigs: {
-      default: '@/plugins/apollo-config.js',
-    },
-    includeNodeModules: true
-  },
-
-  /**
-     * Proxy module configuration
-     */
-  proxy: {
-    // target: "http://localhost:3000",
-    // [process.env.GRAPHQL_PATH]: process.env.VUE_APP_BACKEND,
-    // '/actions': process.env.VUE_APP_BACKEND,
-    // '/robots.txt': process.env.VUE_APP_BACKEND,
-    // '/humans.txt': process.env.VUE_APP_BACKEND,
-    // '/sitemaps_*.xml': process.env.VUE_APP_BACKEND,
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

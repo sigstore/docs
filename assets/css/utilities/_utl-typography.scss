@@ -1,7 +1,7 @@
 @mixin h1 {
-  font-family: $font-sans;
+  font-family: $font-sans-header-standard;
   font-size: $size-x-large;
-  font-weight: $weight-semi-bold;
+  font-weight: $weight-medium;
   line-height: 5rem;
 
   @include media-breakpoint-up(lg) {
@@ -12,9 +12,9 @@
 }
 
 @mixin h2 {
-  font-family: $font-sans;
+  font-family: $font-sans-header-standard;
   font-size: $size-large;
-  font-weight: $weight-semi-bold;
+  font-weight:$weight-medium;
   line-height: $size-large;
 
   @include media-breakpoint-up(lg) {
@@ -25,9 +25,9 @@
 }
 
 @mixin h3 {
-  font-family: $font-sans-light;
+  font-family: $font-sans-header-standard;
   font-size: 1.8rem;
-  font-weight: normal;
+  font-weight: $weight-medium;
   line-height: 2.2rem;
 
   @include media-breakpoint-up(lg) {
@@ -38,22 +38,23 @@
 }
 
 @mixin h4 {
-  font-family: $font-sans;
-  font-size: 1.4rem;
+  font-family: $font-sans-header-standard;
+
   font-weight: $weight-medium;
-  line-height: 1.4rem;
+
 
   @include media-breakpoint-up(lg) {
-    font-size: $size-large; // 24px
+  
     letter-spacing: 0.08rem;
-    line-height: 3.6rem;
+  
   }
 }
 
+
 %text--subheading-1 {
-  font-family: $font-sans-light;
+  font-family: $font-sans-header-standard;
   font-size: 1.2rem;
-  font-weight: $weight-regular;
+  font-weight: $weight-medium;
   letter-spacing: 0.082rem;
   line-height: 1.8rem;
 
@@ -137,10 +138,10 @@
 }
 
 %text--subheading {
-  font-family: $font-sans-regular;
+  font-family: $font-sans-header-standard;
   font-size: $size-x-large;
   font-weight: $weight-medium;
-  line-height: 1.5rem;
+
 
   @include media-breakpoint-up(lg) {
     font-size: $size-large; // 16px

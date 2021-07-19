@@ -4,7 +4,7 @@
         <div class="flex items-center justify-center h-full">
             <div class="container inner">
                 <h3 v-animate-on-scroll class="delay-step_1 mb-8">{{header}}</h3>
-                <div v-animate-on-scroll class="subheading delay-step_3 mb-8" v-html="$md.render(text)"></div>
+                <div v-animate-on-scroll class="subheading delay-step_3 mb-8 markdown-text" v-html="$md.render(text)"></div>
 
                 <div v-if="ctaButtons" v-animate-on-scroll class="delay-step_5">
                     <!-- ctas need to be this data; {name: 'outlineButton', title: 'Find out more', link: 'https://sigstore.dev/story', style: 'outlined'} -->
