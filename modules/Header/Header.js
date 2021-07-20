@@ -1,11 +1,13 @@
-import Navigation from "@/modules/Navigation/Navigation.vue"
-import Logo from "@/assets/icons/logo.svg?inline"
+import Navigation from "@/modules/Navigation/Navigation.vue";
+import Logo from "@/assets/icons/logo.svg?inline";
+import NavButton from "@/assets/icons/menu-button.svg?inline"
 
 export default {
 
     components: {
         Navigation,
-        Logo
+        Logo,
+        NavButton
     },
     data: () => ({
         globalHeader: null,
@@ -38,6 +40,9 @@ export default {
             } else {
               this.isScrolling = false;
             }
+        },
+        openNavDrawer() {
+            console.log('nav open');
         }
     },
 
