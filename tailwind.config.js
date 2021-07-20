@@ -95,7 +95,7 @@ module.exports = {
           90,
           81,
           58,
-          53,
+          54,
           50,
           44,
           38,
@@ -174,6 +174,20 @@ module.exports = {
             13
         ),
     },
+    minHeight: {
+      screen: "100vh",
+      ...pxToRem(baseFontSize, 700, 180),
+    },
+    borderRadius: {
+      'none': '0',
+      'sm': '0.125rem',
+      DEFAULT: '0.25rem',
+      'md': '0.375rem',
+      'lg': '0.5rem',
+      'xl': '20px',
+      'full': '9999px',
+      'large': '12px',
+    },
     extend: {
       maxWidth: {
         '0': '0',
@@ -182,9 +196,11 @@ module.exports = {
   
         '15em': '15em',
         '14%': '14%',
+        '122': '122px',
         '315': '315px',
         '334': '334px',
-  
+        '352': '352px',
+        '440': '440px',
       },
     }
   }
