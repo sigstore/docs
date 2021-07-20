@@ -3,7 +3,8 @@
         <div class="container">
             <div class="flex flex-wrap justify-between items-start">
                 <NuxtLink :to="`/`"><Logo /></NuxtLink>
-                <Navigation :scrolled="isScrolling" nav-type="header" :nav-list="navigation" />
+                <Navigation class="hidden md:block" :scrolled="isScrolling" nav-type="header" :nav-list="navigation" />
+                <NavButton class="block md:hidden" @click="openNavDrawer" />
             </div>
         </div>
     </header>
