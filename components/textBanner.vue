@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="showStatsBanner" v-animate-on-scroll class="delay-step_5 lg:container relative bottom-0 left-0 w-full md:w-4/5 lg:pb-64">
+        <div v-if="showStatsBanner" v-animate-on-scroll class="delay-step_5 container container--card relative bottom-0 left-0 lg:pb-64">
             <div class="lg:flex flex-wrap items-center justify-between bg-orange-medium py-50 px-20 lg:p-64 stat_banner">
                 <div class="w-full md:w-full lg:w-1/2 lg:max-w-440">
                     <div class="flex items-center justify-between">
