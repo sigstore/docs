@@ -37,7 +37,10 @@ export default {
         headerNavLinks: null,
         footerNavLinks: null,
         footerSocialLinks: null,
-        observer: undefined
+        observer: undefined,
+        commits: null,
+        orgs: null,
+        members: null
     }),
 
     computed: {
@@ -82,7 +85,7 @@ export default {
         },
         async getGlobalSocialLinks(){
             const globalData = await this.$content('setup').fetch()
-            this.footerSocialLinks = globalData[0].links;
+            this.footerSocialLinks = globalData[0].links;                     
         }
     },
 
