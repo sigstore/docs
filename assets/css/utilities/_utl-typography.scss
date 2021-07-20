@@ -2,7 +2,7 @@
   font-family: $font-sans-header-standard;
   font-size: $size-x-large;
   font-weight: $weight-medium;
-  line-height: 5rem;
+  line-height: 3.4rem;
 
   @include media-breakpoint-up(lg) {
     font-size: $size-big; // 50px
@@ -26,7 +26,7 @@
 
 @mixin h3 {
   font-family: $font-sans-header-standard;
-  font-size: 1.8rem;
+  font-size: 25px;
   font-weight: $weight-medium;
   line-height: 2.2rem;
 
@@ -139,9 +139,9 @@
 
 %text--subheading {
   font-family: $font-sans-header-standard;
-  font-size: $size-x-large;
+  font-size: $size-medium;
   font-weight: $weight-medium;
-
+  line-height: 3rem;
 
   @include media-breakpoint-up(lg) {
     font-size: $size-large; // 16px

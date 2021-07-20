@@ -1,5 +1,11 @@
 .button {
   @extend %button;
+
+  &--transparent-border{
+    border:solid 2px black;
+    @apply rounded-full;
+    @apply bg-white;
+  }
 }
 
 .markdown-text{

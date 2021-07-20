@@ -117,7 +117,7 @@
   }
 }
 
-// Media between the breakpoint's minimum and maximum widths.
+// Media between the breakpoints minimum and maximum widths.
 // No minimum for the smallest breakpoint, and no maximum for the largest one.
 // Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
 @mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
