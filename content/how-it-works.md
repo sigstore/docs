@@ -18,7 +18,7 @@ sections:
   - type: threeColumnTextGrid
     column1:
       header: Sign your code
-      imageAsset: /img/signcode.svg
+      imageAsset: /img/howtouseit_signcode.svg
       text: Easy authentication and smart cryptography work in the background. Just
         push your code, sigstore can handle the rest.
       ctaText: Learn more
@@ -27,7 +27,7 @@ sections:
       bgColour: "#ddeff1"
     column2:
       header: Verify signatures
-      imageAsset: /img/verify.svg
+      imageAsset: /img/howtouseit_verify.svg
       text: Easy authentication and smart cryptography work in the background. Just
         push your code, sigstore can handle the rest.
       ctaText: Learn more
@@ -36,7 +36,7 @@ sections:
       bgColour: "#ddeff1"
     column3:
       header: Monitor activity
-      imageAsset: /img/monitor.svg
+      imageAsset: /img/howtouseit_monitor.svg
       text: Easy authentication and smart cryptography work in the background. Just
         push your code, sigstore can handle the rest.
       ctaText: Learn more

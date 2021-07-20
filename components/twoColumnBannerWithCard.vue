@@ -18,18 +18,18 @@
                 </div>
                 <div class="lg:flex items-start justify-between md:-ml-10 md:-mr-10 mt-32 md:mt-64">
                     <div v-animate-on-scroll class="delay-step_1 mb-32 md:mb-16 w-full md:w-1/3 md:px-10 p-32 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl md:max-w-315">
-                        <img :src="column1.imageAsset" class="mb-16" />
-                        <h4 class="mb-16 text-24">{{column1.header}}</h4>
+                        <img :src="column1.imageAsset" class="mb-24" />
+                        <h4 class="mb-24 text-24">{{column1.header}}</h4>
                         <p>{{column1.text}}</p>
                     </div>
                     <div v-animate-on-scroll class="delay-step_3 mb-32 md:mb-16 w-full md:w-1/3 md:px-10 p-32 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl md:max-w-315">
-                        <img :src="column2.imageAsset" class="mb-16" />
-                        <h4 class="mb-16 text-24">{{column2.header}}</h4>
+                        <img :src="column2.imageAsset" class="mb-24" />
+                        <h4 class="mb-24 text-24">{{column2.header}}</h4>
                         <p>{{column2.text}}</p>
                     </div>
                     <div v-animate-on-scroll class="delay-step_5 mb-0 md:mb-16 w-full md:w-1/3 md:px-10 p-32 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl md:max-w-315">
-                        <img :src="column2.imageAsset" class="mb-16" />
-                        <h4 class="mb-16 text-24">{{column3.header}}</h4>
+                        <img :src="column3.imageAsset" class="mb-24" />
+                        <h4 class="mb-24 text-24">{{column3.header}}</h4>
                         <p>{{column3.text}}</p>
                     </div>
                 </div>
