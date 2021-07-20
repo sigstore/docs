@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  proxy-url: http://localhost:8081
 
 media_folder: static/img
 public_folder: /img
@@ -8,7 +9,7 @@ local_backend: true
 
 collections:
   - name: 'events' # Used in routes, e.g., /admin/collections/blog
-    label: 'Events' # Used in the UI
+    label: 'News & Events' # Used in the UI
     folder: 'content/events' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
@@ -17,7 +18,7 @@ collections:
     fields: # The fields for each document, usually in front matter
       - { label: 'Title', name: 'title', widget: 'string' }
       - {
-          label: 'Publish Date',
+          label: 'Event/Article Date',
           name: 'date',
           widget: 'datetime',
           format: 'dddd MMMM Do, YYYY',
@@ -29,6 +30,18 @@ collections:
           required: false,
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+          label: Tag,
+          name: entryTag,
+          widget: select,
+          options:
+            [
+              { label: 'Event', value: 'event' },
+              { label: 'Article', value: 'article' },
+              { label: 'Release', value: 'release' },
+            ],
+        }
+      - { label: 'Link', name: 'link', widget: 'string' }
   - name: 'caseStudies' # Used in routes, e.g., /admin/collections/blog
     label: 'Case Studies' # Used in the UI
     folder: 'content/caseStudies' # The path to the folder where the documents are stored
@@ -60,6 +73,8 @@ collections:
           displayFields: ['title'],
           required: true,
         }
+      - { label: Name, name: name, widget: string, required: false }
+      - { label: Role, name: role, widget: string, required: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'page' # Used in routes, e.g., /admin/collections/page
     label: 'Pages' # Used in the UI
@@ -108,6 +123,39 @@ collections:
                   display_fields: ['title'],
                   value_field: '{{slug}}',
                   required: false,
+                }
+          - label: 'News and Events Banner'
+            name: 'newsEvents'
+            widget: object
+            fields:
+              - {
+                  label: Show news and events,
+                  name: isNewsAndEvents,
+                  widget: boolean,
+                  required: false,
+                  default: true,
+                }
+          - label: 'Contributors list'
+            name: 'contributorsList'
+            widget: object
+            fields:
+              - {
+                  label: Show Contributors list,
+                  name: isContributorsList,
+                  widget: boolean,
+                  required: false,
+                  default: true,
+                }
+          - label: 'Sponsors list'
+            name: 'sponsorsList'
+            widget: object
+            fields:
+              - {
+                  label: Show Sponsors,
+                  name: isSponsorsList,
+                  widget: boolean,
+                  required: false,
+                  default: true,
                 }
           - label: 'Text Banner'
             name: 'textBanner'
@@ -429,6 +477,8 @@ collections:
             name: 'threeColumnTextGrid'
             widget: object
             fields:
+              - { label: Header, name: header, widget: string, required: false }
+              - { label: Text, name: text, widget: markdown, required: false }
               - label: 'Column 1'
                 name: 'column1'
                 widget: object
@@ -438,6 +488,19 @@ collections:
                       name: header,
                       widget: string,
                       default: 'Spotlight',
+                    }
+                  - {
+                      label: Is Card style,
+                      name: isCardStyle,
+                      widget: boolean,
+                      required: false,
+                      default: false,
+                    }
+                  - {
+                      label: Background Colour,
+                      name: bgColour,
+                      widget: color,
+                      required: false,
                     }
                   - {
                       label: Image Asset,
@@ -451,6 +514,20 @@ collections:
                       name: text,
                       widget: markdown,
                       default: 'Hello World',
+                    }
+                  - {
+                      label: CTA text,
+                      name: ctaText,
+                      widget: string,
+                      default: '',
+                      required: false,
+                    }
+                  - {
+                      label: CTA link,
+                      name: ctaLink,
+                      widget: string,
+                      default: '',
+                      required: false,
                     }
               - label: 'Column 2'
                 name: 'column2'
@@ -463,6 +540,19 @@ collections:
                       default: 'Spotlight',
                     }
                   - {
+                      label: Is Card style,
+                      name: isCardStyle,
+                      widget: boolean,
+                      required: false,
+                      default: false,
+                    }
+                  - {
+                      label: Background Colour,
+                      name: bgColour,
+                      widget: color,
+                      required: false,
+                    }
+                  - {
                       label: Image Asset,
                       name: imageAsset,
                       widget: image,
@@ -474,6 +564,20 @@ collections:
                       name: text,
                       widget: markdown,
                       default: 'Hello World',
+                    }
+                  - {
+                      label: CTA text,
+                      name: ctaText,
+                      widget: string,
+                      default: '',
+                      required: false,
+                    }
+                  - {
+                      label: CTA link,
+                      name: ctaLink,
+                      widget: string,
+                      default: '',
+                      required: false,
                     }
               - label: 'Column 3'
                 name: 'column3'
@@ -486,6 +590,19 @@ collections:
                       default: 'Spotlight',
                     }
                   - {
+                      label: Is Card style,
+                      name: isCardStyle,
+                      widget: boolean,
+                      required: false,
+                      default: false,
+                    }
+                  - {
+                      label: Background Colour,
+                      name: bgColour,
+                      widget: color,
+                      required: false,
+                    }
+                  - {
                       label: Image Asset,
                       name: imageAsset,
                       widget: image,
@@ -497,6 +614,20 @@ collections:
                       name: text,
                       widget: markdown,
                       default: 'Hello World',
+                    }
+                  - {
+                      label: CTA text,
+                      name: ctaText,
+                      widget: string,
+                      default: '',
+                      required: false,
+                    }
+                  - {
+                      label: CTA link,
+                      name: ctaLink,
+                      widget: string,
+                      default: '',
+                      required: false,
                     }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - label: 'Globals'
@@ -514,15 +645,35 @@ collections:
               name: siteLogo,
               widget: image,
               default: '/icon.png',
+              required: false,
             }
-          - { label: Show Icon in Menu, name: showmenu, widget: boolean }
+          - {
+              label: Show Icon in Menu,
+              name: showmenu,
+              widget: boolean,
+              required: false,
+            }
           - {
               label: Email Newsletter Signup,
               name: emailsignup,
               widget: boolean,
+              required: false,
             }
-          - { label: Full Page Alt Layout, name: altlayout, widget: boolean }
-          - { label: Link Color, name: linkcolor, widget: color }
+          - { label: Commits, name: commits, widget: number }
+          - { label: Members, name: members, widget: number }
+          - { label: Organizations, name: organizations, widget: number }
+          - {
+              label: Full Page Alt Layout,
+              name: altlayout,
+              widget: boolean,
+              required: false,
+            }
+          - {
+              label: Link Color,
+              name: linkcolor,
+              widget: color,
+              required: false,
+            }
       - label: 'Social links'
         name: 'socialLinks'
         format: 'json'
