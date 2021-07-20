@@ -1,8 +1,8 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-    <section :style="backgroundColour" class="overflow-auto" :class="[isScreenHeight ? 'min-h-screen h-screen' : 'h-auto py-128']">
-        <div class="flex items-center justify-center h-full">
-            <div class="container inner relative" :class="[showSupportedBy ? 'min-h-bannerInner' : '',`text-${textAlign}`]">
+    <section :style="backgroundColour" class="text_banner md:flex justify-center items-center" :class="[isScreenHeight ? 'min-h-screen md:flex-col' : 'h-auto py-128']">
+        <div class="flex items-center justify-center min-h-full" :class="[showSupportedBy ? 'text_banner--main' : '']">
+            <div class="container inner relative" :class="[showSupportedBy ? 'h-180' : '',`text-${textAlign}`]">
                 <h1 v-if="header" v-animate-on-scroll :class="[textColour]" class="delay-step_1 mb-30 text-gray-dark">{{header}}</h1>
                 <div v-animate-on-scroll :class="[textColour]" class="subheading text-24 delay-step_3 mb-26 text-gray-dark" v-html="$md.render(text)"></div>
 
@@ -13,11 +13,41 @@
                     </div>
                 </div>
 
-                <div v-if="showSupportedBy" v-animate-on-scroll class="delay-step_5 md:mt-140">
+                <div v-if="showSupportedBy" v-animate-on-scroll class="delay-step_5 md:mt-240">
                     <p>Supported by</p>
+                    <div class="flex items-center justify-start overflow-scroll lg:overflow-unset">
+                        <img class="max-w-122 mr-20" src="/img/googlelogo.png" alt="Google sponsor logo" />
+                        <img class="max-w-122 mr-20" src="/img/linuxfoundationlogo.png" alt="Linux Foundation sponsor logo" />
+                        <img class="max-w-122 mr-20" src="/img/redhatlogo.png" alt="RedHat sponsor logo" />
+                        <img class="max-w-122 mr-20" src="/img/purdueunilogo.png" alt="Purdue University sponsor logo" />
+                    </div>
                 </div>
             </div>
-            <div v-if="showStatsBanner" v-animate-on-scroll class="delay-step_5 container absolute bottom-0 left-0 inner">
+        </div>
+        <div v-if="showStatsBanner" v-animate-on-scroll class="delay-step_5 lg:container relative bottom-0 left-0 w-full md:w-4/5 lg:pb-64">
+            <div class="lg:flex flex-wrap items-center justify-between bg-orange-medium py-50 px-20 lg:p-64 stat_banner">
+                <div class="w-full md:w-full lg:w-1/2 lg:max-w-440">
+                    <div class="flex items-center justify-between">
+                        <div class="pr-12">
+                            <h2 class="text-33 lg:text-54 text-orange-dark mb-14 lg:mb-28">{{ commits }}</h2>
+                            <h4 class="h4 text-orange-dark uppercase">Commits</h4>
+                        </div>
+                        <div class="pr-12">
+                            <h2 class="text-33 lg:text-54 text-orange-dark mb-14 lg:mb-28">{{ members }}</h2>
+                            <h4 class="h4 text-orange-dark uppercase">Members</h4>
+                        </div>
+                        <div class="pr-12">
+                            <h2 class="text-33 lg:text-54 text-orange-dark mb-14 lg:mb-28">{{ orgs }}</h2>
+                            <h4 class="h4 text-orange-dark uppercase">Organisations</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-full lg:w-1/2 lg:max-w-470 my-28">
+                    <div class="bg-white rounded-full p-28 text-gray-dark flex justify-around">
+                        <p class="h text-11 md:text-12">Currently in beta<br>Stable release due in August 2021</p>
+                        <a href="https://sigstore.dev" class="button button--transparent-border">Find out more</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -51,6 +81,18 @@ export default {
     },
 
     data: () => ({
+        commits: {
+            type: Number,
+            default: 0
+        },
+        members: {
+            type: Number,
+            default: 0
+        },
+        orgs: {
+            type: Number,
+            default: 0
+        },  
     }),
 
     computed: {
@@ -60,11 +102,27 @@ export default {
     },
 
     mounted() {
+        if(this.showStatsBanner){
+            this.getGlobalStats();
+        }
     },
 
     methods: {
+        async getGlobalStats(){
+            const globalData = await this.$content('setup').fetch()
+            this.commits = globalData[1].commits;
+            this.members = globalData[1].members;
+            this.orgs = globalData[1].organizations;                        
+        }
     }
 
 };
 </script>
+<style lang="scss">
+.text_banner{
+    &--main{
+        height: 100vh;
+    }
+}
+</style>
 <!-- eslint-enable -->
