@@ -91,6 +91,12 @@ export default {
           }
         ]
       } : null
+  },
+
+  mounted(){
+  },
+
+  methods: {
   }
 };
 </script>
