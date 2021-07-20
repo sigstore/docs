@@ -93,18 +93,18 @@ sections:
     type: twoColumnBannerWithCard
     column1:
       header: Sign your code
-      imageAsset: /img/signcode.svg
+      imageAsset: /img/howtouseit_signcode.svg
       text: Easy authentication and smart cryptography work in the background. Just
         push your code, sigstore can handle the rest.
     column2:
       header: Verify signatures
-      imageAsset: /img/verify.svg
+      imageAsset: /img/howtouseit_verify.svg
       text: Rekor transparency logs store unique identification like who created it
         and where it was built, so you know it hasn’t been changed.
     cardText: ""
     column3:
       header: Monitor activity
-      imageAsset: /img/monitor.svg
+      imageAsset: /img/howtouseit_monitor.svg
       text: Data stored in the logs is readily auditable, a foundation for future
         monitors and integrations to build into your security workflow.
   - type: carousel
@@ -120,7 +120,7 @@ sections:
     header: ""
     bgColour: "#2a1e71"
     ctaButtons:
-      - learn-more
+      - view-the-project
     textAlign: center
     textColour: text-white
     type: textBanner

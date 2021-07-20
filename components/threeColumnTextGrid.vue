@@ -29,7 +29,7 @@
                 :style="`background-color: ${column1.bgColour};`"
                 :class="[column1.isCardStyle ? 'rounded-xl px-40 py-40' : '']"  
                 class="delay-step_5 mb-8 w-full md:w-1/3 px-10 md:max-w-352 md:ml-30 md:mr-30">
-                    <img :src="column2.imageAsset" class="mb-24" />
+                    <img :src="column3.imageAsset" class="mb-24" />
                     <h4 class="mb-24 text-24">{{column3.header}}</h4>
                     <p>{{column3.text}}</p>
                 </div>
