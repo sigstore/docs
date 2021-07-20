@@ -40,6 +40,11 @@ h6 {
   // apply text-purple-dark;
 }
 
+.h {
+  font-family: $font-sans-header-standard;
+  font-weight: $weight-medium;
+}
+
 .subheading {
   @extend %text--subheading;
 

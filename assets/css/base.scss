@@ -226,6 +226,12 @@ hr {
   }
 }
 
+.stat_banner{
+  @include media-breakpoint-up(lg) {
+    border-radius: 40px;
+  }
+}
+
 
 .alert-success {
   display: flex;
