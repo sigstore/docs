@@ -1,6 +1,7 @@
 ---
-title: Case study 2
+title: Kpack
 date: Thursday July 15th, 2021
 brand: GitHub
+role: Kubernetes Native Container Build Service
 ---
-Connaisseur is using Cosign to verify container images in Kubernetes
+kpack integrates with cosign to sign images it builds and push the signatures to a registry so that users can ensure the chain of custody of a generated artifact.
