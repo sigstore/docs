@@ -110,9 +110,11 @@ sections:
   - type: carousel
     header: Image Gallery
     carouselCaseItems:
-      - case-study-1
-      - case-study-2
-      - case-study-3
+      - bleeping-computer
+      - google
+      - kpack
+      - red-hat
+      - wired
   - type: newsEvents
     isNewsAndEvents: true
   - ctaStyle: transparentCta
