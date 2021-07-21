@@ -12,8 +12,12 @@
   }
 
   &--card {
-    @apply pl-64;
-    @apply pr-64;
+    padding-left:0;
+    padding-right:0;
+    @include media-breakpoint-up(md) {
+      @apply pl-64;
+      @apply pr-64;
+    }
   }
 }
 
