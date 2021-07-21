@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="container container--card">
-            <div class="rounded-xl md:bg-white p-0 md:p-32 lg:p-64 mt-64 md:mt-128 w-full mx-auto">
+            <div class="rounded-xl md:bg-white p-0 md:p-32 lg:p-64 mt-64 md:mt-128 w-full mx-auto px-24 md:px-0">
                 <div class="w-full lg:w-1/2 p-32 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl">
                     <h4 class="text-36 leading-32 mb-28">{{ cardTitle }}</h4>
                     <div v-html="$md.render(cardText)"></div>

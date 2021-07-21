@@ -45,7 +45,7 @@ export default {
           disableOnInteraction: true
         },
         names: [
-            'Cindy Yang',  'Claudio Martins',  'Clayton Dewey',  'David Torres', 'Deni Morales',  'Doran Black',  'Cindy Yang',  'Claudio Martins',  'Clayton'  
+            'Cindy Yang','Claudio Martins','Clayton Dewey','David Torres','Deni Morales','Doran Black','Cindy Yang','Claudio Martins','Clayton'  
         ]
     }),
 
@@ -53,15 +53,9 @@ export default {
     },
 
     created() {
-        this.getNewsAndEvents();
     },
 
     methods: {
-        async getNewsAndEvents(){
-            const globalData = await this.$content('events').fetch();
-            const articles = globalData;
-            this.articlesArray = articles;
-        },
     },
 
 };
