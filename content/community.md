@@ -44,5 +44,7 @@ sections:
     isSponsorsList: true
   - type: newsEvents
     isNewsAndEvents: true
+  - type: storySoFar
+    showStory: true
 ---
 Body text
