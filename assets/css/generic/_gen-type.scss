@@ -93,6 +93,15 @@ a {
   & .f-header.text-24 {
     // apply text-24;
   }
+
+  &.quote {
+    &:before{
+      content: "\0022";
+    }
+    &:after{
+      content: "\0022";
+    }
+  }
 }
 
 blockquote,
