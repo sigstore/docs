@@ -1,19 +1,27 @@
 import Navigation from "@/modules/Navigation/Navigation.vue";
+import MobileNavigation from "@/modules/MobileNavigation/MobileNavigation.vue";
 import Logo from "@/assets/icons/logo.svg?inline";
 import NavButton from "@/assets/icons/menu-button.svg?inline"
+import NavCloseButton from "@/assets/icons/menu-button-close.svg?inline"
 
 export default {
 
     components: {
         Navigation,
+        MobileNavigation,
         Logo,
-        NavButton
+        NavButton,
+        NavCloseButton
     },
     data: () => ({
         globalHeader: null,
         globalHeaderMenu: null,
         scrollPos: '',
-        isScrolling: false
+        isScrolling: false,
+        navOpen: {
+            type: Boolean,
+            default: false
+        }
     }),
 
     computed: {
@@ -30,6 +38,7 @@ export default {
 
     props: {
         navigation: Array,
+        socialLinks: Array
     },
 
     methods: {
@@ -42,6 +51,7 @@ export default {
             }
         },
         openNavDrawer() {
+            this.navOpen = !this.navOpen;
             console.log('nav open');
         }
     },
