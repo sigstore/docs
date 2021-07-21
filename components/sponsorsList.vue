@@ -31,15 +31,9 @@ export default {
     },
 
     created() {
-        this.getNewsAndEvents();
     },
 
     methods: {
-        async getNewsAndEvents(){
-            const globalData = await this.$content('events').fetch();
-            const articles = globalData;
-            this.articlesArray = articles;
-        },
     },
 
 };
