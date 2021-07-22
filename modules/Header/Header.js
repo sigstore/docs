@@ -43,12 +43,12 @@ export default {
 
     methods: {
         getScrollPos() {
-            if(window.scrollY > this.scrollCheck){
-              this.isScrolling = true;
-              this.scrollPos = window.scrollY;
-            } else {
-              this.isScrolling = false;
-            }
+            // if(window.scrollY > this.scrollCheck){
+            //   this.isScrolling = true;
+            //   this.scrollPos = window.scrollY;
+            // } else {
+            //   this.isScrolling = false;
+            // }
         },
         openNavDrawer() {
             this.navOpen = !this.navOpen;
