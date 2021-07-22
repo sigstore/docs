@@ -69,13 +69,42 @@ collections:
           widget: 'relation',
           collection: 'brandCategories',
           searchFields: ['title'],
-          valueField: 'title',
+          valueField: '{{brandLogo}}',
           displayFields: ['title'],
           required: true,
         }
       - { label: Name, name: name, widget: string, required: false }
       - { label: Role, name: role, widget: string, required: false }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+          label: Case study colour,
+          name: caseColour,
+          widget: select,
+          options:
+            [
+              { label: 'Orange', value: 'bg-orange-medium' },
+              { label: 'Purple', value: 'bg-purple-light' },
+              { label: 'Blue', value: 'bg-pastel-blue' },
+            ],
+        }
+      - {
+          label: Case Study text,
+          name: caseStudyText,
+          widget: string,
+          required: false,
+        }
+      - {
+          label: Case Study link,
+          name: caseStudyLink,
+          widget: string,
+          required: false,
+        }
+      - {
+          label: Category,
+          name: category,
+          widget: string,
+          required: false,
+          placeholder: 'eg Press, Integration, Blog',
+        }
   - name: 'page' # Used in routes, e.g., /admin/collections/page
     label: 'Pages' # Used in the UI
     folder: 'content' # The path to the folder where the documents are stored
@@ -131,6 +160,17 @@ collections:
               - {
                   label: Show news and events,
                   name: isNewsAndEvents,
+                  widget: boolean,
+                  required: false,
+                  default: true,
+                }
+          - label: 'Show story so far'
+            name: 'storySoFar'
+            widget: object
+            fields:
+              - {
+                  label: Show Story,
+                  name: showStory,
                   widget: boolean,
                   required: false,
                   default: true,
@@ -240,6 +280,114 @@ collections:
                       { label: 'Solid CTA Blue', value: 'solidCtaBlue' },
                     ],
                 }
+          - label: 'Text Banner with cards'
+            name: 'textBannerWithcards'
+            widget: object
+            fields:
+              - {
+                  label: Header,
+                  name: header,
+                  widget: string,
+                  default: 'Spotlight',
+                  required: false,
+                }
+              - {
+                  label: Text,
+                  name: text,
+                  widget: markdown,
+                  default: 'Hello World',
+                  required: false,
+                }
+              - {
+                  label: Is Screen Height,
+                  name: isScreenHeight,
+                  widget: boolean,
+                  required: false,
+                  default: true,
+                }
+              - {
+                  label: Text Color,
+                  name: textColour,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Light', value: 'text-white' },
+                      { label: 'Dark', value: 'text-dark-purple' },
+                    ],
+                }
+              - {
+                  label: Background Colour,
+                  name: bgColour,
+                  widget: color,
+                  allowInput: true,
+                }
+              - {
+                  label: Text Align,
+                  name: textAlign,
+                  widget: string,
+                  default: 'left',
+                }
+              - label: 'Card 1'
+                name: 'card1'
+                widget: object
+                fields:
+                  - {
+                      label: Header,
+                      name: header,
+                      widget: string,
+                      default: 'Spotlight',
+                    }
+                  - {
+                      label: Image Asset,
+                      name: imageAsset,
+                      widget: image,
+                      default: '',
+                      required: false,
+                    }
+                  - { label: Text, name: text, widget: markdown, default: '' }
+                  - {
+                      label: Cta text,
+                      name: ctaText,
+                      widget: string,
+                      required: false,
+                    }
+                  - {
+                      label: Cta link,
+                      name: ctaLink,
+                      widget: string,
+                      required: false,
+                    }
+              - label: 'Card 2'
+                name: 'card2'
+                widget: object
+                fields:
+                  - { label: Header, name: header, widget: string, default: '' }
+                  - {
+                      label: Image Asset,
+                      name: imageAsset,
+                      widget: image,
+                      default: '',
+                      required: false,
+                    }
+                  - {
+                      label: Text,
+                      name: text,
+                      widget: markdown,
+                      default: 'Hello World',
+                    }
+                  - {
+                      label: Cta text,
+                      name: ctaText,
+                      widget: string,
+                      required: false,
+                    }
+                  - {
+                      label: Cta link,
+                      name: ctaLink,
+                      widget: string,
+                      required: false,
+                    }
+
           - label: 'Full Width Text Banner'
             name: 'fullWidthTextBanner'
             widget: object
@@ -630,6 +778,29 @@ collections:
                       required: false,
                     }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  - label: 'Story so far'
+    name: 'story'
+    files:
+      - label: 'Story dates'
+        name: 'storyDates'
+        format: 'json'
+        file: 'content/story/dates.json'
+        fields:
+          - label: 'Step'
+            name: 'step'
+            widget: 'list'
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: string }
+              - { label: 'Date', name: 'date', widget: string }
+      - label: 'Story'
+        name: 'story'
+        format: 'json'
+        file: 'content/story/info.json'
+        fields:
+          - { label: Header, name: header, widget: string }
+          - { label: Story release info, name: releaseDate, widget: markdown }
+          - { label: Text block, name: textBlock, widget: markdown }
   - label: 'Globals'
     name: 'globals'
     files:

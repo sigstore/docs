@@ -4,7 +4,7 @@
       loading...
   </div>
   <div v-else>
-    <Header :navigation="headerNavLinks" />
+    <Header :navigation="headerNavLinks" :socialLinks="footerSocialLinks" />
         <main>
             <Nuxt />
         </main>
@@ -85,7 +85,7 @@ export default {
         },
         async getGlobalSocialLinks(){
             const globalData = await this.$content('setup').fetch()
-            this.footerSocialLinks = globalData[0].links;                     
+            this.footerSocialLinks = globalData.filter(d => d.slug === 'connect')[0].links;                     
         }
     },
 

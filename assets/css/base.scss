@@ -159,6 +159,19 @@ hr {
   top: 50%;
 }
 
+.dotted--divider{
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: auto;
+    right: auto;
+    border-left: dotted 5px #6349FF;
+    width: 17px;
+    height: 85px;
+  }
+}
+
 .custom-dot {
   position: relative;
 

@@ -2,9 +2,15 @@
 <template>
     <section :style="backgroundColour" class="text_banner md:flex justify-center items-center" :class="[isScreenHeight ? 'min-h-screen md:flex-col' : 'h-auto py-128']">
         <div class="flex items-center justify-center min-h-full" :class="[showSupportedBy ? 'text_banner--main' : '']">
-            <div class="container inner relative" :class="[showSupportedBy ? 'h-180' : '',`text-${textAlign}`]">
+            <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : '',`text-${textAlign}`]">
                 <h1 v-if="header" v-animate-on-scroll :class="[textColour]" class="delay-step_1 mb-30 text-gray-dark">{{header}}</h1>
-                <div v-animate-on-scroll :class="[textColour]" class="subheading text-24 delay-step_3 mb-26 text-gray-dark" v-html="$md.render(text)"></div>
+                <div 
+                v-animate-on-scroll 
+                :class="[textAlign == 'center' ? 'md:max-w-690 w-full mx-auto' : null,textColour]" 
+                class="subheading text-24 delay-step_3 mb-26 text-gray-dark" 
+                v-html="$md.render(text)"
+                >
+                </div>
 
                 <div v-if="ctaButtons" v-animate-on-scroll class="delay-step_5">
                     <!-- ctas need to be this data; {name: 'outlineButton', title: 'Find out more', link: 'https://sigstore.dev/story', style: 'outlined'} -->
@@ -42,10 +48,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full md:w-full lg:w-1/2 lg:max-w-470 my-28">
+                <div class="w-full md:w-full lg:w-1/2 lg:max-w-470 mt-28">
                     <div class="bg-white rounded-full p-28 text-gray-dark flex justify-around">
-                        <p class="h text-11 md:text-12">Currently in beta<br>Stable release due in August 2021</p>
-                        <a href="https://sigstore.dev" class="button button--transparent-border">Find out more</a>
+                        <p class="h text-11 md:text-12 pr-22 md:w-auto w-1/2">Currently in beta<br>Stable release due in August 2021</p>
+                        <a href="https://sigstore.dev" class="button button--transparent-border md:w-auto w-1/2">Find out more</a>
                     </div>
                 </div>
             </div>
@@ -110,9 +116,9 @@ export default {
     methods: {
         async getGlobalStats(){
             const globalData = await this.$content('setup').fetch()
-            this.commits = globalData[1].commits;
-            this.members = globalData[1].members;
-            this.orgs = globalData[1].organizations;                        
+            this.commits = globalData[0].commits;
+            this.members = globalData[0].members;
+            this.orgs = globalData[0].organizations;                        
         }
     }
 

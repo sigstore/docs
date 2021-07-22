@@ -176,7 +176,7 @@ module.exports = {
     },
     minHeight: {
       screen: "100vh",
-      ...pxToRem(baseFontSize, 700, 180),
+      ...pxToRem(baseFontSize, 700, 180, 146),
     },
     borderRadius: {
       'none': '0',
@@ -201,6 +201,8 @@ module.exports = {
         '334': '334px',
         '352': '352px',
         '440': '440px',
+        '500': '500px',
+        '690': '690px',
       },
     }
   }
