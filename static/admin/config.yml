@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: develop
   proxy-url: http://localhost:8081
 
 media_folder: static/img
