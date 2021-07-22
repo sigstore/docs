@@ -51,6 +51,14 @@ const pxToRem = (base, ...items) => {
 
 module.exports = {
   // mode: 'jit',
+  purge: {
+    content: ["./pages/**/*.{js,vue}", "./components/**/*.{js,vue}", "./modules/**/*.{js,vue}"],
+    options: {
+      safelist: {
+        standard: [/^delay-/],
+      },
+    },
+  },
   plugins: [require("@tailwindcss/typography")],
   corePlugins: {
       // ...
