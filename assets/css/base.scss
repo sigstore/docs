@@ -291,3 +291,18 @@ hr {
     line-height: 0;
   }
 }
+
+header {
+  &.text-gray-dark nav ul li a{
+    color: $c-grey-dark;
+  }
+  &.text-orange-dark nav ul li a{
+    color: $c-orange-dark;
+  }
+  &.text-dark-blue nav ul li a{
+    color: $c-dark-blue;
+  }
+  &.text-white nav ul li a{
+    color: $c-white;
+  }
+}
