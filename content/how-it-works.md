@@ -10,7 +10,7 @@ sections:
       verification and provenance checks that respect privacy and work at scale.
     header: Software safety, integrated
     showStatsBanner: false
-    bgColour: "#ddeff1"
+    bgColour: bg-pastel-blue
     textAlign: center
     textColour: text-dark-purple
     type: textBanner

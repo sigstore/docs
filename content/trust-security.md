@@ -24,7 +24,7 @@ sections:
       needs to work. It’s a new kind of trust grounded in an open source,
       distributed community.
     header: Our foundations of trust
-    bgColour: "#2a1e71"
+    bgColour: bg-purple-dark
     textAlign: center
     textColour: text-white
     type: textBannerWithcards

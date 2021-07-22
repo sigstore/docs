@@ -249,8 +249,15 @@ collections:
               - {
                   label: Background Colour,
                   name: bgColour,
-                  widget: color,
-                  allowInput: true,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Purple', value: 'bg-purple-dark' },
+                      { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                      { label: 'Orange', value: 'bg-orange-medium' },
+                      { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                      { label: 'White', value: 'bg-white' },
+                    ],
                 }
               - {
                   label: Text Align,
@@ -318,8 +325,15 @@ collections:
               - {
                   label: Background Colour,
                   name: bgColour,
-                  widget: color,
-                  allowInput: true,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Purple', value: 'bg-purple-dark' },
+                      { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                      { label: 'Orange', value: 'bg-orange-medium' },
+                      { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                      { label: 'White', value: 'bg-white' },
+                    ],
                 }
               - {
                   label: Text Align,
@@ -411,7 +425,19 @@ collections:
                   widget: markdown,
                   default: 'Hello World',
                 }
-              - { label: Background Colour, name: bgColour, widget: color }
+              - {
+                  label: Background Colour,
+                  name: bgColour,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Purple', value: 'bg-purple-dark' },
+                      { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                      { label: 'Orange', value: 'bg-orange-medium' },
+                      { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                      { label: 'White', value: 'bg-white' },
+                    ],
+                }
               - {
                   label: Text Align,
                   name: textAlign,
@@ -466,8 +492,15 @@ collections:
               - {
                   label: Background Colour,
                   name: bgColour,
-                  widget: color,
-                  required: false,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Purple', value: 'bg-purple-dark' },
+                      { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                      { label: 'Orange', value: 'bg-orange-medium' },
+                      { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                      { label: 'White', value: 'bg-white' },
+                    ],
                 }
               - {
                   label: Alignment,
@@ -538,8 +571,15 @@ collections:
               - {
                   label: Background Colour,
                   name: bgColour,
-                  widget: color,
-                  required: false,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Purple', value: 'bg-purple-dark' },
+                      { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                      { label: 'Orange', value: 'bg-orange-medium' },
+                      { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                      { label: 'White', value: 'bg-white' },
+                    ],
                 }
               - {
                   label: Alignment,
@@ -647,8 +687,15 @@ collections:
                   - {
                       label: Background Colour,
                       name: bgColour,
-                      widget: color,
-                      required: false,
+                      widget: select,
+                      options:
+                        [
+                          { label: 'Purple', value: 'bg-purple-dark' },
+                          { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                          { label: 'Orange', value: 'bg-orange-medium' },
+                          { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                          { label: 'White', value: 'bg-white' },
+                        ],
                     }
                   - {
                       label: Image Asset,
@@ -697,8 +744,15 @@ collections:
                   - {
                       label: Background Colour,
                       name: bgColour,
-                      widget: color,
-                      required: false,
+                      widget: select,
+                      options:
+                        [
+                          { label: 'Purple', value: 'bg-purple-dark' },
+                          { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                          { label: 'Orange', value: 'bg-orange-medium' },
+                          { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                          { label: 'White', value: 'bg-white' },
+                        ],
                     }
                   - {
                       label: Image Asset,
@@ -747,8 +801,15 @@ collections:
                   - {
                       label: Background Colour,
                       name: bgColour,
-                      widget: color,
-                      required: false,
+                      widget: select,
+                      options:
+                        [
+                          { label: 'Purple', value: 'bg-purple-dark' },
+                          { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                          { label: 'Orange', value: 'bg-orange-medium' },
+                          { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                          { label: 'White', value: 'bg-white' },
+                        ],
                     }
                   - {
                       label: Image Asset,
@@ -875,6 +936,12 @@ collections:
                   searchFields: ['title'],
                   valueField: '{{slug}}',
                   displayFields: ['title'],
+                  required: false,
+                }
+              - {
+                  label: External link,
+                  name: externalLink,
+                  widget: string,
                   required: false,
                 }
       - label: 'Footer'

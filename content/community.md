@@ -11,7 +11,7 @@ sections:
       software. We continue to develop sigstore to make sure it’s for everyone.
     header: Driven forward by community
     showStatsBanner: false
-    bgColour: "#ffc398"
+    bgColour: bg-orange-medium
     textAlign: center
     textColour: text-dark-purple
     type: textBanner
@@ -23,6 +23,7 @@ sections:
       text: Already working with sigstore? Sharing and self-reporting helps us track
         community health, the state of the tooling and how it’s all being used.
       ctaText: Leave a user story
+      bgColour: bg-white
     column2:
       header: Join our working group
       imageAsset: /img/slack.svg
@@ -30,12 +31,14 @@ sections:
         on Slack to get help or help out, and be right there where the action’s
         happening.
       ctaText: Join us on slack
+      bgColour: bg-white
     column3:
       header: Press & Events
       imageAsset: /img/pressandevents.svg
       text: See the latest coverage and how sigstore’s making waves in the wider
         industry, and mark your calendar for upcoming live community events.
       ctaText: Check our calendar
+      bgColour: bg-white
     header: Want to get involved?
     text: ""
   - type: contributorsList

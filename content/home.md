@@ -9,7 +9,7 @@ sections:
     text: Making sure your software’s what it says it is.
     header: A new standard for signing, verifying  and protecting software
     showStatsBanner: true
-    bgColour: "#ffead7"
+    bgColour: bg-pastel-orange
     ctaButtons: []
     textAlign: left
     textColour: text-dark-purple
@@ -27,7 +27,7 @@ sections:
 
 
       But a high percentage of that code is insecure. Without foolproof ways to verify where all your software came from, open source dependencies open the door for breaches, supply chain attacks and exploits.
-    bgColour: "#2a1e71"
+    bgColour: bg-purple-dark
     alignment: imageRight
     ctaButtons: []
     ctaStyle: transparentCta
@@ -41,7 +41,7 @@ sections:
 
       ####   It’s a direct response to today’s challenges, a work in progress towards a future where the integrity of what we build and use is up to standard.
     header: Our Vision
-    bgColour: "#ddeff1"
+    bgColour: bg-pastel-blue
     imageAsset: ""
     type: twoColumnBannerWithCard
     column1:
@@ -88,7 +88,7 @@ sections:
 
       With the help of a working partnership that includes Google, the Linux Foundation, Red Hat and Purdue University, we’re in constant collaboration to find new ways to improve the sigstore technology, to make it easy to adopt, integrate and become a long-lasting standard.
     header: How sigstore works
-    bgColour: ""
+    bgColour: bg-white
     imageAsset: /img/simplesystemarchitecture.svg
     type: twoColumnBannerWithCard
     column1:
@@ -120,7 +120,7 @@ sections:
   - ctaStyle: transparentCta
     text: Step into a safer future with us.
     header: ""
-    bgColour: "#2a1e71"
+    bgColour: bg-purple-dark
     ctaButtons:
       - view-the-project
     textAlign: center
