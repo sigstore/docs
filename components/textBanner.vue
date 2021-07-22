@@ -1,7 +1,11 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-    <section :style="backgroundColour" class="text_banner md:flex justify-center items-center" :class="[isScreenHeight ? 'min-h-screen md:flex-col' : 'h-auto py-128']">
-        <div class="flex items-center justify-center min-h-full" :class="[showSupportedBy ? 'text_banner--main' : '']">
+    <section 
+    class="text_banner md:flex justify-center items-center" 
+    :class="[backgroundColour,isScreenHeight ? 'min-h-screen md:flex-col' : 'h-auto py-128']"
+    :data-header-text="[(backgroundColour === 'bg-purple-dark') ? 'text-white' : (backgroundColour === 'bg-pastel-blue') ? 'text-purple-dark' : 'text-gray-dark']"
+    >
+        <div class="flex items-center justify-center min-h-full" :class="[showSupportedBy ? 'text_banner--main' : null, (textAlign === 'center') ? 'sm:h-screen lg:h-auto' : (isScreenHeight == true) ? 'h-screen' : 'h-auto' ]">
             <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : '',`text-${textAlign}`]">
                 <h1 v-if="header" v-animate-on-scroll :class="[textColour]" class="delay-step_1 mb-30 text-gray-dark">{{header}}</h1>
                 <div 
@@ -35,15 +39,15 @@
                 <div class="w-full md:w-full lg:w-1/2 lg:max-w-440">
                     <div class="flex items-center justify-between">
                         <div class="pr-12">
-                            <h2 class="text-33 lg:text-54 text-orange-dark mb-14 lg:mb-28">{{ commits }}</h2>
+                            <h2 class="text-33 lg:text-54 text-orange-dark mb-14 lg:mb-28">{{ info.commits }}</h2>
                             <h4 class="h4 text-orange-dark uppercase">Commits</h4>
                         </div>
                         <div class="pr-12">
-                            <h2 class="text-33 lg:text-54 text-orange-dark mb-14 lg:mb-28">{{ members }}</h2>
+                            <h2 class="text-33 lg:text-54 text-orange-dark mb-14 lg:mb-28">{{ info.members }}</h2>
                             <h4 class="h4 text-orange-dark uppercase">Members</h4>
                         </div>
                         <div class="pr-12">
-                            <h2 class="text-33 lg:text-54 text-orange-dark mb-14 lg:mb-28">{{ orgs }}</h2>
+                            <h2 class="text-33 lg:text-54 text-orange-dark mb-14 lg:mb-28">{{ info.organizations }}</h2>
                             <h4 class="h4 text-orange-dark uppercase">Organisations</h4>
                         </div>
                     </div>
@@ -87,27 +91,19 @@ export default {
     },
 
     data: () => ({
-        commits: {
-            type: Number,
-            default: 0
-        },
-        members: {
-            type: Number,
-            default: 0
-        },
-        orgs: {
-            type: Number,
-            default: 0
-        },  
+        info: {
+            type: Object,
+            default: null
+        }  
     }),
 
     computed: {
         backgroundColour(){
-            return `background: ${this.bgColour};`;
+            return `${this.bgColour}`;
         }
     },
 
-    mounted() {
+    created() {
         if(this.showStatsBanner){
             this.getGlobalStats();
         }
@@ -116,9 +112,11 @@ export default {
     methods: {
         async getGlobalStats(){
             const globalData = await this.$content('setup').fetch()
-            this.commits = globalData[0].commits;
-            this.members = globalData[0].members;
-            this.orgs = globalData[0].organizations;                        
+            const t = globalData.reduce((info, g) => {
+                if (g.slug === 'info') info = g;
+                return info;
+            }, {});  
+            this.info = t;                      
         }
     }
 

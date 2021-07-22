@@ -1,5 +1,5 @@
 <template>
-    <section class="py-32 bg-white">
+    <section class="py-32 bg-white" data-header-text="text-gray-dark">
         <div class="container inner">
             <div v-animate-on-scroll class="delay-step_5">
                 <div class="flex items-center justify-center overflow-scroll lg:overflow-unset">

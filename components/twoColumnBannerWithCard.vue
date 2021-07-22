@@ -1,5 +1,9 @@
 <template>
-    <section :style="backgroundColour" class="py-64 md:py-160">
+    <section 
+    :class="[backgroundColour]" 
+    class="py-64 md:py-160" 
+    :data-header-text="[(backgroundColour === 'bg-purple-dark') ? 'text-white' : (backgroundColour === 'bg-pastel-blue') ? 'text-purple-dark' : 'text-gray-dark']"
+    >
         <div class="lg:flex justify-between container inner" :class="[textAlignment != 'textRight' ? 'items-start' : 'items-start']">
             <div v-animate-on-scroll class="w-full lg:w-1/2 step-delay_2 md:mr-80">
                 <h2 class="text-36 leading-32 mb-64 md:mb-32" :class="[!bgColour ? 'text-purple-dark' : 'text-purple-dark']">{{header}}</h2>
@@ -7,7 +11,7 @@
             </div>
             <div v-if="!card" v-animate-on-scroll class="w-full lg:w-1/2 step-delay_5">
                 <div v-if="textAlignment != 'textRight'"><img :src="imageAsset" /></div>
-                <div v-else v-html="$md.render(text)"></div>
+                <div v-else class="markdown" v-html="$md.render(text)"></div>
             </div>
         </div>
         <div class="container container--card">
@@ -72,7 +76,7 @@ export default {
 
     computed: {
         backgroundColour(){
-            return `background: ${this.bgColour};`;
+            return `${this.bgColour}`;
         },
         textAlignment() {
             return this.alignment;

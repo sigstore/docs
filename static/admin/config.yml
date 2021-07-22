@@ -197,6 +197,28 @@ collections:
                   required: false,
                   default: true,
                 }
+          - label: 'Sigstore ecosystem'
+            name: 'sigstoreEcosystem'
+            widget: object
+            fields:
+              - {
+                  label: Show Sigstore ecosystem,
+                  name: showSigstoreEcosystem,
+                  widget: boolean,
+                  required: false,
+                  default: true,
+                }
+          - label: 'Faq section'
+            name: 'faqSection'
+            widget: object
+            fields:
+              - {
+                  label: Show Faq section,
+                  name: showFaqSection,
+                  widget: boolean,
+                  required: false,
+                  default: true,
+                }
           - label: 'Text Banner'
             name: 'textBanner'
             widget: object
@@ -228,6 +250,13 @@ collections:
                   widget: boolean,
                   required: false,
                   default: false,
+                }
+              - {
+                  label: Show FAQ section,
+                  name: showFaqSection,
+                  widget: boolean,
+                  required: false,
+                  default: true,
                 }
               - {
                   label: Show Supported By,
@@ -401,7 +430,6 @@ collections:
                       widget: string,
                       required: false,
                     }
-
           - label: 'Full Width Text Banner'
             name: 'fullWidthTextBanner'
             widget: object
@@ -862,6 +890,41 @@ collections:
           - { label: Header, name: header, widget: string }
           - { label: Story release info, name: releaseDate, widget: markdown }
           - { label: Text block, name: textBlock, widget: markdown }
+  - label: 'FAQ Section'
+    name: 'faqSection'
+    files:
+      - label: 'Faqs'
+        name: 'faqs'
+        format: 'json'
+        file: 'content/faq/faqs.json'
+        fields:
+          - label: 'Faq'
+            name: 'faq'
+            widget: 'list'
+            fields:
+              - { label: Question, name: question, widget: string }
+              - { label: Answer, name: answer, widget: string }
+  - label: 'Sigstore ecosystem Groups'
+    name: 'sigstoreGroups'
+    files:
+      - label: 'Groups'
+        name: 'groups'
+        format: 'json'
+        file: 'content/groups/groups.json'
+        fields:
+          - label: 'Group'
+            name: 'group'
+            widget: 'list'
+            fields:
+              - { label: Group name, name: groupName, widget: string }
+              - { label: Text Overview, name: textOverview, widget: markdown }
+              - {
+                  label: Group diagram,
+                  name: groupDiagram,
+                  widget: image,
+                  default: '',
+                  required: false,
+                }
   - label: 'Globals'
     name: 'globals'
     files:

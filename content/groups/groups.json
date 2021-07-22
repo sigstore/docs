@@ -1,0 +1,24 @@
+{
+  "group": [
+    {
+      "groupDiagram": "/img/system_architecture_overview.svg",
+      "groupName": "Overview",
+      "textOverview": "First, tell sigstore to do the signing for you. Using Fulcio, sigstore requests a certificate from our root Certificate Authority (CA). This checks you are who you say you are using OpenID connect, which looks at your email address to prove you’re the author. Fulcio grants a time-stamped certificate, a way to say you’re signed in and that it’s you.\n\nYou don’t have to do anything with keys yourself. The public key that Cosign creates gets bound to your certificate. The signing details get stored in sigstore’s trust root, the deeper layer of keys and trustees and what we use to check authenticity.\n\nYour certificate then comes back to sigstore, where sigstore exchanges public and private keys, asserts your identity and signs everything off. The signature contains the hash itself, public key, signature content and the time stamp. This all gets uploaded to a Rekor transparency log, so anyone can check that what you’ve put out there went through all the checks needed to be authentic.\n"
+    },
+    {
+      "groupDiagram": "/img/system_architecture_developers.svg",
+      "groupName": "For Developers",
+      "textOverview": "First, tell sigstore to do the signing for you. Using Fulcio, sigstore requests a certificate from our root Certificate Authority (CA). This checks you are who you say you are using OpenID connect, which looks at your email address to prove you’re the author. Fulcio grants a time-stamped certificate, a way to say you’re signed in and that it’s you.\n\nYou don’t have to do anything with keys yourself. The public key that Cosign creates gets bound to your certificate. The signing details get stored in sigstore’s trust root, the deeper layer of keys and trustees and what we use to check authenticity.\n\nYour certificate then comes back to sigstore, where sigstore exchanges public and private keys, asserts your identity and signs everything off. The signature contains the hash itself, public key, signature content and the time stamp. This all gets uploaded to a Rekor transparency log, so anyone can check that what you’ve put out there went through all the checks needed to be authentic."
+    },
+    {
+      "groupDiagram": "/img/system_architecture_overview.svg",
+      "groupName": "For security ops",
+      "textOverview": "First, tell sigstore to do the signing for you. Using Fulcio, sigstore requests a certificate from our root Certificate Authority (CA). This checks you are who you say you are using OpenID connect, which looks at your email address to prove you’re the author. Fulcio grants a time-stamped certificate, a way to say you’re signed in and that it’s you.\n\n\n\nYou don’t have to do anything with keys yourself. The public key that Cosign creates gets bound to your certificate. The signing details get stored in sigstore’s trust root, the deeper layer of keys and trustees and what we use to check authenticity.\n\n\n\nYour certificate then comes back to sigstore, where sigstore exchanges public and private keys, asserts your identity and signs everything off. The signature contains the hash itself, public key, signature content and the time stamp. This all gets uploaded to a Rekor transparency log, so anyone can check that what you’ve put out there went through all the checks needed to be authentic."
+    },
+    {
+      "groupDiagram": "/img/system_architecture_maintainers.svg",
+      "groupName": "For maintainers",
+      "textOverview": "First, tell sigstore to do the signing for you. Using Fulcio, sigstore requests a certificate from our root Certificate Authority (CA). This checks you are who you say you are using OpenID connect, which looks at your email address to prove you’re the author. Fulcio grants a time-stamped certificate, a way to say you’re signed in and that it’s you.\n\nYou don’t have to do anything with keys yourself. The public key that Cosign creates gets bound to your certificate. The signing details get stored in sigstore’s trust root, the deeper layer of keys and trustees and what we use to check authenticity.\n\nYour certificate then comes back to sigstore, where sigstore exchanges public and private keys, asserts your identity and signs everything off. The signature contains the hash itself, public key, signature content and the time stamp. This all gets uploaded to a Rekor transparency log, so anyone can check that what you’ve put out there went through all the checks needed to be authentic."
+    }
+  ]
+}

@@ -49,6 +49,10 @@ sections:
       jump through hoops or know tricky security protocols. And it’s a way for
       anyone using those releases to verify the signatures against a
       tamper-proof log.
+  - type: sigstoreEcosystem
+    showSigstoreEcosystem: true
+  - type: faqSection
+    showFaqSection: true
 ---
 
 Hello

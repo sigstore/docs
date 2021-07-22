@@ -1,5 +1,5 @@
 <template>
-    <section class="py-64 md:py-128 bg-pastel-orange">
+    <section class="py-64 md:py-128 bg-pastel-orange" data-header-text="text-gray-dark">
         <div class="md:flex justify-between container inner">
             <div class="w-full md:w-1/2 text-gray-dark md:mb-0 mb-64 pb-12 border-b-2 border-gray-medium md:border-none">
                 <h3>News &amp; Events</h3>

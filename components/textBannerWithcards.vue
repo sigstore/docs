@@ -1,6 +1,10 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-    <section :style="backgroundColour" class="text_banner md:flex justify-center items-center" :class="[isScreenHeight ? 'min-h-screen md:flex-col' : 'h-auto py-128']">
+    <section 
+    class="text_banner md:flex justify-center items-center" 
+    :class="[backgroundColour,isScreenHeight ? 'min-h-screen md:flex-col' : 'h-auto py-128']"
+    :data-header-text="[(backgroundColour === 'bg-purple-dark') ? 'text-white' : (backgroundColour === 'bg-pastel-blue') ? 'text-purple-dark' : 'text-gray-dark']"
+    >
         <div class="flex items-center justify-center mt-300" :class="[showSupportedBy ? 'text_banner--main' : '']">
             <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : '',`text-${textAlign}`]">
                 <h1 v-if="header" v-animate-on-scroll :class="[textColour]" class="delay-step_1 mb-30 text-gray-dark">{{header}}</h1>
@@ -14,7 +18,7 @@
             </div>
         </div>
         <div class="container container--card">
-            <div class="p-0 md:p-32 lg:p-64 mt-64 md:mt-128 w-full mx-auto px-24 md:px-0">
+            <div class="p-0 md:p-32 lg:p-128 mt-64 md:mt-128 w-full mx-auto px-24 md:px-0">
                 <div class="lg:flex items-start justify-between md:-ml-30 md:-mr-30 mt-32 md:mt-64">
                     <div class="px-30">
                         <div v-animate-on-scroll class="delay-step_1 mb-32 md:mb-16 w-full p-32 md:p-32 rounded-xl border border-white text-white">
@@ -100,7 +104,7 @@ export default {
 
     computed: {
         backgroundColour(){
-            return `background: ${this.bgColour};`;
+            return `${this.bgColour}`;
         }
     },
 

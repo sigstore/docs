@@ -1,8 +1,6 @@
 <template>
   <div>
-      <div v-for="(section, index) in page.sections" :key="index">
-        <component :is="section.type" v-bind="section" />
-      </div>
+    <component :is="section.type" v-for="(section, index) in page.sections" :key="index" v-bind="section" />
   </div>
 </template>
 
@@ -91,6 +89,8 @@ export default {
           }
         ]
       } : null
+  },
+  computed: {
   },
 
   mounted(){

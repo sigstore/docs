@@ -5,13 +5,13 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper)
 const config = {
   rootMargin: '0px',
-  threshold: [.2, .9]
+  threshold: [.2, .6]
 };
 
 const animateOnScrollObserver = new IntersectionObserver(function (entries, animateOnScrollObserver) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        if (entry.intersectionRatio > 0.9) {
+        if (entry.intersectionRatio > 0.6) {
           // entry.target.classList.add('enter')
           const headerEl = document.querySelector('header');
           // intersection ratio bigger than 90%

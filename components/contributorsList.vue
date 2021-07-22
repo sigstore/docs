@@ -1,5 +1,5 @@
 <template>
-    <section class="py-32 bg-pastel-orange">
+    <section class="py-32 bg-pastel-orange" data-header-text="text-gray-dark">
         <div class="container inner text-center text-orange-dark mb-32">
             <p>Thanks to the dedicated support of all our active community.</p>
         </div>

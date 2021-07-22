@@ -104,6 +104,16 @@ a {
   }
 }
 
+.markdown {
+  h4{
+    @apply text-24;
+    @apply leading-32;
+  }
+  p{
+    margin-bottom: 2rem;
+  }
+}
+
 blockquote,
 .blockquote {
   @include h4;

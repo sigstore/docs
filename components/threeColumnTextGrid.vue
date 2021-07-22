@@ -1,5 +1,5 @@
 <template>
-    <section class="py-64 md:py-128 px-16 bg-white">
+    <section class="py-64 md:py-128 px-16 bg-white" data-header-text="text-gray-dark">
         <div class="container">
             <div class="max-w-440 w-full">
                 <h3 class="pb-64">{{ header }}</h3>

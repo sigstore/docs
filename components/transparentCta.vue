@@ -29,15 +29,4 @@ export default{
     }
 }
 </script>
-<style lang="scss">
-.cta{
-    &_transparent {
-
-        background-color: white;
-        color: black;
-        padding: 2rem;
-
-    }
-}
-</style>
 
