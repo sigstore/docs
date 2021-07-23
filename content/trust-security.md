@@ -7,13 +7,13 @@ sections:
       header: Trust root
       imageAsset: ""
       text: What any signature or certificate needs to be checked against to prove its
-        authenticity. The sigstore trust root is made up of five key holders,
-        responsible for any changes to policy or authorizing new subordinate
-        keys.
+        authenticity. The sigstore trust root is made up of five key holders
+        from the community, responsible for any changes to policy and rotated as
+        we grow in the future.
       ctaText: See our trust root
       ctaLink: https://google.com
     card2:
-      header: Threat Model
+      header: Threat model
       imageAsset: ""
       text: Based on thorough analysis of supply chain attacks, exploits and
         vulnerability compromise, the threat model provides security communities
