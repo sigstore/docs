@@ -1,6 +1,6 @@
 <!-- eslint-disable -->
 <template>
-    <section class="py-128 bg-white">
+    <section class="py-128 bg-white" data-header-text="text-gray-dark">
         <div v-if="story.textBlock" class="lg:flex justify-between items-start container inner">
             <div v-animate-on-scroll class="w-full md:w-1/2 step-delay_2">
                 <h2 class="text-36 leading-32 mb-32">{{story.header}}</h2>

@@ -35,14 +35,13 @@
 
 .slideUp {
   will-change: transform, opacity;
+  max-height: 70px;
+  overflow: hidden;
+}
 
-  &.animate {
-    // opacity: 0;
-
-    &.animate-active {
-      animation: slideUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-    }
-  }
+.slideDown {
+  will-change: transform, opacity;
+  max-height: auto;
 }
 
 // TODO: Switch out delays for animations into a different class so we do not have delays on all animations because not all fades need a delay
@@ -85,6 +84,23 @@
       // transform-origin: top center;
       transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
       will-change: transform;
+    }
+  }
+}
+
+.drawer {
+  &--state {
+    height: 40px;
+    transform: scaleY(60);
+    /* we need to scale the texture from the left side 
+    for it to align correctly, default is center */
+    transform-origin: top;
+    transform: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-delay: 0.3s;
+    will-change: transform;
+
+    &_open {
+      animation: top-animate 1s ease;
     }
   }
 }
@@ -167,15 +183,27 @@
   }
 }
 
-@keyframes slideUp {
+@keyframes slideDown {
   0% {
     // opacity: 0;
-    transform: translate3d(0, 140px, 0);
+    transform: scaleY(40px);
   }
 
   100% {
     // opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: scaleY(80px);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    // opacity: 0;
+    transform: scaleY(80px);
+  }
+
+  100% {
+    // opacity: 1;
+    transform: scaleY(40px);
   }
 }
 

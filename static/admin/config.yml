@@ -197,6 +197,28 @@ collections:
                   required: false,
                   default: true,
                 }
+          - label: 'Sigstore ecosystem'
+            name: 'sigstoreEcosystem'
+            widget: object
+            fields:
+              - {
+                  label: Show Sigstore ecosystem,
+                  name: showSigstoreEcosystem,
+                  widget: boolean,
+                  required: false,
+                  default: true,
+                }
+          - label: 'Faq section'
+            name: 'faqSection'
+            widget: object
+            fields:
+              - {
+                  label: Show Faq section,
+                  name: showFaqSection,
+                  widget: boolean,
+                  required: false,
+                  default: true,
+                }
           - label: 'Text Banner'
             name: 'textBanner'
             widget: object
@@ -230,6 +252,13 @@ collections:
                   default: false,
                 }
               - {
+                  label: Show FAQ section,
+                  name: showFaqSection,
+                  widget: boolean,
+                  required: false,
+                  default: true,
+                }
+              - {
                   label: Show Supported By,
                   name: showSupportedBy,
                   widget: boolean,
@@ -249,8 +278,15 @@ collections:
               - {
                   label: Background Colour,
                   name: bgColour,
-                  widget: color,
-                  allowInput: true,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Purple', value: 'bg-purple-dark' },
+                      { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                      { label: 'Orange', value: 'bg-orange-medium' },
+                      { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                      { label: 'White', value: 'bg-white' },
+                    ],
                 }
               - {
                   label: Text Align,
@@ -318,8 +354,15 @@ collections:
               - {
                   label: Background Colour,
                   name: bgColour,
-                  widget: color,
-                  allowInput: true,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Purple', value: 'bg-purple-dark' },
+                      { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                      { label: 'Orange', value: 'bg-orange-medium' },
+                      { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                      { label: 'White', value: 'bg-white' },
+                    ],
                 }
               - {
                   label: Text Align,
@@ -387,7 +430,6 @@ collections:
                       widget: string,
                       required: false,
                     }
-
           - label: 'Full Width Text Banner'
             name: 'fullWidthTextBanner'
             widget: object
@@ -411,7 +453,19 @@ collections:
                   widget: markdown,
                   default: 'Hello World',
                 }
-              - { label: Background Colour, name: bgColour, widget: color }
+              - {
+                  label: Background Colour,
+                  name: bgColour,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Purple', value: 'bg-purple-dark' },
+                      { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                      { label: 'Orange', value: 'bg-orange-medium' },
+                      { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                      { label: 'White', value: 'bg-white' },
+                    ],
+                }
               - {
                   label: Text Align,
                   name: textAlign,
@@ -466,8 +520,15 @@ collections:
               - {
                   label: Background Colour,
                   name: bgColour,
-                  widget: color,
-                  required: false,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Purple', value: 'bg-purple-dark' },
+                      { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                      { label: 'Orange', value: 'bg-orange-medium' },
+                      { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                      { label: 'White', value: 'bg-white' },
+                    ],
                 }
               - {
                   label: Alignment,
@@ -538,8 +599,15 @@ collections:
               - {
                   label: Background Colour,
                   name: bgColour,
-                  widget: color,
-                  required: false,
+                  widget: select,
+                  options:
+                    [
+                      { label: 'Purple', value: 'bg-purple-dark' },
+                      { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                      { label: 'Orange', value: 'bg-orange-medium' },
+                      { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                      { label: 'White', value: 'bg-white' },
+                    ],
                 }
               - {
                   label: Alignment,
@@ -647,8 +715,15 @@ collections:
                   - {
                       label: Background Colour,
                       name: bgColour,
-                      widget: color,
-                      required: false,
+                      widget: select,
+                      options:
+                        [
+                          { label: 'Purple', value: 'bg-purple-dark' },
+                          { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                          { label: 'Orange', value: 'bg-orange-medium' },
+                          { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                          { label: 'White', value: 'bg-white' },
+                        ],
                     }
                   - {
                       label: Image Asset,
@@ -697,8 +772,15 @@ collections:
                   - {
                       label: Background Colour,
                       name: bgColour,
-                      widget: color,
-                      required: false,
+                      widget: select,
+                      options:
+                        [
+                          { label: 'Purple', value: 'bg-purple-dark' },
+                          { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                          { label: 'Orange', value: 'bg-orange-medium' },
+                          { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                          { label: 'White', value: 'bg-white' },
+                        ],
                     }
                   - {
                       label: Image Asset,
@@ -747,8 +829,15 @@ collections:
                   - {
                       label: Background Colour,
                       name: bgColour,
-                      widget: color,
-                      required: false,
+                      widget: select,
+                      options:
+                        [
+                          { label: 'Purple', value: 'bg-purple-dark' },
+                          { label: 'Pastel Orange', value: 'bg-pastel-orange' },
+                          { label: 'Orange', value: 'bg-orange-medium' },
+                          { label: 'Pastel Blue', value: 'bg-pastel-blue' },
+                          { label: 'White', value: 'bg-white' },
+                        ],
                     }
                   - {
                       label: Image Asset,
@@ -801,6 +890,41 @@ collections:
           - { label: Header, name: header, widget: string }
           - { label: Story release info, name: releaseDate, widget: markdown }
           - { label: Text block, name: textBlock, widget: markdown }
+  - label: 'FAQ Section'
+    name: 'faqSection'
+    files:
+      - label: 'Faqs'
+        name: 'faqs'
+        format: 'json'
+        file: 'content/faq/faqs.json'
+        fields:
+          - label: 'Faq'
+            name: 'faq'
+            widget: 'list'
+            fields:
+              - { label: Question, name: question, widget: string }
+              - { label: Answer, name: answer, widget: string }
+  - label: 'Sigstore ecosystem Groups'
+    name: 'sigstoreGroups'
+    files:
+      - label: 'Groups'
+        name: 'groups'
+        format: 'json'
+        file: 'content/groups/groups.json'
+        fields:
+          - label: 'Group'
+            name: 'group'
+            widget: 'list'
+            fields:
+              - { label: Group name, name: groupName, widget: string }
+              - { label: Text Overview, name: textOverview, widget: markdown }
+              - {
+                  label: Group diagram,
+                  name: groupDiagram,
+                  widget: image,
+                  default: '',
+                  required: false,
+                }
   - label: 'Globals'
     name: 'globals'
     files:
@@ -875,6 +999,12 @@ collections:
                   searchFields: ['title'],
                   valueField: '{{slug}}',
                   displayFields: ['title'],
+                  required: false,
+                }
+              - {
+                  label: External link,
+                  name: externalLink,
+                  widget: string,
                   required: false,
                 }
       - label: 'Footer'

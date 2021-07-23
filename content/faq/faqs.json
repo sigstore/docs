@@ -1,0 +1,16 @@
+{
+  "faq": [
+    {
+      "question": "What will I be able to sign and store?",
+      "answer": "Generic release artifacts like tarballs, compiled binaries and container images, and later we’ll explore more formats like jars and manifest signing (e.g. SBOM). We’re also looking to collaborate with package managers, easing adoption of signing for their communities."
+    },
+    {
+      "question": "Are there any privacy concerns?",
+      "answer": "Generic release artifacts like tarballs, compiled binaries and container images, and later we’ll explore more formats like jars and manifest signing (e.g. SBOM). We’re also looking to collaborate with package managers, easing adoption of signing for their communities."
+    },
+    {
+      "question": "What is the current status of the project?",
+      "answer": "Generic release artifacts like tarballs, compiled binaries and container images, and later we’ll explore more formats like jars and manifest signing (e.g. SBOM). We’re also looking to collaborate with package managers, easing adoption of signing for their communities."
+    }
+  ]
+}

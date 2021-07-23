@@ -1,17 +1,3 @@
 {
-  "footerMenu": [
-    {
-      "name": "Process",
-      "position": "0",
-      "footerMenuLink": ""
-    },
-    {
-      "name": "License",
-      "position": "1"
-    },
-    {
-      "name": "Terms",
-      "position": "2"
-    }
-  ]
+  "footerMenu": []
 }

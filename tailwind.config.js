@@ -197,6 +197,9 @@ module.exports = {
       'large': '12px',
     },
     extend: {
+      width: {
+        832: "832px",
+      },
       maxWidth: {
         '0': '0',
         full: '100%',

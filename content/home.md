@@ -9,7 +9,7 @@ sections:
     text: Making sure your software’s what it says it is.
     header: A new standard for signing, verifying  and protecting software
     showStatsBanner: true
-    bgColour: "#ffead7"
+    bgColour: bg-pastel-orange
     ctaButtons: []
     textAlign: left
     textColour: text-dark-purple
@@ -27,22 +27,21 @@ sections:
 
 
       But a high percentage of that code is insecure. Without foolproof ways to verify where all your software came from, open source dependencies open the door for breaches, supply chain attacks and exploits.
-    bgColour: "#2a1e71"
+    bgColour: bg-purple-dark
     alignment: imageRight
     ctaButtons: []
     ctaStyle: transparentCta
   - alignment: textRight
     cardTitle: What makes sigstore different?
-    text: >-
-      #### sigstore was started to improve supply chain technology for anyone
+    text:
+      '#### sigstore was started to improve supply chain technology for anyone
       using open source projects. It’s for open source maintainers, by open
-      source maintainers.
-
-
-      ####   It’s a direct response to today’s challenges, a work in progress towards a future where the integrity of what we build and use is up to standard.
+      source maintainers. It’s a direct response to today’s challenges, a work
+      in progress towards a future where the integrity of what we build and use
+      is up to standard.'
     header: Our Vision
-    bgColour: "#ddeff1"
-    imageAsset: ""
+    bgColour: bg-pastel-blue
+    imageAsset: ''
     type: twoColumnBannerWithCard
     column1:
       header: Automatic key management
@@ -53,7 +52,8 @@ sections:
     column2:
       header: Transparent ledger technology
       imageAsset: /img/ledger.svg
-      text: A transparency log means anyone can find and verify signatures, and check
+      text:
+        A transparency log means anyone can find and verify signatures, and check
         whether someone’s changed the source code, the build platform or the
         artifact repository.
     cardText: We’ve focused on automating the process of digitally signing and
@@ -88,24 +88,27 @@ sections:
 
       With the help of a working partnership that includes Google, the Linux Foundation, Red Hat and Purdue University, we’re in constant collaboration to find new ways to improve the sigstore technology, to make it easy to adopt, integrate and become a long-lasting standard.
     header: How sigstore works
-    bgColour: ""
+    bgColour: bg-white
     imageAsset: /img/simplesystemarchitecture.svg
     type: twoColumnBannerWithCard
     column1:
       header: Sign your code
       imageAsset: /img/howtouseit_signcode.svg
-      text: Easy authentication and smart cryptography work in the background. Just
+      text:
+        Easy authentication and smart cryptography work in the background. Just
         push your code, sigstore can handle the rest.
     column2:
       header: Verify signatures
       imageAsset: /img/howtouseit_verify.svg
-      text: Rekor transparency logs store unique identification like who created it
+      text:
+        Rekor transparency logs store unique identification like who created it
         and where it was built, so you know it hasn’t been changed.
-    cardText: ""
+    cardText: ''
     column3:
       header: Monitor activity
       imageAsset: /img/howtouseit_monitor.svg
-      text: Data stored in the logs is readily auditable, a foundation for future
+      text:
+        Data stored in the logs is readily auditable, a foundation for future
         monitors and integrations to build into your security workflow.
   - type: carousel
     header: Image Gallery
@@ -119,8 +122,8 @@ sections:
     isNewsAndEvents: true
   - ctaStyle: transparentCta
     text: Step into a safer future with us.
-    header: ""
-    bgColour: "#2a1e71"
+    header: ''
+    bgColour: bg-purple-dark
     ctaButtons:
       - view-the-project
     textAlign: center

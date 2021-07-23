@@ -8,8 +8,7 @@
                 <NuxtLink v-else-if="navType == 'footer'" class="mr-36 flex justify-between hover:text-purple-light" :class="[scrolled ? 'text-white' : '']" :to="`${navItem.footerMenuLink}`">
                     {{ navItem.name }}
                 </NuxtLink>
-                <a v-else class="mr-8 flex justify-between hover:text-purple-light" :href="`${navItem.url}`">
-                    <!-- TODO: refactor with dynamic namescase to use the assets folder -->
+                <a v-else class="mr-30 flex justify-between hover:text-purple-light" :href="`${navItem.url ? navItem.url : navItem.externalLink}`">
                     <span v-if="navType == 'social' && navItem.name == 'GitHub'" class="mx-6">
                         <GitHubLogo :class="['fill-grey']" />
                     </span>
@@ -18,6 +17,14 @@
                     </span>
                     {{ navItem.name }}
                 </a>
+            </li>
+            <li v-if="navType == 'header'">
+                <a class="mr-36 flex justify-between hover:text-purple-light" :class="[scrolled ? 'text-white' : '']" href="https://medium.com/sigstore">
+                    Blog
+                </a>
+            </li>
+            <li v-if="navType == 'header'">
+                <GitHubLogo :class="['fill-black']" />
             </li>
         </ul>
     </nav>

@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-    <section class="h-screen bg-pastel-orange">
+    <section class="h-screen bg-pastel-orange" data-header-text="text-gray-dark">
         <div class="flex items-center justify-center h-full">
             <div class="container inner">
                 <h3 v-animate-on-scroll class="delay-step_1 mb-8">{{header}}</h3>
