@@ -16,7 +16,7 @@ sections:
     type: textBanner
     showBetaCard: true
   - type: twoColumnBanner
-    header: The problem with  open source security
+    header: The problem with open source security
     imageAsset: /img/problemwithopensource.svg
     text: Not knowing where all your software comes from means hard-to-spot risks to
       the integrity of your services. Without constant identity checks and
