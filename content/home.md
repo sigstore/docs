@@ -6,7 +6,7 @@ thumbnail: /img/icon.png
 sections:
   - ctaStyle: solidCtaPurple
     showSupportedBy: true
-    text: Making sure your software’s what it says it is.
+    text: Making sure your software’s what it claims to be.
     header: A new standard for signing, verifying  and protecting software
     showStatsBanner: true
     bgColour: bg-pastel-orange
@@ -18,30 +18,26 @@ sections:
   - type: twoColumnBanner
     header: The problem with  open source security
     imageAsset: /img/problemwithopensource.svg
-    text: >-
-      Not knowing where all your software comes from presents hard to spot risks
-      to the integrity of your services.
-
-
-      Most of today’s commercial programs, critical software and key infrastructure use open source software, linked together in a  supply chain - the map of relationships existing in a piece of software. It’s everything your software needs to work. The more complex and critical the software, the more relationships exist, and there might be hundreds of open source dependencies in just one project.
-
-
-      But a high percentage of that code is insecure. Without foolproof ways to verify where all your software came from, open source dependencies open the door for breaches, supply chain attacks and exploits.
+    text: Not knowing where all your software comes from means hard-to-spot risks to
+      the integrity of your services. Without constant identity checks and
+      safety protocols for keys and secrets, open source dependencies can open
+      the door to breaches, exploits and supply chain attacks.
     bgColour: bg-purple-dark
     alignment: imageRight
     ctaButtons: []
     ctaStyle: transparentCta
   - alignment: textRight
     cardTitle: What makes sigstore different?
-    text:
-      '#### sigstore was started to improve supply chain technology for anyone
+    text: >-
+      #### sigstore was started to improve supply chain technology for anyone
       using open source projects. It’s for open source maintainers, by open
-      source maintainers. It’s a direct response to today’s challenges, a work
-      in progress towards a future where the integrity of what we build and use
-      is up to standard.'
-    header: Our Vision
+      source maintainers. 
+
+
+      #### It’s a direct response to today’s challenges, a work in progress towards a future where the integrity of what we build and use is up to standard.
+    header: Our vision
     bgColour: bg-pastel-blue
-    imageAsset: ''
+    imageAsset: ""
     type: twoColumnBannerWithCard
     column1:
       header: Automatic key management
@@ -52,8 +48,7 @@ sections:
     column2:
       header: Transparent ledger technology
       imageAsset: /img/ledger.svg
-      text:
-        A transparency log means anyone can find and verify signatures, and check
+      text: A transparency log means anyone can find and verify signatures, and check
         whether someone’s changed the source code, the build platform or the
         artifact repository.
     cardText: We’ve focused on automating the process of digitally signing and
@@ -94,21 +89,18 @@ sections:
     column1:
       header: Sign your code
       imageAsset: /img/howtouseit_signcode.svg
-      text:
-        Easy authentication and smart cryptography work in the background. Just
+      text: Easy authentication and smart cryptography work in the background. Just
         push your code, sigstore can handle the rest.
     column2:
       header: Verify signatures
       imageAsset: /img/howtouseit_verify.svg
-      text:
-        Rekor transparency logs store unique identification like who created it
+      text: Rekor transparency logs store unique identification like who created it
         and where it was built, so you know it hasn’t been changed.
-    cardText: ''
+    cardText: ""
     column3:
       header: Monitor activity
       imageAsset: /img/howtouseit_monitor.svg
-      text:
-        Data stored in the logs is readily auditable, a foundation for future
+      text: Data stored in the logs is readily auditable, a foundation for future
         monitors and integrations to build into your security workflow.
   - type: carousel
     header: Image Gallery
@@ -121,8 +113,8 @@ sections:
   - type: newsEvents
     isNewsAndEvents: true
   - ctaStyle: transparentCta
-    text: Step into a safer future with us.
-    header: ''
+    text: Help build a safer future with us.
+    header: ""
     bgColour: bg-purple-dark
     ctaButtons:
       - view-the-project
