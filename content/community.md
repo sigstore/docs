@@ -7,8 +7,7 @@ description: We’re a working partnership aligned by the values of open source
 sections:
   - ctaStyle: transparentCta
     showSupportedBy: false
-    text:
-      We’re a working partnership aligned by the values of open source and safer
+    text: We’re a working partnership aligned by the values of open source and safer
       software. We continue to develop sigstore to make sure it’s for everyone.
     header: Driven forward by community
     showStatsBanner: false
@@ -21,29 +20,27 @@ sections:
     column1:
       header: Share your stories
       imageAsset: /img/stories.svg
-      text:
-        Already working with sigstore? Sharing and self-reporting helps us track
+      text: Already working with sigstore? Sharing and self-reporting helps us track
         community health, the state of the tooling and how it’s all being used.
       ctaText: Leave a user story
       bgColour: bg-white
     column2:
       header: Join our working group
       imageAsset: /img/slack.svg
-      text:
-        Questions, answers and what we’re working on as it happens. Come join us
+      text: Questions, answers and what we’re working on as it happens. Come join us
         on Slack to get help or help out, and be right there where the action’s
         happening.
-      ctaText: Join us on slack
+      ctaText: Join us on Slack
       bgColour: bg-white
     column3:
-      header: Press & Events
+      header: Press & events
       imageAsset: /img/pressandevents.svg
       text: See the latest coverage and how sigstore’s making waves in the wider
         industry, and mark your calendar for upcoming live community events.
       ctaText: Check our calendar
       bgColour: bg-white
     header: Want to get involved?
-    text: ''
+    text: ""
   - type: contributorsList
     isContributorsList: true
   - type: sponsorsList
