@@ -1,16 +1,16 @@
 {
   "faq": [
     {
-      "question": "What will I be able to sign and store?",
-      "answer": "Generic release artifacts like tarballs, compiled binaries and container images, and later we’ll explore more formats like jars and manifest signing (e.g. SBOM). We’re also looking to collaborate with package managers, easing adoption of signing for their communities."
+      "question": "What can I sign and store?",
+      "answer": "We started off by targeting generic release artifacts like tarballs, compiled binaries and container images, but our future aim is to explore other formats like jars, and manifest signing like SBOM. We’re also looking to collaborate with package managers and ease the adoption of signing for their communities."
     },
     {
-      "question": "Are there any privacy concerns?",
-      "answer": "Generic release artifacts like tarballs, compiled binaries and container images, and later we’ll explore more formats like jars and manifest signing (e.g. SBOM). We’re also looking to collaborate with package managers, easing adoption of signing for their communities."
+      "question": "Are there any privacy issues?",
+      "answer": "No. The only personal data sigstore uses is provided from an OpenID Connect grant, and even that’s as lean as it can be (just the user’s email address) - there’s no need to access contacts, email contents, cloud drives or calendars. Just what’s necessary to map a signing event to someone who has access to an identity provider account, which allows for a trust root."
     },
     {
-      "question": "What is the current status of the project?",
-      "answer": "Generic release artifacts like tarballs, compiled binaries and container images, and later we’ll explore more formats like jars and manifest signing (e.g. SBOM). We’re also looking to collaborate with package managers, easing adoption of signing for their communities."
+      "question": "What's the current status?",
+      "answer": "We’re working hard to release v1.0 in July. At the time of writing, we have a working transparency log that’s fully operational as a standalone service, Rekor. It consists of a server and client tooling to make entries and query for inclusion. Files are available to run this in GKE. Work’s also underway to mature the WebPKI (Fulcio) and develop client tools for different package managers and upstream communities."
     }
   ]
 }
