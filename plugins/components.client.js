@@ -11,7 +11,7 @@ const config = {
 const animateOnScrollObserver = new IntersectionObserver(function (entries, animateOnScrollObserver) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        if (entry.intersectionRatio > 0.6) {
+        if (entry.intersectionRatio > 0.1) {
           // entry.target.classList.add('enter')
           const headerEl = document.querySelector('header');
           // intersection ratio bigger than 90%

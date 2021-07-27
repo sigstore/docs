@@ -24,6 +24,7 @@ sections:
         community health, the state of the tooling and how it’s all being used.
       ctaText: Leave a user story
       bgColour: bg-white
+      ctaLink: https://github.com/sigstore/friends
     column2:
       header: Join our working group
       imageAsset: /img/slack.svg
@@ -32,6 +33,7 @@ sections:
         happening.
       ctaText: Join us on Slack
       bgColour: bg-white
+      ctaLink: https://sigstore.slack.com/join/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ#/shared-invite/email
     column3:
       header: Press & events
       imageAsset: /img/pressandevents.svg

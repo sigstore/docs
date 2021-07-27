@@ -1,5 +1,5 @@
 <template>
-    <header class="py-30 fixed w-full z-50" :class="[isScrolling ? 'scrolled' : '']">
+    <header ref="header" class="headroom py-30 fixed w-full z-50" :class="[bg,isScrolling ? 'scrolled' : '']">
         <div class="container">
             <div class="flex flex-wrap justify-between items-start">
                 <NuxtLink class="z-20" :to="`/`"><Logo /></NuxtLink>
@@ -21,3 +21,4 @@
     </header>
 </template>
 <script lang="js" src="./Header.js" />
+<style lang="scss" src="./Header.scss" />

@@ -40,7 +40,8 @@ export default {
         observer: undefined,
         commits: null,
         orgs: null,
-        members: null
+        members: null,
+        bgColourMain: null
     }),
 
     computed: {
@@ -54,6 +55,7 @@ export default {
         this.getGlobalHeader();
         this.getGlobalFooter();
         this.getGlobalSocialLinks();
+        this.emitRef()
 
         this.observer = new IntersectionObserver((entries) => {
             this.$nuxt.$emit("observer.observed", entries);
@@ -67,6 +69,9 @@ export default {
     },
 
     methods: {
+        emitRef(){
+            return 'r';
+        },
         getScrollPos() {
         if(window.scrollY > 0){
             this.isScrolling = true;

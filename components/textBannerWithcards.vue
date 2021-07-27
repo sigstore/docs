@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="px-30">
-                        <div v-animate-on-scroll class="delay-step_3 mb-32 md:mb-16 w-full p-32 md:p-32 rounded-xl border border-white text-white">
+                        <div v-animate-on-scroll class="delay-step_2 mb-32 md:mb-16 w-full p-32 md:p-32 rounded-xl border border-white text-white">
                             <img v-if="card2.imageAsset" :src="card2.imageAsset" class="mb-24" />
                             <h4 class="mb-24 text-24">{{card2.header}}</h4>
                             <p>{{card2.text}}</p>

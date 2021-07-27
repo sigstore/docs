@@ -1,9 +1,11 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
-    <section 
+    <section
+    ref="textBanner" 
     class="text_banner md:flex justify-center items-center" 
     :class="[backgroundColour,isScreenHeight ? 'min-h-screen md:flex-col' : 'h-auto py-128']"
     :data-header-text="[(backgroundColour === 'bg-purple-dark') ? 'text-white' : (backgroundColour === 'bg-pastel-blue') ? 'text-purple-dark' : 'text-gray-dark']"
+    :data-bg-color="backgroundColour"
     >
         <div class="flex items-center justify-center min-h-full" :class="[showSupportedBy ? 'text_banner--main' : null, (textAlign === 'center') ? 'sm:h-screen lg:h-auto' : (isScreenHeight == true) ? 'h-screen' : 'h-auto' ]">
             <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : '',`text-${textAlign}`]">
@@ -23,7 +25,7 @@
                     </div>
                 </div>
 
-                <div v-if="showSupportedBy" v-animate-on-scroll class="delay-step_5 md:mt-240">
+                <div v-if="showSupportedBy" v-animate-on-scroll class="delay-step_3 md:mt-240">
                     <p>Supported by</p>
                     <div class="flex items-center justify-start overflow-scroll lg:overflow-unset">
                         <img class="max-w-122 mr-20" src="/img/googlelogo.png" alt="Google sponsor logo" />
@@ -34,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="showStatsBanner" v-animate-on-scroll class="delay-step_5 container container--card relative bottom-0 left-0 lg:pb-64">
+        <div v-if="showStatsBanner" v-animate-on-scroll class="delay-step_4 container container--card relative bottom-0 left-0 lg:pb-64">
             <div class="lg:flex flex-wrap items-center justify-between bg-orange-medium py-50 px-20 lg:p-64 stat_banner">
                 <div class="w-full md:w-full lg:w-1/2 lg:max-w-440">
                     <div class="flex items-center justify-between">
@@ -55,7 +57,7 @@
                 <div class="w-full md:w-full lg:w-1/2 lg:max-w-470 mt-28">
                     <div class="bg-white rounded-full p-28 text-gray-dark flex justify-around">
                         <p class="h text-11 md:text-12 pr-22 md:w-auto w-1/2">Currently in beta<br>Stable release due in August 2021</p>
-                        <a href="https://sigstore.dev" class="button button--transparent-border md:w-auto w-1/2">Find out more</a>
+                        <a href="https://github.com/sigstore" target="_blank" class="button button--transparent-border md:w-auto w-1/2">Find out more</a>
                     </div>
                 </div>
             </div>
@@ -94,7 +96,7 @@ export default {
         info: {
             type: Object,
             default: null
-        }  
+        } 
     }),
 
     computed: {
@@ -107,6 +109,7 @@ export default {
         if(this.showStatsBanner){
             this.getGlobalStats();
         }
+        console.log(this.$refs)
     },
 
     methods: {

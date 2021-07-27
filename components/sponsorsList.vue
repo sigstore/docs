@@ -1,7 +1,7 @@
 <template>
     <section class="py-32 bg-white" data-header-text="text-gray-dark">
         <div class="container inner">
-            <div v-animate-on-scroll class="delay-step_5">
+            <div v-animate-on-scroll class="delay-step_3">
                 <div class="flex items-center justify-center overflow-scroll lg:overflow-unset">
                     <img class="max-w-122 mr-20" src="/img/googlelogo.png" alt="Google sponsor logo" />
                     <img class="max-w-122 mr-20" src="/img/linuxfoundationlogo.png" alt="Linux Foundation sponsor logo" />

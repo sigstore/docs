@@ -1,10 +1,11 @@
 <template>
   <div>
-    <component :is="section.type" v-for="(section, index) in page.sections" :key="index" v-bind="section" />
+    <component :is="section.type" v-for="(section, index) in page.sections" :key="index" v-bind="section" /> 
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   components: {
 
@@ -91,12 +92,21 @@ export default {
       } : null
   },
   computed: {
+
   },
 
   mounted(){
+    const firstBanner = this.page.sections.filter(p => p.type === 'textBanner')[0]
+    const textBannerCards = this.page.sections.filter(p => p.type === 'textBannerWithcards')
+    if(firstBanner){
+      this.setColour(firstBanner.bgColour);
+    } else {
+      this.setColour(textBannerCards[0].bgColour);
+    }
   },
 
   methods: {
+    ...mapActions("settings", ["setColour"])
   }
 };
 </script>

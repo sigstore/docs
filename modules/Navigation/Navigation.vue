@@ -19,12 +19,12 @@
                 </a>
             </li>
             <li v-if="navType == 'header'">
-                <a class="mr-36 flex justify-between hover:text-purple-light" :class="[scrolled ? 'text-white' : '']" href="https://medium.com/sigstore">
+                <a class="mr-36 flex justify-between hover:text-purple-light" :class="[scrolled ? 'text-white' : '']" target="_blank" href="https://medium.com/sigstore">
                     Blog
                 </a>
             </li>
             <li v-if="navType == 'header'">
-                <GitHubLogo :class="['fill-black']" />
+                <a href="https://github.com/sigstore" target="_blank" title="GitHub profile link"><GitHubLogo :class="['fill-black']" /></a>
             </li>
         </ul>
     </nav>
