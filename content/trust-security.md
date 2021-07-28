@@ -10,16 +10,15 @@ sections:
         authenticity. The sigstore trust root is made up of five key holders
         from the community, responsible for any changes to policy and rotated as
         we grow in the future.
-      ctaText: See our trust root
-      ctaLink: https://google.com
+      ctaText: See our root key holders
+      ctaLink: https://github.com/sigstore/root-signing/tree/main/ceremony
     card2:
       header: Threat model
       imageAsset: ""
-      text: Based on thorough analysis of supply chain attacks, exploits and
-        vulnerability compromise, the threat model provides security communities
-        a way to plan against and prevent known threats to your security.
-      ctaText: See our threat model
-      ctaLink: https://google.com
+      text: Our threat model will provide a way to plan against and prevent known
+        threats to sigstore's infrastructure.
+      ctaText: Coming soon
+      ctaLink: ""
     text: An open, accessible foundation behind the policies and protocols sigstore
       needs to work. It’s a new kind of trust grounded in an open source,
       distributed community.
