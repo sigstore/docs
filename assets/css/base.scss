@@ -46,6 +46,9 @@ hr {
   path {
     fill: $c-white;
   }
+  rect {
+    fill: $c-white;
+  }
 }
 
 .fill-grey {
@@ -74,6 +77,10 @@ hr {
 
   circle {
     stroke: #000000;
+  }
+
+  rect {
+    fill: black;
   }
 
   &--circle {
@@ -301,5 +308,19 @@ header {
   }
   &.text-white nav ul li a{
     color: $c-white;
+  }
+}
+
+.overflow-x-scroll{
+  &:after {
+    content: '';
+    display: block;
+    position: fixed;
+    right: 0;
+    top: auto;
+    width: 30%;
+    height: 100%;
+    @apply bg-gradient-to-l; 
+    @apply from-white;
   }
 }
