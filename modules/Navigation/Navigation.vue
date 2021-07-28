@@ -1,6 +1,11 @@
 <template>
     <nav>
-        <ul class="flex flex-wrap items-start" :class="[navType == 'social' ? 'justify-end' : 'justify-start']">
+        <ul class="flex items-start" :class="[navType == 'social' ? 'justify-start md:justify-end w-full' : 'justify-start flex-wrap']">
+            <li>
+                <NuxtLink v-if="navType == 'header'" class="mr-36 flex justify-between hover:text-purple-light" :class="[text]" :to="`/`">
+                    Overview
+                </NuxtLink>
+            </li>
             <li v-for="navItem, index in navList" :key="index">
                 <NuxtLink v-if="navType == 'header'" class="mr-36 flex justify-between hover:text-purple-light" :class="[text]" :to="`${navItem.menuLink}`">
                     {{ navItem.name }}

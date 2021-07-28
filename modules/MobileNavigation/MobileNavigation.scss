@@ -2,13 +2,16 @@
     position: relative;
 
     &--mobile {
-        position: absolute;
+        position: fixed;
         top:0;
         left:0;
         width: 100%;
         height: 100vh;
-        padding: 2.4rem 6rem;
-        z-index: 10;
-        background-color: white;
+        z-index: 60;
+
+        & ul {
+            padding-left: 6rem;
+            padding-right: 6rem;
+        }
     }
 }
