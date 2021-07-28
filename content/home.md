@@ -111,7 +111,7 @@ sections:
       - red-hat
       - wired
   - type: newsEvents
-    isNewsAndEvents: true
+    isNewsAndEvents: false
   - ctaStyle: transparentCta
     text: Help build a safer future with us.
     header: ""
