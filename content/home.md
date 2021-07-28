@@ -87,7 +87,7 @@ sections:
     imageAsset: /img/simplesystemarchitecture.svg
     type: twoColumnBannerWithCard
     column1:
-      header: Sign your code
+      header: Sign code
       imageAsset: /img/howtouseit_signcode.svg
       text: Easy authentication and smart cryptography work in the background. Just
         push your code, sigstore can handle the rest.
