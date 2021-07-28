@@ -30,11 +30,11 @@ sections:
     cardTitle: What makes sigstore different?
     text: >-
       #### sigstore was started to improve supply chain technology for anyone
-      using open source projects. It’s for open source maintainers, by open
-      source maintainers. 
+      using open source projects. It is for open source maintainers, by open
+      source maintainers.
 
 
-      #### It’s a direct response to today’s challenges, a work in progress towards a future where the integrity of what we build and use is up to standard.
+      #### It is a direct response to today’s challenges, a work in progress towards a future where the integrity of what we build and use is up to standard.
     header: Our vision
     bgColour: bg-pastel-blue
     imageAsset: ""
