@@ -3,10 +3,10 @@
     <section class="py-128 bg-white" data-header-text="text-gray-dark">
         <div class="text-gray-dark container inner text-center">
             <h3 class="text-36 pb-44">The sigstore ecosystem</h3>
-            <div class="flex justify-center items-start pb-64">
-                <button v-animate-on-scroll 
+            <div class="flex justify-start md:justify-center items-start mb-64 overflow-x-scroll md:overflow-x-visible relative">
+                <button
                     v-for="(group, index) in groupTabs" 
-                    :key="index" class="border-2 hover:bg-pastel-blue p-14 text-12 h leading-15 rounded-full mx-12 hover:border-pastel-blue duration-150"
+                    :key="index" class="border-2 hover:bg-pastel-blue p-14 text-12 h leading-15 rounded-full mx-12 hover:border-pastel-blue duration-150 whitespace-nowrap"
                     :class="[group == activeGroup ? 'bg-pastel-blue border-pastel-blue' : 'bg-white border-black']"
                     @click="setActiveGroup(group)"
                 >

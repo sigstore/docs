@@ -11,7 +11,7 @@
                     >
                     <div class="swiper-wrapper">
                         <div v-for="(slide, index) in names" :key="index" class="swiper-slide">
-                            <p class="h text-orange-dark">{{ slide }}</p>
+                            <p class="h text-orange-dark text-24 leading-32">{{ slide }}.</p>
                         </div>
                     </div>
                 </div>
@@ -33,14 +33,14 @@ export default {
             default: null
         },
         swiperOptions: {
-          spaceBetween: 0,
-          centeredSlides: true,
+          spaceBetween: 20,
+          centeredSlides: false,
           speed: 10000,
           autoplay: {
             delay: 1,
           },
           loop: true,
-          slidesPerView: 10,
+          slidesPerView: 'auto',
           allowTouchMove: false,
           disableOnInteraction: true
         },
@@ -69,10 +69,8 @@ export default {
       width: 100%;
       .swiper-slide {
         text-align: center;
+        width: fit-content;
         display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        max-width: auto;
       }
       .swiper-pagination {
         > .swiper-pagination-bullet {

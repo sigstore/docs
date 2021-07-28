@@ -6,13 +6,13 @@
                 <h2 class="text-36 leading-32 mb-32 text-gray-dark">{{story.header}}</h2>
             </div>
             <div v-animate-on-scroll class="w-full md:w-1/2 step-delay_2">
-                <div class="text-gray-dark" v-html="$md.render(story.textBlock)"></div>
+                <div class="text-gray-dark markdown" v-html="$md.render(story.textBlock)"></div>
             </div>
         </div>
         <div v-if="story.releaseDate" class="lg:flex justify-center items-start container inner py-128">
             <div class="rounded-xl bg-orange-medium p-40 md:max-w-500">
                 <div 
-                    class="text-center text-orange-dark"
+                    class="text-center text-orange-dark markdown"
                     v-html="$md.render(story.releaseDate)"
                 >
                 </div>
@@ -23,11 +23,11 @@
         </div>
         <div class="text-gray-dark container inner text-center">
             <h3 class="text-36 pb-128">Plans &amp; next steps</h3>
-            <div v-animate-on-scroll v-for="(step, index) in dates.step" :key="index" class="pb-120 dotted--divider relative" :class="`step-delay_${index}`">
+            <div v-for="(step, index) in dates.step" :key="index" class="pb-120 dotted--divider relative">
                 <p class="h text-16 text-gray-dark mb-16">{{ step.date == Date.now() ? 'Now' : step.date }}</p>
                 <p class="h text-24 text-purple-dark mb-16">{{ step.title }}</p>
                 <div 
-                    class="text-center text-gray-dark"
+                    class="text-center text-gray-dark markdown"
                     v-html="$md.render(step.text)"
                 />
             </div>
