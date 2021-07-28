@@ -45,7 +45,7 @@ sections:
     header: Want to get involved?
     text: ""
   - type: contributorsList
-    isContributorsList: true
+    isContributorsList: false
   - type: sponsorsList
     isSponsorsList: true
   - type: newsEvents
