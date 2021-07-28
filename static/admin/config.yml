@@ -294,7 +294,9 @@ collections:
                   options:
                     [
                       { label: 'Light', value: 'text-white' },
-                      { label: 'Dark', value: 'text-dark-purple' },
+                      { label: 'Dark', value: 'text-gray-dark' },
+                      { label: 'Dark purple', value: 'text-purple-dark' },
+                      { label: 'Dark Orange', value: 'text-orange-dark' },
                     ],
                 }
               - {
