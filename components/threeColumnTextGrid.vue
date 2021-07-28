@@ -1,7 +1,7 @@
 <template>
     <section class="py-64 md:py-128 px-16 bg-white" data-header-text="text-gray-dark">
         <div class="container">
-            <div class="max-w-1/2 w-full">
+            <div class="md:max-w-1/2 w-full">
                 <h3 class="pb-64" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{ header }}</h3>
                 <div v-if="text" v-animate-on-scroll class="delay-step_3 pb-64 text-gray-dark" v-html="$md.render(text)"></div>
             </div>
@@ -9,11 +9,11 @@
                 <div 
                 :style="`background-color: ${column1.bgColour};`"
                 :class="[column1.isCardStyle ? 'rounded-xl px-40 py-40' : '']" 
-                class="w-full md:w-1/3 px-10 md:max-w-352 md:ml-30 mb-24 min-h-440">
+                class="w-full md:w-1/3 md:px-10 md:max-w-352 md:ml-30 mb-44 md:min-h-440">
                     <img :src="column1.imageAsset" class="mb-24" />
                     <h4 class="mb-24 text-24 leading-32" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{column1.header}}</h4>
                     <p class="text-gray-dark">{{column1.text}}</p>
-                    <a v-if="column1.ctaLink" class="pt-24 flex items-center h text-12 md:text-16 text-gray-dark" :href="column1.ctaLink">
+                    <a v-if="column1.ctaLink" class="pt-24 flex items-center h text-12 md:text-16 inline--button-grey" :href="column1.ctaLink">
                         {{column1.ctaText}}
                         <span class="ml-6">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,11 +27,11 @@
                 <div 
                 :style="`background-color: ${column1.bgColour};`"
                 :class="[column1.isCardStyle ? 'rounded-xl px-40 py-40' : '']"  
-                class="w-full md:w-1/3 px-10 md:max-w-352 md:ml-30 mb-24 min-h-440">
+                class="w-full md:w-1/3 md:px-10 md:max-w-352 md:ml-30 mb-44 md:min-h-440">
                     <img :src="column2.imageAsset" class="mb-24" />
                     <h4 class="mb-24 text-24 leading-32" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{column2.header}}</h4>
                     <p class="text-gray-dark">{{column2.text}}</p>
-                    <a v-if="column2.ctaLink" class="pt-24 flex items-center h text-12 md:text-16 text-gray-dark" :href="column2.ctaLink">
+                    <a v-if="column2.ctaLink" class="pt-24 flex items-center h text-12 md:text-16 inline--button-grey" :href="column2.ctaLink">
                         {{column2.ctaText}}
                         <span class="ml-6">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,11 +45,11 @@
                 <div 
                 :style="`background-color: ${column1.bgColour};`"
                 :class="[column1.isCardStyle ? 'rounded-xl px-40 py-40' : '']"  
-                class="mb-8 w-full md:w-1/3 px-10 md:max-w-352 md:ml-30 md:mr-30 min-h-440">
+                class="mb-8 w-full md:w-1/3 md:px-10 md:max-w-352 md:ml-30 md:mr-30 md:min-h-440">
                     <img :src="column3.imageAsset" class="mb-24" />
                     <h4 class="mb-24 text-24 leading-32" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{column3.header}}</h4>
                     <p class="text-gray-dark">{{column3.text}}</p>
-                    <a v-if="column3.ctaLink" class="pt-24 flex items-center h text-12 md:text-16 text-gray-dark" :href="column3.ctaLink">
+                    <a v-if="column3.ctaLink" class="pt-24 flex items-center h text-12 md:text-16 inline--button-grey" :href="column3.ctaLink">
                         {{column3.ctaText}}
                         <span class="ml-6">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

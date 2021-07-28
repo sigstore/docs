@@ -2,12 +2,11 @@
   font-family: $font-sans-header-standard;
   font-size: $size-x-large;
   font-weight: $weight-medium;
-  line-height: 3.4rem;
+  @apply leading-40;
 
   @include media-breakpoint-up(lg) {
     @apply text-54;
-    letter-spacing: 0.167rem;
-    line-height: 6rem;
+    @apply leading-60;
   }
 }
 
@@ -15,12 +14,11 @@
   font-family: $font-sans-header-standard;
   font-size: $size-large;
   font-weight:$weight-medium;
-  line-height: $size-large;
+  @apply leading-23;
 
   @include media-breakpoint-up(lg) {
     font-size: $size-xx-large; // 40px;
-    letter-spacing: 0.05rem;
-    line-height: 4.45rem;
+    @apply leading-43;
   }
 }
 
@@ -28,26 +26,17 @@
   font-family: $font-sans-header-standard;
   font-size: 25px;
   font-weight: $weight-medium;
-  line-height: 2.2rem;
 
   @include media-breakpoint-up(lg) {
     @apply text-36; 
     @apply leading-43;
-    letter-spacing: 0.05rem;
   }
 }
 
 @mixin h4 {
   font-family: $font-sans-header-standard;
-
   font-weight: $weight-medium;
-
-
-  @include media-breakpoint-up(lg) {
-  
-    letter-spacing: 0.08rem;
-  
-  }
+  @apply leading-32;
 }
 
 
@@ -67,17 +56,14 @@
 
 %text--body-1 {
   font-family: $font-sans-light;
-  //font-size: $size-small; // 14px
-  letter-spacing: 0.05rem;
-  // line-height: 2.1rem;
-  font-size: $size-small;
+  font-size: $size-medium;
   font-weight: $weight-regular;
-  line-height: 1.5rem;
+  line-height: 2.4rem;
 
   @include media-breakpoint-up(lg) {
     font-size: $size-medium; // 16px
     font-weight: $weight-regular;
-    line-height: 1.5;
+    line-height: 3.2rem;
   }
 }
 

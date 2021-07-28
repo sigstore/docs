@@ -1,0 +1,34 @@
+{
+  "product": [
+    {
+      "productName": "Cosign",
+      "productOverview": "Used for container signing, verification and storage in an Open Container Initiative (OCI) registry.\n"
+    },
+    {
+      "productName": "Rekor",
+      "productOverview": "Records signed metadata to a ledger that can be searched, but can’t be tampered with.\n\n\n",
+      "productCTA": "Read about Rekor",
+      "productCTALink": "https://github.com/sigstore"
+    },
+    {
+      "productName": "OpenID connect",
+      "productOverview": "An identity layer that authorizes whether you are who you say you are."
+    },
+    {
+      "productName": "Fulcio",
+      "productOverview": "A free root certification authority, issuing certificates to an authorised identity.",
+      "productCTA": "View the repo",
+      "productCTALink": "https://github.com/sigstore/fulcio"
+    },
+    {
+      "productName": "Certificate Authority",
+      "productOverview": "A mechanism that generates certificates, binding cryptographic keys to an identity."
+    },
+    {
+      "productName": "Trust root",
+      "productOverview": "The foundation for trust, keyholders and  ways of working to protect the root keys.",
+      "productCTA": "sigstore's trust root",
+      "productCTALink": "https://github.com/sigstore"
+    }
+  ]
+}

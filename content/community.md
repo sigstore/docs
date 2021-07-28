@@ -13,7 +13,7 @@ sections:
     showStatsBanner: false
     bgColour: bg-orange-medium
     textAlign: center
-    textColour: text-dark-purple
+    textColour: text-orange-dark
     type: textBanner
     isScreenHeight: true
   - type: threeColumnTextGrid

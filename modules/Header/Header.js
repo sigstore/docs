@@ -1,5 +1,4 @@
 import Navigation from "@/modules/Navigation/Navigation.vue";
-import MobileNavigation from "@/modules/MobileNavigation/MobileNavigation.vue";
 import Logo from "@/assets/icons/logo.svg?inline";
 import NavButton from "@/assets/icons/menu-button.svg?inline"
 import NavCloseButton from "@/assets/icons/menu-button-close.svg?inline"
@@ -10,7 +9,6 @@ export default {
 
     components: {
         Navigation,
-        MobileNavigation,
         Logo,
         NavButton,
         NavCloseButton
@@ -38,8 +36,7 @@ export default {
 
     methods: {
         openNavDrawer() {
-            this.navOpen = !this.navOpen;
-            console.log('nav open');
+            this.$nuxt.$emit('openNavigation', true);
         },
         initHeadroom(){
             const headerRef = this.$refs.header;

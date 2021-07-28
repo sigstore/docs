@@ -17,7 +17,7 @@
     // apply flex items-center justify-start;
     padding-right: 40px;
     position: relative;
-    animation: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     animation-delay: 0.1s;
     transform: translateX(0px);
   }
@@ -31,38 +31,48 @@
   }
 }
 
+.inline--button{
+  &-grey {
+    @apply text-gray-dark;
+    transition: all 0.2s ease-in-out;
+    animation-delay: 0.1s;
+    & svg {
+      transition: all 0.2s ease-in-out;
+      animation-delay: 0.1s;
+      transform: translateX(0px);
+    }
+    &:hover {
+      color: $c-purple;
+      & svg {
+        transform: translateX(5px);
+        transition: all 0.2s ease-in-out;
+          animation-delay: 0.1s;
+        path {
+          stroke: $c-purple;
+        }
+      }
+    }
+  }
 
-// .link{
-//   &_naked {
-//     @apply text-16;
-//     @apply leading-22;
-//     @apply text-gray-medium;
-//     font-weight: 500;
-//     @apply flex items-center justify-start;
-//     padding-right: 40px;
-//     position: relative;
-//     animation: all 0.4s ease-in-out;
-//     animation-delay: 0.1s;
-//     transform: translateX(0px);
-
-//     &:after {
-//       content: '';
-//       position: absolute;
-//       right: 0;
-//       height: 20px;
-//       width: 30px;
-//       background-image: url('~assets/icons/arrow-right.svg');
-//       background-size: 100%;
-//       background-position: center;
-//       background-repeat: no-repeat;
-//     }
-
-//     &:hover {
-//       &:after {
-//         animation: all 0.4s ease-in-out;
-//         transform: translateX(15px);
-//       }
-//     }
-
-//   }
-// }
+  &-white {
+    color: white;
+    transition: all 0.2s ease-in-out;
+    animation-delay: 0.1s;
+    & svg {
+      transition: all 0.2s ease-in-out;
+      animation-delay: 0.1s;
+      transform: translateX(0px);
+    }
+    &:hover {
+      color: $c-purple;
+      & svg {
+        transform: translateX(5px);
+        transition: all 0.2s ease-in-out;
+        animation-delay: 0.1s;
+        path {
+          stroke: $c-purple;
+        }
+      }
+    }
+  }
+}

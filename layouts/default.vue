@@ -9,18 +9,29 @@
             <Nuxt />
         </main>
     <Footer :navigation="footerNavLinks" :socialLinks="footerSocialLinks" />
+    <transition name="fade" :duration="{ enter: 500, leave: 500 }">
+        <MobileNavigation 
+            v-show="mobileNavOpen"
+            :navState="mobileNavOpen"  
+            nav-type="header" 
+            :social-links="footerSocialLinks" 
+            :nav-list="headerNavLinks" 
+        />
+    </transition>
   </div>
 </template>
 
 <script>
 import Header from "@/modules/Header/Header.vue"
 import Footer from "@/modules/Footer/Footer.vue"
+import MobileNavigation from "@/modules/MobileNavigation/MobileNavigation.vue";
 
 export default {
   name: "MainLayout",
   components: {
     Header,
-    Footer
+    Footer,
+    MobileNavigation
   },
 
     filters: {
@@ -41,7 +52,8 @@ export default {
         commits: null,
         orgs: null,
         members: null,
-        bgColourMain: null
+        bgColourMain: null,
+        mobileNavOpen: false
     }),
 
     computed: {
@@ -50,12 +62,17 @@ export default {
 		},
 	},
 
+    watch: {
+        '$route'(to, from) {
+            this.$nuxt.$emit('openNavigation',false);
+        }
+    },
+
     mounted() {
         window.addEventListener("scroll", this.getScrollPos)
         this.getGlobalHeader();
         this.getGlobalFooter();
         this.getGlobalSocialLinks();
-        this.emitRef()
 
         this.observer = new IntersectionObserver((entries) => {
             this.$nuxt.$emit("observer.observed", entries);
@@ -63,22 +80,27 @@ export default {
 
         this.$nuxt.$emit("observer.created", this.observer);
 
+        this.$nuxt.$on('openNavigation', (payload) => {
+            this.mobileNavOpen = payload
+        })
+
+        
+
     },
+
     beforeDestroy() {
         window.removeEventListener("scroll", this.getScrollPos)
+        this.$nuxt.$off('openNavigation')
     },
 
     methods: {
-        emitRef(){
-            return 'r';
-        },
         getScrollPos() {
-        if(window.scrollY > 0){
-            this.isScrolling = true;
-            this.scrollPos = window.scrollY;
-        } else {
-            this.isScrolling = false;
-        }
+            if(window.scrollY > 0){
+                this.isScrolling = true;
+                this.scrollPos = window.scrollY;
+            } else {
+                this.isScrolling = false;
+            }
         },
         async getGlobalHeader(){
             const globalData = await this.$content('header').fetch()

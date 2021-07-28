@@ -7,13 +7,13 @@
     :data-header-text="[(backgroundColour === 'bg-purple-dark') ? 'text-white' : (backgroundColour === 'bg-pastel-blue') ? 'text-purple-dark' : 'text-gray-dark']"
     :data-bg-color="backgroundColour"
     >
-        <div class="flex items-center justify-center min-h-full" :class="[showSupportedBy ? 'text_banner--main' : null, (textAlign === 'center') ? 'sm:h-screen lg:h-auto' : (isScreenHeight == true) ? 'h-screen' : 'h-auto' ]">
-            <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : '',`text-${textAlign}`]">
-                <h1 v-if="header" v-animate-on-scroll :class="[textColour]" class="delay-step_1 mb-30 text-gray-dark">{{header}}</h1>
+        <div class="flex items-center justify-center min-h-full" :class="[showSupportedBy ? 'text_banner--main' : null, (textAlign === 'center') ? 'h-screen lg:h-auto' : (isScreenHeight == true) ? 'h-screen' : 'h-auto' ]">
+            <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : '',`text-left md:text-${textAlign}`]">
+                <h1 v-if="header" v-animate-on-scroll :class="[textColour]" class="delay-step_1 mb-30 ">{{header}}</h1>
                 <div 
                 v-animate-on-scroll 
                 :class="[textAlign == 'center' ? 'md:max-w-690 w-full mx-auto' : null,textColour]" 
-                class="subheading text-24 delay-step_3 mb-26 text-gray-dark" 
+                class="subheading text-24 delay-step_3 mb-26 " 
                 v-html="$md.render(text)"
                 >
                 </div>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="w-full md:w-full lg:w-1/2 lg:max-w-470 mt-28">
-                    <div class="bg-white rounded-full p-28 text-gray-dark flex justify-around">
+                    <div class="bg-white rounded-full p-28 text-gray-dark flex items-center justify-around">
                         <p class="h text-11 md:text-12 pr-22 md:w-auto w-1/2">Currently in beta<br>Stable release due in August 2021</p>
                         <a href="https://github.com/sigstore" target="_blank" class="button button--transparent-border md:w-auto w-1/2">Find out more</a>
                     </div>

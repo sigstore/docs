@@ -4,18 +4,8 @@
             <div class="flex flex-wrap justify-between items-start">
                 <NuxtLink class="z-20" :to="`/`"><Logo :class="[$route.params.slug === 'trust-security' ? 'logo-white' : 'logo-black']" /></NuxtLink>
                 <Navigation class="hidden md:block" :scrolled="isScrolling" nav-type="header" :nav-list="navigation" />
-                <transition name="fade" :duration="{ enter: 500, leave: 500 }">
-                    <MobileNavigation 
-                        v-show="!navOpen" 
-                        class="block md:hidden navigation--mobile" 
-                        :scrolled="isScrolling" 
-                        nav-type="header" 
-                        :social-links="socialLinks" 
-                        :nav-list="navigation" 
-                    />
-                </transition>
-                <NavButton v-if="navOpen" class="block md:hidden w-20 h-16 z-20 relative" @click="openNavDrawer" />
-                <NavCloseButton v-if="!navOpen" class="block md:hidden w-20 h-16 z-20 relative" @click="openNavDrawer" />
+                <NavButton class="block md:hidden w-32 h-32 z-20 relative" :class="[$route.params.slug === 'trust-security' ? 'fill-white' : 'fill-black']" @click="openNavDrawer" />
+                <!-- <NavCloseButton v-if="!navOpen" class="block md:hidden w-20 h-16 z-20 relative" @click="openNavDrawer" /> -->
             </div>
         </div>
     </header>
