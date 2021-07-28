@@ -35,21 +35,20 @@ sections:
       bgColour: bg-white
       ctaLink: https://sigstore.slack.com/join/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ#/shared-invite/email
     column3:
-      header: Press & events
-      imageAsset: /img/pressandevents.svg
-      text: See the latest coverage and how sigstore’s making waves in the wider
-        industry, and mark your calendar for upcoming live community events.
-      ctaText: Check our calendar
+      header: " "
+      imageAsset: ""
+      text: " "
+      ctaText: ""
       bgColour: bg-white
-      ctaLink: https://calend.ly
+      ctaLink: ""
     header: Want to get involved?
     text: ""
   - type: contributorsList
-    isContributorsList: true
+    isContributorsList: false
   - type: sponsorsList
     isSponsorsList: true
   - type: newsEvents
-    isNewsAndEvents: true
+    isNewsAndEvents: false
   - type: storySoFar
     showStory: true
 ---

@@ -17,7 +17,7 @@ sections:
     isScreenHeight: true
   - type: threeColumnTextGrid
     column1:
-      header: Sign your code
+      header: Sign code
       imageAsset: /img/howtouseit_signcode.svg
       text:
         Easy authentication and smart cryptography work in the background. Just

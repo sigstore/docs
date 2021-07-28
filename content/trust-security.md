@@ -4,22 +4,25 @@ date: 2021-07-09T15:26:53.431Z
 description: A description here
 sections:
   - card1:
-      header: Trust root
+      header: Our trust root
       imageAsset: ""
-      text: What any signature or certificate needs to be checked against to prove its
-        authenticity. The sigstore trust root is made up of five key holders
-        from the community, responsible for any changes to policy and rotated as
-        we grow in the future.
-      ctaText: See our trust root
-      ctaLink: https://google.com
+      text: >-
+        ### sigstore is built and maintained in the open
+
+
+        The sigstore trust root is made up of five key holders from the community, responsible for any changes to policy and rotated as we grow in the future.
+      ctaText: View our root key holders
+      ctaLink: https://github.com/sigstore/root-signing/tree/main/ceremony
     card2:
-      header: Threat model
+      header: Our threat model
       imageAsset: ""
-      text: Based on thorough analysis of supply chain attacks, exploits and
-        vulnerability compromise, the threat model provides security communities
-        a way to plan against and prevent known threats to your security.
-      ctaText: See our threat model
-      ctaLink: https://google.com
+      text: >-
+        ### Coming soon
+
+
+        Our threat model will provide a way to plan against and prevent known threats to sigstore's infrastructure.
+      ctaText: ""
+      ctaLink: ""
     text: An open, accessible foundation behind the policies and protocols sigstore
       needs to work. It’s a new kind of trust grounded in an open source,
       distributed community.

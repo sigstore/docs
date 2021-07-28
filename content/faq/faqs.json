@@ -11,6 +11,46 @@
     {
       "question": "What's the current status?",
       "answer": "We’re working hard to release v1.0 in July. At the time of writing, we have a working transparency log that’s fully operational as a standalone service, Rekor. It consists of a server and client tooling to make entries and query for inclusion. Files are available to run this in GKE. Work’s also underway to mature the WebPKI (Fulcio) and develop client tools for different package managers and upstream communities."
+    },
+    {
+      "question": "How can people get involved?",
+      "answer": "The best way is to try out the technologies and let us know how you get on - it’ll help us keep developing sigstore’s functionality and see where we can improve. It grows the community too, and we’d always welcome new members to the working group over on Slack. You can also follow us @projectsigstore or the blog for updates, or join the mailing list at sigstore-dev@googlegroups.com."
+    },
+    {
+      "question": "What security checks do you use internally?",
+      "answer": "We’ve adopted a security disclosures and response policy to make sure we can responsibly handle critical issues. We have an initial Security Response Committee, who for each vulnerability reported will coordinate to create the fix and release, and keep the committee looped in. The policy in full is here: https://github.com/sigstore/community/blob/main/SECURITY.md"
+    },
+    {
+      "question": "How easy is it to use?",
+      "answer": "As easy as we can make it. Signing and verifying seems like a lot of extra effort with a lot of pitfalls. Our aim is to design away the manual effort and risk of error, automating the signing into a few simple commands. Verification checks can be made much easier by using the data in our transparency logs, and work is currently underway to explore integrations and development to support that."
+    },
+    {
+      "question": "How do I verify downloaded code with sigstore?",
+      "answer": "Rekor lets you send an artifact’s signature or URL to verify an inclusion proof, which shows that an artifact’s stored in the log. You can retrieve an entry using the `get` command with either the log index or the artifact’s universally unique identifier (UUID), or search to look through the log for artifacts, public keys or a SHA hash. Or you can retrieve public keys using `loginfo`, which finds a public key which is then used to verify signatures. This data is freely available, and anyone can deploy and run a Rekor instance."
+    },
+    {
+      "question": "Is there live support?",
+      "answer": "The fastest way to get answers, ideas and feedback is to jump into our working group on Slack. We’re all developing this together, so we’d be happy to help you out."
+    },
+    {
+      "question": "Can I run my own monitor or build an application to use the transparency logs myself?",
+      "answer": "We would love that, you’re definitely encouraged to do so. The more people monitoring the logs and providing useful services to users, the better. We’ve published OpenAPI interfaces for both Rekor and Fulcio, and our Slack workspace is a good place to run ideas by us for feedback and questions."
+    },
+    {
+      "question": "Can I use the transparency log on its own?",
+      "answer": "Yes. Anyone can stand up a Rekor instance, if you perform your own signing. Rekor has a pluggable PKI and support for GPG, X.509 and Minisign. It also has a customizable manifest schema (pluggable types), so you can get it to work with whatever values you need. There’s more details in our documentation about pluggable types, and you can find information on the Rekor client CLI for adding an entry to a transparency log."
+    },
+    {
+      "question": "Why not blockchain?",
+      "answer": "Public blockchains often end up using a centralized entry point for canonicalization and authentication. Consensus algorithms can be susceptible to majority attacks, and transparency logs are more mature and capable for what we aim to build with sigstore."
+    },
+    {
+      "question": "How does this relate to the work of TUF or in-toto?",
+      "answer": "Sigstore is complementary to TUF and in-toto. Project members of both communities are collaborating with us, too. "
+    },
+    {
+      "question": "Do you plan on running a monitor?",
+      "answer": "Yes, eventually. A monitor prototype is currently being worked on by some collaborators from Purdue University."
     }
   ]
 }
