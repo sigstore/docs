@@ -4,7 +4,7 @@ date: 2021-07-09T15:26:53.431Z
 description: A description here
 sections:
   - card1:
-      header: Trust root
+      header: Our trust root
       imageAsset: ""
       text: >-
         ### sigstore is built and maintained in the open
@@ -14,7 +14,7 @@ sections:
       ctaText: View our root key holders
       ctaLink: https://github.com/sigstore/root-signing/tree/main/ceremony
     card2:
-      header: Threat model
+      header: Our threat model
       imageAsset: ""
       text: >-
         ### Coming soon
