@@ -157,7 +157,7 @@ module.exports = {
       white: "#FFFFFF",
     },
     lineHeight: {
-        none: "none",
+        none: 0,
         ...pxToRem(
             baseFontSize,
             98,
@@ -167,6 +167,7 @@ module.exports = {
             49,
             48,
             43,
+            44,
             42,
             40,
             32,
@@ -184,7 +185,7 @@ module.exports = {
     },
     minHeight: {
       screen: "100vh",
-      ...pxToRem(baseFontSize, 700, 180, 146),
+      ...pxToRem(baseFontSize, 440, 480, 700, 180, 146),
     },
     borderRadius: {
       'none': '0',
@@ -203,6 +204,7 @@ module.exports = {
       maxWidth: {
         '0': '0',
         full: '100%',
+        '1/2': '50%',
         none: 'none',
   
         '15em': '15em',

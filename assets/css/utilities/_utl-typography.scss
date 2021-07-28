@@ -5,7 +5,7 @@
   line-height: 3.4rem;
 
   @include media-breakpoint-up(lg) {
-    font-size: $size-big; // 50px
+    @apply text-54;
     letter-spacing: 0.167rem;
     line-height: 6rem;
   }
@@ -31,9 +31,9 @@
   line-height: 2.2rem;
 
   @include media-breakpoint-up(lg) {
-    font-size: $size-x-large; // 30px
+    @apply text-36; 
+    @apply leading-43;
     letter-spacing: 0.05rem;
-    line-height: 4rem;
   }
 }
 
@@ -141,7 +141,7 @@
   font-family: $font-sans-header-standard;
   font-size: $size-medium;
   font-weight: $weight-medium;
-  line-height: 3rem;
+  line-height: 3.2rem;
 
   @include media-breakpoint-up(lg) {
     font-size: $size-large; // 16px

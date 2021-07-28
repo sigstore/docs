@@ -97,7 +97,7 @@
         font-weight: 700;
         max-width: 700px;
         width: 80%;
-        min-height: 380px;
+        min-height: 400px;
 
         &:nth-child(0){
           background-color: #6349FF;

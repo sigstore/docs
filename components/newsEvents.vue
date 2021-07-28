@@ -6,9 +6,9 @@
             </div>
             <div v-if="articlesArray.length > 0" class="w-full md:w-1/2">
                 <article v-for="(article, index) in articlesArray" :key="index" class="text-gray-dark border-b-2 border-gray-medium pb-6">
-                    <p class="h3">{{article.title}}</p>
+                    <p class="text-24 leading-32 text-gray-dark h">{{article.title}}</p>
                     <div class="flex justify-start items-center">
-                        <div class="tag bg-white text-gray-dark rounded-lg p-8 text-12 font-medium h4 my-12 capitalize mr-14">{{article.entryTag}}</div>
+                        <div class="tag bg-white text-gray-dark rounded-lg p-8 text-12 font-medium h4 my-12 capitalize mr-14 leading-none">{{article.entryTag}}</div>
                         <p class="mr-14">{{article.date}}</p>
                         &bull;
                         <a class="ml-12 flex items-center" :href="article.link">

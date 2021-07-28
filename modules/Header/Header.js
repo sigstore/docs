@@ -27,7 +27,8 @@ export default {
     }),
 
     computed: mapGetters({
-        bg: 'settings/bg'
+        bg: 'settings/bg',
+        text: 'settings/textColor'
     }),
 
     props: {
@@ -49,29 +50,12 @@ export default {
         startsWith(classlist, name) {
             console.log(classlist.lastIndexOf(name, 0) === 1)
             // return classlist.lastIndexOf(name, 0) === 0;
-        },
-        getBgColour() {
-            const rootBgColourEl = document.getElementsByClassName("text_banner")[0]
-            const bgC = rootBgColourEl.dataset.bgColor;
-            // console.log(bgC);
-            this.backgroundC = bgC;
         }
     },
 
     mounted() {
         window.addEventListener("scroll", this.getScrollPos)
         this.initHeadroom();
-        this.getBgColour();
-        this.$nextTick(() => {
-            this.getBgColour();
-        });
-    },
-
-    updated(){
-        this.getBgColour();
-        this.$nextTick(() => {
-            this.getBgColour();
-        });
     },
 
     beforeDestroy() {

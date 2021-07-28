@@ -26,7 +26,7 @@
                 </div>
 
                 <div v-if="showSupportedBy" v-animate-on-scroll class="delay-step_3 md:mt-240">
-                    <p>Supported by</p>
+                    <p class="h mb-16 text-gray-dark">In collaboration with </p>
                     <div class="flex items-center justify-start overflow-scroll lg:overflow-unset">
                         <img class="max-w-122 mr-20" src="/img/googlelogo.png" alt="Google sponsor logo" />
                         <img class="max-w-122 mr-20" src="/img/linuxfoundationlogo.png" alt="Linux Foundation sponsor logo" />

@@ -5,7 +5,7 @@
     >
         <div class="lg:flex justify-between container inner" :class="[textAlignment != 'textRight' ? 'items-center' : 'items-start']">
             <div v-animate-on-scroll class="w-full md:w-1/2 step-delay_1 md:mr-80">
-                <h2 class="text-36 leading-32 mb-32" :class="[!bgColour ? 'text-purple-dark' : 'text-white']">{{header}}</h2>
+                <h2 class="text-24 leading-32 mb-32" :class="[!bgColour ? 'text-purple-dark' : 'text-white']">{{header}}</h2>
                 <div v-if="textAlignment != 'textRight'" :class="[!bgColour ? 'text-purple-dark' : 'text-white']" class="mt-8" v-html="$md.render(text)"></div>
             </div>
             <div v-if="!card" v-animate-on-scroll class="w-full md:w-1/2 step-delay_2">

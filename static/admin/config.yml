@@ -208,6 +208,28 @@ collections:
                   required: false,
                   default: true,
                 }
+          - label: 'Sigstore divider'
+            name: 'sigstoreDivider'
+            widget: object
+            fields:
+              - {
+                  label: Add Sigstore divider,
+                  name: showSigstoreDivider,
+                  widget: boolean,
+                  required: false,
+                  default: true,
+                }
+          - label: 'Software behind Sigstore'
+            name: 'softwareBehind'
+            widget: object
+            fields:
+              - {
+                  label: Show Software behind Sigstore,
+                  name: showSoftwareBehind,
+                  widget: boolean,
+                  required: false,
+                  default: true,
+                }
           - label: 'Faq section'
             name: 'faqSection'
             widget: object
@@ -904,7 +926,7 @@ collections:
             fields:
               - { label: Question, name: question, widget: string }
               - { label: Answer, name: answer, widget: string }
-  - label: 'Sigstore ecosystem Groups'
+  - label: 'Sigstore ecosystem'
     name: 'sigstoreGroups'
     files:
       - label: 'Groups'
@@ -923,6 +945,39 @@ collections:
                   name: groupDiagram,
                   widget: image,
                   default: '',
+                  required: false,
+                }
+      - label: 'Sofware'
+        name: 'software'
+        format: 'json'
+        file: 'content/software/software_list.json'
+        fields:
+          - label: 'Product'
+            name: 'product'
+            widget: 'list'
+            fields:
+              - {
+                  label: Product name,
+                  name: productName,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Product overview,
+                  name: productOverview,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Product CTA,
+                  name: productCTA,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Product CTA link,
+                  name: productCTALink,
+                  widget: string,
                   required: false,
                 }
   - label: 'Globals'

@@ -3,7 +3,7 @@
     <section class="py-128 bg-white" data-header-text="text-gray-dark">
         <div v-if="story.textBlock" class="lg:flex justify-between items-start container inner">
             <div v-animate-on-scroll class="w-full md:w-1/2 step-delay_1">
-                <h2 class="text-36 leading-32 mb-32">{{story.header}}</h2>
+                <h2 class="text-36 leading-32 mb-32 text-gray-dark">{{story.header}}</h2>
             </div>
             <div v-animate-on-scroll class="w-full md:w-1/2 step-delay_2">
                 <div class="text-gray-dark" v-html="$md.render(story.textBlock)"></div>

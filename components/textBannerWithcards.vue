@@ -18,10 +18,10 @@
             </div>
         </div>
         <div class="container container--card">
-            <div class="p-0 md:p-32 lg:p-128 mt-64 md:mt-128 w-full mx-auto px-24 md:px-0">
+            <div class="p-0 md:p-32 lg:p-128 w-full mx-auto px-24 md:px-0">
                 <div class="lg:flex items-start justify-between md:-ml-30 md:-mr-30 mt-32 md:mt-64">
                     <div class="px-30">
-                        <div v-animate-on-scroll class="delay-step_1 mb-32 md:mb-16 w-full p-32 md:p-32 rounded-xl border border-white text-white">
+                        <div class="mb-32 md:mb-16 w-full p-32 md:p-32 rounded-xl border border-white text-white">
                             <img v-if="card1.imageAsset" :src="card1.imageAsset" class="mb-24" />
                             <h4 class="mb-24 text-24">{{card1.header}}</h4>
                             <p>{{card1.text}}</p>
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="px-30">
-                        <div v-animate-on-scroll class="delay-step_2 mb-32 md:mb-16 w-full p-32 md:p-32 rounded-xl border border-white text-white">
+                        <div class="mb-32 md:mb-16 w-full p-32 md:p-32 rounded-xl border border-white text-white">
                             <img v-if="card2.imageAsset" :src="card2.imageAsset" class="mb-24" />
                             <h4 class="mb-24 text-24">{{card2.header}}</h4>
                             <p>{{card2.text}}</p>

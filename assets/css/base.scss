@@ -119,16 +119,13 @@ hr {
   }
 }
 
-.stroke-white {
+.logo-white {
   path {
-    stroke: $c-white;
-    stroke-opacity: 1;
+    fill: $c-white;
   }
 
-  &--circle {
-    circle {
-      stroke: $c-white;
-    }
+  circle {
+    fill: $c-white;
   }
 }
 

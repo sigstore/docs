@@ -2,7 +2,7 @@
     <header ref="header" class="headroom py-30 fixed w-full z-50" :class="[bg,isScrolling ? 'scrolled' : '']">
         <div class="container">
             <div class="flex flex-wrap justify-between items-start">
-                <NuxtLink class="z-20" :to="`/`"><Logo /></NuxtLink>
+                <NuxtLink class="z-20" :to="`/`"><Logo :class="[$route.params.slug === 'trust-security' ? 'logo-white' : 'logo-black']" /></NuxtLink>
                 <Navigation class="hidden md:block" :scrolled="isScrolling" nav-type="header" :nav-list="navigation" />
                 <transition name="fade" :duration="{ enter: 500, leave: 500 }">
                     <MobileNavigation 

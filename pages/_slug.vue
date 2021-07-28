@@ -1,6 +1,6 @@
 <template>
   <div>
-    <component :is="section.type" v-for="(section, index) in page.sections" :key="index" v-bind="section" /> 
+    <component :is="section.type" v-for="(section, index) in page.sections" :key="index" :class="[section.type != 'carousel' ? 'page--component-border' : 'page--component-border' ]" v-bind="section" /> 
   </div>
 </template>
 
@@ -99,14 +99,23 @@ export default {
     const firstBanner = this.page.sections.filter(p => p.type === 'textBanner')[0]
     const textBannerCards = this.page.sections.filter(p => p.type === 'textBannerWithcards')
     if(firstBanner){
-      this.setColour(firstBanner.bgColour);
+      this.setHeaderColour({bg:firstBanner.bgColour,text: this.$route.params.slug === 'trust-security' ? 'text-white':'text-gray-dark'});
     } else {
-      this.setColour(textBannerCards[0].bgColour);
+      this.setHeaderColour({bg:textBannerCards[0].bgColour,text: this.$route.params.slug === 'trust-security' ? 'text-white':'text-gray-dark'});
     }
   },
 
   methods: {
-    ...mapActions("settings", ["setColour"])
+    ...mapActions("settings", ["setHeaderColour"]),
   }
 };
 </script>
+<style lang="scss">
+.page {
+  &--component {
+    &-border{
+      /* border-bottom: 2px solid #444444; */
+    }
+  }
+}
+</style>

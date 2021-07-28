@@ -41,6 +41,7 @@ sections:
         industry, and mark your calendar for upcoming live community events.
       ctaText: Check our calendar
       bgColour: bg-white
+      ctaLink: https://calend.ly
     header: Want to get involved?
     text: ""
   - type: contributorsList
