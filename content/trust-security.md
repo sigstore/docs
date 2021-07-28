@@ -16,9 +16,12 @@ sections:
     card2:
       header: Threat model
       imageAsset: ""
-      text: Our threat model will provide a way to plan against and prevent known
-        threats to sigstore's infrastructure.
-      ctaText: Coming soon
+      text: >-
+        ### Coming soon
+
+
+        Our threat model will provide a way to plan against and prevent known threats to sigstore's infrastructure.
+      ctaText: ""
       ctaLink: ""
     text: An open, accessible foundation behind the policies and protocols sigstore
       needs to work. It’s a new kind of trust grounded in an open source,
