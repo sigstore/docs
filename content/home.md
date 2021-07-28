@@ -12,7 +12,7 @@ sections:
     bgColour: bg-pastel-orange
     ctaButtons: []
     textAlign: left
-    textColour: text-dark-purple
+    textColour: text-gray-dark
     type: textBanner
     showBetaCard: true
   - type: twoColumnBanner
@@ -71,12 +71,12 @@ sections:
       free-to-use open source technologies like Fulcio, Cosign and Rekor, we’re
       building ways to handle digital signing, verification and checks for
       provenance needed to make it safer to distribute and use open source
-      software.   \
+      software.   
 
 
       **A standardized approach** 
 
-      This means that open source software uploaded for distribution has a stricter, more standardized way of checking who’s been involved, that it hasn’t been tampered with. There’s no risk of key compromise, so third parties can’t hijack a release and slip in something malicious. \
+      This means that open source software uploaded for distribution has a stricter, more standardized way of checking who’s been involved, that it hasn’t been tampered with. There’s no risk of key compromise, so third parties can’t hijack a release and slip in something malicious. 
 
 
       **Building for future integrations** 
