@@ -49,7 +49,7 @@ sections:
   - type: sponsorsList
     isSponsorsList: true
   - type: newsEvents
-    isNewsAndEvents: true
+    isNewsAndEvents: false
   - type: storySoFar
     showStory: true
 ---
