@@ -16,6 +16,8 @@ sections:
     textColour: text-orange-dark
     type: textBanner
     isScreenHeight: true
+  - type: sigstoreDivider
+    showSigstoreDivider: true
   - type: threeColumnTextGrid
     column1:
       header: Share your stories
@@ -43,14 +45,24 @@ sections:
       ctaLink: ""
     header: Want to get involved?
     text: ""
+  - type: sigstoreDivider
+    showSigstoreDivider: true
   - type: contributorsList
     isContributorsList: false
+  - type: sigstoreDivider
+    showSigstoreDivider: true
   - type: sponsorsList
     isSponsorsList: true
+  - type: sigstoreDivider
+    showSigstoreDivider: true
   - type: newsEvents
     isNewsAndEvents: false
+  - type: sigstoreDivider
+    showSigstoreDivider: true
   - type: storySoFar
     showStory: true
+  - type: sigstoreDivider
+    showSigstoreDivider: true
 ---
 
 Body text

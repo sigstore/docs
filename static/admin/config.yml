@@ -128,7 +128,7 @@ collections:
           - label: 'Carousel'
             name: 'carousel'
             widget: object
-            summary: '{{fields.header}}'
+            summary: 'Case studies carousel'
             fields:
               - {
                   label: Header,

@@ -63,6 +63,8 @@ sections:
       text: Everyone involved in sigstore believes in an open, transparent and
         accountable future for open source software. Everything we do comes from
         that shared vision.
+  - type: sigstoreDivider
+    showSigstoreDivider: true
   - alignment: imageRight
     cardTitle: How can you use it?
     text: >-
@@ -102,6 +104,12 @@ sections:
       imageAsset: /img/howtouseit_monitor.svg
       text: Data stored in the logs is readily auditable, a foundation for future
         monitors and integrations to build into your security workflow.
+  - type: sigstoreDivider
+    showSigstoreDivider: true
+  - type: newsEvents
+    isNewsAndEvents: true
+  - type: sigstoreDivider
+    showSigstoreDivider: true
   - type: carousel
     header: Image Gallery
     carouselCaseItems:

@@ -1,6 +1,6 @@
 <!-- eslint-disable -->
 <template>
-    <section class="pb-70 md:pb-160">
+    <section class="py-64 md:py-128">
         <Slider :slideData="slideData" />
     </section>
 </template>
