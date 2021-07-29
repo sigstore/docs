@@ -8,7 +8,7 @@
     :data-bg-color="backgroundColour"
     >
         <div class="flex items-center justify-center min-h-full" :class="[showSupportedBy ? 'text_banner--main' : null, (textAlign === 'center') ? 'h-screen lg:h-auto' : (isScreenHeight == true) ? 'h-screen' : 'h-auto' ]">
-            <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : '',`text-left md:text-${textAlign}`]">
+            <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : null,textAlign === 'text-center' ? 'text-center' : 'text-left']">
                 <h1 v-if="header" v-animate-on-scroll :class="[textColour]" class="delay-step_1 mb-30 ">{{header}}</h1>
                 <div 
                 v-animate-on-scroll 
