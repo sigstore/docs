@@ -110,8 +110,6 @@ sections:
       - kpack
       - red-hat
       - wired
-  - type: newsEvents
-    isNewsAndEvents: false
   - ctaStyle: transparentCta
     text: Help build a safer future with us.
     header: ""
