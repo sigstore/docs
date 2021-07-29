@@ -52,11 +52,9 @@ const pxToRem = (base, ...items) => {
 module.exports = {
   // mode: 'jit',
   purge: {
-    content: ["./pages/**/*.{js,vue}", "./components/**/*.{js,vue}", "./modules/**/*.{js,vue}"],
+    content: ["./pages/**/*.{js,vue}", "./components/*.{js,vue}", "./modules/**/*.{js,vue}"],
     options: {
-      safelist: {
-        standard: [/^delay-/],
-      },
+      safelist: [/^delay-/,'text-center','text-right','text-left','fixed'],
     },
   },
   plugins: [require("@tailwindcss/typography")],
