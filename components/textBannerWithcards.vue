@@ -24,7 +24,7 @@
                         <div class="mb-32 md:mb-16 w-full p-32 md:p-32 rounded-xl border border-white text-white md:min-h-320">
                             <img v-if="card1.imageAsset" :src="card1.imageAsset" class="mb-24" />
                             <h4 class="mb-24 text-24">{{card1.header}}</h4>
-                            <p>{{card1.text}}</p>
+                            <div class="markdown" v-html="$md.render(card1.text)"></div>
                             <a class="pt-64 flex items-center h text-12 md:text-16 inline--button-white" :href="card1.ctaLink">
                                 {{card1.ctaText}}
                                 <span class="ml-6">
@@ -41,7 +41,7 @@
                         <div class="mb-32 md:mb-16 w-full p-32 md:p-32 rounded-xl border border-white text-white md:min-h-320">
                             <img v-if="card2.imageAsset" :src="card2.imageAsset" class="mb-24" />
                             <h4 class="mb-24 text-24">{{card2.header}}</h4>
-                            <p>{{card2.text}}</p>
+                            <div class="markdown" v-html="$md.render(card2.text)"></div>
                             <a class="pt-64 flex items-center h text-12 md:text-16 inline--button-white" :href="card2.ctaLink">
                                 {{card2.ctaText}}
                                 <span class="ml-6">
