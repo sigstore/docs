@@ -7,9 +7,10 @@
             </div>
             <div class="md:flex items-start justify-between md:-ml-30 md:-mr-30">
                 <div 
+                v-if="column1.header" 
                 :style="`background-color: ${column1.bgColour};`"
-                :class="[column1.isCardStyle ? 'rounded-xl px-40 py-40' : '']" 
-                class="w-full md:w-1/3 md:px-10 md:max-w-352 md:ml-30 mb-44 md:min-h-440">
+                :class="[column1.isCardStyle ? 'rounded-xl px-40 py-40 md:min-h-440' : 'md:px-10']" 
+                class="w-full md:w-1/3 md:max-w-352 md:ml-30 mb-44">
                     <img :src="column1.imageAsset" class="mb-24" />
                     <h4 class="mb-24 text-24 leading-32" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{column1.header}}</h4>
                     <p class="text-gray-dark">{{column1.text}}</p>
@@ -25,9 +26,10 @@
                     </a>
                 </div>
                 <div 
+                v-if="column2.header" 
                 :style="`background-color: ${column1.bgColour};`"
-                :class="[column1.isCardStyle ? 'rounded-xl px-40 py-40' : '']"  
-                class="w-full md:w-1/3 md:px-10 md:max-w-352 md:ml-30 mb-44 md:min-h-440">
+                :class="[column2.isCardStyle ? 'rounded-xl px-40 py-40 md:min-h-440' : 'md:px-10 ']"  
+                class="w-full md:w-1/3 md:max-w-352 md:ml-30 mb-44">
                     <img :src="column2.imageAsset" class="mb-24" />
                     <h4 class="mb-24 text-24 leading-32" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{column2.header}}</h4>
                     <p class="text-gray-dark">{{column2.text}}</p>
@@ -42,10 +44,11 @@
                         </span>
                     </a>
                 </div>
-                <div 
+                <div
+                v-if="column3.header" 
                 :style="`background-color: ${column1.bgColour};`"
-                :class="[column1.isCardStyle ? 'rounded-xl px-40 py-40' : '']"  
-                class="mb-8 w-full md:w-1/3 md:px-10 md:max-w-352 md:ml-30 md:mr-30 md:min-h-440">
+                :class="[column3.isCardStyle ? 'rounded-xl px-40 py-40 md:min-h-440' : 'md:px-10 ']"  
+                class="mb-8 w-full md:w-1/3 md:max-w-352 md:ml-30 md:mr-30">
                     <img :src="column3.imageAsset" class="mb-24" />
                     <h4 class="mb-24 text-24 leading-32" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{column3.header}}</h4>
                     <p class="text-gray-dark">{{column3.text}}</p>

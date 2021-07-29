@@ -2,7 +2,7 @@
 <template>
     <section
     ref="textBanner" 
-    class="text_banner md:flex justify-center items-center" 
+    class="text_banner md:flex justify-center items-center relative" 
     :class="[backgroundColour,isScreenHeight ? 'min-h-screen md:flex-col' : 'h-auto py-128']"
     :data-header-text="[(backgroundColour === 'bg-purple-dark') ? 'text-white' : (backgroundColour === 'bg-pastel-blue') ? 'text-purple-dark' : 'text-gray-dark']"
     :data-bg-color="backgroundColour"
@@ -24,19 +24,20 @@
                         <component :is="`${ctaStyle}`" v-bind="[{'slug': ctaButton}]" />
                     </div>
                 </div>
-
-                <div v-if="showSupportedBy" v-animate-on-scroll class="delay-step_3 md:mt-240">
-                    <p class="h mb-16 text-gray-dark">In collaboration with </p>
-                    <div class="flex items-center justify-start overflow-scroll lg:overflow-unset">
-                        <img class="max-w-122 mr-20" src="/img/googlelogo.png" alt="Google sponsor logo" />
-                        <img class="max-w-122 mr-20" src="/img/linuxfoundationlogo.png" alt="Linux Foundation sponsor logo" />
-                        <img class="max-w-122 mr-20" src="/img/redhatlogo.png" alt="RedHat sponsor logo" />
-                        <img class="max-w-122 mr-20" src="/img/purdueunilogo.png" alt="Purdue University sponsor logo" />
-                    </div>
+            </div>
+        </div>
+        <div v-if="showSupportedBy" class="absolute bottom-0 mb-24 w-full">
+            <div class="container inner">
+                <p class="h mb-16 text-gray-dark">In collaboration with </p>
+                <div class="flex items-center justify-start overflow-scroll lg:overflow-unset">
+                    <img class="md:w-122 w-55 mr-20" src="/img/googlelogo.png" alt="Google sponsor logo" />
+                    <img class="md:w-122 w-55 mr-20" src="/img/linuxfoundationlogo.png" alt="Linux Foundation sponsor logo" />
+                    <img class="md:w-122 w-55 mr-20" src="/img/redhatlogo.png" alt="RedHat sponsor logo" />
+                    <img class="md:w-122 w-55 mr-20" src="/img/purdueunilogo.png" alt="Purdue University sponsor logo" />
                 </div>
             </div>
         </div>
-        <div v-if="showStatsBanner" v-animate-on-scroll class="delay-step_4 container container--card relative bottom-0 left-0 lg:pb-64">
+        <div v-if="showStatsBanner" v-animate-on-scroll class="delay-step_4 container container--card relative lg:pb-64 hidden">
             <div class="lg:flex flex-wrap items-center justify-between bg-orange-medium py-50 px-20 lg:p-64 stat_banner">
                 <div class="w-full md:w-full lg:w-1/2 lg:max-w-440">
                     <div class="flex items-center justify-between">

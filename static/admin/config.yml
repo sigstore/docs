@@ -667,6 +667,13 @@ collections:
                       widget: markdown,
                       default: 'Hello World',
                     }
+                  - {
+                      label: Is Card style,
+                      name: isCardStyle,
+                      widget: boolean,
+                      required: false,
+                      default: false,
+                    }
               - label: 'Column 2'
                 name: 'column2'
                 widget: object
@@ -690,6 +697,13 @@ collections:
                       widget: markdown,
                       default: 'Hello World',
                     }
+                  - {
+                      label: Is Card style,
+                      name: isCardStyle,
+                      widget: boolean,
+                      required: false,
+                      default: false,
+                    }
               - label: 'Column 3'
                 name: 'column3'
                 widget: object
@@ -712,6 +726,13 @@ collections:
                       name: text,
                       widget: markdown,
                       default: 'Hello World',
+                    }
+                  - {
+                      label: Is Card style,
+                      name: isCardStyle,
+                      widget: boolean,
+                      required: false,
+                      default: false,
                     }
           - label: 'Three Column Text Grid'
             name: 'threeColumnTextGrid'
@@ -727,7 +748,8 @@ collections:
                       label: Header,
                       name: header,
                       widget: string,
-                      default: 'Spotlight',
+                      default: '',
+                      required: false,
                     }
                   - {
                       label: Is Card style,
@@ -740,6 +762,7 @@ collections:
                       label: Background Colour,
                       name: bgColour,
                       widget: select,
+                      required: false,
                       options:
                         [
                           { label: 'Purple', value: 'bg-purple-dark' },
@@ -760,7 +783,8 @@ collections:
                       label: Text,
                       name: text,
                       widget: markdown,
-                      default: 'Hello World',
+                      default: '',
+                      required: false,
                     }
                   - {
                       label: CTA text,
@@ -784,7 +808,8 @@ collections:
                       label: Header,
                       name: header,
                       widget: string,
-                      default: 'Spotlight',
+                      default: '',
+                      required: false,
                     }
                   - {
                       label: Is Card style,
@@ -797,6 +822,7 @@ collections:
                       label: Background Colour,
                       name: bgColour,
                       widget: select,
+                      required: false,
                       options:
                         [
                           { label: 'Purple', value: 'bg-purple-dark' },
@@ -817,7 +843,8 @@ collections:
                       label: Text,
                       name: text,
                       widget: markdown,
-                      default: 'Hello World',
+                      default: '',
+                      required: false,
                     }
                   - {
                       label: CTA text,
@@ -841,7 +868,8 @@ collections:
                       label: Header,
                       name: header,
                       widget: string,
-                      default: 'Spotlight',
+                      default: '',
+                      required: false,
                     }
                   - {
                       label: Is Card style,
@@ -854,6 +882,7 @@ collections:
                       label: Background Colour,
                       name: bgColour,
                       widget: select,
+                      required: false,
                       options:
                         [
                           { label: 'Purple', value: 'bg-purple-dark' },
@@ -874,7 +903,8 @@ collections:
                       label: Text,
                       name: text,
                       widget: markdown,
-                      default: 'Hello World',
+                      default: '',
+                      required: false,
                     }
                   - {
                       label: CTA text,
