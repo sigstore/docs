@@ -15,9 +15,9 @@
             </div>
 
             <div v-if="activeGroupData" class="w-full">
-                <div class="flex justify-center items-start">
-                    <div class="w-full md:w-1/3 text-left markdown" v-html="$md.render(activeGroupData.textOverview)"></div>
-                    <div class="w-full md:w-2/3"><img :src="activeGroupData.groupDiagram" :alt="`${activeGroupData.groupName} architecture diagram`"></div>
+                <div class="">
+                    <div class="w-full md:w-2/3 text-left markdown mx-auto" v-html="$md.render(activeGroupData.textOverview)"></div>
+                    <div class="w-full  mx-auto my-32"><img :src="activeGroupData.groupDiagram" :alt="`${activeGroupData.groupName} architecture diagram`"></div>
                 </div>
             </div>
         </div>

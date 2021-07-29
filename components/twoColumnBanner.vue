@@ -9,7 +9,7 @@
                 <div v-if="textAlignment != 'textRight'" :class="[!bgColour ? 'text-purple-dark' : 'text-white']" class="mt-8 md:block hidden" v-html="$md.render(text)"></div>
                 <div v-if="textAlignment != 'textRight'" class="block md:hidden"><img :src="imageAsset" /></div>
             </div>
-            <div v-if="!card" v-animate-on-scroll class="w-full md:w-1/2 step-delay_2 mt-32 md:mt-0">
+            <div v-if="!card" v-animate-on-scroll class="w-full md:w-1/2 step-delay_2 mt-32 md:mt-0 md:order-2">
                 <div v-if="textAlignment != 'textRight'" class="md:block hidden"><img :src="imageAsset" /></div>
                 <div v-else v-html="$md.render(text)"></div>
                 <div v-if="textAlignment != 'textRight'" :class="[!bgColour ? 'text-purple-dark' : 'text-white']" class="mt-8 block md:hidden" v-html="$md.render(text)"></div>

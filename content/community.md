@@ -35,9 +35,9 @@ sections:
       bgColour: bg-white
       ctaLink: https://sigstore.slack.com/join/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ#/shared-invite/email
     column3:
-      header: " "
+      header: ""
       imageAsset: ""
-      text: " "
+      text: ""
       ctaText: ""
       bgColour: bg-white
       ctaLink: ""
