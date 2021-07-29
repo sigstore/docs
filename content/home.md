@@ -104,6 +104,8 @@ sections:
       imageAsset: /img/howtouseit_monitor.svg
       text: Data stored in the logs is readily auditable, a foundation for future
         monitors and integrations to build into your security workflow.
+  - type: sigstoreDivider
+    showSigstoreDivider: true
   - type: newsEvents
     isNewsAndEvents: true
   - type: sigstoreDivider
