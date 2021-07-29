@@ -2,10 +2,6 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
-  generate: {
-    fallback: true
-  },
-
   loading: {
     color: 'blue',
     height: '5px'
@@ -113,6 +109,15 @@ export default {
   pwa: {
     manifest: {
       lang: 'en'
+    }
+  },
+
+  generate: {
+    fallback: true,
+    async ready () {
+      const { $content } = require('@nuxt/content')
+      const files = await $content().only(['slug']).fetch()
+      console.log(files)
     }
   },
 

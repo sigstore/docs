@@ -11,10 +11,14 @@ export default {
 
   },
 
-  async asyncData({ $content, params }) {
+  async asyncData({ $content, params, error }) {
     const slug = params.slug || "home";
     const page = await $content(slug)
       .fetch();
+    
+    if (!page) {
+      return error({ statusCode: 404, message: 'Page not found' })
+    }
 
     return {
       page
