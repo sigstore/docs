@@ -20,14 +20,6 @@ sections:
     showSigstoreDivider: true
   - type: threeColumnTextGrid
     column1:
-      header: Share your stories
-      imageAsset: /img/stories.svg
-      text: Already working with sigstore? Sharing and self-reporting helps us track
-        community health, the state of the tooling and how it’s all being used.
-      ctaText: Leave a user story
-      bgColour: bg-white
-      ctaLink: https://github.com/sigstore/friends
-    column2:
       header: Join our working group
       imageAsset: /img/slack.svg
       text: Questions, answers and what we’re working on as it happens. Come join us
@@ -36,6 +28,14 @@ sections:
       ctaText: Join us on Slack
       bgColour: bg-white
       ctaLink: https://sigstore.slack.com/join/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ#/shared-invite/email
+    column2:
+      header: Share your stories
+      imageAsset: /img/stories.svg
+      text: Already working with sigstore? Sharing and self-reporting helps us track
+        community health, the state of the tooling and how it’s all being used.
+      ctaText: Leave a user story
+      bgColour: bg-white
+      ctaLink: https://github.com/sigstore/friends
     column3:
       header: ""
       imageAsset: ""
@@ -45,8 +45,6 @@ sections:
       ctaLink: ""
     header: Want to get involved?
     text: ""
-  - type: sigstoreDivider
-    showSigstoreDivider: true
   - type: sigstoreDivider
     showSigstoreDivider: true
   - type: sponsorsList
