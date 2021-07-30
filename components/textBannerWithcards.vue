@@ -5,8 +5,8 @@
     :class="[backgroundColour,isScreenHeight ? 'min-h-screen md:flex-col' : 'h-auto py-128']"
     :data-header-text="[(backgroundColour === 'bg-purple-dark') ? 'text-white' : (backgroundColour === 'bg-pastel-blue') ? 'text-purple-dark' : 'text-gray-dark']"
     >
-        <div class="flex items-center justify-center pt-128 md:pt-300" :class="[showSupportedBy ? 'text_banner--main' : '']">
-            <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : '',`text-${textAlign}`]">
+        <div class="flex items-center justify-center pt-128 md:pt-30" :class="[showSupportedBy ? 'text_banner--main' : '']">
+            <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : '',textAlign === 'center' ? 'text-left md:text-center' : 'text-left']">
                 <h1 v-if="header" v-animate-on-scroll :class="[textColour]" class="delay-step_1 mb-30 text-gray-dark">{{header}}</h1>
                 <div 
                 v-animate-on-scroll 
@@ -19,13 +19,13 @@
         </div>
         <div class="container container--card">
             <div class="p-0 md:p-32 lg:p-128 w-full mx-auto px-24 md:px-0">
-                <div class="lg:flex items-start justify-between md:-ml-30 md:-mr-30 mt-32 md:mt-64">
+                <div class="md:flex items-start justify-between md:-ml-30 md:-mr-30 mt-32 md:mt-64">
                     <div class="px-30 w-full md:w-1/2">
                         <div class="mb-32 md:mb-16 w-full p-32 md:p-32 rounded-xl border border-white text-white md:min-h-320">
-                            <img v-if="card1.imageAsset" :src="card1.imageAsset" class="mb-24" />
+                            <img v-if="card1.imageAsset" :src="card1.imageAsset" :alt="`${card1.header} image`" class="mb-24" />
                             <h4 class="mb-24 text-24">{{card1.header}}</h4>
                             <div class="markdown" v-html="$md.render(card1.text)"></div>
-                            <a class="pt-64 flex items-center h text-12 md:text-16 inline--button-white" :href="card1.ctaLink">
+                            <a v-if="card1.ctaLink" class="pt-64 flex items-center h text-12 md:text-16 inline--button-white" :href="card1.ctaLink">
                                 {{card1.ctaText}}
                                 <span class="ml-6">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,10 +39,10 @@
                     </div>
                     <div class="px-30 w-full md:w-1/2">
                         <div class="mb-32 md:mb-16 w-full p-32 md:p-32 rounded-xl border border-white text-white md:min-h-320">
-                            <img v-if="card2.imageAsset" :src="card2.imageAsset" class="mb-24" />
+                            <img v-if="card2.imageAsset" :src="card2.imageAsset" :alt="`${card2.header} image`" class="mb-24" />
                             <h4 class="mb-24 text-24">{{card2.header}}</h4>
                             <div class="markdown" v-html="$md.render(card2.text)"></div>
-                            <a class="pt-64 flex items-center h text-12 md:text-16 inline--button-white" :href="card2.ctaLink">
+                            <a v-if="card2.ctaLink" class="pt-64 flex items-center h text-12 md:text-16 inline--button-white" :href="card2.ctaLink">
                                 {{card2.ctaText}}
                                 <span class="ml-6">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,6 +73,10 @@ export default {
         bgColour: { type: String, default: null },
         textAlign: { type: String, default: null },
         textColour: { type: String, default: null },
+        showSupportedBy: {
+            type: Boolean,
+            default: true
+        },
         isScreenHeight: {
             type: Boolean,
             default: true

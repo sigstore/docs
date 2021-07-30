@@ -82,6 +82,10 @@ a {
   &.inline {
     @extend %inline--link;
   }
+
+  &.nuxt-link-exact-active {
+    color: rgba(99, 73, 255, 1);
+  }
 }
 
 // Paragraph styles

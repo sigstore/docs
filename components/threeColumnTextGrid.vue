@@ -11,7 +11,7 @@
                 :style="`background-color: ${column1.bgColour};`"
                 :class="[column1.isCardStyle ? 'rounded-xl px-40 py-40 md:min-h-440' : 'md:px-10']" 
                 class="w-full md:w-1/3 md:max-w-352 md:ml-30 mb-44 relative">
-                    <img :src="column1.imageAsset" class="mb-24" />
+                    <img :src="column1.imageAsset" :alt="`${column1.header} image`" class="mb-24" />
                     <h4 class="mb-24 text-24 leading-32" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{column1.header}}</h4>
                     <p class="text-gray-dark">{{column1.text}}</p>
                     <a 
@@ -35,7 +35,7 @@
                 :style="`background-color: ${column1.bgColour};`"
                 :class="[column2.isCardStyle ? 'rounded-xl px-40 py-40 md:min-h-440' : 'md:px-10 ']"  
                 class="w-full md:w-1/3 md:max-w-352 md:ml-30 mb-44 relative">
-                    <img :src="column2.imageAsset" class="mb-24" />
+                    <img :src="column2.imageAsset" :alt="`${column2.header} image`" class="mb-24" />
                     <h4 class="mb-24 text-24 leading-32" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{column2.header}}</h4>
                     <p class="text-gray-dark">{{column2.text}}</p>
                     <a 
@@ -59,7 +59,7 @@
                 :style="`background-color: ${column1.bgColour};`"
                 :class="[column3.isCardStyle ? 'rounded-xl px-40 py-40 md:min-h-440' : 'md:px-10 ']"  
                 class="mb-8 w-full md:w-1/3 md:max-w-352 md:ml-30 md:mr-30 relative">
-                    <img :src="column3.imageAsset" class="mb-24" />
+                    <img :src="column3.imageAsset" :alt="`${column3.header} image`" class="mb-24" />
                     <h4 class="mb-24 text-24 leading-32" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{column3.header}}</h4>
                     <p class="text-gray-dark">{{column3.text}}</p>
                     <a 

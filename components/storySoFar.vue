@@ -1,7 +1,7 @@
 <!-- eslint-disable -->
 <template>
     <section class="py-128 bg-white" data-header-text="text-gray-dark">
-        <div v-if="story.textBlock" class="lg:flex justify-between items-start container inner">
+        <div v-if="story.textBlock" class="md:flex justify-between items-start container inner">
             <div v-animate-on-scroll class="w-full md:w-1/2 step-delay_1">
                 <h2 class="text-36 leading-32 mb-32 text-gray-dark">{{story.header}}</h2>
             </div>
@@ -9,7 +9,7 @@
                 <div class="text-gray-dark markdown" v-html="$md.render(story.textBlock)"></div>
             </div>
         </div>
-        <div v-if="story.releaseDate" class="lg:flex justify-center items-start container inner py-128">
+        <div v-if="story.releaseDate" class="md:flex justify-center items-start container inner py-128">
             <div class="rounded-xl bg-orange-medium p-40 md:max-w-500">
                 <div 
                     class="text-center text-orange-dark markdown"

@@ -255,8 +255,8 @@ collections:
               - {
                   label: Text,
                   name: text,
-                  widget: markdown,
-                  default: 'Hello World',
+                  widget: string,
+                  default: '',
                   required: false,
                 }
               - {
@@ -619,7 +619,18 @@ collections:
                   default: '',
                   required: false,
                 }
-              - { label: Text, name: text, widget: markdown, default: '' }
+              - {
+                  label: Text Top para,
+                  name: text,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Text Bottom para,
+                  name: textBottom,
+                  widget: string,
+                  required: false,
+                }
               - {
                   label: Background Colour,
                   name: bgColour,

@@ -19,7 +19,7 @@ sections:
     showSigstoreDivider: true
   - type: threeColumnTextGrid
     column1:
-      header: Sign code
+      header: Sign
       imageAsset: /img/howtouseit_signcode.svg
       text: Easy authentication and smart cryptography work in the background. Just
         push your code, sigstore can handle the rest.
@@ -28,7 +28,7 @@ sections:
       isCardStyle: true
       bgColour: "#ddeff1"
     column2:
-      header: Verify signatures
+      header: Verify
       imageAsset: /img/howtouseit_verify.svg
       text: Rekor transparency logs store unique identification like who created it
         and where it was built, so you know it hasn’t been changed.
@@ -37,7 +37,7 @@ sections:
       isCardStyle: true
       bgColour: "#ddeff1"
     column3:
-      header: Monitor activity
+      header: Monitor
       imageAsset: /img/howtouseit_monitor.svg
       text: Data stored in the logs is readily auditable, a foundation for future
         monitors and integrations to build into your security workflow.

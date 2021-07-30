@@ -2,7 +2,7 @@
   "links": [
     {
       "name": "Blog",
-      "url": "https://medium.com"
+      "url": "https://medium.com/sigstore"
     },
     {
       "name": "GitHub",
@@ -10,7 +10,7 @@
     },
     {
       "name": "Twitter",
-      "url": "https://twitter.com/sigstore"
+      "url": "https://twitter.com/projectsigstore"
     }
   ]
 }
