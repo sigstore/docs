@@ -47,8 +47,6 @@ sections:
     text: ""
   - type: sigstoreDivider
     showSigstoreDivider: true
-  - type: contributorsList
-    isContributorsList: false
   - type: sigstoreDivider
     showSigstoreDivider: true
   - type: sponsorsList
