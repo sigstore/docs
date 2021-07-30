@@ -7,16 +7,17 @@
     :data-header-text="[(backgroundColour === 'bg-purple-dark') ? 'text-white' : (backgroundColour === 'bg-pastel-blue') ? 'text-purple-dark' : 'text-gray-dark']"
     :data-bg-color="backgroundColour"
     >
-        <div class="flex items-center justify-center min-h-full" :class="[showSupportedBy ? 'text_banner--main' : null, (textAlign === 'center') ? 'h-screen lg:h-auto' : (isScreenHeight == true) ? 'h-screen' : 'h-auto' ]">
-            <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : null,textAlign === 'center' ? 'text-center' : 'text-left']">
+        <div class="flex items-center justify-center" :class="[showSupportedBy ? 'text_banner--main' : null, isScreenHeight ? 'h-screen' : 'h-auto' ]">
+            <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : null,textAlign === 'center' ? 'text-left md:text-center' : 'text-left']">
                 <h1 v-if="header" v-animate-on-scroll :class="[textColour]" class="delay-step_1 mb-30 ">{{header}}</h1>
-                <div 
+                <h2 :class="[textAlign == 'center' ? 'md:max-w-690 w-full mx-auto' : null,textColour]" class="subheading md:text-24 delay-step_3 mb-26">{{text}}</h2>
+                <!-- <div 
                 v-animate-on-scroll 
                 :class="[textAlign == 'center' ? 'md:max-w-690 w-full mx-auto' : null,textColour]" 
                 class="subheading text-24 delay-step_3 mb-26 " 
                 v-html="$md.render(text)"
                 >
-                </div>
+                </div> -->
 
                 <div v-if="ctaButtons" v-animate-on-scroll class="delay-step_5">
                     <!-- ctas need to be this data; {name: 'outlineButton', title: 'Find out more', link: 'https://sigstore.dev/story', style: 'outlined'} -->

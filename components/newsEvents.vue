@@ -5,10 +5,10 @@
                 <h3>News &amp; Events</h3>
             </div>
             <div v-if="articlesArray.length > 0" class="w-full md:w-1/2">
-                <article v-for="(article, index) in articlesArray" :key="index" class="text-gray-dark border-b-2 border-gray-medium pb-6">
+                <article v-for="(article, index) in articlesArray" :key="index" class="text-gray-dark border-b-2 border-gray-medium pb-6 mb-24">
                     <p class="text-24 leading-32 text-gray-dark h">{{article.title}}</p>
                     <div class="flex justify-start items-center">
-                        <div class="tag bg-white text-gray-dark rounded-lg md:px-8 px-12 md:py-12 text-12 h my-12 capitalize mr-14 leading-none">{{article.entryTag}}</div>
+                        <div class="tag bg-white text-gray-dark rounded-lg md:px-8 px-10 py-12 md:py-12 text-12 h my-12 capitalize mr-14 leading-none">{{article.entryTag}}</div>
                         <p class="mr-14 md:text-16 text-12">{{article.date}}</p>
                         <span>&bull;</span>
                         <a class="ml-12 flex items-center inline--button-grey md:text-16 text-12" :href="article.link">
