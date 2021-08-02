@@ -19,9 +19,9 @@
         </div>
         <div class="container container--card">
             <div class="rounded-xl md:bg-white p-0 md:p-32 lg:p-64 mt-64 md:mt-128 w-full mx-auto px-24">
-                <div class="w-full lg:w-1/2 p-32 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl text-purple-dark">
+                <div class="w-full lg:w-1/2 p-32 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl text-purple-dark" :class="cardText ? '' : 'pb-0'">
                     <h4 class="text-25 md:text-36 leading-30 md:leading-44 mb-28">{{ cardTitle }}</h4>
-                    <div class="text-gray-dark" v-html="$md.render(cardText)"></div>
+                    <div v-if="cardText" class="text-gray-dark" v-html="$md.render(cardText)"></div>
                 </div>
                 <div class="md:flex items-start justify-between md:-ml-10 md:-mr-10 mt-32 md:mt-64">
                     <div class="mb-32 md:mb-16 w-full md:w-1/3 md:px-10 p-32 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl md:max-w-315">

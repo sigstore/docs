@@ -1,5 +1,5 @@
 <template>
-    <section class="py-64 md:py-128 px-16 bg-white" data-header-text="text-gray-dark">
+    <section class="py-64 md:py-128 md:px-16 bg-white" data-header-text="text-gray-dark">
         <div class="container">
             <div class="md:max-w-1/2 w-full">
                 <h3 class="pb-64" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{ header }}</h3>
@@ -9,7 +9,7 @@
                 <div 
                 v-if="column1.header" 
                 :style="`background-color: ${column1.bgColour};`"
-                :class="[column1.isCardStyle ? 'rounded-xl px-40 py-40 md:min-h-440' : 'md:px-10']" 
+                :class="[column1.isCardStyle ? 'rounded-xl px-40 py-40 md:min-h-440 min-h-400' : 'md:px-10']" 
                 class="w-full md:w-1/3 md:max-w-352 md:ml-30 mb-44 relative">
                     <img :src="column1.imageAsset" :alt="`${column1.header} image`" class="mb-24" />
                     <h4 class="mb-24 text-24 leading-32" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{column1.header}}</h4>
@@ -33,7 +33,7 @@
                 <div 
                 v-if="column2.header" 
                 :style="`background-color: ${column1.bgColour};`"
-                :class="[column2.isCardStyle ? 'rounded-xl px-40 py-40 md:min-h-440' : 'md:px-10 ']"  
+                :class="[column2.isCardStyle ? 'rounded-xl px-40 py-40 md:min-h-440 min-h-400' : 'md:px-10 ']"  
                 class="w-full md:w-1/3 md:max-w-352 md:ml-30 mb-44 relative">
                     <img :src="column2.imageAsset" :alt="`${column2.header} image`" class="mb-24" />
                     <h4 class="mb-24 text-24 leading-32" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{column2.header}}</h4>
@@ -57,7 +57,7 @@
                 <div
                 v-if="column3.header" 
                 :style="`background-color: ${column1.bgColour};`"
-                :class="[column3.isCardStyle ? 'rounded-xl px-40 py-40 md:min-h-440' : 'md:px-10 ']"  
+                :class="[column3.isCardStyle ? 'rounded-xl px-40 py-40 md:min-h-440 min-h-400' : 'md:px-10 ']"  
                 class="mb-8 w-full md:w-1/3 md:max-w-352 md:ml-30 md:mr-30 relative">
                     <img :src="column3.imageAsset" :alt="`${column3.header} image`" class="mb-24" />
                     <h4 class="mb-24 text-24 leading-32" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{column3.header}}</h4>

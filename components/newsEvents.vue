@@ -1,11 +1,20 @@
 <template>
     <section class="py-64 md:py-128 bg-pastel-orange" data-header-text="text-gray-dark">
         <div class="md:flex justify-between container inner">
-            <div class="w-full md:w-1/2 text-gray-dark md:mb-0 mb-64 pb-12 border-b-2 border-gray-medium md:border-none">
+            <div class="relative flex flex-col h-auto w-full md:w-1/2 text-gray-dark md:mb-0 mb-64 pb-12 border-b-2 border-gray-medium md:border-none">
                 <h3>News &amp; Events</h3>
+                <a v-if="$route.params.slug != 'community'" class="absolute bottom-10 hidden md:flex items-center inline--button-grey h md:text-16 text-12" href="/community">
+                    View more news
+                    <span class="ml-12">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.25 12.4971H0.75" stroke="#444444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19.5 16.2471L23.25 12.4971L19.5 8.74707" stroke="#444444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </a>
             </div>
             <div v-if="articlesArray.length > 0" class="w-full md:w-1/2">
-                <article v-for="(article, index) in articlesArray" :key="index" class="text-gray-dark border-b-2 border-gray-medium pb-6 mb-24">
+                <article v-for="(article, index) in articlesArray" :key="index" class="text-gray-dark border-b-2 border-gray-medium pb-6 mb-32">
                     <p class="text-24 leading-32 text-gray-dark h">{{article.title}}</p>
                     <div class="flex justify-start items-center">
                         <div class="tag bg-white text-gray-dark rounded-lg md:px-8 px-10 py-12 md:py-12 text-12 h my-12 capitalize mr-14 leading-none">{{article.entryTag}}</div>
@@ -23,6 +32,15 @@
                         </a>
                     </div>
                 </article>
+                <a v-if="$route.params.slug != 'community'" class="flex md:hidden items-center inline--button-grey h md:text-16 text-12" href="/community">
+                    View more news
+                    <span class="ml-12">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.25 12.4971H0.75" stroke="#444444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19.5 16.2471L23.25 12.4971L19.5 8.74707" stroke="#444444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </a>
             </div>
         </div>
     </section>

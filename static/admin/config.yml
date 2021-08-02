@@ -21,7 +21,7 @@ collections:
           label: 'Event/Article Date',
           name: 'date',
           widget: 'datetime',
-          format: 'dddd MMMM Do, YYYY',
+          format: 'MMMM Do, YYYY',
         }
       - {
           label: 'Featured Image',
@@ -968,7 +968,7 @@ collections:
             widget: 'list'
             fields:
               - { label: Question, name: question, widget: string }
-              - { label: Answer, name: answer, widget: string }
+              - { label: Answer, name: answer, widget: markdown }
   - label: 'Sigstore ecosystem'
     name: 'sigstoreGroups'
     files:

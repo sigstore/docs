@@ -2,18 +2,18 @@
     <nav>
         <ul class="flex items-start" :class="[navType == 'social' ? 'justify-start md:justify-end w-full' : 'justify-start flex-wrap']">
             <li>
-                <NuxtLink v-if="navType == 'header'" class="mr-36 flex justify-between hover:text-purple-light" :class="[text]" :to="`/`">
+                <NuxtLink v-if="navType == 'header'" class="mr-36 flex justify-between" :class="[text]" :to="`/`">
                     Overview
                 </NuxtLink>
             </li>
             <li v-for="navItem, index in navList" :key="index">
-                <NuxtLink v-if="navType == 'header'" class="mr-36 flex justify-between hover:text-purple-light" :class="[text]" :to="`${navItem.menuLink}`">
+                <NuxtLink v-if="navType == 'header'" class="mr-36 flex justify-between" :class="[text]" :to="`${navItem.menuLink}`">
                     {{ navItem.name }}
                 </NuxtLink>
-                <NuxtLink v-else-if="navType == 'footer'" class="mr-36 flex justify-between hover:text-purple-light h text-16 leading-24 text-gray-dark" :to="`${navItem.footerMenuLink}`">
+                <NuxtLink v-else-if="navType == 'footer'" class="mr-36 flex justify-between h text-16 leading-24 text-gray-dark" :to="`${navItem.footerMenuLink}`">
                     {{ navItem.name }}
                 </NuxtLink>
-                <a v-else class="mr-30 flex justify-between hover:text-purple-light h text-16 leading-24 text-gray-dark" target="_blank" :href="`${navItem.url ? navItem.url : navItem.externalLink}`">
+                <a v-else class="md:mr-30 mr-16 flex justify-between h text-16 leading-24 text-gray-dark" target="_blank" :href="`${navItem.url ? navItem.url : navItem.externalLink}`">
                     <span v-if="navType == 'social' && navItem.name == 'GitHub'" class="mr-16">
                         <GitHubLogo :class="['fill-grey']" />
                     </span>
@@ -24,7 +24,7 @@
                 </a>
             </li>
             <li v-if="navType == 'header'">
-                <a class="mr-36 flex justify-between hover:text-purple-light" :class="[text]" target="_blank" href="https://medium.com/sigstore">
+                <a class="mr-36 flex justify-between" :class="[text]" target="_blank" href="https://medium.com/sigstore">
                     Blog
                 </a>
             </li>

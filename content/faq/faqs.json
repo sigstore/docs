@@ -18,7 +18,7 @@
     },
     {
       "question": "What security checks do you use internally?",
-      "answer": "We’ve adopted a security disclosures and response policy to make sure we can responsibly handle critical issues. We have an initial Security Response Committee, who for each vulnerability reported will coordinate to create the fix and release, and keep the committee looped in. The policy in full is here: https://github.com/sigstore/community/blob/main/SECURITY.md"
+      "answer": "We’ve adopted a security disclosures and response policy to make sure we can responsibly handle critical issues. We have an initial Security Response Committee, who for each vulnerability reported will coordinate to create the fix and release, and keep the committee looped in. The policy in full is here: <https://github.com/sigstore/community/blob/main/SECURITY.md>"
     },
     {
       "question": "How easy is it to use?",

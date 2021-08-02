@@ -80,7 +80,10 @@ export default {
   ],
 
   markdownit: {
-    runtime: true // Support `$md()`
+    runtime: true, // Support `$md()`
+    preset: 'default',
+    linkify: true,
+    breaks: true
   },
 
   googleFonts: {

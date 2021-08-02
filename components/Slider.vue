@@ -9,9 +9,9 @@
       @ready="onSwiperRedied"
     >
       <div class="swiper-wrapper">
-        <div v-for="(slide, index) in slideData" :key="index" :class="`${slide.caseColour}`" class="swiper-slide rounded-xl p-22 md:p-44 md:flex justify-between items-start">
-            <div class="w-1/4 md:w-85 md:mb-0 mb-20 flex md:flex-none justify-start items-center">
-              <img :src="slide.brand" :alt="`${slide.title} Logo`" />
+        <div v-for="(slide, index) in slideData" :key="index" :class="`${slide.caseColour}`" class="swiper-slide rounded-xl p-32 md:p-44 md:flex justify-between items-start">
+            <div class="w-full md:w-85 md:mb-0 mb-20 flex md:flex-none justify-start items-center">
+              <img class="md:w-auto w-1/4" :src="slide.brand" :alt="`${slide.title} Logo`" />
               <p class="text-12 uppercase h block md:hidden pl-16"
               :class="[slide.caseColour != 'bg-purple-light' ? 'text-orange-dark' : 'text-white']">{{slide.category}}</p>
             </div>
@@ -26,7 +26,7 @@
                 </div>
                 <p v-if="slide.name" class="text-11 h">{{slide.name}}</p>
                 <p v-if="slide.role" class="text-11 h">{{slide.role}}</p>
-                <a v-if="slide.caseStudyLink" class="pt-22 flex items-center h text-12 md:text-16" :href="slide.caseStudyLink">
+                <a v-if="slide.caseStudyLink" class="pt-22 flex items-center h text-12 md:text-16 card--button" :href="slide.caseStudyLink">
                     Learn more
                     <span class="ml-6">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
