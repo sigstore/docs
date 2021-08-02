@@ -3,12 +3,12 @@
     {
       "date": "Now",
       "title": "Active development",
-      "text": "Use and improve. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet"
+      "text": "Ongoing improvements by the community on Cosign and Rekor, pathfinding, feature requests and release roadmaps"
     },
     {
       "date": "JULY 2021",
-      "title": "1.0 release",
-      "text": "Use and improve. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet"
+      "title": "Cosign 1.0 release",
+      "text": "Includes hardware support for Yubico PIV devices, cloud KMS,   SPDX and Cyclone DX SBOMs, #wasm"
     }
   ]
 }
