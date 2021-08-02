@@ -82,7 +82,7 @@ sections:
       long-lasting standard.
     header: How sigstore works
     bgColour: bg-white
-    imageAsset: /img/simplesystemarchitecture.svg
+    imageAsset: /img/system_architecture_summary-01.svg
     type: twoColumnBannerWithCard
     column1:
       header: Sign code

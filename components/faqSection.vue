@@ -11,11 +11,11 @@
                 @click="activeFaq = index"
                 :class="[activeFaq == index ? 'slideDown' : 'slideUp']"
             >
-                <div class="flex justify-between items-start">
-                    <p class="pb-24 font-bold">{{ faq.question }}</p>
+                <div class="flex justify-between items-center">
+                    <p class="font-bold" :class="[activeFaq == index ? 'pb-24' : null]">{{ faq.question }}</p>
                     <span class="transition" :class="[activeFaq == index ? 'transform rotate-180' : 'transform rotate-0']"><chevron /></span>
                 </div>
-                <p>{{faq.answer}}</p>
+                <div v-if="activeFaq == index" class="markdown" v-html="$md.render(faq.answer)"></div>
             </article>
         </div>
     </section>

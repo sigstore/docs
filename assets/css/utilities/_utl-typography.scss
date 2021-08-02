@@ -1,10 +1,10 @@
 @mixin h1 {
   font-family: $font-sans-header-standard;
-  font-size: $size-x-large;
   font-weight: $weight-medium;
+  @apply text-33;
   @apply leading-40;
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(md) {
     @apply text-54;
     @apply leading-60;
   }
@@ -12,13 +12,13 @@
 
 @mixin h2 {
   font-family: $font-sans-header-standard;
-  font-size: $size-large;
+  @apply text-33; 
   font-weight:$weight-medium;
-  @apply leading-23;
+  @apply leading-40;
 
-  @include media-breakpoint-up(lg) {
-    font-size: $size-xx-large; // 40px;
-    @apply leading-43;
+  @include media-breakpoint-up(md) {
+    @apply text-54;
+    @apply leading-60;
   }
 }
 
@@ -26,8 +26,9 @@
   font-family: $font-sans-header-standard;
   font-size: 25px;
   font-weight: $weight-medium;
+  @apply leading-30;
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(md) {
     @apply text-36; 
     @apply leading-43;
   }
@@ -36,7 +37,13 @@
 @mixin h4 {
   font-family: $font-sans-header-standard;
   font-weight: $weight-medium;
-  @apply leading-32;
+  @apply leading-23;
+  @apply text-19;
+
+  @include media-breakpoint-up(md) {
+    @apply text-24;
+    @apply leading-32; 
+  }
 }
 
 
@@ -47,7 +54,7 @@
   letter-spacing: 0.082rem;
   line-height: 1.8rem;
 
-  @include media-breakpoint-up(xl) {
+  @include media-breakpoint-up(md) {
     font-size: $size-small; // 14px
     letter-spacing: 0.05rem;
     line-height: 1.8rem;
@@ -56,14 +63,14 @@
 
 %text--body-1 {
   font-family: $font-sans-light;
-  font-size: $size-medium;
+  font-size: $size-small;
   font-weight: $weight-regular;
-  line-height: 2.4rem;
+  line-height: 1.8rem;
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(md) {
     font-size: $size-medium; // 16px
     font-weight: $weight-regular;
-    // line-height: 3.2rem;
+    line-height: 2.4rem;
   }
 }
 
@@ -125,12 +132,13 @@
 
 %text--subheading {
   font-family: $font-sans-header-standard;
-  font-size: $size-medium;
+  font-size: 1.4rem;
   font-weight: $weight-medium;
-  line-height: 3.2rem;
+  line-height: 1.8rem;
 
   @include media-breakpoint-up(lg) {
-    font-size: $size-large; // 16px
+    font-size: $size-large;
+    line-height: 2.4rem;
   }
 }
 
