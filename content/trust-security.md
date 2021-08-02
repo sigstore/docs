@@ -7,11 +7,11 @@ sections:
       header: Our trust root
       imageAsset: ""
       text: >-
-        ##### Built and maintained in the open
+        ##### Operating in the open
 
 
         The sigstore trust root is made up of five key holders from the community, responsible for any changes to policy and rotated as we grow in the future.
-      ctaText: View our root key holders
+      ctaText: Meet the root key holders
       ctaLink: https://github.com/sigstore/root-signing/tree/main/ceremony
     card2:
       header: Our threat model
