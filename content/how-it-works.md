@@ -24,7 +24,7 @@ sections:
       text: Easy authentication and smart cryptography work in the background. Just
         push your code, sigstore can handle the rest.
       ctaText: Learn more
-      ctaLink: https://bbc.co.uk
+      ctaLink: https://github.com/sigstore/cosign
       isCardStyle: true
       bgColour: "#ddeff1"
     column2:
@@ -33,7 +33,7 @@ sections:
       text: Rekor transparency logs store unique identification like who created it
         and where it was built, so you know it hasn’t been changed.
       ctaText: Learn more
-      ctaLink: https://bbc.co.uk
+      ctaLink: https://github.com/sigstore/rekor
       isCardStyle: true
       bgColour: "#ddeff1"
     column3:
@@ -42,7 +42,7 @@ sections:
       text: Data stored in the logs is readily auditable, a foundation for future
         monitors and integrations to build into your security workflow.
       ctaText: Learn more
-      ctaLink: https://bbc.co.uk
+      ctaLink: https://github.com/sigstore/examples
       isCardStyle: true
       bgColour: "#ddeff1"
     header: How can you use it?
