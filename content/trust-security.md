@@ -24,8 +24,7 @@ sections:
       ctaText: ""
       ctaLink: ""
     text: An open, accessible foundation behind the policies and protocols sigstore
-      needs to work. It’s a new kind of trust grounded in an open source,
-      distributed community.
+      needs to work, grounded in an open source, distributed community.
     header: Our foundations of trust
     bgColour: bg-purple-dark
     textAlign: center
