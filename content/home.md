@@ -29,13 +29,13 @@ sections:
   - alignment: textRight
     cardTitle: What makes sigstore different?
     text: sigstore was started to improve supply chain technology for anyone using
-      open source projects. It is for open source maintainers, by open source
+      open source projects. It's for open source maintainers, by open source
       maintainers.
     header: Our vision
     bgColour: bg-pastel-blue
     imageAsset: ""
-    textBottom: It is a direct response to today’s challenges, a work in progress
-      towards a future where the integrity of what we build and use is up to
+    textBottom: And it's a direct response to today’s challenges, a work in progress
+      for a future where the integrity of what we build and use is up to
       standard.
     type: twoColumnBannerWithCard
     column1:
