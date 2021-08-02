@@ -1,8 +1,8 @@
 {
   "product": [
     {
-      "productName": "Cosign",
-      "productOverview": "Used for container signing, verification and storage in an Open Container Initiative (OCI) registry.\n\nYou can see watch a demo of cosign here:\nhttps://www.youtube.com/watch?v=gCi9_4NYyR0",
+      "productName": "cosign",
+      "productOverview": "Used for container signing, verification and storage in an Open Container Initiative (OCI) registry.\n\nHere's a demo of it in action:\nhttps://www.youtube.com/watch?v=gCi9_4NYyR0",
       "productCTALink": "https://github.com/sigstore/cosign",
       "productCTA": "View the repo"
     },
