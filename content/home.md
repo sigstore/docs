@@ -50,14 +50,14 @@ sections:
       text: A transparency log means anyone can find and verify signatures, and check
         whether someone’s changed the source code, the build platform or the
         artifact repository.
-    cardText: We’ve focused on automating the process of digitally signing and
-      checking components, for a safer chain of custody tracing open source
-      software back to the source. We want to remove the effort, time and risk
-      of error this usually comes with. And for anyone whose software depends on
-      open source, future integrations can make it easier to check your software
-      for authenticity, wherever it’s come from.
+    cardText: We’ve focused on automating how you digitally sign and check
+      components, for a safer chain of custody tracing software back to the
+      source. We want to remove the effort, time and risk of error this usually
+      comes with. And for anyone whose software depends on open source, future
+      integrations can make it easier to check for authenticity, wherever it’s
+      come from.
     column3:
-      header: Driven by community
+      header: Driven by our community
       imageAsset: /img/community.svg
       text: Everyone involved in sigstore believes in an open, transparent and
         accountable future for open source software. Everything we do comes from
@@ -66,23 +66,20 @@ sections:
     showSigstoreDivider: true
   - alignment: imageRight
     cardTitle: How can you use it?
-    text: >-
-      sigstore is a set of tools developers, software maintainers,  package
+    text: sigstore is a set of tools developers, software maintainers, package
       managers and security experts can benefit from. Bringing together
       free-to-use open source technologies like Fulcio, Cosign and Rekor, we’re
       building ways to handle digital signing, verification and checks for
       provenance needed to make it safer to distribute and use open source
-      software.   
-
-
-      **A standardized approach** 
-
-      This means that open source software uploaded for distribution has a stricter, more standardized way of checking who’s been involved, that it hasn’t been tampered with. There’s no risk of key compromise, so third parties can’t hijack a release and slip in something malicious. 
-
-
-      **Building for future integrations** 
-
-      With the help of a working partnership that includes Google, the Linux Foundation, Red Hat and Purdue University, we’re in constant collaboration to find new ways to improve the sigstore technology, to make it easy to adopt, integrate and become a long-lasting standard.
+      software.   **A standardized approach** This means that open source
+      software uploaded for distribution has a stricter, more standardized way
+      of checking who’s been involved, that it hasn’t been tampered with.
+      There’s no risk of key compromise, so third parties can’t hijack a release
+      and slip in something malicious. **Building for future integrations** With
+      the help of a working partnership that includes Google, the Linux
+      Foundation, Red Hat and Purdue University, we’re in constant collaboration
+      to find new ways to improve the sigstore technology, to make it easy to
+      adopt, integrate and become a long-lasting standard.
     header: How sigstore works
     bgColour: bg-white
     imageAsset: /img/simplesystemarchitecture.svg
