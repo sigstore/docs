@@ -7,7 +7,7 @@ sections:
       header: Our trust root
       imageAsset: ""
       text: >-
-        ##### sigstore is built and maintained in the open
+        ##### Built and maintained in the open
 
 
         The sigstore trust root is made up of five key holders from the community, responsible for any changes to policy and rotated as we grow in the future.
