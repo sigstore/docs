@@ -2,7 +2,7 @@
   "product": [
     {
       "productName": "Cosign",
-      "productOverview": "For container signing, verification and storage in an Open Container Initiative (OCI) registry. Cosign aims to make signatures invisible infrastructure.",
+      "productOverview": "For container signing, verification and storage in an Open Container Initiative (OCI) registry, making signatures invisible infrastructure.",
       "productCTALink": "https://github.com/sigstore/cosign",
       "productCTA": "View the repo"
     },
