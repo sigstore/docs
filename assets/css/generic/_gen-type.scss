@@ -66,7 +66,7 @@ a {
   transition: 300ms cubic-bezier(0.77, 0, 0.175, 1);
   width: fit-content;
 
-  &:not(.button,.inline--button-grey,.logo,.card--button):hover {
+  &:not(.button,.inline--button-grey,.inline--button-white,.logo,.card--button,.footer--nav-button):hover {
     opacity: 1;
 
     &:after {
@@ -76,7 +76,7 @@ a {
       bottom: -3px;
       width: 100%;
       @apply opacity-100;
-      border-bottom: 1px solid #444444;
+      border-bottom: 1px solid #AFAFAF;
       transition: all 300ms cubic-bezier(0.77, 0, 0.175, 1);
     }
   }
@@ -88,7 +88,7 @@ a {
     bottom: -3px;
     width: 0%;
     @apply opacity-0;
-    border-bottom: 1px solid #444444;
+    border-bottom: 1px solid #AFAFAF;
     transition: all 300ms cubic-bezier(0.77, 0, 0.175, 1);
   }
 
@@ -106,7 +106,7 @@ a {
     @extend %inline--link;
   }
 
-  &.nuxt-link-exact-active {
+  &:not(.button,.inline--button-grey,.inline--button-white,.logo,.card--button,.footer--nav-button).nuxt-link-exact-active {
     &:after {
       content: '';
       position: absolute;
@@ -114,7 +114,7 @@ a {
       bottom: -3px;
       width: 100%;
       @apply opacity-100;
-      border-bottom: 1px solid #444444;
+      border-bottom: 1px solid #AFAFAF;
       transition: all 300ms cubic-bezier(0.77, 0, 0.175, 1);
     }
   }

@@ -1,6 +1,6 @@
 .before-enter {
     opacity: 0;
-    transform: translateY(75px);
+    transform: translateY(35px);
     transition-property: all;
     transition-duration: 0.75s;
     transition-timing-function: ease-in-out;
@@ -28,6 +28,6 @@
 //     @apply delay-400;
 // }
 
-// .delay-step_5{
-//     @apply delay-500;
-// }
+.delay-step_5{
+    @apply delay-500;
+}

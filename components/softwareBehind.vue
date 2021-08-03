@@ -1,6 +1,6 @@
 <!-- eslint-disable -->
 <template>
-    <section class="py-64 md:py-128 bg-white" data-header-text="text-gray-dark">
+    <section class="py-64 md:py-128 md:px-16 bg-white" data-header-text="text-gray-dark">
         <div class="text-gray-dark container text-left">
             <h3 class="text-36 pb-44 text-gray-dark">What's behind the scenes?</h3>
             <div class="flex flex-row flex-wrap justify-center items-start md:-ml-30 md:-mr-30">

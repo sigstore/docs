@@ -132,13 +132,13 @@
 
 %text--subheading {
   font-family: $font-sans-header-standard;
-  font-size: 1.4rem;
+  @apply leading-23;
+  @apply text-19;
   font-weight: $weight-medium;
-  line-height: 1.8rem;
 
-  @include media-breakpoint-up(lg) {
-    font-size: $size-large;
-    line-height: 2.4rem;
+  @include media-breakpoint-up(md) {
+    @apply text-24;
+    @apply leading-32;
   }
 }
 

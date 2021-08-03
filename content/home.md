@@ -17,7 +17,7 @@ sections:
     showBetaCard: true
   - type: twoColumnBanner
     header: The problem with open source security
-    imageAsset: /img/problemwithopensource.svg
+    imageAsset: /img/problemwithopensource_update.svg
     text: Not knowing where all your software comes from means hard-to-spot risks to
       the integrity of your services. Without constant identity checks and
       safety protocols for keys and secrets, open source dependencies can open
@@ -101,10 +101,6 @@ sections:
         build into your security workflow.
   - type: sigstoreDivider
     showSigstoreDivider: true
-  - type: newsEvents
-    isNewsAndEvents: true
-  - type: sigstoreDivider
-    showSigstoreDivider: true
   - type: carousel
     header: Image Gallery
     carouselCaseItems:
@@ -113,6 +109,10 @@ sections:
       - kpack
       - red-hat
       - wired
+  - type: sigstoreDivider
+    showSigstoreDivider: true
+  - type: newsEvents
+    isNewsAndEvents: true
   - ctaStyle: transparentCta
     text: Help build a safer future with us.
     header: ""

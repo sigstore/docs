@@ -18,23 +18,23 @@
             </div>
         </div>
         <div class="container container--card">
-            <div class="rounded-xl md:bg-white p-0 md:p-32 lg:p-64 mt-64 md:mt-128 w-full mx-auto px-24">
-                <div class="w-full lg:w-1/2 p-32 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl text-purple-dark" :class="cardText ? '' : 'pb-0'">
+            <div class="rounded-xl md:bg-white p-0 md:p-32 lg:p-64 mt-64 md:mt-128 w-full mx-auto" :class="[backgroundColour != 'bg-white' ? 'px-24' : 'px-0']">
+                <div class="w-full lg:w-1/2 p-24 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl text-purple-dark" :class="cardText ? '' : 'pb-0'">
                     <h4 class="text-25 md:text-36 leading-30 md:leading-44 mb-28">{{ cardTitle }}</h4>
                     <div v-if="cardText" class="text-gray-dark" v-html="$md.render(cardText)"></div>
                 </div>
                 <div class="md:flex items-start justify-between md:-ml-10 md:-mr-10 mt-32 md:mt-64">
-                    <div class="mb-32 md:mb-16 w-full md:w-1/3 md:px-10 p-32 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl md:max-w-315">
+                    <div class="mb-32 md:mb-16 w-full md:w-1/3 md:px-10 p-24 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl md:max-w-315">
                         <img :src="column1.imageAsset" :alt="`${column1.header} image`" class="mb-24" />
                         <h4 class="mb-24 text-19 md:text-24 leading-23 md:leading-32 text-purple-dark">{{column1.header}}</h4>
                         <p class="text-gray-dark">{{column1.text}}</p>
                     </div>
-                    <div class="mb-32 md:mb-16 w-full md:w-1/3 md:px-10 p-32 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl md:max-w-315">
+                    <div class="mb-32 md:mb-16 w-full md:w-1/3 md:px-10 p-24 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl md:max-w-315">
                         <img :src="column2.imageAsset" :alt="`${column2.header} image`" class="mb-24" />
                         <h4 class="mb-24 text-19 md:text-24 leading-23 md:leading-32 text-purple-dark">{{column2.header}}</h4>
                         <p class="text-gray-dark">{{column2.text}}</p>
                     </div>
-                    <div class="mb-0 md:mb-16 w-full md:w-1/3 md:px-10 p-32 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl md:max-w-315">
+                    <div class="mb-0 md:mb-16 w-full md:w-1/3 md:px-10 p-24 md:p-0 bg-white md:bg-transparent md:rounded-none rounded-xl md:max-w-315">
                         <img :src="column3.imageAsset" :alt="`${column3.header} image`" class="mb-24" />
                         <h4 class="mb-24 text-19 md:text-24 leading-23 md:leading-32 text-purple-dark">{{column3.header}}</h4>
                         <p class="text-gray-dark">{{column3.text}}</p>

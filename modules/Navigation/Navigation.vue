@@ -10,10 +10,10 @@
                 <NuxtLink v-if="navType == 'header'" class="mr-36 flex justify-between" :class="[text]" :to="`${navItem.menuLink}`">
                     {{ navItem.name }}
                 </NuxtLink>
-                <NuxtLink v-else-if="navType == 'footer'" class="mr-36 flex justify-between h text-16 leading-24 text-gray-dark" :to="`${navItem.footerMenuLink}`">
+                <NuxtLink v-else-if="navType == 'footer'" class="footer--nav-button mr-36 flex justify-between h text-16 leading-24 text-gray-dark" :to="`${navItem.footerMenuLink}`">
                     {{ navItem.name }}
                 </NuxtLink>
-                <a v-else class="md:mr-30 mr-16 flex justify-between h text-16 leading-24 text-gray-dark" target="_blank" :href="`${navItem.url ? navItem.url : navItem.externalLink}`">
+                <a v-else class="footer--nav-button md:mr-30 mr-16 flex justify-between h text-16 leading-24 text-gray-dark" target="_blank" :href="`${navItem.url ? navItem.url : navItem.externalLink}`">
                     <span v-if="navType == 'social' && navItem.name == 'GitHub'" class="mr-16">
                         <GitHubLogo :class="['fill-grey']" />
                     </span>

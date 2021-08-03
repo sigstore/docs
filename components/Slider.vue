@@ -6,7 +6,8 @@
       v-if="slideData"
       v-swiper:myDirectiveSwiper="swiperOptions"
       class="swiper"
-      @ready="onSwiperRedied"
+      @mouseenter="stopSwip($event)" 
+      @mouseleave="startSwip($event)"
     >
       <div class="swiper-wrapper">
         <div v-for="(slide, index) in slideData" :key="index" :class="`${slide.caseColour}`" class="swiper-slide rounded-xl p-32 md:p-44 md:flex justify-between items-start">
@@ -17,16 +18,18 @@
             </div>
             <div 
               v-if="slide.body" 
-              class="w-full text-left md:pl-40"
+              class="w-full text-left md:ml-40 flex flex-col justify-between items-start min-h-320 relative"
               :class="[slide.caseColour != 'bg-purple-light' ? 'text-orange-dark' : 'text-white']"
               >
-                <p class="text-12 uppercase h mb-16 hidden md:block">{{slide.category}}</p>
-                <div class="text-19 md:text-24 h md:mb-40 mb-20 md:min-h-auto min-h-146">   
-                  {{ slide.caseStudyText }}
+                <div class="swiper--wrapper-slidetext">
+                  <p class="text-12 uppercase h mb-16 hidden md:block">{{slide.category}}</p>
+                  <div class="md:mb-40 mb-20 md:min-h-auto min-h-146">   
+                    <p class="subheading md:text-24 h">{{ slide.caseStudyText }}</p>
+                    <p v-if="slide.name" class="text-12 h leading-15 mt-12">{{slide.name}}<br>{{slide.role}}</p>
+                  </div>
                 </div>
-                <p v-if="slide.name" class="text-11 h">{{slide.name}}</p>
-                <p v-if="slide.role" class="text-11 h">{{slide.role}}</p>
-                <a v-if="slide.caseStudyLink" class="pt-22 flex items-center h text-12 md:text-16 card--button" :href="slide.caseStudyLink">
+
+                <a v-if="slide.caseStudyLink" class="absolute bottom-0 left-0 pt-22 flex items-center h text-12 md:text-16 card--button" :href="slide.caseStudyLink">
                     Learn more
                     <span class="ml-6">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,14 +65,14 @@
         swiperOptions: {
           spaceBetween: 40,
           centeredSlides: true,
-          speed: 10000,
+          speed: 50000,
           autoplay: {
             delay: 1,
           },
           loop: true,
           slidesPerView:'auto',
           allowTouchMove: false,
-          disableOnInteraction: true
+          // disableOnInteraction: true
         }
       }
     },
@@ -77,9 +80,12 @@
       
     },
     methods: {
-      onSwiperRedied(swiper) {
-        console.log('Swiper redied!', swiper)
-      }
+      stopSwip(event) {
+        event.target.swiper.autoplay.stop();
+      },
+      startSwip(event) {
+        event.target.swiper.autoplay.start();
+      },
     }
   }
 </script>
@@ -87,7 +93,9 @@
 <style lang="scss" scoped>
   .slider {
     height: auto;
-    .swiper-wrapper{transition-timing-function:linear; }
+    .swiper-wrapper{
+      transition-timing-function:linear; 
+    }
     .swiper {
       height: auto;
       width: 100%;
@@ -97,11 +105,7 @@
         font-weight: 700;
         max-width: 700px;
         width: 80%;
-        min-height: 400px;
-
-        &:nth-child(0){
-          background-color: #6349FF;
-        }
+        min-height: 430px;
       }
       .swiper-pagination {
         > .swiper-pagination-bullet {

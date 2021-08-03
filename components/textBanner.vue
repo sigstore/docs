@@ -11,24 +11,15 @@
             <div class="flex items-center justify-center" :class="[showSupportedBy ? 'text_banner--main' : null, isScreenHeight ? 'h-screen' : 'h-auto' ]">
                 <div class="container inner relative" :class="[showSupportedBy ? 'md:h-180' : null,textAlign === 'center' ? 'text-left md:text-center' : 'text-left']">
                     <h1 v-if="header" v-animate-on-scroll :class="[textColour]" class="delay-step_1 mb-30 ">{{header}}</h1>
-                    <h2 :class="[textAlign == 'center' ? 'md:max-w-690 w-full mx-auto' : null,textColour]" class="subheading md:text-24 delay-step_3 mb-26">{{text}}</h2>
-                    <!-- <div 
-                    v-animate-on-scroll 
-                    :class="[textAlign == 'center' ? 'md:max-w-690 w-full mx-auto' : null,textColour]" 
-                    class="subheading text-24 delay-step_3 mb-26 " 
-                    v-html="$md.render(text)"
-                    >
-                    </div> -->
-
+                    <h2 v-animate-on-scroll :class="[textAlign == 'center' ? 'md:max-w-690 w-full mx-auto' : null,textColour]" class="subheading md:text-24 delay-step_3 mb-26">{{text}}</h2>
                     <div v-if="ctaButtons" v-animate-on-scroll class="delay-step_5">
-                        <!-- ctas need to be this data; {name: 'outlineButton', title: 'Find out more', link: 'https://sigstore.dev/story', style: 'outlined'} -->
                         <div v-for="(ctaButton, index) in ctaButtons" :key="index" :class="[textAlign == 'center' ? 'flex justify-center items-center' : 'flex justify-start items-center']">
                             <component :is="`${ctaStyle}`" v-bind="[{'slug': ctaButton}]" />
                         </div>
                     </div>
                 </div>
             </div>
-            <div v-if="showSupportedBy" class="absolute bottom-0 mb-24 w-full">
+            <div v-if="showSupportedBy" v-animate-on-scroll class="absolute bottom-0 mb-24 w-full delay-step_5">
                 <div class="container inner">
                     <p class="h mb-16 text-gray-dark">In collaboration with </p>
                     <div class="flex items-center justify-between md:justify-start overflow-scroll lg:overflow-unset">

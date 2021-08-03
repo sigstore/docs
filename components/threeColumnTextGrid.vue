@@ -2,7 +2,7 @@
     <section class="py-64 md:py-128 md:px-16 bg-white" data-header-text="text-gray-dark">
         <div class="container">
             <div class="md:max-w-1/2 w-full">
-                <h3 class="pb-64" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{ header }}</h3>
+                <h3 v-animate-on-scroll class="pb-64 delay-step_1" :class="[$route.params.slug === 'community' ? 'text-orange-dark' : 'text-purple-dark']">{{ header }}</h3>
                 <div v-if="text" v-animate-on-scroll class="delay-step_3 pb-64 text-gray-dark" v-html="$md.render(text)"></div>
             </div>
             <div class="md:flex items-start md:-ml-30 md:-mr-30" :class="[column3.header ? 'justify-between':'justify-start']">
