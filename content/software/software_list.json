@@ -14,7 +14,7 @@
     },
     {
       "productName": "OpenID Connect",
-      "productOverview": "An identity layer that authorizes whether you are you who you say you are. It lets clients request and receive information about authenticated sessions and users.",
+      "productOverview": "An identity layer that checks if you're who you say you are. It lets clients request and receive information about authenticated sessions and users.",
       "productCTA": "Learn more",
       "productCTALink": "https://openid.net/connect/"
     },
@@ -26,7 +26,7 @@
     },
     {
       "productName": "Certificate Authority",
-      "productOverview": "A trusted mechanism that generates certificates, binding cryptographic keys to an identity and an independent check that an artifact's information is correct."
+      "productOverview": "A trusted mechanism that generates certificates, binding cryptographic keys to an identity and an independent check over an artifact's information."
     },
     {
       "productName": "Trust root",
