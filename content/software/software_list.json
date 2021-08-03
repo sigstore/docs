@@ -30,7 +30,7 @@
     },
     {
       "productName": "Trust root",
-      "productOverview": "The foundation for trust, keyholders and ways of working to protect the root keys.",
+      "productOverview": "The foundation for trust behind the whole of sigstore, our keyholders and ways of working to protect the root keys.",
       "productCTA": "sigstore's trust root",
       "productCTALink": "https://github.com/sigstore"
     }
