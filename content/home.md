@@ -50,12 +50,11 @@ sections:
       text: A transparency log means anyone can find and verify signatures, and check
         whether someone’s changed the source code, the build platform or the
         artifact repository.
-    cardText: We’ve focused on automating how you digitally sign and check
-      components, for a safer chain of custody tracing software back to the
-      source. We want to remove the effort, time and risk of error this usually
-      comes with. And for anyone whose software depends on open source, future
-      integrations can make it easier to check for authenticity, wherever it’s
-      come from.
+    cardText: We’ve automated how you digitally sign and check components, for a
+      safer chain of custody tracing software back to the source. We want to
+      remove the effort, time and risk of error this usually comes with. And for
+      anyone whose software depends on open source, future integrations can make
+      it easier to check for authenticity, wherever it’s come from.
     column3:
       header: Driven by our community
       imageAsset: /img/community.svg
