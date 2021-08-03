@@ -34,7 +34,7 @@
     "headroom.js": "^0.12.0",
     "nuxt": "^2.15.7",
     "stylelint-scss": "^3.19.0",
-    "swiper": "5.x",
+    "swiper": "6.x",
     "vue-awesome-swiper": "^4.1.1",
     "vue-intersect": "^1.1.6",
     "vue-intersect-directive": "^1.1.1"
