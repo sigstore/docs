@@ -37,15 +37,15 @@
                     <div class="w-full md:w-full lg:w-1/2 lg:max-w-440">
                         <div class="flex items-center justify-start">
                             <div class="md:pr-24">
-                                <h2 class="text-21 lg:text-54 text-orange-dark mb-10 lg:mb-16">+{{ info.commits }}</h2>
+                                <h2 class="text-21 lg:text-54 text-orange-dark mb-10 lg:mb-16">{{ info.commits }}+</h2>
                                 <h4 class="h4 text-orange-dark uppercase">Commits</h4>
                             </div>
                             <div class="md:pr-24 pl-24">
-                                <h2 class="text-21 lg:text-54 text-orange-dark mb-10 lg:mb-16">+{{ info.members }}</h2>
+                                <h2 class="text-21 lg:text-54 text-orange-dark mb-10 lg:mb-16">{{ info.members }}+</h2>
                                 <h4 class="h4 text-21 text-orange-dark uppercase">Members</h4>
                             </div>
                             <div class="md:pr-24 pl-24">
-                                <h2 class="text-21 lg:text-54 text-orange-dark mb-10 lg:mb-16">+{{ info.organizations }}</h2>
+                                <h2 class="text-21 lg:text-54 text-orange-dark mb-10 lg:mb-16">{{ info.organizations }}+</h2>
                                 <h4 class="h4 text-orange-dark uppercase">Orgs</h4>
                             </div>
                         </div>
