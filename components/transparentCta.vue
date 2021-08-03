@@ -1,6 +1,6 @@
 <template>
     <a v-if="ctaData" class="button cta_transparent flex items-center text-purple-dark p-14 text-12 rounded-full" :href="ctaData.link">
-        <img v-if="ctaData" class="w-20 mr-14 inline-block" :src="ctaData.ctaicon" alt="Cta icon" />
+        <div class="w-20 mr-14 inline-block" v-html="require(`~/assets/icons${ctaData.ctaicon}?raw`)" />
         {{ ctaData.title }}
     </a>
 </template>
