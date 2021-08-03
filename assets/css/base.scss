@@ -1,0 +1,326 @@
+/* stylelint-disable */
+// ==================================
+//  VARIABLES, MIXINS AND FUNCTIONS
+// ==================================
+@use 'sass:math';
+// tailwindcss style
+// @import 'tailwindcss/base';
+// @import 'tailwindcss/components';
+// @import 'tailwindcss/utilities';
+@import "modules";
+@import "_mixins";
+
+// ==================================
+//  HELPER CLASSES
+// ==================================
+@import "./helpers/helpers";
+
+// ==================================
+//  GENERIC
+// ==================================
+@import "generic/gen-fonts";
+@import "generic/gen-type";
+@import "generic/gen-animations";
+@import "generic/gen-buttons";
+@import "generic/gen-forms";
+@import "generic/gen-colors";
+@import "generic/gen-modals";
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// TODO: Seperate this out into respective global css files
+
+#nav {
+  padding: 30px;
+}
+
+hr {
+  border-top: 1px solid $c-black;
+  opacity: 0.1;
+}
+
+.fill-white {
+  path {
+    fill: $c-white;
+  }
+  rect {
+    fill: $c-white;
+  }
+}
+
+.fill-grey {
+  path {
+    fill: #AFAFAF;
+  }
+}
+
+.fill-blue {
+  path {
+    fill: $c-blue;
+  }
+
+  &--circle {
+    circle {
+      fill: $c-blue;
+    }
+  }
+}
+
+.fill-black {
+  path, g {
+    fill: #000000;
+    stroke: #000000;
+  }
+
+  circle {
+    stroke: #000000;
+  }
+
+  rect {
+    fill: black;
+  }
+
+  &--circle {
+    circle {
+      fill: #000000;
+    }
+  }
+}
+
+.fill-blue {
+  path, g {
+    fill: $c-blue;
+    stroke: $c-blue;
+  }
+
+  circle {
+    stroke: $c-blue;
+  }
+
+  &--circle {
+    circle {
+      fill: $c-blue;
+    }
+  }
+}
+
+.fill-blue-logo {
+  path, g {
+    fill: $c-blue;
+  }
+}
+
+.stroke-blue {
+  path {
+    stroke: $c-blue;
+    stroke-opacity: 1;
+  }
+
+  &--circle {
+    circle {
+      stroke: $c-blue;
+    }
+  }
+}
+
+.logo-white {
+  path {
+    fill: $c-white;
+  }
+
+  circle {
+    fill: $c-white;
+  }
+}
+
+.w-content {
+  width: fit-content;
+}
+
+.img-mask {
+  //Place on container element for image component
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.disabled {
+  color: white;
+  opacity: 0.75;
+  pointer-events: none;
+  width: auto;
+}
+
+.absolute-center {
+  position: absolute !important;
+  right: 50%;
+  top: 50%;
+}
+
+.dotted--divider{
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: auto;
+    right: auto;
+    border-left: dotted 5px #6349FF;
+    width: 17px;
+    height: 85px;
+  }
+}
+
+.custom-dot {
+  position: relative;
+
+  &:before {
+    background-color: $c-blue;
+    border-radius: 50%;
+    content: "";
+    display: inline-block;
+    height: 6px;
+    transition: 200ms cubic-bezier(0.77, 0, 0.175, 1);
+    width: 6px;
+
+    @include media-breakpoint-up(md) {
+      height: 12px;
+      width: 12px;
+    }
+  }
+
+  &.dots-white {
+    &:before {
+      background-color: $c-white;
+    }
+  }
+}
+
+.slick-active {
+  .custom-dot {
+    &:before {
+      border-radius: 8px;
+      width: 18px;
+
+      @include media-breakpoint-up(md) {
+        width: 25px;
+      }
+    }
+  }
+}
+
+.slick-dots {
+  bottom: -50px !important;
+}
+
+.custom-dot {
+  position: relative;
+  &:before {
+    transition: 200ms cubic-bezier(0.77, 0, 0.175, 1);
+    border-radius: 50%;
+    height: 6px;
+    width: 6px;
+    content: "";
+    display: inline-block;
+    background-color: $c-white;
+  }
+
+  .subheading {
+    font-size: 1.3rem;
+  }
+}
+
+.card-style {
+  @include media-breakpoint-down(md) {
+    border-radius: 30px 30px 0 0;
+    margin-top: -30px;
+    position: relative;
+  }
+}
+
+.stat_banner{
+  @include media-breakpoint-up(lg) {
+    border-radius: 40px;
+  }
+}
+
+
+.alert-success {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+
+  height: 50px;
+  width: fit-content;
+
+  padding: 0 15px;
+
+  margin: 0 auto 15px;
+
+  border: 1px solid $c-blue;
+  border-radius: 10px;
+
+  color: $c-blue;
+
+  &-verify {
+    border: 1px solid $c-green;
+    padding: 0 15px;
+    border-radius: 10px;
+    margin: 0 auto 15px;
+    color: $c-green;
+    height: 50px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .close {
+    border: 1px solid $c-blue;
+    border-radius: 100%;
+
+    width: 25px;
+    height: 25px;
+
+    margin-left: 15px;
+
+    font-size: 2.5rem;
+    line-height: 0;
+  }
+}
+
+// header {
+//   &.text-gray-dark nav ul li a{
+//     color: $c-grey-dark;
+//   }
+//   &.text-orange-dark nav ul li a{
+//     color: $c-orange-dark;
+//   }
+//   &.text-dark-blue nav ul li a{
+//     color: $c-dark-blue;
+//   }
+//   &.text-white nav ul li a{
+//     color: $c-white;
+//   }
+// }
+
+.overflow-x-scroll{
+  &:after {
+    content: '';
+    display: block;
+    position: fixed;
+    right: 0;
+    top: auto;
+    width: 30%;
+    height: 100%;
+    @apply bg-gradient-to-l; 
+    @apply from-white;
+  }
+}

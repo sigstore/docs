@@ -1,0 +1,31 @@
+.container {
+  @include margin--auto;
+  max-width: 1440px;
+  @apply pl-22;
+  @apply pr-22;
+  width: 100%;
+  &.inner{    
+    @include media-breakpoint-up(lg) {
+      @apply pl-122;
+      @apply pr-122;
+    }
+  }
+
+  &--card {
+    padding-left:0;
+    padding-right:0;
+    @include media-breakpoint-up(md) {
+      @apply pl-64;
+      @apply pr-64;
+    }
+  }
+}
+
+.container-bleed {
+  @include margin--auto;
+  max-width: 1440px;
+}
+
+.wrapper {
+  overflow-x: hidden;
+}

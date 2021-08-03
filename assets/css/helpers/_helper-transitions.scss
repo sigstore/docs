@@ -1,0 +1,33 @@
+.before-enter {
+    opacity: 0;
+    transform: translateY(35px);
+    transition-property: all;
+    transition-duration: 0.75s;
+    transition-timing-function: ease-in-out;
+    transition-delay: inherit;
+}
+  
+.enter {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-step_1{
+    @apply delay-100;
+}
+
+.delay-step_2{
+    @apply delay-200;
+}
+
+.delay-step_3{
+    @apply delay-300;
+}
+
+// .delay-step_4{
+//     @apply delay-400;
+// }
+
+.delay-step_5{
+    @apply delay-500;
+}

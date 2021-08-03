@@ -1,0 +1,56 @@
+%button {
+  -webkit-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  line-height: $size-medium;
+  font-family: $font-sans-header-standard;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1;
+  position: relative;
+  text-align: center;
+  transition: 300ms cubic-bezier(0.3, 0, 0.175, 1);
+  user-select: none;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  @include media-breakpoint-up(md) {
+    line-height: 2rem;
+    min-height: 35px;;
+    font-size: 12px;
+  }
+
+  @media (pointer: fine), (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    &:hover {
+      background-color: $c-purple;
+      border-color: $c-purple;
+      color: white;
+    }
+  }
+
+  &[disabled] {
+    cursor: default;
+    filter: grayscale(100%) !important;
+    pointer-events: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  &.inactive {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}
+

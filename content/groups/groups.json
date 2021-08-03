@@ -1,0 +1,24 @@
+{
+  "group": [
+    {
+      "groupDiagram": "/img/alt_landscapelayout_overview.svg",
+      "groupName": "Overview",
+      "textOverview": "First, tell sigstore to do the signing for you. Using Fulcio, sigstore requests a certificate from our root Certificate Authority (CA). This checks you are who you say you are using OpenID Connect, which looks at your email address to prove you’re the author. Fulcio grants a time-stamped certificate, a way to say you’re signed in and that it’s you.\n\nYou don’t have to do anything with keys yourself, and sigstore never obtains your private key. The public key that Cosign creates gets bound to your certificate, and the signing details get stored in sigstore’s trust root, the deeper layer of keys and trustees and what we use to check authenticity.\n\nYour certificate then comes back to sigstore, where sigstore exchanges keys, asserts your identity and signs everything off. The signature contains the hash itself, public key, signature content and the time stamp. This all gets uploaded to a Rekor transparency log, so anyone can check that what you’ve put out there went through all the checks needed to be authentic."
+    },
+    {
+      "groupDiagram": "/img/alt_landscapelayout_developers.svg",
+      "groupName": "For developers",
+      "textOverview": "To sign your release, an Open ID connect token exchange is first needed to generate a certificate. It’s automatic, one click authorisation that says you are who you say you are. This certificate gets entered into the transparency log. If you’re not using Cosign’s keyless signing commands you’d still need to export your public key during this step.\n\n`rekor upload` then publishes your signature along with the artifact URL to the transparency log. Rekor verifies everything, downloads a local copy of your artifact and validates the artifact signing. The entry will be made into the log and you’ll get a URL.\n\nWhoever downloads your signed artifact can now look up the signature and URL to verify an inclusion proof, showing the unique information about that artifact proving where, when and who it came from."
+    },
+    {
+      "groupDiagram": "/img/alt_landscapelayout_overview.svg",
+      "groupName": "For security ops",
+      "textOverview": "Project dependencies (the relationships and links between artifacts in a software supply chain) can create a huge attack surface, one where it’s difficult to trace where each part of the software came from, when and where it was built, the authors, and if they’ve been changed.\n\nThe drive behind sigstore is to make it easier and more automatic for developers releasing open source artifacts for public use to digitally sign what they make, and for security experts to look up those artifacts in sigstore’s transparency log - a public, tamper-proof ledger of signatures.\n\nThe technologies we’ve built are free for anyone to use. They can be configured for public or private use, ready to be integrated as a solution to the problems of open source security and to safeguard against the threat of malicious code injections."
+    },
+    {
+      "groupDiagram": "/img/alt_landscapelayout_developers.svg",
+      "groupName": "For maintainers",
+      "textOverview": "The Rekor transparency log keeps all the signatures made by someone’s private key, and the time stamps for when they were created. It’s a way to prove that the data was in a developer’s possession and signed before this particular time. So if there’s a signature you don’t recognise, it’s a sign that someone’s key may have been compromised, and what’s been released might not be trustworthy.\n\nThe data available includes the artifact’s hash, randomly generated unique strings that mask the original data and can’t be reverse engineered. It also contains the public key, time stamp and the signature content, showing where the artifact was built and protocols like updates. These have all been signed by our root Certificate Authority, so they’re not random and someone can’t have just added their own signature.\n\nThis is all freely available, and anyone can deploy and run a Rekor instance. By making it free and public, it’s our aim to help you find ways to build it into security systems, to help with attestation transparency and software integrity checks."
+    }
+  ]
+}

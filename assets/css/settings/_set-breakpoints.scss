@@ -1,0 +1,27 @@
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 560px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1536px,
+  xxxl: 1800px,
+  xxxxl: 2000px,
+  xxxxxl: 3000px,
+) !default;
+
+/// BELOW EXPORTS THESE BREAKPOINTS AS VARIABLES FOR JS USE
+
+@each $size, $value in $grid-breakpoints {
+  :export {
+    BREAKPOINT_#{$size}: strip-unit($value);
+  }
+}

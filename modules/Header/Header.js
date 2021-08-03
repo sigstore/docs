@@ -1,75 +1,62 @@
-import Navigation from "@/modules/Navigation/Navigation.vue"
-import gql from 'graphql-tag'
+import Navigation from "@/modules/Navigation/Navigation.vue";
+import Logo from "@/assets/icons/logo.svg?inline";
+import NavButton from "@/assets/icons/menu-button.svg?inline"
+import NavCloseButton from "@/assets/icons/menu-button-close.svg?inline"
+import Headroom from "headroom.js";
+import { mapGetters } from "vuex";
 
-const NAV_QUERY = gql`
-    query NAV_QUERY {
-        globalSet(handle: "header") {
-            name
-            ... on header_GlobalSet {
-            id
-            name
-            navList {
-                ... on navList_navItem_BlockType {
-                id
-                navLink {
-                    ... on howSigstoreWorks_howSigstoreWorks_Entry {
-                    id
-                    url
-                    uri
-                    slug
-                    }
-                    ... on testimonials_testimonials_Entry {
-                    id
-                    url
-                    uri
-                    slug
-                    }
-                    ... on home_home_Entry {
-                    id
-                    url
-                    uri
-                    slug
-                    }
-                }
-                navTitle
-                }
-            }
-            }
-        }
-    }
-`;
 export default {
 
     components: {
-        Navigation
+        Navigation,
+        Logo,
+        NavButton,
+        NavCloseButton
     },
     data: () => ({
+        globalHeader: null,
+        globalHeaderMenu: null,
+        scrollPos: '',
+        isScrolling: false,
+        navOpen: {
+            type: Boolean,
+            default: false
+        }
     }),
 
-    computed: {
-
-    },
-
-    watch: {
-        $route() {
-
-        }
-    },
+    computed: mapGetters({
+        bg: 'settings/bg',
+        text: 'settings/textColor'
+    }),
 
     props: {
+        navigation: Array,
+        socialLinks: Array
     },
 
     methods: {
-    },
-
-    apollo: {
-        globalSet: {
-          prefetch: true,
-          query: NAV_QUERY
+        openNavDrawer() {
+            this.$nuxt.$emit('openNavigation', true);
+        },
+        initHeadroom(){
+            const headerRef = this.$refs.header;
+            // const header = document.querySelector(headerRef);
+            const headroom = new Headroom(headerRef);
+            headroom.init();
+        },
+        startsWith(classlist, name) {
+            console.log(classlist.lastIndexOf(name, 0) === 1)
+            // return classlist.lastIndexOf(name, 0) === 0;
         }
     },
 
     mounted() {
-    }
+        window.addEventListener("scroll", this.getScrollPos)
+        this.initHeadroom();
+    },
+
+    beforeDestroy() {
+        window.removeEventListener("scroll", this.getScrollPos)
+    },
 
 };

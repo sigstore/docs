@@ -2,8 +2,9 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
-  generate: {
-    fallback: true
+  loading: {
+    color: 'blue',
+    height: '5px'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -22,10 +23,13 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/css/base',
+    'swiper/css/swiper.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~plugins/components.client'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -34,25 +38,23 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
-    '@nuxtjs/stylelint-module',
+    // '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+
+    '@nuxtjs/google-fonts'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
 
-    '@nuxtjs/axios',
+    '@nuxtjs/svg',
 
     '@nuxtjs/pwa',
 
-    '@nuxtjs/apollo',
-
     '@nuxtjs/dotenv',
-
-    '@nuxtjs/proxy',
 
     '@nuxtjs/redirect-module',
 
@@ -60,7 +62,36 @@ export default {
 
     '@nuxt/content',
 
+    '@nuxtjs/markdownit',
+
+    '@nuxtjs/proxy',
+
   ],
+
+  proxy: [
+      // // Proxies /foo to http://example.com/foo
+      // 'http://example.com/foo',
+  
+      // // Proxies /api/books/*/**.json to http://example.com:8000
+      // 'http://example.com:8000/api/books/*/**.json',
+  
+      // // You can also pass more options
+      // [ 'http://example.com/foo', { ws: false } ]
+  ],
+
+  markdownit: {
+    runtime: true, // Support `$md()`
+    preset: 'default',
+    linkify: true,
+    breaks: true
+  },
+
+  googleFonts: {
+    families: {
+      Inter: [400],
+    },
+    display: 'swap' // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
+  },
 
   content: {
     fullTextSearchFields: ['title', 'description', 'slug', 'text']
@@ -74,25 +105,6 @@ export default {
     trailingSlash: true
   },
 
-  apollo: {
-    clientConfigs: {
-      default: '@/plugins/apollo-config.js',
-    },
-    includeNodeModules: true
-  },
-
-  /**
-     * Proxy module configuration
-     */
-  proxy: {
-    // target: "http://localhost:3000",
-    // [process.env.GRAPHQL_PATH]: process.env.VUE_APP_BACKEND,
-    // '/actions': process.env.VUE_APP_BACKEND,
-    // '/robots.txt': process.env.VUE_APP_BACKEND,
-    // '/humans.txt': process.env.VUE_APP_BACKEND,
-    // '/sitemaps_*.xml': process.env.VUE_APP_BACKEND,
-  },
-
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
@@ -100,6 +112,15 @@ export default {
   pwa: {
     manifest: {
       lang: 'en'
+    }
+  },
+
+  generate: {
+    fallback: true,
+    async ready () {
+      const { $content } = require('@nuxt/content')
+      const files = await $content().only(['slug']).fetch()
+      console.log(files)
     }
   },
 

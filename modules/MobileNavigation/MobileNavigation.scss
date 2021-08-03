@@ -1,0 +1,29 @@
+.navigation {
+    position: relative;
+
+    &--mobile {
+        position: fixed;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100vh;
+        z-index: 60;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media (max-width: 320px){
+            height: 610px;
+        }
+
+        & ul {
+            padding-left: 6rem;
+            padding-right: 6rem;
+
+            @media (max-width: 320px){
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,162 @@
+@mixin h1 {
+  font-family: $font-sans-header-standard;
+  font-weight: $weight-medium;
+  @apply text-33;
+  @apply leading-40;
+
+  @include media-breakpoint-up(md) {
+    @apply text-54;
+    @apply leading-60;
+  }
+}
+
+@mixin h2 {
+  font-family: $font-sans-header-standard;
+  @apply text-33; 
+  font-weight:$weight-medium;
+  @apply leading-40;
+
+  @include media-breakpoint-up(md) {
+    @apply text-54;
+    @apply leading-60;
+  }
+}
+
+@mixin h3 {
+  font-family: $font-sans-header-standard;
+  font-size: 25px;
+  font-weight: $weight-medium;
+  @apply leading-30;
+
+  @include media-breakpoint-up(md) {
+    @apply text-36; 
+    @apply leading-43;
+  }
+}
+
+@mixin h4 {
+  font-family: $font-sans-header-standard;
+  font-weight: $weight-medium;
+  @apply leading-23;
+  @apply text-19;
+
+  @include media-breakpoint-up(md) {
+    @apply text-24;
+    @apply leading-32; 
+  }
+}
+
+
+%text--subheading-1 {
+  font-family: $font-sans-header-standard;
+  font-size: 1.2rem;
+  font-weight: $weight-medium;
+  letter-spacing: 0.082rem;
+  line-height: 1.8rem;
+
+  @include media-breakpoint-up(md) {
+    font-size: $size-small; // 14px
+    letter-spacing: 0.05rem;
+    line-height: 1.8rem;
+  }
+}
+
+%text--body-1 {
+  font-family: $font-sans-light;
+  font-size: $size-small;
+  font-weight: $weight-regular;
+  line-height: 1.8rem;
+
+  @include media-breakpoint-up(md) {
+    font-size: $size-medium; // 16px
+    font-weight: $weight-regular;
+    line-height: 2.4rem;
+  }
+}
+
+%text--body-small {
+  color: $c-body;
+  font-family: $font-sans-light;
+  letter-spacing: 0.05rem;
+  font-size: $size-small; // 16px
+  font-weight: $weight-regular;
+  line-height: 1.5;
+}
+
+%text--link {
+  font-family: $font-sans-light;
+  font-size: $size-medium;
+  font-weight: $weight-regular;
+}
+
+%inline--link {
+  font-family: $font-sans-light;
+  //font-size: $size-small; // 14px
+  // letter-spacing: 0.05rem;
+  // line-height: 2.1rem;
+  font-size: $size-small;
+  font-weight: $weight-bold;
+  line-height: 1.5rem;
+  position: relative;
+
+  &:after {
+    background: $c-blue;
+    bottom: -4px;
+    content: "";
+    height: 2px;
+    left: 0;
+    margin: 0 auto;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    transition: 0.5s;
+    width: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: $size-medium; // 16px
+    line-height: 1.3;
+  }
+
+  @media (pointer: fine), (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    &:hover {
+      color: $c-blue;
+
+      &:after {
+        opacity: 1;
+        width: 100%;
+      }
+    }
+  }
+}
+
+%text--subheading {
+  font-family: $font-sans-header-standard;
+  @apply leading-23;
+  @apply text-19;
+  font-weight: $weight-medium;
+
+  @include media-breakpoint-up(md) {
+    @apply text-24;
+    @apply leading-32;
+  }
+}
+
+%bullet {
+  padding-left: 20px;
+
+  li {
+    margin-bottom: $small;
+    position: relative;
+
+    &:before {
+      content: "\2022";
+      display: inline-block;
+      height: 4px;
+      left: -20px;
+      margin-right: 5px;
+      position: absolute;
+      width: 4px;
+    }
+  }
+}

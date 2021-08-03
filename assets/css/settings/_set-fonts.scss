@@ -1,0 +1,15 @@
+// // Sans Font
+@import "../mixins";
+@include font-face("GT Maru Medium", assets/fonts/GT-Maru-Medium, medium, normal, otf ttf woff2 woff);
+@include font-face("GT Maru Oblique", assets/fonts/GT-Maru-Medium-Oblique, oblique, normal, otf ttf woff2 woff);
+
+$font-sans: 'Inter', sans-serif;
+$font-sans-light: 'Inter', sans-serif;
+$font-sans-x-light: 'Lexend', sans-serif;
+$font-sans-xx-light: 'Lexend', sans-serif;
+$font-sans-regular: 'Inter', sans-serif;
+$font-sans-header-standard: 'GT Maru Medium', sans-serif;
+$font-sans-header-oblique: 'GT Maru Oblique', sans-serif;
+
+// Serif font
+$font-serif: 'Times';

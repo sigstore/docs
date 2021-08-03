@@ -1,0 +1,358 @@
+.slideOut {
+  &.animate {
+    transform: translate3d(100%, 0, 0);
+
+    &.animate-active {
+      animation: slideOut $t-short cubic-bezier(0.8, 0, 0, 0.8) forwards;
+      animation-delay: $t-medium;
+    }
+  }
+}
+
+.slideOut {
+  &.animate {
+    transform: translate3d(100%, 0, 0);
+
+    &.animate-active {
+      animation: slideOut 0.4s cubic-bezier(0.8, 0, 0, 0.8) forwards;
+      animation-delay: 0.5s;
+    }
+  }
+}
+
+.revealUp {
+  will-change: transform, opacity;
+
+  &.animate {
+    opacity: 0;
+    transform: translate3d(0, 100px, 0);
+
+    &.animate-active {
+      animation: revealUp 1.5s ease forwards;
+    }
+  }
+}
+
+.slideUp {
+  will-change: transform, opacity;
+  max-height: 105px;
+  overflow: hidden;
+}
+
+.slideDown {
+  will-change: transform, opacity;
+  max-height: auto;
+}
+
+// TODO: Switch out delays for animations into a different class so we do not have delays on all animations because not all fades need a delay
+.fadeIn {
+  &.animate {
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &.animate-active {
+      animation: fadeIn 0.7s both;
+      animation-delay: 0.3s;
+    }
+  }
+}
+
+.fadeOutUp {
+  &.animate {
+    opacity: 1;
+    transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &.animate-active {
+      opacity: 0;
+      transform: translate3d(0, -100vh, 0);
+      transform-origin: top center;
+      transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      will-change: transform;
+    }
+  }
+}
+
+.fadeInUp {
+  &.animate {
+    opacity: 0;
+    transform: translate3d(0, 100vh, 0);
+    transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &.animate-active {
+      opacity: 1;
+      transform: translate3d(0, 5vh, 0);
+      // transform-origin: top center;
+      transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      will-change: transform;
+    }
+  }
+}
+
+.drawer {
+  &--state {
+    height: 40px;
+    transform: scaleY(60);
+    /* we need to scale the texture from the left side 
+    for it to align correctly, default is center */
+    transform-origin: top;
+    transform: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-delay: 0.3s;
+    will-change: transform;
+
+    &_open {
+      animation: top-animate 1s ease;
+    }
+  }
+}
+
+.fadeInZoom {
+  will-change: transform;
+
+  &.animate {
+    transform: scale(1.4);
+    transition: all 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &.animate-active {
+      animation: zoomInFade 1.5s forwards;
+      animation-delay: 0.5s;
+    }
+  }
+}
+
+.imageSlideUp {
+  &.animate {
+    opacity: 0;
+    transform: scaleY(1.2) translate3d(0, 100px, 0);
+    transform-origin: top center;
+    transition: opacity 1.2s cubic-bezier(0.165, 0.84, 0.44, 1),
+      transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-delay: 0.3s;
+    will-change: transform;
+
+    &.animate-active {
+      opacity: 1;
+      transform: scaleY(1) translateY(0);
+    }
+  }
+}
+
+.flowIn {
+  will-change: transform, opacity;
+
+  &.animate {
+    margin-left: 100%;
+
+    &.animate-active {
+      animation: flowIn 1.5s forwards;
+      animation-delay: 0.5s;
+    }
+  }
+}
+
+.appearIn {
+  will-change: width;
+
+  &.animate {
+    width: 0;
+
+    &.animate-active {
+      animation: appearIn 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    }
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes revealUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    // opacity: 0;
+    transform: scaleY(40px);
+  }
+
+  100% {
+    // opacity: 1;
+    transform: scaleY(80px);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    // opacity: 0;
+    transform: scaleY(80px);
+  }
+
+  100% {
+    // opacity: 1;
+    transform: scaleY(40px);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1.4);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomInFade {
+  0% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes flowIn {
+  0% {
+    margin-left: 100%;
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@keyframes appearIn {
+  0% {
+    width: 0%; //need to change this into a translate refactor. Width animation is janky AF
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes morphOne {
+  0% {
+    transform: rotate(0deg) skew(0, 0) scale(10);
+  }
+
+  25% {
+    transform: rotate(90deg) skew(3deg, 2deg) scale(10.1);
+  }
+
+  50% {
+    transform: rotate(179deg) skew(0deg, 0deg) scale(10);
+  }
+
+  75% {
+    transform: rotate(269deg) skew(-1deg, -2deg) scale(9);
+  }
+
+  100% {
+    transform: rotate(359deg) skew(0, 0) scale(10);
+  }
+}
+
+@keyframes morphTwo {
+  0% {
+    transform: rotate(0deg) skew(0, 0) scale(10);
+  }
+
+  25% {
+    transform: rotate(-90deg) skew(-3deg, -4deg) scale(10.25);
+  }
+
+  50% {
+    transform: rotate(-179deg) skew(0deg, 0deg) scale(10);
+  }
+
+  75% {
+    transform: rotate(-269deg) skew(5deg, 2deg) scale(9.5);
+  }
+
+  100% {
+    transform: rotate(-359deg) skew(0, 0) scale(10);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  30% {
+    transform: scale(3);
+  }
+
+  40% {
+    transform: scale(3.1);
+  }
+
+  50% {
+    transform: scale(2.9);
+  }
+
+  100% {
+    transform: scale(3);
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+@keyframes openLineClamp {
+  from {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+
+  to {
+    -webkit-line-clamp: initial;
+    line-clamp: initial;
+  }
+}
+
+@keyframes closeLineClamp {
+  from {
+    -webkit-line-clamp: initial;
+    line-clamp: initial;
+  }
+
+  to {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+}

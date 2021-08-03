@@ -1,0 +1,78 @@
+.button {
+  @extend %button;
+
+  &--transparent-border{
+    border:solid 2px black;
+    @apply rounded-full;
+    @apply bg-white;
+  }
+}
+
+.markdown-text{
+  p a{
+    // apply text-16;
+    // apply leading-22;
+    // apply text-gray-medium;
+    font-weight: 500;
+    // apply flex items-center justify-start;
+    padding-right: 40px;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    animation-delay: 0.1s;
+    transform: translateX(0px);
+  }
+}
+
+.cta{
+  &_transparent {
+      background-color: white;
+      color: black;
+      padding: 2rem;
+  }
+}
+
+.inline--button{
+  &-grey {
+    @apply text-gray-dark;
+    transition: all 0.2s ease-in-out;
+    animation-delay: 0.1s;
+    & svg {
+      transition: all 0.2s ease-in-out;
+      animation-delay: 0.1s;
+      transform: translateX(0px);
+    }
+    &:hover {
+      color: $c-purple;
+      & svg {
+        transform: translateX(5px);
+        transition: all 0.2s ease-in-out;
+          animation-delay: 0.1s;
+        path {
+          stroke: $c-purple;
+        }
+      }
+    }
+  }
+
+  &-white {
+    color: white;
+    transition: all 0.2s ease-in-out;
+    animation-delay: 0.1s;
+    & svg {
+      transition: all 0.2s ease-in-out;
+      animation-delay: 0.1s;
+      transform: translateX(0px);
+    }
+    &:hover {
+      color: $c-purple;
+      & svg {
+        transform: translateX(5px);
+        transition: all 0.2s ease-in-out;
+        animation-delay: 0.1s;
+        path {
+          stroke: $c-purple;
+        }
+      }
+    }
+  }
+}

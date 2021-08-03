@@ -1,0 +1,51 @@
+// Color vars
+$c-black: #2f3542;
+$c-white: #fff;
+$c-flat-white: #e5e5e5;
+$c-dark-blue: #2A1E71;
+//$c-dark-blue: rgb(42, 48, 142);
+$c-blue: #2f6af4;
+//$c-blue: rgb(47, 106, 244);
+$c-purple: #6349FF;
+//$purple: rgb(117, 55, 200);
+$c-yellow: #f1a63b;
+$c-orange-dark: #793030;
+//$yellow: rgb(241, 166, 59);
+$c-egg-white: #f6f0eb;
+//$egg-white: rgb(246, 240, 235);
+$c-red: #ff475b;
+//$red: rgb(236, 86, 96);
+$c-bg-blue: #1c68fd;
+//$$c-bg-blue: rgb(28, 104, 253)
+$c-green: #14ca26;
+$c-dark-green: #5db075;
+$c-grey: #757575;
+$c-grey-dark: #444444;
+$c-body: #4d4b4b;
+$c-heading: #4d5873;
+
+// sass variables for default colors
+$colors: (
+  'black': $c-black,
+  'white': $c-white,
+  'dark-blue': $c-dark-blue,
+  'blue': $c-blue,
+  'purple': $c-purple,
+  'yellow': $c-yellow,
+  'egg-white': $c-egg-white,
+  'red': $c-red,
+  'grey': $c-grey,
+  'flat-white': $c-flat-white,
+  'green': $c-green,
+  'dark-green': $c-dark-green,
+  'bg-blue': $c-bg-blue,
+  'body': $c-body,
+);
+
+// Variable prefix
+$color-prefix: --c-;
+
+// Color naming function
+@function color($color-name) {
+  @return var(#{$color-prefix}#{$color-name});
+}
