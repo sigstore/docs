@@ -2,7 +2,7 @@
   "product": [
     {
       "productName": "Cosign",
-      "productOverview": "Used for container signing, verification and storage in an Open Container Initiative (OCI) registry. Cosign aims to make signatures invisible infrastructure.",
+      "productOverview": "For container signing, verification and storage in an Open Container Initiative (OCI) registry. Cosign aims to make signatures invisible infrastructure.",
       "productCTALink": "https://github.com/sigstore/cosign",
       "productCTA": "View the repo"
     },
@@ -14,19 +14,19 @@
     },
     {
       "productName": "OpenID Connect",
-      "productOverview": "An identity layer that authorizes whether you are who you say you are. It allows clients to request and receive information about authenticated sessions and end users.",
+      "productOverview": "An identity layer that authorizes whether you are you who you say you are. It lets clients request and receive information about authenticated sessions and users.",
       "productCTA": "Learn more",
       "productCTALink": "https://openid.net/connect/"
     },
     {
       "productName": "Fulcio",
-      "productOverview": "A free root certification authority, issuing temporary certificates to an identity after they've been authorized and publishing them in the Rekor transparency log.",
+      "productOverview": "A free root certification authority, issuing temporary certificates to an authorized identity and publishing them in the Rekor transparency log.",
       "productCTA": "View the repo",
       "productCTALink": "https://github.com/sigstore/fulcio"
     },
     {
       "productName": "Certificate Authority",
-      "productOverview": "A trusted mechanism that generates certificates, binding cryptographic keys to an identity. It's like an independent check that information about an artefact is correct."
+      "productOverview": "A trusted mechanism that generates certificates, binding cryptographic keys to an identity and an independent check that an artifact's information is correct."
     },
     {
       "productName": "Trust root",
