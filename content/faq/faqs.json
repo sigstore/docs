@@ -25,7 +25,7 @@
       "answer": "As easy as we can make it. Signing and verifying seems like a lot of extra effort with a lot of pitfalls. Our aim is to design away the manual effort and risk of error, automating the signing into a few simple commands. Verification checks can be made much easier by using the data in our transparency logs, and work is currently underway to explore integrations and development to support that."
     },
     {
-      "question": "How do I verify downloaded code with sigstore?",
+      "question": "How do I verify downloaded code?",
       "answer": "Rekor lets you send an artifact’s signature or URL to verify an inclusion proof, which shows that an artifact’s stored in the log. You can retrieve an entry using the `get` command with either the log index or the artifact’s universally unique identifier (UUID), or search to look through the log for artifacts, public keys or a SHA hash. Or you can retrieve public keys using `loginfo`, which finds a public key which is then used to verify signatures. This data is freely available, and anyone can deploy and run a Rekor instance."
     },
     {
@@ -33,7 +33,7 @@
       "answer": "The fastest way to get answers, ideas and feedback is to jump into our working group on Slack. We’re all developing this together, so we’d be happy to help you out."
     },
     {
-      "question": "Can I run my own monitor or build an application to use the transparency logs myself?",
+      "question": "Can I run my own monitor?",
       "answer": "We would love that, you’re definitely encouraged to do so. The more people monitoring the logs and providing useful services to users, the better. We’ve published OpenAPI interfaces for both Rekor and Fulcio, and our Slack workspace is a good place to run ideas by us for feedback and questions."
     },
     {
