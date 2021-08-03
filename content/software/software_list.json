@@ -2,33 +2,35 @@
   "product": [
     {
       "productName": "Cosign",
-      "productOverview": "Used for container signing, verification and storage in an Open Container Initiative (OCI) registry.\n\nHere's a demo of it in action:\nhttps://www.youtube.com/watch?v=gCi9_4NYyR0",
+      "productOverview": "Used for container signing, verification and storage in an Open Container Initiative (OCI) registry. Cosign aims to make signatures invisible infrastructure.",
       "productCTALink": "https://github.com/sigstore/cosign",
       "productCTA": "View the repo"
     },
     {
       "productName": "Rekor",
-      "productOverview": "Records signed metadata to a ledger that can be searched, but can’t be tampered with.\n\n\n",
+      "productOverview": "A built in transparency and timestamping service, Rekor records signed metadata to a ledger that can be searched, but can’t be tampered with.\n\n\n",
       "productCTA": "View the repo",
       "productCTALink": "https://github.com/sigstore/rekor"
     },
     {
-      "productName": "OpenID connect",
-      "productOverview": "An identity layer that authorizes whether you are who you say you are."
+      "productName": "OpenID Connect",
+      "productOverview": "An identity layer that authorizes whether you are who you say you are. It allows clients to request and receive information about authenticated sessions and end users.",
+      "productCTA": "Learn more",
+      "productCTALink": "https://openid.net/connect/"
     },
     {
       "productName": "Fulcio",
-      "productOverview": "A free root certification authority, issuing certificates to an authorised identity.",
+      "productOverview": "A free root certification authority, issuing temporary certificates to an identity after they've been authorized and publishing them in the Rekor transparency log.",
       "productCTA": "View the repo",
       "productCTALink": "https://github.com/sigstore/fulcio"
     },
     {
       "productName": "Certificate Authority",
-      "productOverview": "A mechanism that generates certificates, binding cryptographic keys to an identity."
+      "productOverview": "A trusted mechanism that generates certificates, binding cryptographic keys to an identity. It's like an independent check that information about an artefact is correct."
     },
     {
       "productName": "Trust root",
-      "productOverview": "The foundation for trust, keyholders and  ways of working to protect the root keys.",
+      "productOverview": "The foundation for trust, keyholders and ways of working to protect the root keys.",
       "productCTA": "sigstore's trust root",
       "productCTALink": "https://github.com/sigstore"
     }
