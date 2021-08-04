@@ -1,8 +1,10 @@
 import Vue from 'vue'
+import { Swiper as SwiperClass, Pagination, Mousewheel, Autoplay } from 'swiper/swiper.esm'
+import getAwesomeSwiper from 'vue-awesome-swiper/dist/exporter'
+SwiperClass.use([Pagination, Mousewheel, Autoplay])
+Vue.use(getAwesomeSwiper(SwiperClass))
 
-import VueAwesomeSwiper from 'vue-awesome-swiper'
 
-Vue.use(VueAwesomeSwiper)
 const config = {
   rootMargin: '0px',
   threshold: [.2, .6]

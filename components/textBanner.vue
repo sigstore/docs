@@ -22,7 +22,7 @@
             <div v-if="showSupportedBy" v-animate-on-scroll class="absolute bottom-0 mb-24 w-full delay-step_5">
                 <div class="container inner">
                     <p class="h mb-16 text-gray-dark">In collaboration with </p>
-                    <div class="flex items-center justify-between md:justify-start overflow-scroll lg:overflow-unset">
+                    <div class="flex items-center justify-between md:justify-start">
                         <img class="md:w-122 w-55 md:mr-20" src="/img/googlelogo.png" alt="Google sponsor logo" />
                         <img class="md:w-122 w-55 md:mr-20" src="/img/linuxfoundationlogo.png" alt="Linux Foundation sponsor logo" />
                         <img class="md:w-122 w-55 md:mr-20" src="/img/redhatlogo.png" alt="RedHat sponsor logo" />
