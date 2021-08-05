@@ -32,7 +32,7 @@ export default {
   head() {
       return this.page ? {
         title: this.page.title,
-        titleTemplate: "%s · " + process.env.VUE_APP_SITENAME,
+        titleTemplate: `%s · Sigstore`,
         script: [
           { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
           {
@@ -82,8 +82,7 @@ export default {
         },
         {
           property: "og:description",
-          content:
-            ""
+          content: this.page.description
         }
         ],
         link: [

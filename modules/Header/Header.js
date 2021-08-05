@@ -45,7 +45,6 @@ export default {
             headroom.init();
         },
         startsWith(classlist, name) {
-            console.log(classlist.lastIndexOf(name, 0) === 1)
             // return classlist.lastIndexOf(name, 0) === 0;
         }
     },

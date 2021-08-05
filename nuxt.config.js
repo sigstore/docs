@@ -12,12 +12,16 @@ export default {
     title: 'sigstore',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no' },
+      { name: 'format-detection', content: 'telephone=no' },
+      { name: "msapplication-TileColor", content: "#da532c" },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "mask-icon", href: "/safari-pinned-tab.svg", color: "#5bbad5"},
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" }
     ]
   },
 
@@ -116,11 +120,6 @@ export default {
 
   generate: {
     fallback: true,
-    async ready () {
-      const { $content } = require('@nuxt/content')
-      const files = await $content().only(['slug']).fetch()
-      console.log(files)
-    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

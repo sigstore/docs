@@ -622,13 +622,13 @@ collections:
               - {
                   label: Text Top para,
                   name: text,
-                  widget: string,
+                  widget: markdown,
                   required: false,
                 }
               - {
                   label: Text Bottom para,
                   name: textBottom,
-                  widget: string,
+                  widget: markdown,
                   required: false,
                 }
               - {
