@@ -26,7 +26,7 @@
     },
     {
       "productName": "Certificate Authority",
-      "productOverview": "A trusted mechanism that generates certificates, binding cryptographic keys to an identity and an independent check over an artifact's information."
+      "productOverview": "A mechanism that generates certificates, binding cryptographic keys to an identity and an independent check over an artifact's information."
     },
     {
       "productName": "Trust root",
