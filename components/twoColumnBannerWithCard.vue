@@ -7,7 +7,10 @@
         <div class="md:flex justify-between container inner" :class="[textAlignment != 'textRight' ? 'items-start' : 'items-start']">
             <div v-animate-on-scroll class="w-full lg:w-1/2 step-delay_1 md:mr-80">
                 <h2 class="text-36 leading-32 mb-64 md:mb-32" :class="[!bgColour ? 'text-purple-dark' : 'text-purple-dark']">{{header}}</h2>
-                <div v-if="textAlignment != 'textRight'" :class="[!bgColour ? 'text-purple-dark' : 'text-gray-dark']" class="md:mt-8 mb-64 md:mb-32 markdown" v-html="$md.render(text)"></div>
+                <div v-if="textAlignment != 'textRight'" :class="[!bgColour ? 'text-purple-dark' : 'text-gray-dark']" class="md:mt-8 mb-64 md:mb-32 markdown">
+                    <div v-html="$md.render(text)" />
+                    <div v-html="$md.render(textBottom)" />
+                </div>
             </div>
             <div v-if="!card" v-animate-on-scroll class="w-full lg:w-1/2 step-delay_5">
                 <div v-if="textAlignment != 'textRight'"><img :src="imageAsset" alt="Right image for text column" /></div>

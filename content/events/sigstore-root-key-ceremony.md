@@ -1,7 +1,7 @@
 ---
-title: sigstore Root Key Ceremony
-date: August 6th, 2021
+title: Our first Root Key ceremony!
+date: July 22nd, 2021
 entryTag: event
-link: https://blog.sigstore.dev/a-new-kind-of-trust-root-f11eeeed92ef
+link: https://www.youtube.com/watch?v=GEuFsc8Zm9U
 ---
   &

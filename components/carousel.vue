@@ -43,7 +43,6 @@ export default {
         async getCarouselCaseStudies(){
             const globalData = await this.$content('caseStudies').fetch();
             const cases = globalData.filter(g => this.carouselCaseItems.includes(g.slug)).map(g => g);
-            console.log(cases)
             this.carouselCaseStudies = cases;
         },
     },

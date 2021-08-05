@@ -106,7 +106,6 @@ export default {
         if(this.showStatsBanner){
             this.getGlobalStats();
         }
-        console.log(this.$refs)
     },
 
     methods: {
