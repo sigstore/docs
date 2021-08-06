@@ -20,7 +20,7 @@ sections:
         ##### Coming soon
 
 
-        Our threat model will provide a way to plan against and prevent known threats to sigstore's infrastructure. We're currently working on this.
+        Our threat model will provide a way to plan against and prevent known threats to sigstore's infrastructure. This is currently in development.
       ctaText: ""
       ctaLink: ""
     text: An open, accessible foundation behind the policies and protocols sigstore
