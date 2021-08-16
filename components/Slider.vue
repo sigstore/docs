@@ -38,7 +38,7 @@
                   </div>
                 </div>
 
-                <a v-if="slide.caseStudyLink" class="absolute bottom-0 left-0 pt-22 flex items-center h text-12 md:text-16 card--button" :href="slide.caseStudyLink">
+                <a v-if="slide.caseStudyLink" target="_blank" class="absolute bottom-0 left-0 pt-22 flex items-center h text-12 md:text-16 card--button" :href="slide.caseStudyLink">
                     Learn more
                     <span class="ml-6">
                         <svg 
