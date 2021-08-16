@@ -85,10 +85,10 @@ sections:
     bgColour: bg-white
     imageAsset: /img/system_architecture_summary-01.svg
     textBottom: >-
-             **Building for future integrations** 
+                   **Building for future integrations** 
 
 
-            With the help of a working partnership that includes Google, the Linux Foundation, Red Hat and Purdue University, we’re in constant collaboration to find new ways to improve the sigstore technology, to make it easy to adopt, integrate and become a long-lasting standard.
+                  With the help of a working partnership that includes Google, the Linux Foundation, Red Hat and Purdue University, we’re in constant collaboration to find new ways to improve the sigstore technology, to make it easy to adopt, integrate and become a long-lasting standard.
     type: twoColumnBannerWithCard
     column1:
       header: Sign code
