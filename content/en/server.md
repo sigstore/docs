@@ -1,9 +1,7 @@
 ---
 title: "Run a Rekor Server"
-date: 2020-12-08T08:12:58Z
-draft: false
-section: single
-type: page
+position: 2
+category: Rekor
 ---
 There are a few ways to deploy a Rekor Server:
 

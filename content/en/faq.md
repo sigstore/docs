@@ -1,9 +1,10 @@
 ---
 title: "Frequently Asked Questions"
-date: 2020-12-07T17:09:20Z
-draft: false
-section: single
-type: page
+position: 5
+category: ''
+version: 1.4
+fullscreen: true
+menuTitle: 'FAQs'
 ---
 
 ### Seems like Rekor is centralised?

@@ -1,9 +1,8 @@
 ---
-title: sigstore
-date: 2020-12-07T17:09:20Z
-draft: false
-section: single
-type: page
+title: Intro
+menuTitle: 'Overview'
+category: 'Sigstore'
+position: 1
 ---
 **sigstore** is a [Linux Foundation](https://linuxfoundation.org/) project.
 
