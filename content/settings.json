@@ -1,0 +1,12 @@
+{
+  "title": "Sigstore Documentation",
+  "url": "docs.sigstore.dev",
+  "layout": "default",
+  "defaultBranch": "develop",
+  "logo": {
+    "light": "/logo-light.svg",
+    "dark": "/logo-dark.svg"
+  },
+  "github": "sigstore/sigstore.github.io",
+  "twitter": "@nuxt_js"
+}
