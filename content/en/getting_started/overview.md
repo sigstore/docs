@@ -1,8 +1,15 @@
 ---
-title: Intro
+title: 'Overview'
+description: 'The rekor overview'
+category: 'GETTING STARTED'
+version: 1.4
+fullscreen: true
 menuTitle: 'Overview'
-category: 'Sigstore'
-position: 1
+position: 2
+features:
+  - Feature 1
+  - Feature 2
+  - Feature 3
 ---
 **sigstore** is a [Linux Foundation](https://linuxfoundation.org/) project.
 
@@ -15,6 +22,12 @@ resistant public log
 
 **sigstore** will be free to use for all developers and software providers, with sigstore's code and operation
 tooling being 100% open source and maintained / developed by the [**sigstore** community](https://github.com/sigstore).
+
+## Title
+
+Test
+
+### Test
 
 ### Software Supply Chain Security
 

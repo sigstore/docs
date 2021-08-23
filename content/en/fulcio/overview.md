@@ -1,10 +1,10 @@
 ---
 title: 'Overview'
 description: 'The rekor overview'
-position: 1
-category: 'Fulcio'
+category: 'FULCIO'
 version: 1.4
 fullscreen: true
+position: 8
 menuTitle: 'Overview'
 features:
   - Feature 1

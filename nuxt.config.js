@@ -14,12 +14,5 @@ export default theme({
       name: 'English'
     }],
     defaultLocale: 'en'
-  },
-  build: {
-    babel:{
-      plugins: [
-        ['@babel/plugin-proposal-private-methods', { loose: true }]
-      ]
-    }
   }
 })

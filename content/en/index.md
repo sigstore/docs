@@ -1,11 +1,11 @@
 ---
-title: 'Overview'
-description: 'Empower your NuxtJS application with this awesome module.'
-position: 1
-category: ''
+title: 'Introduction'
+description: 'Intro text'
+category: 'GETTING STARTED'
 version: 1.4
 fullscreen: true
-menuTitle: 'Overview'
+menuTitle: 'Introduction'
+position: 1
 features:
   - Feature 1
   - Feature 2

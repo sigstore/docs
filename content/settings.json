@@ -7,6 +7,6 @@
     "light": "/logo-light.svg",
     "dark": "/logo-dark.svg"
   },
-  "github": "sigstore/sigstore.github.io",
-  "twitter": "@nuxt_js"
+  "github": "sigstore/sigstore-website",
+  "twitter": "@sigstore"
 }

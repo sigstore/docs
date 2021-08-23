@@ -1,8 +1,8 @@
 ---
 title: Setup
 description: ''
-position: 3
-category: Guide
+category: GETTING STARTED
+position: 4
 ---
 
 Check the [Nuxt.js documentation](https://nuxtjs.org/guides/configuration-glossary/configuration-modules) for more information about installing and using modules in Nuxt.js.

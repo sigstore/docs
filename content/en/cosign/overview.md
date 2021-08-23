@@ -1,10 +1,10 @@
 ---
 title: 'Overview'
 description: 'The rekor overview'
-category: 'REKOR'
+category: 'COSIGN'
 version: 1.4
 fullscreen: true
-position: 7
+position: 9
 menuTitle: 'Overview'
 features:
   - Feature 1

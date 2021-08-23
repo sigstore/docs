@@ -1,5 +1,5 @@
 {
-  "name": "documentation",
+  "name": "docs",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxt/content-theme-docs": "^0.10.1",
-    "nuxt": "^2.15.2"
+    "@nuxt/content": "1.14.0",
+    "@nuxt/content-theme-docs": "0.10.1",
+    "nuxt": "2.15.4"
   },
   "resolutions": {
     "@babel/core": "7.13.15",

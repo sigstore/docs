@@ -1,7 +1,7 @@
 ---
 title: "Rekor Command Line Interface"
-position: 3
-category: Rekor
+category: REKOR
+position: 6
 ---
 
 The following guide is targeted towards developers / software maintainers who would like to make a provenance entry into the rekor transparency log.
