@@ -1,21 +1,24 @@
 ---
 title: 'Overview'
-description: 'The rekor overview'
+description: ''
 category: 'COSIGN'
 version: 1.4
 fullscreen: true
-position: 9
+position: 10
 menuTitle: 'Overview'
 features:
-  - Feature 1
-  - Feature 2
-  - Feature 3
+  - Hardware and KMS signing
+  - Bring-your-own PKI
+  - Our free OIDC PKI (Fulcio https://github.com/sigstore/fulcio)
+  - Built-in binary transparency and timestamping service (Rekor)
 ---
 
-A list of current public instances of rekor
+Container signing, verification and storage in an OCI registry. Cosign aims to make signatures invisible infrastructure.
 
-| Server                                                               | Purpose |
-| -------------------------------------------------------------------- | ------- |
-| [https://rekor.sigstore.dev/api/v1/log](https://rekor.sigstore.dev/api/v1/log) | Sandbox |
+<img src="/cosign.gif" class="light-img" width="1280" height="640" alt=""/>
 
-- Note: servers listed as 'Sandbox' do not guarantee data persistence at presence. Only production systems provide those guarantees
+Cosign supports:
+
+<list :items="features" type="info"></list>
+
+Cosign is being developed as part of the sigstore project. We also use a <a href="https://sigstore.slack.com/" target="_blank">slack</a> channel. Click <a href="https://join.slack.com/t/sigstore/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ" target="_blank">here</a> for the invite link.

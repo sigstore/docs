@@ -1,6 +1,6 @@
 ---
 title: "Frequently Asked Questions"
-category: OTHER INFORMATION
+category: SIGSTORE
 version: 1.4
 position: 3
 menuTitle: 'FAQs'

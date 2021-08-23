@@ -1,42 +1,16 @@
 ---
-title: Setup
+title: Getting Started
 description: ''
-category: GETTING STARTED
+category: SIGSTORE
 position: 4
 ---
 
-Check the [Nuxt.js documentation](https://nuxtjs.org/guides/configuration-glossary/configuration-modules) for more information about installing and using modules in Nuxt.js.
-
 ## Installation
 
-Add `@nuxtjs/xxx` dependency to your project:
+Up to date documentation, best practices and detailed scenarios for sigstore live here. These pages are maintained by the community and intended to help anyone get set up easily with any of the technologies, to find what you’re looking for fast. It’s also where we keep all the relevant pages for the sigstore trust root, from ceremonies to security practices.
 
-<code-group>
-  <code-block label="Yarn" active>
+Ready to jump in? Check the contributing guidelines <a href="#">here</a>.
 
-  ```bash
-  yarn add @nuxtjs/xxx
-  ```
-
-  </code-block>
-  <code-block label="NPM">
-
-  ```bash
-  npm install @nuxtjs/xxx
-  ```
-
-  </code-block>
-</code-group>
-
-Then, add `@nuxtjs/xxx` to the `modules` section of `nuxt.config.js`:
-
-```js[nuxt.config.js]
-{
-  modules: [
-    '@nuxtjs/xxx'
-  ],
-  xxx: {
-    // Options
-  }
-}
-```
+- Quick installations to get started, visit here.
+- Release notes and latest information, visit here.
+- Policy and trust root documentation, visit here.
