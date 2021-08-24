@@ -11,6 +11,8 @@ features:
   - Feature 3
 ---
 
+<img src="/fulcio_overview_v1.jpg" class="light-img" width="1280" height="640" alt=""/>
+
 Fulcio is a free root certification authority for code signing certs, issuing certificates based on an Open ID Connect email address. Fulcio only signs short-lived certificates valid for under 20 minutes.
 
 [callout] Fulcio is a work in progress! There’s working code, a running instance and a roadmap, but it’s not yet reliable or robust enough for public consumption. 

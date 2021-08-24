@@ -7,8 +7,7 @@ menuTitle: 'Overview'
 position: 1
 ---
 
-<!-- <img src="/preview.png" class="light-img" width="1280" height="640" alt=""/>
-<img src="/preview-dark.png" class="dark-img" width="1280" height="640" alt=""/> -->
+<img src="/sigstore_overview_v2.jpg" class="light-img" width="1280" height="640" alt=""/>
 
 ## What is Sigstore
 
