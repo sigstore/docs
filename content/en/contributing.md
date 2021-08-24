@@ -3,9 +3,8 @@ title: 'Contributing'
 description: 'Intro text'
 category: 
 version: 1.4
-fullscreen: true
 menuTitle: 'Contributing'
-position: 13
+position: 14
 ---
 
 ## Creating new resources for sigstore docs

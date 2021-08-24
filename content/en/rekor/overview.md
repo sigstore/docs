@@ -3,7 +3,6 @@ title: 'Overview'
 description: 'The rekor overview'
 category: 'REKOR'
 version: 1.4
-fullscreen: true
 position: 8
 menuTitle: 'Overview'
 ---

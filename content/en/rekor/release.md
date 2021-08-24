@@ -3,7 +3,6 @@ title: 'Release'
 description: 'Rekor release history below'
 category: 'REKOR'
 version: 1.4
-fullscreen: true
 menuTitle: 'Release'
 position: 9
 ---

@@ -3,7 +3,6 @@ title: 'Introduction'
 description: 'Intro text'
 category: SIGSTORE
 version: 1.4
-fullscreen: true
 menuTitle: 'Overview'
 position: 1
 ---
