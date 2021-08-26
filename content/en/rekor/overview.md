@@ -1,8 +1,8 @@
 ---
-title: 'Rekor'
-description: 'The rekor overview'
-category: 'Rekor'
-menuTitle: 'Overview'
+title: "Rekor"
+description: "The rekor overview"
+category: "Rekor"
+menuTitle: "Overview"
 position: 3
 ---
 
@@ -20,9 +20,9 @@ Rekor fulfils the signature transparency role of sigstore’s software signing i
 
 There are a few ways to deploy a Rekor Server:
 
- 1. We have a [docker-compose](https://github.com/sigstore/rekor/blob/main/docker-compose.yml) file available
- 2. A [kubernetes operator](https://github.com/sigstore/rekor-operator)
- 3. Or you could do this manually and build rekor yourself.
+1.  We have a [docker-compose](https://github.com/sigstore/rekor/blob/main/docker-compose.yml) file available
+2.  A [kubernetes operator](https://github.com/sigstore/rekor-operator)
+3.  Or you could do this manually and build rekor yourself.
 
 ### Prerequisites
 
@@ -88,7 +88,3 @@ rekor-server serve
 2020-09-12T16:32:22.705+0100	INFO	app/server.go:55	Starting server...
 2020-09-12T16:32:22.705+0100	INFO	app/server.go:61	Listening on 127.0.0.1:3000
 ```
-
-
-
-## Releases

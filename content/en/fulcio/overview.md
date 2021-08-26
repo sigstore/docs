@@ -1,8 +1,7 @@
 ---
-title: 'Fulcio'
-menuTitle: 'Overview'
-description: 'The rekor overview'
-category: 'Fulcio'
+title: "Fulcio"
+menuTitle: "Overview"
+category: "Fulcio"
 position: 3
 features:
   - Feature 1
@@ -12,15 +11,19 @@ features:
 
 <img src="/fulcio_overview_v1.jpg" class="light-img" width="1280" height="640" alt=""/>
 
-Fulcio is a free root certification authority for code signing certs, issuing certificates based on an Open ID Connect email address. Fulcio only signs short-lived certificates valid for under 20 minutes.
+Fulcio is a free code signing Certificate Authority, built to make short-lived certificates available to anyone. Based on an Open ID Connect email address, Fulcio signs x509 certificates valid for under 20 minutes.
 
-[callout] Fulcio is a work in progress! There’s working code, a running instance and a roadmap, but it’s not yet reliable or robust enough for public consumption.
+Fulcio was designed to run as a centralized, public-good instance backed up by other transparency logs. Development is now underway to support different delegation models, and to deploy and run Fulcio as a disconnected instance.
 
-Fulcio is being developed as part of the sigstore project.
-We also use a <a href="https://sigstore.slack.com/" target="_blank">slack channel</a>. Click <a href="https://join.slack.com/t/sigstore/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ" target="_blank">here</a> for the invite link.
+**Fulcio is a work in progress!** There’s working code, a running instance and a roadmap, but it’s not yet reliable or robust enough for public consumption.
+
+Fulcio is being developed as part of the sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://join.slack.com/t/sigstore/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ)?)
 
 ## Usage and installation
-Coming soon
+
+_Whoops! This doesn't exist yet.
+If you’d like to check its progress or to contribute, just follow the [link](contributing)._
 
 ## API
+
 Coming soon

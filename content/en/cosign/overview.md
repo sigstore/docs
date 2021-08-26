@@ -1,8 +1,8 @@
 ---
-title: 'Cosign'
-menuTitle: 'Overview'
-description: ''
-category: 'Cosign'
+title: "Cosign"
+menuTitle: "Overview"
+description: ""
+category: "Cosign"
 position: 3
 features:
   - Hardware and KMS signing
@@ -12,7 +12,6 @@ features:
 ---
 
 <img src="/cosign_overview_v1.jpg" class="light-img" width="1280" height="640" alt=""/>
-
 
 ## Overview
 
@@ -24,7 +23,7 @@ Cosign supports:
 
 <img src="/cosign.gif" class="light-img" width="1280" height="640" alt=""/>
 
-Cosign is being developed as part of the sigstore project. We also use a <a href="https://sigstore.slack.com/" target="_blank">slack</a> channel. Click <a href="https://join.slack.com/t/sigstore/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ" target="_blank">here</a> for the invite link.
+Cosign is being developed as part of the sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://join.slack.com/t/sigstore/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ)?)
 
 ## Usage and installation
 

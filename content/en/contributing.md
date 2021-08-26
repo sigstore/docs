@@ -1,17 +1,17 @@
 ---
-title: 'Contributing'
-description: 'Intro text'
-category: 'Get involved'
+title: "Contributing"
+description: "Intro text"
+category: "Get involved"
 position: 4
 ---
 
-## Creating new resources for sigstore docs
+## Creating new resources
 
 This covers a few basics to get you started. It covers pointers for writing clear, consistent technical documentation, some tips and tricks you can use in Nuxt, to sigstore community policies on changing and reviewing content.
 
 ## Technical writing
 
-There’s plenty of good style guides for writing technical documentation. Microsoft’s Style Guide or Google developer documentation are two of the most mature and well established guides, and these are especially useful to turn to when you’ve got a decision to make that might become convention. The most important thing though, especially as your documentation resources grow, is to follow your nose, discuss any decisions that might create consistency rules and keep track of the results, and do a little contextual review of what’s already been published to check for consistency.
+There’s plenty of good style guides for writing technical documentation. [Microsoft’s Style Guide](https://docs.microsoft.com/en-us/style-guide/welcome/) or [Google's developer documentation](https://developers.google.com/style) are two of the most mature and well established guides, and these are especially useful to turn to when you’ve got a decision to make that might become convention. The most important thing though, especially as your documentation resources grow, is to follow your nose, discuss any decisions that might create consistency rules and keep track of the results, and do a little contextual review of what’s already been published to check for consistency.
 
 ## Tips
 
@@ -49,13 +49,8 @@ As website content grows, matures and adapts, it can be tricky to keep the conte
 
 - And above all, be consistent. This applies both to the words you use, and the way you use them - so things like grammar and formatting, whether you capitalise a word or not, etc.
 
-
 ## Working with Nuxt
 
 The Nuxt documentation is a great first stop for anyone new to writing technical documentation, or anyone interested in what Nuxt supports. All their guidance for writing, fetching and displaying content can be found here. It’s quick to pick up, and essential for transforming markdown files and raw text into well designed, readable guides and resources anyone can pick up.
 
 Resource: https://content.nuxtjs.org/
-
-
-Resources for changing documentation content:
-[example link here]

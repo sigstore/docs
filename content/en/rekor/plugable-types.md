@@ -1,12 +1,12 @@
 ---
-title: 'Plugable Types'
-category: 'Rekor'
+title: "Plugable types"
+category: "Rekor"
 position: 5
 ---
 
 ## Description
 
-Rekor supports pluggable types (aka different schemas) for entries stored in the transparency log. This will allow you to develop
+Rekor supports plugable types (aka different schemas) for entries stored in the transparency log. This will allow you to develop
 your own manifest type in your preferred formatting style (json|yaml|xml).
 
 ### Currently supported types
@@ -14,7 +14,7 @@ your own manifest type in your preferred formatting style (json|yaml|xml).
 - Rekord (default type) [schema](rekord/rekord_schema.md)
   - Versions: 0.0.1
 
-## Base Schema
+## Base schema
 
 The base schema for all types is modeled off of the schema used by Kubernetes and can be found in `openapi.yaml` as `#/definitions/ProposedEntry`:
 
@@ -32,7 +32,7 @@ definitions:
 
 The `kind` property is a [discriminator](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#fixed-fields-13) that is used to differentiate between different pluggable types. Types can have one or more versions of the schema supported concurrently by the same Rekor instance; an example implementation can be seen in `rekord.go`.
 
-## Adding Support for a New Type
+## Adding support for a new type
 
 To add a new type (called `newType` in this example):
 
@@ -108,7 +108,7 @@ func init() {
 
 7. After adding sufficient unit & integration tests, submit a pull request to `sigstore/rekor` for review and addition to the codebase.
 
-## Adding a New Version of the `Rekord` type
+## Adding a new version of the `Rekord` type
 
 To add new version of the default `Rekord` type:
 
