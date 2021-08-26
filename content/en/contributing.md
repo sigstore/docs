@@ -1,21 +1,13 @@
 ---
 title: 'Contributing'
 description: 'Intro text'
-category: 
-version: 1.4
-menuTitle: 'Contributing'
-position: 14
+category: 'Get involved'
+position: 4
 ---
 
 ## Creating new resources for sigstore docs
 
 This covers a few basics to get you started. It covers pointers for writing clear, consistent technical documentation, some tips and tricks you can use in Nuxt, to sigstore community policies on changing and reviewing content.
-
-## Working with Nuxt
-
-The Nuxt documentation is a great first stop for anyone new to writing technical documentation, or anyone interested in what Nuxt supports. All their guidance for writing, fetching and displaying content can be found here. It’s quick to pick up, and essential for transforming markdown files and raw text into well designed, readable guides and resources anyone can pick up.
-
-Resource: https://content.nuxtjs.org/
 
 ## Technical writing
 
@@ -43,7 +35,7 @@ As website content grows, matures and adapts, it can be tricky to keep the conte
 
 - Who’s your audience? They’re a wide mix of readers with different levels of know-how. Good, accessible website content tends to keep things simple and more entry level rather than diving straight in at the deep end.
 
-- Branded terms. Fulcio, Cosign and Rekor all get capitalized. sigstore doesn’t, and shouldn’t in any context. Making sure this stays consistent helps make them feel more established, more long-lasting. 
+- Branded terms. Fulcio, Cosign and Rekor all get capitalized. sigstore doesn’t, and shouldn’t in any context. Making sure this stays consistent helps make them feel more established, more long-lasting.
 
 - Compare similar content before making new changes. This will help pick out things like syntax and grammar, which should help you know what conventions to follow and keep things consistent.
 
@@ -53,9 +45,17 @@ As website content grows, matures and adapts, it can be tricky to keep the conte
 
 - The more prominent something is in design, the more risky it is to change. That’s because their impact is partly down to what the words mean, and partly about their visual, subtle impact. Only change these if it’s absolutely crucial.
 
-- Always check your assumptions. It’s easy to assume your reader knows exactly what you do. If you’re introducing something difficult for the first time, state it, explain it as simply as you can, and then move to its application using consistent language. 
+- Always check your assumptions. It’s easy to assume your reader knows exactly what you do. If you’re introducing something difficult for the first time, state it, explain it as simply as you can, and then move to its application using consistent language.
 
 - And above all, be consistent. This applies both to the words you use, and the way you use them - so things like grammar and formatting, whether you capitalise a word or not, etc.
+
+
+## Working with Nuxt
+
+The Nuxt documentation is a great first stop for anyone new to writing technical documentation, or anyone interested in what Nuxt supports. All their guidance for writing, fetching and displaying content can be found here. It’s quick to pick up, and essential for transforming markdown files and raw text into well designed, readable guides and resources anyone can pick up.
+
+Resource: https://content.nuxtjs.org/
+
 
 Resources for changing documentation content:
 [example link here]

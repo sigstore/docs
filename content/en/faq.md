@@ -1,9 +1,9 @@
 ---
 title: "Frequently Asked Questions"
-category: SIGSTORE
 version: 1.4
-position: 3
+category: 'Help'
 menuTitle: 'FAQs'
+position: 10
 ---
 
 ## Seems like Rekor is centralised?
