@@ -3,6 +3,7 @@
   "url": "docs.sigstore.dev",
   "layout": "default",
   "defaultBranch": "docs",
+  "defaultDir": "",
   "logo": {
     "light": "/logo-light.svg",
     "dark": "/logo-dark.svg"
