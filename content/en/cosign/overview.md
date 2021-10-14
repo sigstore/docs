@@ -3,7 +3,7 @@ title: "Cosign"
 menuTitle: "Overview"
 description: ""
 category: "Cosign"
-position: 3
+position: 1
 features:
   - Hardware and KMS signing
   - Bring-your-own PKI
@@ -24,11 +24,3 @@ Cosign supports:
 <img src="/cosign.gif" class="light-img" width="1280" height="640" alt=""/>
 
 Cosign is being developed as part of the sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://join.slack.com/t/sigstore/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ)?)
-
-## Usage and installation
-
-Coming soon
-
-## API
-
-Coming soon
