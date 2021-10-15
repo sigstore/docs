@@ -4,10 +4,8 @@ category: "Cosign"
 position: 10
 ---
 
-## In-Toto Attestations
-
-Cosign also has built-in support for [in-toto](https://in-toto.io) attestations.
-The specification for these is defined [here](https://github.com/in-toto/attestation).
+Cosign also has built-in support for [in-toto](https://in-toto.io) attestations. The specification for these is
+defined [here](https://github.com/in-toto/attestation).
 
 You can create and sign one from a local predicate file using the following commands:
 
@@ -15,8 +13,8 @@ You can create and sign one from a local predicate file using the following comm
 $ cosign attest --predicate <file> --key cosign.pub <image>
 ```
 
-All of the standard key management systems are supported.
-Payloads are signed using the DSSE signing spec, defined [here](https://github.com/secure-systems-lab/dsse).
+All of the standard key management systems are supported. Payloads are signed using the DSSE signing spec,
+defined [here](https://github.com/secure-systems-lab/dsse).
 
 To verify:
 
@@ -24,30 +22,35 @@ To verify:
 $ cosign verify-attestation --key cosign.pub <image>
 ```
 
-### Validate In-Toto Attestations
+## Validate In-Toto Attestations
 
 `cosign` has support of validating In-toto Attestations against `CUE` and `Rego` policies.
 
 Let's start with giving a brief introduction to `CUE` and `Rego` who might not be familiar with these.
 
-* [CUE](https://cuelang.org) is an open-source data validation language and inference engine with its roots in logic programming.
+* [CUE](https://cuelang.org) is an open-source data validation language and inference engine with its roots in logic
+  programming.
 
-* [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/) was inspired by Datalog, and supports structured document models such as JSON.
+* [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/) was inspired by Datalog, and supports structured
+  document models such as JSON.
 
 > If you want to learn more about the development of this feature, you can reach out to it from [here](https://github.com/sigstore/cosign/pull/641).
 
-Next, I think the most important question that we need to answer is that why do we need this kind of validation. I'll quote a sentence for this from the blog post written by [Dan Lorenc](https://twitter.com/lorenc_dan). You can reach out the blog post from [here](https://dlorenc.medium.com/policy-and-attestations-89650fd6f4fa).
+Next, I think the most important question that we need to answer is that why do we need this kind of validation. I'll
+quote a sentence for this from the blog post written by [Dan Lorenc](https://twitter.com/lorenc_dan). You can reach out
+the blog post from [here](https://dlorenc.medium.com/policy-and-attestations-89650fd6f4fa).
 
 > A more important consideration (and relevant back to our vulnerability discussion) is that systems that verify attestations must be carefully designed to work correctly if an attacker can delete or hide any specific attestation or set of attestations. Signatures can guarantee a file has not been tampered with, but they can’t guarantee the file arrives at all. To be safe, your systems should be designed to fail closed rather than open.]
 
-Quick note here, we'll be validating the predicate portion of the attestation. So, please do not forget to write your validations against predicate portion of the attestation.
+Quick note here, we'll be validating the predicate portion of the attestation. So, please do not forget to write your
+validations against predicate portion of the attestation.
 
 Let's give a try by following the links above:
 
-* Check out the documentation of the [verify-attestation](https://github.com/sigstore/cosign/blob/main/doc/cosign_verify-attestation.md) command.
+* Check out the documentation of
+  the [verify-attestation](https://github.com/sigstore/cosign/blob/main/doc/cosign_verify-attestation.md) command.
 
-
-#### [Cosign Custom Predicate](./specs/COSIGN_PREDICATE_SPEC.md) type and CUE policy
+### [Cosign Custom Predicate](./cosign_predicate_spec) type and CUE policy
 
 ```shell
 $ cosign attest -key cosign.key -predicate foo gcr.io/rekor-testing/distroless
@@ -99,7 +102,7 @@ There are 1 number of errors occurred during the validation:
 Error: 1 validation errors occurred
 ```
 
-#### [Cosign Custom Predicate](./specs/COSIGN_PREDICATE_SPEC.md) type and Rego policy
+### [Cosign Custom Predicate](./cosign_predicate_spec) type and Rego policy
 
 ```shell
 $ cosign attest -key cosign.key -predicate foo gcr.io/rekor-testing/distroless
