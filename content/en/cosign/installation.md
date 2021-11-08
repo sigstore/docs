@@ -6,11 +6,37 @@ position: 2
 
 ## Installation
 
+### With Go 1.16+
+
 If you have Go 1.16+, you can directly install by running:
 
     $ go install github.com/sigstore/cosign/cmd/cosign@latest
 
 and the resulting binary will be placed at `$GOPATH/bin/cosign` (or `$GOBIN/cosign`, if set).
+
+### Homebrew/Linuxbrew
+
+If you are using Homebrew (or Linuxbrew), you can install `cosign` by running:
+
+    $ brew install cosign
+
+### Arch Linux
+
+If you are using Arch Linux, you can install `cosign` by running:
+
+    $ pacman -S cosign
+
+### Nix
+
+If you are using Nix, you can install `cosign` by running:
+
+    $ nix-env -iA nixpkgs.cosign
+
+### NixOS
+
+If you are on NixOS, you can install `cosign` by running:
+
+    $ nix-env -iA nixos.cosign
 
 ### GitHub Action
 
