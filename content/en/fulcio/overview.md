@@ -2,11 +2,7 @@
 title: "Fulcio"
 menuTitle: "Overview"
 category: "Fulcio"
-position: 3
-features:
-  - Feature 1
-  - Feature 2
-  - Feature 3
+position: 200
 ---
 
 <img src="/fulcio_overview_v1.jpg" class="light-img" width="1280" height="640" alt=""/>

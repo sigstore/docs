@@ -1,8 +1,17 @@
 ---
 title: "Community"
 category: "Get involved"
-position: 4
+position: 410
 ---
 
-_Whoops! You’re on a page that doesn’t exist yet.
-If you’d like to check its progress or to contribute, just follow the link to edit._
+Most of community related information are in the [sigstore/community](https://github.com/sigstore/community/) repository.
+
+## Mailing list
+
+Sigstore community has a [mailing list](https://groups.google.com/g/sigstore-dev). Interested in contributing, discussing or just meeting nice people? Join us.
+
+## Slack
+
+Come on over to our [slack channel](https://sigstore.slack.com)!
+[Invite link](https://join.slack.com/t/sigstore/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ)
+

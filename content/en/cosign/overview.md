@@ -3,7 +3,7 @@ title: "Cosign"
 menuTitle: "Overview"
 description: ""
 category: "Cosign"
-position: 1
+position: 100
 features:
   - Hardware and KMS signing
   - Bring-your-own PKI

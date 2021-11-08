@@ -2,7 +2,7 @@
 title: "Frequently asked questions"
 category: "Help"
 menuTitle: "FAQs"
-position: 10
+position: 500
 ---
 
 This FAQ is intended to go as in depth as possible for anyone using sigstore. 
