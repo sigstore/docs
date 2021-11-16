@@ -1,7 +1,7 @@
 ---
 title: "Getting Started"
 category: "Cosign"
-position: 3
+position: 103
 ---
 
 ## Quick Start

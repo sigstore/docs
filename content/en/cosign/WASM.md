@@ -1,7 +1,7 @@
 ---
 title: "WASM signing"
 category: "Cosign"
-position: 8
+position: 109
 ---
 
 #### WASM

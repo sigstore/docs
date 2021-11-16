@@ -1,7 +1,7 @@
 ---
 title: "Plugable types"
 category: "Rekor"
-position: 5
+position: 303
 ---
 
 ## Description

@@ -2,6 +2,7 @@
 title: "Troubleshooting"
 description: "Intro text"
 category: "Help"
+position: 901
 ---
 
 _Whoops! You’re on a page that doesn’t exist yet.

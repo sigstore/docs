@@ -2,7 +2,7 @@
 title: "Contributing"
 description: "Intro text"
 category: "Get involved"
-position: 400
+position: 800
 ---
 
 ## Creating new resources
