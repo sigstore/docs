@@ -41,7 +41,7 @@ Grab the rekor source:
 
 ### Create Database and populate tables
 
-Trillian requires a database, we use MariaDB for now (others to be explored later). Once this
+Trillian requires a database. We use MariaDB for now (others to be explored later). Once this
 is installed on your machine, edit the `scripts/createdb.sh` file with your database root account credentials and run the
 script. If you're just trying out rekor, keep the DB user name and password the same as in the script (test/zaphod). If
 you change these, you need to make the changes on Trillian's side (visit the trillian repo for details).
