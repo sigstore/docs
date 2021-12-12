@@ -1,7 +1,7 @@
 ---
 title: "KMS Support"
 category: "Cosign"
-position: 14
+position: 119
 ---
 
 This page contains detailed instructions on how to configure `cosign` to work with KMS providers.

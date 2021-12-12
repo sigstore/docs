@@ -1,7 +1,7 @@
 ---
 title: "Release log"
 category: "Rekor"
-position: 6
+position: 306
 ---
 
 _Whoops! You’re on a page that doesn’t exist yet.

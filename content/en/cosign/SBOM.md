@@ -1,7 +1,7 @@
 ---
 title: "SBOM signing"
 category: "Cosign"
-position: 8
+position: 108
 ---
 
 #### SBOM (Software Bill Of Materials)

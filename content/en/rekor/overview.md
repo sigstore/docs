@@ -3,7 +3,7 @@ title: "Rekor"
 description: "The rekor overview"
 category: "Rekor"
 menuTitle: "Overview"
-position: 3
+position: 301
 ---
 
 <img src="/rekor_overview_v1.jpg" class="light-img" width="1280" height="640" alt=""/>

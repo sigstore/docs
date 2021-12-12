@@ -1,7 +1,7 @@
 ---
 title: "Cosign SBOM Specification"
 category: "Cosign"
-position: 10
+position: 112
 ---
 
 `Cosign` supports working with SBOMs (Software Bill Of Materials). Both formats such as [SPDX](https://spdx.org), [CycloneDX](https://cyclonedx.org) are supported.

@@ -2,7 +2,7 @@
 title: 'Security model'
 description: ''
 category: 'About sigstore'
-position: 10
+position: 3
 ---
 
 _Whoops! You’re on a page that doesn’t exist yet.

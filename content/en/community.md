@@ -1,7 +1,7 @@
 ---
 title: "Community"
 category: "Get involved"
-position: 410
+position: 810
 ---
 
 Most of community related information are in the [sigstore/community](https://github.com/sigstore/community/) repository.

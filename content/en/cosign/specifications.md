@@ -1,7 +1,7 @@
 ---
 title: "Signature Specification"
 category: "Cosign"
-position: 15
+position: 120
 ---
 
 `cosign` is inspired by tools like [minisign](https://jedisct1.github.io/minisign/) and
