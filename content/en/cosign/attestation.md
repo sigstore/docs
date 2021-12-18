@@ -53,11 +53,11 @@ Let's give a try by following the links above:
 ### [Cosign Custom Predicate](./cosign_predicate_spec) type and CUE policy
 
 ```shell
-$ cosign attest -key cosign.key -predicate foo gcr.io/rekor-testing/distroless
+$ cosign attest --key cosign.key --predicate foo gcr.io/rekor-testing/distroless
 Enter password for private key: Using payload from: foo
 Pushing attestation to: gcr.io/rekor-testing/distroless:sha256-3ab2f3293a30dde12fc49f10b308dee56f9e25f3c587bc011614339f8fbfe24e.att
 
-$ cosign verify-attestation -key cosign.pub gcr.io/rekor-testing/distroless | jq -r .payload | base64 -D | jq .
+$ cosign verify-attestation --key cosign.pub gcr.io/rekor-testing/distroless | jq -r .payload | base64 -D | jq .
 
 Verification for gcr.io/rekor-testing/distroless --
 The following checks were performed on each of these signatures:
@@ -86,8 +86,13 @@ import "time"
 
 before: time.Parse(time.RFC3339, "2021-10-09T17:10:27Z")
 
-Data: "bar"
-Timestamp: >before
+// The predicateType field must match this string
+predicateType: "cosign.sigstore.dev/attestation/v1"
+
+// The predicate must match the following constraints.
+predicate: {
+    Timestamp: <before
+}
 
 $ cosign verify-attestation --policy policy.cue --key cosign.pub gcr.io/rekor-testing/distroless
 
@@ -105,11 +110,11 @@ Error: 1 validation errors occurred
 ### [Cosign Custom Predicate](./cosign_predicate_spec) type and Rego policy
 
 ```shell
-$ cosign attest -key cosign.key -predicate foo gcr.io/rekor-testing/distroless
+$ cosign attest --key cosign.key -predicate foo gcr.io/rekor-testing/distroless
 Enter password for private key: Using payload from: foo
 Pushing attestation to: gcr.io/rekor-testing/distroless:sha256-3ab2f3293a30dde12fc49f10b308dee56f9e25f3c587bc011614339f8fbfe24e.att
 
-$ cosign verify-attestation -key cosign.pub gcr.io/rekor-testing/distroless | jq -r .payload | base64 -D | jq .
+$ cosign verify-attestation --key cosign.pub gcr.io/rekor-testing/distroless | jq -r .payload | base64 -D | jq .
 
 Verification for gcr.io/rekor-testing/distroless --
 The following checks were performed on each of these signatures:
