@@ -1,5 +1,9 @@
 # docs
 
+This branch contains the documentation section on [sigstore.dev](https://sigstore.dev), hosted at [docs.sigstore.dev](https://docs.sigstore.dev/).
+
+See the `main` branch for the rest of the site.
+
 ## Setup
 
 Install dependencies:
