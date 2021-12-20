@@ -4,9 +4,7 @@ category: "Cosign"
 position: 123
 ---
 
-## FAQ
-
-### Why not use Notary v2
+## Why not use Notary v2
 
 It's hard to answer this briefly. This post contains some comparisons:
 
@@ -15,18 +13,17 @@ It's hard to answer this briefly. This post contains some comparisons:
 If you find other comparison posts, please send a PR here and we'll link them all.
 
 
-### Why not use containers/image signing
+## Why not use containers/image signing
 
 `containers/image` signing is close to `cosign`, and we reuse payload formats.
 `cosign` differs in that it signs with ECDSA-P256 keys instead of PGP, and stores
 signatures in the registry.
 
-### Why not use $FOO?
+## Why not use $FOO?
 
-See the next section, [Requirements](#Requirements).
-I designed this tool to meet a few specific requirements, and didn't find
-anything else that met all of these.
-If you're aware of another system that does meet these, please let me know!
+See [Requirements](#design-requirements).
+We designed `cosign` to meet a few specific requirements, and didn't find anything else that met all of these.
+If you're aware of another system that does meet these, please let us know!
 
 ## Design Requirements
 

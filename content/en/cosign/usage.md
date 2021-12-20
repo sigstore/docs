@@ -49,6 +49,30 @@ Enter password for private key:
 Pushing signature to: index.docker.io/dlorenc/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
 ```
 
+You can also sign with another tool.
+`cosign` uses standard PKIX cryptographic formats, here's a full example with `openssl`:
+
+```shell
+# Generate a keypair
+$ openssl ecparam -name prime256v1 -genkey -noout -out openssl.key
+$ openssl ec -in openssl.key -pubout -out openssl.pub
+# Generate the payload to be signed
+$ cosign generate us.gcr.io/dlorenc-vmtest2/demo > payload.json
+# Sign it and convert to base64
+$ openssl dgst -sha256 -sign openssl.key -out payload.sig payload.json
+$ cat payload.sig | base64 > payloadbase64.sig
+# Upload the signature
+$ cosign attach signature --payload payload.json --signature payloadbase64.sig us.gcr.io/dlorenc-vmtest2/demo
+# Verify!
+$ cosign verify --key openssl.pub us.gcr.io/dlorenc-vmtest2/demo
+Verification for us.gcr.io/dlorenc-vmtest2/demo --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - The signatures were verified against the specified public key
+  - Any certificates were verified against the Fulcio roots.
+{"critical":{"identity":{"docker-reference":"us.gcr.io/dlorenc-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:124e1fdee94fe5c5f902bc94da2d6e2fea243934c74e76c2368acdc8d3ac7155"},"type":"cosign container image signature"},"optional":null}
+```
+
 ## Signature Location and Management
 
 Signatures are uploaded to an OCI artifact stored with a predictable name.
@@ -213,8 +237,80 @@ $ cosign download signature us-central1-docker.pkg.dev/dlorenc-vmtest2/test/task
 {"Base64Signature":"Ejy6ipGJjUzMDoQFePWixqPBYF0iSnIvpMWps3mlcYNSEcRRZelL7GzimKXaMjxfhy5bshNGvDT5QoUJ0tqUAg==","Payload":"eyJDcml0aWNhbCI6eyJJZGVudGl0eSI6eyJkb2NrZXItcmVmZXJlbmNlIjoiIn0sIkltYWdlIjp7IkRvY2tlci1tYW5pZmVzdC1kaWdlc3QiOiI4N2VmNjBmNTU4YmFkNzliZWVhNjQyNWEzYjI4OTg5ZjAxZGQ0MTcxNjQxNTBhYjNiYWFiOThkY2JmMDRkZWY4In0sIlR5cGUiOiIifSwiT3B0aW9uYWwiOm51bGx9"}
 ```
 
+## Retrieving a Public Key
+
+If you lose the public key for some reason, you can re-export it from the private key.
+(This also works with other key reference types, explained below)
+
+```shell
+$ ./cosign public-key --key cosign.key
+Enter password for private key:
+-----BEGIN PUBLIC KEY-----
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEjCxhhvb1KmIfe1J2ceT25kHepstb
+IDYuTA0U1ri4F0CXXazLiftzGlyfse1No4orr8w1ZIchQ8TJlyCSaSuR0Q==
+-----END PUBLIC KEY-----
+```
+
+## KMS Usage
+
+`cosign` can use KMS (Key Management Service) APIs, in addition to fixed keys.
+When referring to a key managed by a KMS provider, `cosign` takes a [go-cloud](https://gocloud.dev) style URI to refer to the specific provider.
+
+For example: `gcpkms://`, `awskms://`, or `hashivault://`
+
+To see the full set of KMS APIs supported, and options for each, see [the KMS docs](kms_support).
+
+The URI path syntax is provider specific and explained in the section for each provider.
+
+### Key Generation and Management
+
+To generate keys using a KMS provider, you can use the `cosign generate-key-pair` command with the `--kms` flag.
+For example:
+
+```shell
+$ cosign generate-key-pair --kms <some provider>://<some key>
+```
+
+The public key can be retrieved with:
+
+```shell
+$ cosign public-key --key <some provider>://<some key>
+-----BEGIN PUBLIC KEY-----
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEXc+DQU8Pb7Xo2RWCjFG/f6qbdABN
+jnVtSyKZxNzBfNMLLtVxdu8q+AigrGCS2KPmejda9bICTcHQCRUrD5OLGQ==
+-----END PUBLIC KEY-----
+```
+
+### Signing and Verification
+
+To sign and verify using a key managed by a KMS provider, you can pass a provider-specific URI to the `--key` command:
+
+```shell
+$ cosign sign --key <some provider>://<some key> gcr.io/dlorenc-vmtest2/demo
+Pushing signature to: gcr.io/dlorenc-vmtest2/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.cosign
+
+$ cosign verify --key <some provider>://<some key> gcr.io/dlorenc-vmtest2/demo
+
+Verification for gcr.io/dlorenc-vmtest2/demo --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - The signatures were verified against the specified public key
+  - Any certificates were verified against the Fulcio roots.
+
+[{"critical":{"identity":{"docker-reference":"gcr.io/dlorenc-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd"},"type":"cosign container image signature"},"optional":null}]
+```
+
 ## Retrieve the Public Key From a Private Key or KMS
 
+When verifying using the full `--kms <some provider>://<some key>` reference, you'll make an API request to that service.
+This may require special permissions, depending on the service.
+
+Another option is to use `cosign` to export the public key from the service, and you can use that to verify signatures:
+
+```shell
+$ cosign public-key --key <some provider>://<some key> > kms.pub
+$ cosign verify --key kms.pub gcr.io/dlorenc-vmtest2/demo
+```
 
 KMS:
 ```shell
@@ -233,19 +329,10 @@ AcxvLtLEgRjRI4TKnMAXtIGp8K4X4CTWPEXMqSYZZUa2I1YvHyLLY2bEzA==
 -----END PUBLIC KEY-----
 ```
 
-Private Key:
-```shell
-$ ./cosign public-key --key cosign.key
-Enter password for private key:
------BEGIN PUBLIC KEY-----
-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEjCxhhvb1KmIfe1J2ceT25kHepstb
-IDYuTA0U1ri4F0CXXazLiftzGlyfse1No4orr8w1ZIchQ8TJlyCSaSuR0Q==
------END PUBLIC KEY-----
-```
+## Experimental Features
 
-# Experimental Features
+### Verify a signature was added to the transparency log
 
-## Verify a signature was added to the transparency log
 There are two options for verifying a cosign signature was added to a transparency log:
 1. Check the log to make sure the entry exists in the log
 2. Use the `bundle` annotation on a cosign signature to verify an element was added to the log without hitting the log

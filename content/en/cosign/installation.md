@@ -4,9 +4,7 @@ category: "Cosign"
 position: 102
 ---
 
-## Installation
-
-### With Go 1.16+
+## With Go 1.16+
 
 If you have Go 1.16+, you can directly install by running:
 
@@ -14,31 +12,31 @@ If you have Go 1.16+, you can directly install by running:
 
 and the resulting binary will be placed at `$GOPATH/bin/cosign` (or `$GOBIN/cosign`, if set).
 
-### Homebrew/Linuxbrew
+## Homebrew/Linuxbrew
 
 If you are using Homebrew (or Linuxbrew), you can install `cosign` by running:
 
     $ brew install cosign
 
-### Arch Linux
+## Arch Linux
 
 If you are using Arch Linux, you can install `cosign` by running:
 
     $ pacman -S cosign
 
-### Nix
+## Nix
 
 If you are using Nix, you can install `cosign` by running:
 
     $ nix-env -iA nixpkgs.cosign
 
-### NixOS
+## NixOS
 
 If you are on NixOS, you can install `cosign` by running:
 
     $ nix-env -iA nixos.cosign
 
-### GitHub Action
+## GitHub Action
 
 `cosign` can easily be installed in your GitHub actions using [`sigstore/cosign-installer`](https://github.com/marketplace/actions/install-cosign):
 
@@ -48,14 +46,14 @@ with:
   cosign-release: 'v1.2.1' # optional
 ```
 
-### Kubernetes webhook
+## Cosigned
 
-`cosign` can be installed on your Kubernetes cluster in a form of a [`cosigned webhook`](https://github.com/sigstore/helm-charts/tree/main/charts/cosigned).
-By installing a webhook, you can automatically validate that all the container
-images have been signed. The webhook also resolves the image tags to ensure the
-image being ran is not different from when it was admitted.
+The `cosign` project contains an admission controller known as `cosigned`, which can be installed on your Kubernetes cluster in a form of a [`helm chart`](https://github.com/sigstore/helm-charts/tree/main/charts/cosigned).
 
-### Container Images
+The webhook can be used to automatically validate that all the container images have been signed.
+The webhook also resolves the image tags to ensure the image being ran is not different from when it was admitted.
+
+## Container Images
 
 Signed release images are available at `gcr.io/projectsigstore/cosign`.
 They are tagged with the release name (e.g. `gcr.io/projectsigstore/cosign:v1.0.0`).
@@ -80,7 +78,7 @@ $ crane ls gcr.io/projectsigstore/cosign/ci/cosign
 
 Further details and installation instructions for `crane` available here: https://github.com/google/go-containerregistry/tree/main/cmd/crane
 
-### Releases
+## Releases
 
 Releases are published in this repository under the [Releases page](https://github.com/sigstore/cosign/releases), and hosted in the GCS bucket `cosign-releases`.
 

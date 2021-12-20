@@ -7,61 +7,8 @@ position: 119
 This page contains detailed instructions on how to configure `cosign` to work with KMS providers.
 Right now `cosign` supports Hashicorp Vault, AWS KMS, and GCP KMS, and we are hoping to support more in the future!
 
-## Basic Usage
 
-When referring to a key managed by a KMS provider, `cosign` takes a [go-cloud](https://gocloud.dev) style URI to refer to the specific provider.
-For example:
-
-`gcpkms://`, `awskms://`, or `hashivault://`
-
-The URI path syntax is provider specific and explained in the section for each provider.
-
-### Key Generation and Management
-
-To generate keys using a KMS provider, you can use the `cosign generate-key-pair` command with the `--kms` flag.
-For example:
-
-```shell
-$ cosign generate-key-pair --kms <some provider>://<some key>
-```
-
-The public key can be retrieved with:
-
-```shell
-$ cosign public-key --key <some provider>://<some key>
------BEGIN PUBLIC KEY-----
-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEXc+DQU8Pb7Xo2RWCjFG/f6qbdABN
-jnVtSyKZxNzBfNMLLtVxdu8q+AigrGCS2KPmejda9bICTcHQCRUrD5OLGQ==
------END PUBLIC KEY-----
-```
-
-### Signing and Verification
-
-To sign and verify using a key managed by a KMS provider, you can pass a provider-specific URI to the `--key` command:
-
-```shell
-$ cosign sign --key <some provider>://<some key> gcr.io/dlorenc-vmtest2/demo
-Pushing signature to: gcr.io/dlorenc-vmtest2/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.cosign
-
-$ cosign verify --key <some provider>://<some key> gcr.io/dlorenc-vmtest2/demo
-
-Verification for gcr.io/dlorenc-vmtest2/demo --
-The following checks were performed on each of these signatures:
-  - The cosign claims were validated
-  - The signatures were verified against the specified public key
-  - Any certificates were verified against the Fulcio roots.
-
-[{"critical":{"identity":{"docker-reference":"gcr.io/dlorenc-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd"},"type":"cosign container image signature"},"optional":null}]
-```
-
-You can also export the public key and verify against that file:
-
-```shell
-$ cosign public-key --key <some provider>://<some key> > kms.pub
-$ cosign verify --key kms.pub gcr.io/dlorenc-vmtest2/demo
-```
-
-### Providers
+## Providers
 
 This section contains the provider-specific documentation.
 
@@ -141,44 +88,7 @@ The URI format for Hashicorp Vault KMS is:
 `hashivault://$keyname`
 
 This provider requires that the standard Vault environment variables (VAULT_ADDR, VAULT_TOKEN) are set correctly.
-This provider also requires that the `transit` secret engine is enabled
-
-### Kubernetes Secret
-
-Cosign can use keys stored in Kubernetes Secrets to so sign and verify signatures. In
-order to generate a secret you have to pass `cosign generate-key-pair` a
-`k8s://[NAMESPACE]/[NAME]` URI specifying the namespace and secret name:
-
-```
-cosign generate-key-pair k8s://default/testsecret
-Enter password for private key: ****
-Enter again: ****
-Successfully created secret testsecret in namespace default
-Public key written to cosign.pub
-```
-
-After generating the key pair, cosign will store it in a Kubernetes secret using
-your current context. The secret will contain the private and public keys, as
-well as the password to decrypt the private key.
-
-The secret has the following structure:
-
-```
-apiVersion: v1
-kind: Secret
-metadata:
-  name: testsecret
-  namespace: default
-type: Opaque
-data:
-  cosign.key: LS0tLS1CRUdJTiBFTkNSWVBURUQgQ09TSUdOIFBSSVZBVEUgS0VZLS0tLS[...]==
-  cosign.password: YWJjMTIz
-  cosign.pub: LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUZrd0V3WUhLb1pJemowQo[...]==
-```
-
-When verifying an image signature using `cosign verify`, the key will be automatically
-decrypted using the password stored in the kubernetes secret under the `cosign.password`
-field.
+This provider also requires that the `transit` secret engine is enabled.
 
 #### Local Setup
 
