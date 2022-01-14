@@ -26,7 +26,7 @@ There are a few ways to deploy a Rekor Server:
 
 ### Prerequisites
 
-You will of course also need golang version 1.15 or greater and a `$GOPATH` set.
+You will need golang version 1.15 or greater and a `$GOPATH` set.
 
 If you want to perform fast queries you will need to add redis, otherwise you must pass the `--enable_retrieve_api=false`
 flag when running `rekor-server` in the later steps of this page.
@@ -35,9 +35,9 @@ flag when running `rekor-server` in the later steps of this page.
 
 Grab the rekor source:
 
-`go get -u -t -v github.com/sigstore/rekor/cmd/server`
+`go get -u -t -v github.com/sigstore/rekor/cmd/rekor-server`
 
-> Note: You can also `git clone` should you prefer.
+> Note: You can also `git clone https://github.com/sigstore/rekor.git` should you prefer.
 
 ### Create Database and populate tables
 
