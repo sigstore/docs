@@ -137,7 +137,7 @@ Rough Idea:
 * We can sign the full set of ordered base layers, and attach that signature as an annotation to
   the **last** layer in the resulting child image.
 
-This example manifest manifest represents an image that has been built from a base image with two
+This example manifest represents an image that has been built from a base image with two
 layers.
 One additional layer is added, forming the final image.
 
