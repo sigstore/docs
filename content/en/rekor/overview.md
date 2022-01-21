@@ -26,7 +26,7 @@ There are a few ways to deploy a Rekor Server:
 
 ### Prerequisites
 
-You will need golang version 1.15 or greater and a `$GOPATH` set.
+You will need golang version 1.16 or greater and a `$GOPATH` set.
 
 If you want to perform fast queries you will need to add redis, otherwise you must pass the `--enable_retrieve_api=false`
 flag when running `rekor-server` in the later steps of this page.
