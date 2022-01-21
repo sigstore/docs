@@ -18,7 +18,7 @@ Fulcio is being developed as part of the sigstore project. Join us on our [Slack
 ## Usage and installation
 
 _Whoops! This doesn't exist yet.
-If you’d like to check its progress or to contribute, just follow the [link](contributing)._
+If you’d like to check its progress or to contribute, just follow the [link](/contributing)._
 
 ## API
 
