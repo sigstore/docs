@@ -24,6 +24,17 @@ If you are using Arch Linux, you can install `cosign` by running:
 
     $ pacman -S cosign
 
+## Alpine Linux
+
+If you are using Alpine Linux edge, with the community repository enabled,
+you can install `cosign` by running:
+
+    $ apk add cosign
+
+The `sget` tool is also available:
+
+    $ apk add sget
+
 ## Nix
 
 If you are using Nix, you can install `cosign` by running:
