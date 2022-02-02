@@ -75,7 +75,7 @@ trillian_log_signer --logtostderr --force_master --http_endpoint=localhost:8190 
 #### Build Rekor Server
 
 ```
-cd $GOPATH/src/github.com/sigstore/rekor/cmd/server
+cd $GOPATH/src/github.com/sigstore/rekor/cmd/rekor-server
 go build -v -o rekor-server
 cp rekor-server /usr/local/bin/
 ```
