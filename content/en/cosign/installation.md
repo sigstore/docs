@@ -9,7 +9,7 @@ position: 102
 If you have Go 1.16+, you can directly install by running:
 
 ```console
-$ go install github.com/sigstore/cosign/cmd/cosign@latest
+go install github.com/sigstore/cosign/cmd/cosign@latest
 ```
 
 and the resulting binary will be placed at `$GOPATH/bin/cosign` (or `$GOBIN/cosign`, if set).
@@ -19,7 +19,7 @@ and the resulting binary will be placed at `$GOPATH/bin/cosign` (or `$GOBIN/cosi
 If you are using Homebrew (or Linuxbrew), you can install `cosign` by running:
 
 ```console
-$ brew install cosign
+brew install cosign
 ```
 
 ## Arch Linux
@@ -27,7 +27,7 @@ $ brew install cosign
 If you are using Arch Linux, you can install `cosign` by running:
 
 ```console
-$ pacman -S cosign
+pacman -S cosign
 ```
 
 ## Alpine Linux
@@ -36,13 +36,13 @@ If you are using Alpine Linux edge, with the community repository enabled,
 you can install `cosign` by running:
 
 ```console
-$ apk add cosign
+apk add cosign
 ```
 
 The `sget` tool is also available:
 
 ```console
-$ apk add sget
+apk add sget
 ```
 
 ## Nix
@@ -50,7 +50,7 @@ $ apk add sget
 If you are using Nix, you can install `cosign` by running:
 
 ```console
-$ nix-env -iA nixpkgs.cosign
+nix-env -iA nixpkgs.cosign
 ```
 
 ## NixOS
@@ -58,7 +58,7 @@ $ nix-env -iA nixpkgs.cosign
 If you are on NixOS, you can install `cosign` by running:
 
 ```console
-$ nix-env -iA nixos.cosign
+nix-env -iA nixos.cosign
 ```
 
 ## GitHub Action
