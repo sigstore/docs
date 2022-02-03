@@ -1,18 +1,14 @@
 ---
-title: "Plugable types"
+title: "Pluggable types"
 category: "Rekor"
 position: 303
 ---
 
-## Description
-
-Rekor supports plugable types (aka different schemas) for entries stored in the transparency log. This will allow you to develop
-your own manifest type in your preferred formatting style (json|yaml|xml).
+Rekor supports pluggable types (aka different schemas) for entries stored in the transparency log. This will allow you to develop your own manifest type in your preferred formatting style (json|yaml|xml).
 
 ### Currently supported types
 
-- Rekord (default type) [schema](rekord/rekord_schema.md)
-  - Versions: 0.0.1
+The list of currently supported types and their schema is [maintained in the repository](https://github.com/sigstore/rekor/tree/main/pkg/types#currently-supported-types).
 
 ## Base schema
 
