@@ -1,16 +1,15 @@
 ---
 title: Signing and Uploading Other Types
 category: "Rekor"
-position: 340
+position: 305
 ---
 
-This documentation contains information on how to sign and upload data in different [pluggable types](pluggable-types.md).
+This documentation contains information on how to sign and upload data in different [pluggable types](https://docs.sigstore.dev/rekor/pluggable-types).
 
 The following are covered:
 - [Minisign](#minisign)
 - [SSH](#ssh)
 - [PKIX/X509](#pkixx509)
-- OpenPGP / GPG (TODO)
 - RPM (TODO)
 - TSR (TODO)
 - [TUF](#tuf)
@@ -197,10 +196,6 @@ Body: {
   }
 }
 ```
-
-## OpenPGP / GPG
-
-TODO
 
 ## RPM
 
