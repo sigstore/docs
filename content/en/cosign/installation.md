@@ -63,7 +63,7 @@ nix-env -iA nixos.cosign
 
 ## GitHub Action
 
-`cosign` can easily be installed in your GitHub actions using [`sigstore/cosign-installer`](https://github.com/marketplace/actions/install-cosign):
+`cosign` can easily be installed in your GitHub actions using [`sigstore/cosign-installer`](https://github.com/marketplace/actions/cosign-installer):
 
 ```yaml
 uses: sigstore/cosign-installer@main
