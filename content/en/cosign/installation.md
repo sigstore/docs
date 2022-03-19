@@ -78,6 +78,19 @@ The `cosign` project contains an admission controller known as `cosigned`, which
 The webhook can be used to automatically validate that all the container images have been signed.
 The webhook also resolves the image tags to ensure the image being ran is not different from when it was admitted.
 
+The `cosigned` admission controller will only validate resources in namespaces
+that have chosen to opt-in:
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-secure-namespace
+  labels:
+    cosigned.sigstore.dev: true
+  ...
+```
+
 ## Container Images
 
 Signed release images are available at `gcr.io/projectsigstore/cosign`.
