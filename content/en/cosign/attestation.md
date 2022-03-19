@@ -10,7 +10,7 @@ defined [here](https://github.com/in-toto/attestation).
 You can create and sign one from a local predicate file using the following commands:
 
 ```shell
-$ cosign attest --predicate <file> --key cosign.pub <image>
+$ cosign attest --predicate <file> --key cosign.key <image>
 ```
 
 All of the standard key management systems are supported. Payloads are signed using the DSSE signing spec,
