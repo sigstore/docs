@@ -87,7 +87,7 @@ kind: Namespace
 metadata:
   name: my-secure-namespace
   labels:
-    cosigned.sigstore.dev: true
+    cosigned.sigstore.dev/include: "true"
   ...
 ```
 
