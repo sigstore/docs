@@ -14,6 +14,26 @@ go install github.com/sigstore/cosign/cmd/cosign@latest
 
 and the resulting binary will be placed at `$GOPATH/bin/cosign` (or `$GOBIN/cosign`, if set).
 
+
+## With the cosing binary or rpm/dpkg package
+
+check for the file in https://github.com/sigstore/cosign/releases
+
+```console
+# binary
+wget "https://github.com/sigstore/cosign/releases/download/v1.6.0/cosign-linux-amd64"
+mv cosign-linux-amd64 /usr/local/bin/cosign
+chmod +x /usr/local/bin/cosign
+
+# rpm
+wget "https://github.com/sigstore/cosign/releases/download/v1.6.0/cosign-1.6.0.x86_64.rpm"
+rpm -ivh cosign-1.6.0.x86_64.rpm
+
+# dkpg
+wget "https://github.com/sigstore/cosign/releases/download/v1.6.0/cosign_1.6.0_amd64.deb"
+dpkg -i "cosign_1.6.0_amd64.deb
+```
+
 ## Homebrew/Linuxbrew
 
 If you are using Homebrew (or Linuxbrew), you can install `cosign` by running:
