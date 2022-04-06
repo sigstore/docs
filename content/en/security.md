@@ -38,10 +38,10 @@ For an overview of TUF, see [The Update Framework and You](https://blog.sigstore
 ### Rekor Security Model
 The Rekor service provides a transparency log of software signatures.
 The log is append-only and once entries are added they cannot be modified; a valid log can be cryptographically verified by any third-party.
-As entries are appended into this log, Rekor periodically signs the full Merkle tree along with a timestamp.
+As entries are appended into this log, Rekor periodically signs the full [Merkle tree](https://transparency.dev) along with a timestamp.
 
 An entry in Rekor provides a single-party attestation that a piece of data existed prior to a certain time.
-These timestamps cannot be tampered with later, providing long-term trust.
+These timestamps and the contents of the log cannot be tampered with or removed later, providing long-term trust.
 This long-term trust also requires that the log is monitored.
 
 Transparency Logs make it hard to forge timestamps long term, but in short time windows, it would be much easier for the Rekor operator to fake or forge timestamps.
@@ -60,10 +60,10 @@ To help protect against OIDC compromise, Fulcio uses an append-only certificate 
 * Fulcio MUST publish all certificates to the log.
 * Clients MUST NOT trust certificates that are not in the log.
 
-As a result, users can detect any misissued certificates.
-Combined with Rekor's signature transparency, artifacts signed with compromised accounts can be identified.
+As a result, users can detect any misissued certificates (detection).
+Combined with Rekor's signature transparency, artifacts signed with compromised accounts can be identified (auditability).
 
-_Note: Fulcio itself does not monitor the certificate transparency log; clients (like Cosign) are responsible for verifying a certificate is in the log._
+_Note: Fulcio itself does not monitor the certificate transparency log; users are responsible for monitoring the log for unauthorized certificates issued to their identities._
 
 **Short Lived Certificates**
 
@@ -95,3 +95,9 @@ Cosign will:
 1. Store the signature and certificate in Rekor as proof the artifact was signed while the certificate was valid
 
 Clients like Cosign only need to find the correct Rekor entry to verify the artifact.
+
+## What Sigstore *Doesn't* Guarantee
+
+- If an OIDC identity or OIDC provider is compromised, Fulcio might issue unauthorized certificates. However, these certificates are useless unless they are published to the certificate transparency log, so such compromise can be detected.
+- If Fulcio is compromised, it might issue unauthorized certificates. However, like before, these should be detectable.
+- If no third parties monitor the logs, then any misbehavior by Rekor and Fulcio might go undetected.
