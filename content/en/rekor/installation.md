@@ -46,6 +46,16 @@ There are a few ways you can deploy a Rekor Server:
 2.  A [kubernetes operator](https://github.com/sigstore/rekor-operator)
 3.  Alternatively, you can build a Rekor server yourself.
 
+Note: The Rekor server manually creates a new Merkle tree (or shard) in the Trillian backend every time it starts up, unless an existing one is specified in via the `--trillian_log_server.tlog_id` flag. If you are building the server yourself and do not need [sharding](https://docs.sigstore.dev/rekor/sharding) functionality, you can find the existing tree's TreeID by issuing this client command while the server is running:
+
+`CURRENT_TREE_ID=$(rekor-cli loginfo --format json | jq -r .TreeID)`
+
+Then pass in this TreeID at the next server startup to tell Rekor to use the same existing tree:
+
+`rekor-server serve --trillian_log_server.tlog_id=$CURRENT_TREE_ID`
+
+Setting this flag isn't necessary in an environment like `docker-compose`.
+
 ### Prerequisites
 
 You will need golang version 1.16 or greater and a `$GOPATH` set.
