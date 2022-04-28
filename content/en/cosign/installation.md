@@ -99,17 +99,10 @@ The webhook can be used to automatically validate that all the container images 
 The webhook also resolves the image tags to ensure the image being ran is not different from when it was admitted.
 
 The `cosigned` admission controller will only validate resources in namespaces
-that have chosen to opt-in:
+that have chosen to opt-in. See the [Enable Cosigned Admission Controller for Namespaces](kubernetes#enable-cosigned-admission-controller-for-namespaces) instructions for more details.
 
-```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: my-secure-namespace
-  labels:
-    cosigned.sigstore.dev/include: "true"
-  ...
-```
+
+See the [Configuring Cosigned ClusterImagePolicy](kubernetes#configuring-cosigned-clusterimagepolicy) instructions for more details on configuration.
 
 ## Container Images
 
