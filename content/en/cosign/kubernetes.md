@@ -212,8 +212,7 @@ Each `keyless` authority can contain these properties:
 If signatures are located in a different repository, it can be specified along with the `key` or `keyless` definition.
 When no `source` is specified for the key, the expectation is that the signature is colocated with the image.
 
-**Note:** Currently, credentials used for the remote source repository are the ones provided in the PodSpec providing resource under `imagePullSecrets`.
-Support for specifying credentials within the `ClusterImagePolicy` key is in development and consideration.
+**Note:** By default, credentials used for the remote source repository are the ones provided in the PodSpec providing resource under `imagePullSecrets`.
 
 To define a `source`, under the corresponding `authorities` node, `source` can be specified.
 
@@ -234,6 +233,32 @@ spec:
       source:
         - oci: registry.example.com/project/signature-location
 ```
+
+#### Configure SignaturePullSecrets
+
+If the signatures / attestations are in a different repo or they use different
+PullSecrets, you can configure `source` to point to a `secret` which must live
+in the same namespace as `cosigned` webhook (by default `cosign-system`).
+
+```yaml
+spec:
+  authorities:
+    - key:
+        data: |
+          -----BEGIN PUBLIC KEY-----
+          ...
+          -----END PUBLIC KEY-----
+      source:
+        - oci: registry.example.com/project/signature-location
+    - keyless:
+        url: https://fulcio.example.com
+      source:
+        - oci: registry.example.com/project/signature-location
+          signaturePullSecrets:
+          - name: mysecret
+```
+
+**Note:** The secret has to be in the format `type: dockerconfigjson`.
 
 #### Configuring Transparency Log
 
