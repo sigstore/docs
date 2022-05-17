@@ -16,10 +16,38 @@ $ crane copy alpine:latest gcr.io/$(gcloud config get-value project)/alpine:late
 $ syft packages gcr.io/$(gcloud config get-value project)/alpine:latest -o spdx > latest.spdx
 
 $ cosign attach sbom --sbom latest.spdx gcr.io/$(gcloud config get-value project)/alpine:latest # get the digest from the output
+```
 
+Note that, attaching SBOMs this way does not sign them. If you want to sign the SBOM, you can use the following command:
+
+```shell
 $ cosign sign --key cosign.key gcr.io/$(gcloud config get-value project)/alpine:sha256-e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a.sbom
 
 $ cosign verify --key cosign.pub gcr.io/$(gcloud config get-value project)/alpine:sha256-e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a.sbom
+```
+
+Or you can include the SBOM in an [in-toto](https://in-toto.io) attestation, as illustrated in the following fragment:
+
+```
+{
+  // Standard attestation fields:
+  "_type": "https://in-toto.io/Statement/v0.1",
+  "subject": [{ ... }],
+
+  // Predicate:
+  "predicateType": "https://spdx.dev/Document",
+  "predicate": {
+    "SPDXID" : "SPDXRef-DOCUMENT",
+    "spdxVersion" : "SPDX-2.2",
+    ...
+  }
+}
+```
+
+The following command signs and attaches the attestation to the image:
+
+```shell
+$ cosign attest -predicate myattestations -key cosign.key gcr.io/$(gcloud config get-value project)/alpine:latest
 ```
 
 ## Tekton Bundles
