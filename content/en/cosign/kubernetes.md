@@ -102,7 +102,7 @@ A policy is enforced when an image pattern for the policy is matched against the
 
 #### Configuring Image Patterns
 
-The `ClusterImagePolicy` specifies `spec.images` which specifies a list of `glob` and/or `regex` matching patterns.
+The `ClusterImagePolicy` specifies `spec.images` which specifies a list of `glob` matching patterns.
 These matching patterns will be matched against the image digest of PodSpec resources attempting to be deployed.
 
 Glob uses golang [filepath](https://pkg.go.dev/path/filepath#Match) semantics for
@@ -123,18 +123,6 @@ metadata:
 spec:
   images:
   - glob: "*"
-```
-
-and with regex:
-
-```yaml
-apiVersion: cosigned.sigstore.dev/v1alpha1
-kind: ClusterImagePolicy
-metadata:
-  name: image-policy
-spec:
-  images:
-  - regex: ".*"
 ```
 
 #### Configuring `key` Authorities
