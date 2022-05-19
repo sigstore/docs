@@ -13,7 +13,7 @@ Fulcio was designed to run as a centralized, public-good instance backed up by o
 
 **Fulcio is a work in progress!** There’s working code, a running instance and a roadmap, but it’s not yet reliable or robust enough for public consumption.
 
-Fulcio is being developed as part of the sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://join.slack.com/t/sigstore/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ)?)
+Fulcio is being developed as part of the sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://join.slack.com/t/sigstore/shared_invite/zt-19g6gxfu9-G4rD1hrvFMr08uDc1_OtDg)?)
 
 ## Usage and installation
 

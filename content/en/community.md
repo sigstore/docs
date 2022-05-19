@@ -13,5 +13,5 @@ Sigstore community has a [mailing list](https://groups.google.com/g/sigstore-dev
 ## Slack
 
 Come on over to our [slack channel](https://sigstore.slack.com)!
-[Invite link](https://join.slack.com/t/sigstore/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ)
+[Invite link](https://join.slack.com/t/sigstore/shared_invite/zt-19g6gxfu9-G4rD1hrvFMr08uDc1_OtDg)
 
