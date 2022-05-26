@@ -25,4 +25,4 @@ Public blockchains often end up using a centralized entry point for canonicaliza
 
 ## Can I get Rekor to work with my X format, framework standard?
 
-- Yes. Using plugable types you can create your own manifest layout and send it to Rekor. Head over to [plugable types](/rekor/plugable-types/)
+- Yes. Using pluggable types you can create your own manifest layout and send it to Rekor. Head over to [pluggable types](/rekor/pluggable-types/)
