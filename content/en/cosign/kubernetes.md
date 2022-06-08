@@ -39,29 +39,30 @@ data:
 When verifying an image signature using `cosign verify`, the key will be automatically decrypted using the password stored in the kubernetes secret under the `cosign.password` field.
 
 
-## Cosigned Admission Controller
+## policy-controller Admission Controller
 
-The `cosigned` admission controller can be used to enforce policy on a Kubernetes cluster based on verifiable supply-chain metadata from `cosign`.
+The `policy-controller` admission controller can be used to enforce policy on a Kubernetes cluster based on verifiable supply-chain metadata from `cosign`.
 
-`cosigned` also resolves the image tags to ensure the image being ran is not different from when it was admitted.
+`policy-controller` also resolves the image tags to ensure the image being ran is not different from when it was admitted.
 
-See the [installation instructions](installation#cosigned) for more information.
+See the [installation instructions](installation#policy-controller) for more information.
 
 **This component is still actively under development!**
 
-Today, `cosigned` can automatically validate signatures on container images.
+Today, `policy-controller` can automatically validate signatures and
+attestations on container images.
 Enforcement is configured on a per-namespace basis, and multiple keys are supported.
 
 We're actively working on more features here.
 
-### Enable Cosigned Admission Controller for Namespaces
+### Enable policy-controller Admission Controller for Namespaces
 
-The `cosigned` admission controller will only validate resources in namespaces
+The `policy-controller` admission controller will only validate resources in namespaces
 that have chosen to opt-in. This can be done by adding the label
-`cosigned.sigstore.dev/include: "true"` to the namespace resource.
+`policy.sigstore.dev/include: "true"` to the namespace resource.
 
 ```bash
-kubectl label namespace my-secure-namespace cosigned.sigstore.dev/include=true
+kubectl label namespace my-secure-namespace policy.sigstore.dev/include=true
 ```
 
 ### Admission of Images
@@ -73,7 +74,7 @@ are `ON`.
 
 See the [Configuring Image Pattern](#configuring-image-patterns) for more information.
 
-If no policy is matched against the image digest, the [deprecated cosigned validation behavior](#deprecated-cosigned-validation-behavior) will occur.
+If no policy is matched against the image digest, the [deprecated policy-controller validation behavior](#deprecated-policy-controller-validation-behavior) will occur.
 
 An example of an allowed admission would be:
 1. If the image matched against `policy1` and `policy3`
@@ -89,14 +90,14 @@ An example of a denied admission would be:
 
 An example of no policy matched:
 1. If the image does not match against any policy
-1. Fallback to [deprecated cosigned validation behavior](#deprecated-cosigned-validation-behavior)
+1. Fallback to [deprecated policy-controller validation behavior](#deprecated-policy-controller-validation-behavior)
 1. Validation will be attempted against the secret defined under `cosign.secretKeyRef.name` during helm installation.
   1. If a valid signature or attestation is obtained, image is admitted
   1. If no valid signature or attestation is obtained, image is denied
 
-### Configuring Cosigned ClusterImagePolicy
+### Configuring policy-controller ClusterImagePolicy
 
-`cosigned` supports validation against multiple `ClusterImagePolicy` kubernetes resources.
+`policy-controller` supports validation against multiple `ClusterImagePolicy` kubernetes resources.
 
 A policy is enforced when an image pattern for the policy is matched against the image being deployed.
 
@@ -106,8 +107,9 @@ The `ClusterImagePolicy` specifies `spec.images` which specifies a list of `glob
 These matching patterns will be matched against the image digest of PodSpec resources attempting to be deployed.
 
 Glob uses golang [filepath](https://pkg.go.dev/path/filepath#Match) semantics for
-matching the images against. To make it easier to specify images, there are few
-defaults when an image is matched, namely:
+matching the images against. Additionally you can specify a more traditional
+`**` to match any number of characters. Furthermore to make it easier to specify
+ images, there are few defaults when an image is matched, namely:
  * If there is no host in the glob pattern `index.docker.io` is used for the host. This allows
  users to specify commonly found images from Docker simply as myproject/nginx instead of inded.docker.io/myproject/nginx
  * If the image is specified without multiple path elements (so not separated by `/`), then `library` is defaulted. For example
@@ -116,13 +118,13 @@ defaults when an image is matched, namely:
 A sample of a `ClusterImagePolicy` which matches against all images using glob:
 
 ```yaml
-apiVersion: cosigned.sigstore.dev/v1alpha1
+apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
   name: image-policy
 spec:
   images:
-  - glob: "*"
+  - glob: "**"
 ```
 
 #### Configuring `key` Authorities
@@ -151,10 +153,10 @@ spec:
 
 Each `key` authority can contain these properties:
 - `key.data`: specifies the plain text string of the public key
-- `key.secretRef.name`: specifies the secret location name in the same namespace where `cosigned` is installed. <br/> The first key value will be used in the secret.
+- `key.secretRef.name`: specifies the secret location name in the same namespace where `policy-controller` is installed. <br/> The first key value will be used in the secret.
 - `key.kms`: specifies the location for the public key. Supported formats include:
   - `azurekms://[VAULT_NAME][VAULT_URI]/[KEY]`
-  - `awskms://[ENDPOINT]/[ID/ALIAS/ARN]`
+  - `awskms://[ENDPOINT]/{ARN}` where `ARN` can be either key ARN or alias ARN.
   - `gcpkms://projects/[PROJECT]/locations/global/keyRings/[KEYRING]/cryptoKeys/[KEY]`
   - `hashivault://[KEY]`
 
@@ -189,7 +191,7 @@ spec:
 Each `keyless` authority can contain these properties:
 - `keyless.url`: specifies the Fulcio url
 - `keyless.ca-cert`: specifies `ca-cert` information for the `keyless` authority
-  - `secretRef.name`: specifies the secret location name in the same namespace where `cosigned` is installed. <br/>The first key value will be used in the secret for the `ca-cert`.
+  - `secretRef.name`: specifies the secret location name in the same namespace where `policy-controller` is installed. <br/>The first key value will be used in the secret for the `ca-cert`.
   - `data`: specifies the inline certificate data
 - `keyless.identities`: Identity may contain an array of `issuer` and/or the `subject` found in the transparency log. Either field supports a regex.
   - `issuer`: specifies the issuer found in the transparency log. Regex patterns are supported.
@@ -226,7 +228,7 @@ spec:
 
 If the signatures / attestations are in a different repo or they use different
 PullSecrets, you can configure `source` to point to a `secret` which must live
-in the same namespace as `cosigned` webhook (by default `cosign-system`).
+in the same namespace as `policy-controller` webhook (by default `cosign-system`).
 
 ```yaml
 spec:
@@ -273,13 +275,13 @@ attested by the specified `issuer` and `subject`, and the actual `Data` section
 of the predicate matches the string `foobar e2e test`:
 
 ```yaml
-apiVersion: cosigned.sigstore.dev/v1alpha1
+apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
   name: image-policy-keyless-with-attestations
 spec:
   images:
-  - glob: registry.local:5000/cosigned/demo*
+  - glob: registry.local:5000/policy-controller/demo*
   authorities:
   - name: verify custom attestation
     keyless:
@@ -317,13 +319,13 @@ and one `keyless` signature
 
 
 ```yaml
-apiVersion: cosigned.sigstore.dev/v1alpha1
+apiVersion: policy.sigstore.dev/v1beta1
 kind: ClusterImagePolicy
 metadata:
   name: image-policy-requires-two-signatures-two-attestations
 spec:
   images:
-  - glob: registry.local:5000/cosigned/demo*
+  - glob: registry.local:5000/policy-controller/demo*
   authorities:
   - name: keylessatt
     keyless:
@@ -420,16 +422,16 @@ spec:
       }
 ```
 
-### Deprecated Cosigned Validation Behavior
+### Deprecated policy-controller Validation Behavior
 
 **Note:** This behavior is being deprecated in favor of using `ClusterImagePolicy` resources.
 
 During the admission validation, if no `ClusterImagePolicy` is matched, the deprecated behavior will occur.
 Image digests will be validated against the public key secret defined by `cosign.secretKeyRef.name` during installation.
 
-When installing `cosigned` through helm, `cosign.secretKeyRef.name` can be specified.
+When installing `policy-controller` through helm, `cosign.secretKeyRef.name` can be specified.
 ```bash
-helm install cosigned -n cosign-system sigstore/cosigned --devel --set cosign.secretKeyRef.name=mysecret
+helm install policy-controller -n cosign-system sigstore/policy-controller --devel --set cosign.secretKeyRef.name=mysecret
 ```
 
 The secret specified should contain the key `cosign.pub` and the public key data content.
