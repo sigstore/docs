@@ -24,7 +24,9 @@ Cosign supports:
 
 <list :items="features" type="info"></list>
 
-Cosign is part of the sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://join.slack.com/t/sigstore/shared_invite/zt-19g6gxfu9-G4rD1hrvFMr08uDc1_OtDg)?)
+Cosign is part of the sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://links.sigstore.dev/slack-invite)?)
+
+[//]: # (In case the invite link is expired, ping Dan on Slack or via Twitter: @lorenc_dan)
 
 ## Getting Started
 

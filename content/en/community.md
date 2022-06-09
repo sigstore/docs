@@ -4,14 +4,20 @@ category: "Get involved"
 position: 810
 ---
 
-Most of community related information are in the [sigstore/community](https://github.com/sigstore/community/) repository.
+The [sigstore/community](https://github.com/sigstore/community/) repository contains the most up-to-date information about how to get involved with the Sigstore project and its community.
+In this repository you can find our [code of conduct](https://github.com/sigstore/community/blob/main/CODE_OF_CONDUCT.md) and our [contributing guidelines](https://github.com/sigstore/community/blob/main/CONTRIBUTORS.md).
 
 ## Mailing list
 
-Sigstore community has a [mailing list](https://groups.google.com/g/sigstore-dev). Interested in contributing, discussing or just meeting nice people? Join us.
+We use a [public mailing list group](https://groups.google.com/g/sigstore-dev) for communications. Anyone interested in contributing, discussing, or meeting the Sigstore community is invited to join the group.
+
+Docs and other calendar invites may be shared directly with this group, so please join this before requesting access to anything that appears private.
 
 ## Slack
 
-Come on over to our [slack channel](https://sigstore.slack.com)!
-[Invite link](https://join.slack.com/t/sigstore/shared_invite/zt-19g6gxfu9-G4rD1hrvFMr08uDc1_OtDg)
+You can also keep in touch by joining our [Slack channel](https://sigstore.slack.com). Use 
+[this invite link](https://links.sigstore.dev/slack) to join.
 
+[//]: # (In case the invite link is expired, ping Dan on Slack of via Twitter: @lorenc_dan)
+
+_Having issues to join Slack? Ping [@lorenc_dan](https://twitter.com/lorenc_dan) on Twitter._
