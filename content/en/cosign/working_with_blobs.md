@@ -99,10 +99,10 @@ This supports all the same flags and features as `cosign sign`, including KMS su
 #### Certificate management
 
 When using `cosign sign-blob` in keyless mode, you may need to store the certificate (in addition to the signature) for verification.
-This is output to stdout by default, but can be redirected to a file with the `--cert` flag.
+This output defaults to stderr, but can be redirected to a file by using the `--output-certificate` and `--output-signature` flags.
 
 ```shell
-COSIGN_EXPERIMENTAL=1 cosign sign-blob  README.md
+COSIGN_EXPERIMENTAL=1 cosign sign-blob README.md --output-certificate cert.pem --output-signature sig
 Using payload from: README.md
 Generating ephemeral keys...
 Retrieving signed certificate...
@@ -129,5 +129,6 @@ PHpisPhj
 -----END CERTIFICATE-----
 
 tlog entry created with index: 965333
-MEUCIQCumPxsrw+i9ZwlWGGtX6KPPwWnd5Jpn7KWp7E+GHiHrwIgNMFmO5/N5/hmygHoG9mirxw/j+WZP3xQUlmXiDRYWKY=
+Signature wrote in the file sig
+Certificate wrote in the file cert.pem
 ```
