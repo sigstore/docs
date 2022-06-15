@@ -7,7 +7,7 @@ position: 152
 
 ## Installing Gitsign
 
-You can install Gitsign on your system either via the Go installer or with one of the available downloadable packages.
+You can install Gitsign on your system with the Go installer, via Homebrew, or with one of the available downloadable packages.
 Releases are published in [the Gitsign repository](https://github.com/sigstore/gitsign) under the [Releases page](https://github.com/sigstore/gitsign/releases).
 
 ### Installing Gitsign with Go 1.17+
@@ -19,6 +19,15 @@ go install github.com/sigstore/gitsign@latest
 ```
 
 The resulting binary will be placed at `$GOPATH/bin/gitsign`. 
+
+### Installing Gitsign with Homebrew
+
+You can install Gitsign for MacOS systems using Homebrew. Use `brew tap` to add Sigstore's repository to your system, then run `brew install` to get it installed:
+
+```console
+brew tap sigstore/tap
+brew install gitsign
+```
 
 ### Installing Gitsign with the `.deb` Package (Debian / Ubuntu Linux)
 
