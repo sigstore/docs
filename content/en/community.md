@@ -16,7 +16,3 @@ Docs and other calendar invites may be shared directly with this group, so pleas
 ## Slack
 
 You can also keep in touch by joining our [Slack channel](https://sigstore.slack.com). Use [this invite link](https://links.sigstore.dev/slack-invite) to join.
-
-[//]: # (In case the invite link is expired, ping Dan on Slack of via Twitter: @lorenc_dan)
-
-_Having issues to join Slack? Ping [@lorenc_dan](https://twitter.com/lorenc_dan) on Twitter._

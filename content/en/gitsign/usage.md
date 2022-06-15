@@ -5,21 +5,24 @@ category: "Gitsign"
 position: 153
 ---
 
-## Signing a commit
-After installing Gitsign and [configuring Git to use it as signer application](/gitsign/installation#configuring-git-to-use-gitsign-for-signing) for your project (or globally), you can sign commits as usual with `git commit -s` :
+## Signing a Commit
+
+After installing Gitsign and [configuring Git to use it as a signer application](/gitsign/installation#configuring-git-to-use-gitsign-for-signing) for your project (or globally), you can sign commits as usual with `git commit -s`.
 
 ```console
 $ git commit -s --allow-empty --message="Signed commit"
 [main cb6eee1] Signed commit
 ```
 
-This will redirect you through the Sigstore Keyless flow to authenticate and
-sign the commit.
+This will redirect you through the Sigstore keyless flow to authenticate and sign the commit.
 
 Commits can then be verified using `git log`:
 
 ```sh
 $ git --no-pager log --show-signature -1
+```
+
+```console
 commit 227e796042fdd170e58b7e3b7627a1badd320224 (HEAD -> main)
 searching tlog for commit: 227e796042fdd170e58b7e3b7627a1badd320224
 tlog index: 2212633
@@ -31,14 +34,16 @@ Date:   Mon May 2 16:51:44 2022 -0400
     Signed commit
 ```
 
-## Inspecting the Git commit signature
+## Inspecting the Git Commit Signature
 
-Git commit signatures use
-[CMS/PKCS7 signatures](https://datatracker.ietf.org/doc/html/rfc5652). We can
-inspect the underlying data / certificate used by running:
+Git commit signatures use [CMS/PKCS7 signatures](https://datatracker.ietf.org/doc/html/rfc5652). We can
+inspect the underlying data and certificate by running:
 
 ```sh
 $ git cat-file commit HEAD | sed -n '/BEGIN/, /END/p' | sed 's/^ //g' | sed 's/gpgsig //g' | sed 's/SIGNED MESSAGE/PKCS7/g' | openssl pkcs7 -print -print_certs -text
+```
+
+```console
 PKCS7:
   type: pkcs7-signedData (1.2.840.113549.1.7.2)
   d.sign:
@@ -224,12 +229,9 @@ nPkp+Sy1EwIwdOulWop3oJV/Qo7fau0mlsy0MCm3lBgyxo2lpAaI4gFRxGE2GhpV
 
 ### Verifying the Transparency Log
 
-As part of signature verification, `gitsign` not only checks that the given
-signature matches the commit, but also that the commit exists within the Rekor
-transparency log.
+As part of signature verification, Gitsign not only checks that the given signature matches the commit, but also that the commit exists within the Rekor transparency log.
 
-We can manually validate that the commit exists in the transparency log by
-running:
+We can manually validate that the commit exists in the transparency log by running:
 
 ```sh
 $ uuid=$(rekor-cli search --artifact <(git rev-parse HEAD | tr -d '\n') | tail -n 1)
@@ -322,21 +324,17 @@ nPkp+Sy1EwIwdOulWop3oJV/Qo7fau0mlsy0MCm3lBgyxo2lpAaI4gFRxGE2GhpV
 -----END CERTIFICATE-----
 ```
 
-Notice that **the Rekor entry uses the same cert that was used to generate the
-git commit signature**. This can be used to correlate the 2 messages, even
-though they signed different content!
+Notice that **the Rekor entry uses the same certificate that was used to generate the Git commit signature**. This can be used to correlate the two messages, even though they signed different content!
 
 ## Debugging
 
-If there is a problem during signing, you may see an error like the following:
+If there is a problem during signing, you may receive an error similar to the following:
 
 ```
 error: gpg failed to sign the data
 fatal: failed to write commit object
 ```
 
-Because of Limitations with Git signing tools, `gitsign`
-cannot write back to stderr. Instead, you can use the `GITSIGN_LOG` environment
-variable to tee logs into a readable location for debugging.
+Because of limitations with Git signing tools, Gitsign cannot write back to stderr. Instead, you can use the `GITSIGN_LOG` environment variable to tee logs into a readable location for debugging.
 
 
