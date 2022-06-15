@@ -2,7 +2,7 @@
 title: "Gitsign FAQ"
 menuTitle: "FAQ"
 category: "Gitsign"
-position: 155
+position: 157
 ---
 
 ## Why use Gitsign instead of the usual commit signing workflow?
