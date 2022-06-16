@@ -11,7 +11,7 @@ Git commit signatures use [CMS/PKCS7 signatures](https://datatracker.ietf.org/do
 git cat-file commit HEAD | sed -n '/BEGIN/, /END/p' | sed 's/^ //g' | sed 's/gpgsig //g' | sed 's/SIGNED MESSAGE/PKCS7/g' | openssl pkcs7 -print -print_certs -text
 ```
 
-You should see output similar to this:
+You should receive output similar to this:
 
 ```console
 PKCS7:
