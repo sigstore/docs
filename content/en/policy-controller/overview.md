@@ -2,7 +2,7 @@
 title: "Policy Controller"
 category: "Policy Controller"
 menuTitle: "Overview"
-position: 102
+position: 140
 ---
 
 # Policy Controller Admission Controller
@@ -76,10 +76,8 @@ Glob uses golang [filepath](https://pkg.go.dev/path/filepath#Match) semantics fo
 matching the images against. Additionally you can specify a more traditional
 `**` to match any number of characters. Furthermore to make it easier to specify
  images, there are few defaults when an image is matched, namely:
- * If there is no host in the glob pattern `index.docker.io` is used for the host. This allows
- users to specify commonly found images from Docker simply as myproject/nginx instead of inded.docker.io/myproject/nginx
- * If the image is specified without multiple path elements (so not separated by `/`), then `library` is defaulted. For example
- specifying `busybox` will result in library/busybox. And combined with above, will result in match being made against `index.docker.io/library/busybox`.
+ * If there is no host in the glob pattern `index.docker.io` is used for the host. This allows users to specify commonly found images from Docker simply as myproject/nginx instead of inded.docker.io/myproject/nginx
+ * If the image is specified without multiple path elements (so not separated by `/`), then `library` is defaulted. For example specifying `busybox` will result in library/busybox. And combined with above, will result in match being made against `index.docker.io/library/busybox`.
 
 A sample of a `ClusterImagePolicy` which matches against all images using glob:
 
