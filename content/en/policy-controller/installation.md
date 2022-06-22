@@ -12,7 +12,7 @@ The
 (https://github.com/sigstore/policy-controller) project contains
 an admission controller for Kubernetes, which can be installed on
 your Kubernetes cluster in a form of a
-[`helm chart`](https://github.com/sigstore/helm-charts/tree/main/charts/cosigned).
+[`helm chart`](https://github.com/sigstore/helm-charts/tree/main/charts/policy-controller).
 
 The webhook can be used to automatically validate that all the container images have been signed.
 The webhook also resolves the image tags to ensure the image being ran is not different from when it was admitted.
