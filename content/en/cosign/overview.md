@@ -112,7 +112,7 @@ For basic blobs, see the [documentation](working-with-blobs) on working with blo
 ### SCM Integration
 
 `cosign` integrates natively with SCM systems like `GitHub` and `GitLab`.
-You can use the official [GitHub Action](https://github.com/marketplace/actions/install-cosign)
+You can use the official [GitHub Action](https://github.com/marketplace/actions/cosign-installer)
 or use `cosign` to generate and work safely with [SCM secrets](git_support) with native API integration.
 
 ### Attestations
