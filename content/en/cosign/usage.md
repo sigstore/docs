@@ -258,7 +258,7 @@ When referring to a key managed by a KMS provider, `cosign` takes a [go-cloud](h
 
 For example: `gcpkms://`, `awskms://`, or `hashivault://`
 
-To see the full set of KMS APIs supported, and options for each, see [the KMS docs](kms_support).
+To see the full set of KMS APIs supported, and options for each, see [the KMS docs](../kms_support).
 
 The URI path syntax is provider specific and explained in the section for each provider.
 
