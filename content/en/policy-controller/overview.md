@@ -96,8 +96,6 @@ spec:
 When a policy is selected to be evaluated against the matched image, the authorities will be used to validate signatures and attestations.
 If at least one authority is satisfied and a signature is validated, the policy is validated.
 
-**Note:** Currently, only ECDSA public keys are supported.
-
 Authorities can be `key` specifications, for example:
 
 ```yaml
@@ -392,6 +390,7 @@ spec:
 
 During the admission validation, if no `ClusterImagePolicy` is matched, the deprecated behavior will occur.
 Image digests will be validated against the public key secret defined by `cosign.secretKeyRef.name` during installation.
+If the public key secret is not configured, the admission validation verifies against the fulcio root.
 
 When installing `policy-controller` through helm, `cosign.secretKeyRef.name` can be specified.
 ```bash
