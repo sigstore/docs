@@ -33,7 +33,7 @@ gpg --export --armor "jdoe@example.com" > mypublickey.key
 The `upload` command sends your public key / signature and artifact URL to the rekor transparency log.
 
 ```
-rekor-cli upload --rekor_server https://rekor.sigstore.dev --signature <artifact_signature> --public-key <your_public_key> --artifact <url_to_artifact>
+rekor-cli upload --rekor_server https://rekor.sigstore.dev --signature <artifact_signature> --public-key <your_public_key> --artifact <url_to_artifact>|<local_path_artifact>
 ```
 
 The Rekor command will first verify your public key and signature and download a local copy of the artifact. Then it will validate the artifact signing (no access to your private key is required).
