@@ -107,7 +107,7 @@ To see more information on the commands, checkout the [detailed usage](usage).
 
 `cosign` is primarly for containers and container-related artifacts, but it can also be used for other file types!
 To learn how to sign SBOMs, WASM modules, Tekton bundles and more, see [other types](other_types).
-For basic blobs, see the [documentation](working-with-blobs) on working with blobs.
+For basic blobs, see the [documentation](working_with_blobs) on working with blobs.
 
 ### SCM Integration
 
