@@ -36,7 +36,7 @@ kubectl label namespace my-secure-namespace policy.sigstore.dev/include=true
 An image is admitted after it has been validated against all `ClusterImagePolicy` that matched the digest of the image
 and that there was at least one valid signature or attestation obtained from the authorities provided in each of the matched `ClusterImagePolicy`.
 So each `ClusterImagePolicy` that matches is `AND` for admission, and within each `ClusterImagePolicy` authorities
-are `ON`.
+are `OR`.
 
 See the [Configuring Image Pattern](#configuring-image-patterns) for more information.
 
@@ -91,10 +91,14 @@ spec:
   - glob: "**"
 ```
 
-#### Configuring `key` Authorities
+#### Authorities
 
-When a policy is selected to be evaluated against the matched image, the authorities will be used to validate signatures and attestations.
-If at least one authority is satisfied and a signature is validated, the policy is validated.
+When a policy is selected to be evaluated against the matched image, the
+authorities will be used to validate signatures and attestations.
+If at least one authority is satisfied and a signature or attestation is
+validated, the policy is validated.
+
+#### Configuring `key` Authorities
 
 Authorities can be `key` specifications, for example:
 
@@ -123,9 +127,6 @@ Each `key` authority can contain these properties:
   - `hashivault://[KEY]`
 
 #### Configuring `keyless` Authorities
-
-When a policy is selected to be evaluated against the matched image, the authorities will be used to validate signatures.
-If at least one authority is satisfied and a signature is validated, the policy is validated.
 
 Authorities can be `keyless` specifications. For example:
 
@@ -158,6 +159,35 @@ Each `keyless` authority can contain these properties:
 - `keyless.identities`: Identity may contain an array of `issuer` and/or the `subject` found in the transparency log. Either field supports a regex.
   - `issuer`: specifies the issuer found in the transparency log. Regex patterns are supported.
   - `subject`: specifies the subject found in the transparency log. Regex patterns are supported.
+
+#### Configuring `static` Authorities
+
+Authorities can be `static` specifications. These are used for example when
+there are images that may not have any signatures or attestations (sidecar is
+one example of these). For these you can configure a `static` authority and you
+can define an action to take. Currently we support `pass` and `fail`, and when
+a `static` authority is evaluated, no signatures or attestations are checked,
+but instead the `action` specified defines whether the policy is validated or
+rejected.
+
+You can also use a generic catch-all CIP that matches all images to effectively
+override the deprecated policy-controller validation behaviour. For example, if
+you want to allow all unsigned images through, but have certain images that must
+have signatures/attestations, you can then for those images create other CIP
+that is more restrictive, and since the CIP are all anded together they will
+then be required to meet all the CIP requirements.
+
+A sample authority that allows all images from a particular registry could be
+defined like so:
+
+```yaml
+spec:
+  images:
+    - glob: "gcr.io/vaikas/**"
+  authorities:
+    - static:
+      action: pass
+```
 
 #### Configuring Remote Signature Location
 
