@@ -1,7 +1,7 @@
 ---
 title: "Further Usage"
 category: "Cosign"
-position: 105
+position: 108
 ---
 
 ## Signing Git Commits - Three Ways!

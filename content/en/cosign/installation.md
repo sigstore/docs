@@ -6,18 +6,17 @@ position: 102
 
 ## With Go 1.17+
 
-If you have Go 1.17+, you can directly install by running:
+If you have Go 1.17+, you can directly install Cosign by running:
 
 ```console
 go install github.com/sigstore/cosign/cmd/cosign@latest
 ```
 
-and the resulting binary will be placed at `$GOPATH/bin/cosign` (or `$GOBIN/cosign`, if set).
-
+The resulting binary will be placed at `$GOPATH/bin/cosign` (or `$GOBIN/cosign`, if set).
 
 ## With the cosign binary or rpm/dpkg package
 
-check for the file in https://github.com/sigstore/cosign/releases
+Check for the file in https://github.com/sigstore/cosign/releases
 
 ```console
 # binary
@@ -36,7 +35,7 @@ dpkg -i "cosign_1.6.0_amd64.deb
 
 ## Homebrew/Linuxbrew
 
-If you are using Homebrew (or Linuxbrew), you can install `cosign` by running:
+If you are using Homebrew (or Linuxbrew), you can install Cosign by running:
 
 ```console
 brew install cosign
@@ -44,7 +43,7 @@ brew install cosign
 
 ## Arch Linux
 
-If you are using Arch Linux, you can install `cosign` by running:
+If you are using Arch Linux, you can install Cosign by running:
 
 ```console
 pacman -S cosign
@@ -67,7 +66,7 @@ apk add sget
 
 ## Nix
 
-If you are using Nix, you can install `cosign` by running:
+If you are using Nix, you can install Cosign by running:
 
 ```console
 nix-env -iA nixpkgs.cosign
@@ -75,15 +74,15 @@ nix-env -iA nixpkgs.cosign
 
 ## NixOS
 
-If you are on NixOS, you can install `cosign` by running:
+If you are on NixOS, you can install Cosign by running:
 
 ```console
 nix-env -iA nixos.cosign
 ```
 
-## GitHub Action
+## GitHub Actions
 
-`cosign` can easily be installed in your GitHub actions using [`sigstore/cosign-installer`](https://github.com/marketplace/actions/cosign-installer):
+Cosign can be installed in your GitHub Actions using the [Cosign installer](https://github.com/marketplace/actions/cosign-installer) on the GitHub Marketplace.
 
 ```yaml
 uses: sigstore/cosign-installer@main
@@ -93,8 +92,8 @@ with:
 
 ## Container Images
 
-Signed release images are available at `gcr.io/projectsigstore/cosign`.
-They are tagged with the release name (e.g. `gcr.io/projectsigstore/cosign:v1.0.0`).
+Signed release images are available at [`gcr.io/projectsigstore/cosign`](http://gcr.io/projectsigstore/cosign).
+They are tagged with the release name (for example, `gcr.io/projectsigstore/cosign:v1.0.0`).
 They can be found with `crane ls`:
 
 ```console
@@ -114,13 +113,13 @@ $ crane ls gcr.io/projectsigstore/cosign/ci/cosign
 749f896bb378aca5cb45c5154fc0cb43f6728d48
 ```
 
-Further details and installation instructions for `crane` available here: https://github.com/google/go-containerregistry/tree/main/cmd/crane
+Further details and installation instructions for `crane` available via https://github.com/google/go-containerregistry/tree/main/cmd/crane
 
 ## Releases
 
-Releases are published in this repository under the [Releases page](https://github.com/sigstore/cosign/releases), and hosted in the GCS bucket `cosign-releases`.
+Releases are published in the Cosign repository under the [Releases page](https://github.com/sigstore/cosign/releases), and hosted in the GCS bucket `cosign-releases`.
 
-They can be viewed with `gsutil`:
+They can be reviewed with `gsutil`:
 
 ```console
 $ gsutil ls gs://cosign-releases/v1.0.0

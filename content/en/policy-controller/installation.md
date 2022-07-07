@@ -5,8 +5,6 @@ menuTitle: "Installation"
 position: 142
 ---
 
-# Installation
-
 The
 [`policy-controller`](https://github.com/sigstore/policy-controller) project contains
 an admission controller for Kubernetes, which can be installed on

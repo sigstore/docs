@@ -9,13 +9,13 @@ position: 120
 
 ## Signature Specifications
 
-Specifications are maintained within the `cosign` repo and available [here](https://github.com/sigstore/cosign/blob/main/specs/SIGNATURE_SPEC.md).
+Specifications are maintained within the `cosign` repo and available in [SIGNATURE_SPEC.md](https://github.com/sigstore/cosign/blob/main/specs/SIGNATURE_SPEC.md).
 
 ## SBOM in OCI Specification
 
 `Cosign` supports working with SBOMs (Software Bill Of Materials). Both formats such as [SPDX](https://spdx.org), [CycloneDX](https://cyclonedx.org) are supported.
 
-The format for this is maintained within the `cosign` repo and available [here](https://github.com/sigstore/cosign/blob/main/specs/SBOM_SPEC.md).
+The format for this is maintained within the `cosign` repo and available [SBOM_SPEC.md](https://github.com/sigstore/cosign/blob/main/specs/SBOM_SPEC.md).
 
 ## In-Toto Attestation Predicate
 
@@ -23,7 +23,7 @@ The format for this is maintained within the `cosign` repo and available [here](
 Several well-known predicates are supported natively, but `cosign` also supports a simple, generic, format for data that
 doesn't fit well into other types.
 
-The format for this is maintained within the `cosign` repo and available [here](https://github.com/sigstore/cosign/blob/main/specs/COSIGN_PREDICATE_SPEC.md).
+The format for this is maintained within the `cosign` repo and available [COSIGN_PREDICATE_SPEC.md](https://github.com/sigstore/cosign/blob/main/specs/COSIGN_PREDICATE_SPEC.md).
 
 ## Signature Payload Format
 

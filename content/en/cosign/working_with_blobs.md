@@ -1,10 +1,10 @@
 ---
-title: "Working with blobs"
+title: "Working with Blobs"
 category: "Cosign"
-position: 106
+position: 109
 ---
 
-`cosign` supports standard files and blobs, in addition to containers.
+Cosign supports signing and verifying standard files and blobs (or binary large objects), in addition to containers.
 
 You can upload blobs to an OCI registry (similar to ORAS) where they can then be signed/verified like any other image, or you can sign blobs locally as standard files.
 

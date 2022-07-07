@@ -50,7 +50,7 @@ Let's give a try by following the links above:
 * Check out the documentation of
   the [verify-attestation](https://github.com/sigstore/cosign/blob/main/doc/cosign_verify-attestation.md) command.
 
-### [Cosign Custom Predicate](specifications#in-toto-attestation-predicate) type and CUE policy
+### [Cosign Custom Predicate](../cosign/specifications#in-toto-attestation-predicate) type and CUE policy
 
 ```shell
 $ cosign attest --key cosign.key --predicate foo gcr.io/rekor-testing/distroless
