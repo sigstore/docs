@@ -35,4 +35,4 @@ data:
   cosign.pub: LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUZrd0V3WUhLb1pJemowQo[...]==
 ```
 
-When verifying an image signature using `cosign verify`, the key will be automatically decrypted using the password stored in the kKbernetes secret under the `cosign.password` field.
+When verifying an image signature using `cosign verify`, the key will be automatically decrypted using the password stored in the Kubernetes secret under the `cosign.password` field.
