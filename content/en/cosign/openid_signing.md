@@ -7,7 +7,7 @@ position: 115
 The full design document for this can be found [here](https://docs.google.com/document/d/189w4Fp1GEA1b2P633HyqTwtcWFNTu_Af4meolMa_1_8/edit?resourcekey=0-QoqNqcHXvSuPnMUdn8RGOQ#heading=h.2mtrw7byet02)
 (join sigstore-dev@googlegroups.com for access).
 
-This document explains how the experimental `keyless` signatures work in `cosign`.
+This document explains how the experimental `keyless` signatures work in Cosign.
 
 Try it out!
 
@@ -16,24 +16,24 @@ Try it out!
 Keyless signing:
 
 ```shell
-$ COSIGN_EXPERIMENTAL=1 cosign sign gcr.io/dlorenc-vmtest2/demo
+$ COSIGN_EXPERIMENTAL=1 cosign sign gcr.io/user-vmtest2/demo
 Generating ephemeral keys...
 Retrieving signed certificate...
 Your browser will now be opened to:
 https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&client_id=237800849078-rmntmr1b2tcu20kpid66q5dbh1vdt7aj.apps.googleusercontent.com&redirect_uri=http%3A%2F%2F127.0.0.1%3A5556%2Fauth%2Fgoogle%2Fcallback&response_type=code&scope=openid+email&state=8slZXeZhwKQofg%3D%3D
-Pushing signature to: gcr.io/dlorenc-vmtest2/demo:sha256-97fc222cee7991b5b061d4d4afdb5f3428fcb0c9054e1690313786befa1e4e36.sig
+Pushing signature to: gcr.io/user-vmtest2/demo:sha256-97fc222cee7991b5b061d4d4afdb5f3428fcb0c9054e1690313786befa1e4e36.sig
 ```
 
 Keyless verifying:
 
 ```shell
-$ COSIGN_EXPERIMENTAL=1 cosign verify gcr.io/dlorenc-vmtest2/demo
+$ COSIGN_EXPERIMENTAL=1 cosign verify gcr.io/user-vmtest2/demo
 The following checks were performed on all of these signatures:
   - The cosign claims were validated
   - The claims were present in the transparency log
   - The signatures were integrated into the transparency log when the certificate was valid
   - Any certificates were verified against the Fulcio roots.
-Certificate subject:  dlorenc@google.com
+Certificate subject:  user@google.com
 {"Critical":{"Identity":{"docker-reference":""},"Image":{"Docker-manifest-digest":"sha256:97fc222cee7991b5b061d4d4afdb5f3428fcb0c9054e1690313786befa1e4e36"},"Type":"cosign container image signature"},"Optional":null}
 ```
 
@@ -54,7 +54,7 @@ The root CA keys are hard-coded in `cosign` today.
 They can only be changed by recompiling the binary.
 This will be made more configurable in the future.
 
-### OAuth Flows
+### OAuth flows
 
 Cosign supports two OAuth flows today: the standard flow and the device flow.
 
@@ -62,7 +62,7 @@ When there is no terminal attached (non-interactive mode), `cosign` will automat
 where a link is printed to stdout.
 This link must be opened in a browser to complete the flow.
 
-### Identity Tokens
+### Identity tokens
 
 In automated environments, cosign also supports directly using OIDC Identity Tokens from specific issuers.
 These can be supplied on the command line with the `--identity-token` flag.
@@ -79,7 +79,7 @@ From a GCE VM, you can use the VM's service account identity to sign an image:
 $ cosign sign --identity-token=$(
     gcloud auth print-identity-token \
         --audiences=sigstore) \
-    gcr.io/dlorenc-vmtest2/demo
+    gcr.io/user-vmtest2/demo
 ```
 
 From outside a GCE VM, you can impersonate a GCP IAM service account to sign an image:
@@ -90,7 +90,7 @@ $ cosign sign --identity-token=$(
         --audiences=sigstore \
         --include-email \
         --impersonate-service-account my-sa@my-project.iam.gserviceaccount.com) \
-    gcr.io/dlorenc-vmtest2/demo
+    gcr.io/user-vmtest2/demo
 ```
 
 In order to impersonate an IAM service account, your account must have the
@@ -118,7 +118,7 @@ Signature timestamps are checked in the [rekor](https://github.com/sigstore/reko
 * Probably a lot more: This is very experimental.
 * More OIDC providers: Obvious.
 
-## Custom Infrastructure
+## Custom infrastructure
 
 If you're running your own sigtore services flags are available to set your own endpoint's, e.g
 
@@ -130,7 +130,7 @@ If you're running your own sigtore services flags are available to set your own 
 
 ```
 
-### Custom root Cert
+### Custom root cert
 
 You can override the public good instance root CA using the enviromental variable `SIGSTORE_ROOT_FILE`, e.g.
 

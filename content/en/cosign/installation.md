@@ -14,7 +14,7 @@ go install github.com/sigstore/cosign/cmd/cosign@latest
 
 The resulting binary will be placed at `$GOPATH/bin/cosign` (or `$GOBIN/cosign`, if set).
 
-## With the cosign binary or rpm/dpkg package
+## With the Cosign binary or rpm/dpkg package
 
 Check for the file in https://github.com/sigstore/cosign/releases
 
