@@ -242,18 +242,19 @@ spec:
 
 **Note:** The secret has to be in the format `type: dockerconfigjson`.
 
-#### Configuring Transparency Log
+#### Configuring Certificate Transparency Log
 
-TLog specifies the URL to a transparency log that holds signature and public key information.
+CTLog specifies the URL to a certificate transparency log that holds signature
+and public key information.
 
-When `tlog` key is not specified, the public rekor instance will be used.
+When `ctlog` key is not specified, the public rekor instance will be used.
 
 ```yaml
 spec:
   authorities:
     - keyless:
         url: https://fulcio.example.com
-      tlog:
+      ctlog:
         url: https://rekor.example.com
 ```
 
