@@ -7,7 +7,7 @@ position: 100
 features:
   - Hardware and KMS signing
   - Bring-your-own PKI
-  - Our free OIDC PKI (Fulcio https://github.com/sigstore/fulcio)
+  - Our free OIDC PKI (Fulcio)
   - Built-in binary transparency and timestamping service (Rekor)
   - Kubernetes policy enforcement
   - Rego and Cuelang integrations for policy definition
@@ -15,7 +15,7 @@ features:
 
 <img src="/cosign_overview_v1.jpg" class="light-img" width="1280" height="640" alt=""/>
 
-Cosign supports container signing, verification and storage in an OCI registry.
+Cosign supports container signing, verification, and storage in an OCI registry.
 Cosign aims to make signatures invisible infrastructure.
 
 <img src="/cosign.gif" class="light-img" width="1280" height="640" alt=""/>
@@ -24,31 +24,24 @@ Cosign supports:
 
 <list :items="features" type="info"></list>
 
-Cosign is part of the sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://links.sigstore.dev/slack-invite)?)
+Cosign is part of the Sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://links.sigstore.dev/slack-invite)?)
 
-[//]: # (In case the invite link is expired, ping Dan on Slack or via Twitter: @lorenc_dan)
+## Getting Started (Quick Start)
 
-## Getting Started
+To get up and running we'll demonstrate how to: 
 
-### Quick Start
+1. Generate a keypair
+1. Sign a container image and store that signature in the registry
+1. Find signatures for a container image, and verify them against a public key
 
-This shows how to:
+### Prerequisites
 
-1. generate a keypair
-1. sign a container image and store that signature in the registry
-1. find signatures for a container image, and verify them against a public key
+You'll need to [install Cosign](installation) first, and you will need access to a container registry.
 
-See the [Usage documentation](usage) for detailed information, and see the [further usage docs](further_usage) for some fun tips and tricks!
+[ttl.sh](https://ttl.sh) offers free, short-lived (hours), anonymous container image
+hosting if you just want to try out these commands.
 
-#### Prereqs
-
-You'll need to install `cosign` first, and you will need access to a container registry for cosign to work with.
-To install `cosign`, see the [Installation instructions](installation).
-
-[ttl.sh](https://ttl.sh) offers free, short-lived (ie: hours), anonymous container image
-hosting if you just want to try these commands out.
-
-#### 1. Generate a keypair
+### 1. Generate a keypair
 
 ```shell
 $ cosign generate-key-pair
@@ -58,24 +51,23 @@ Private key written to cosign.key
 Public key written to cosign.pub
 ```
 
-#### 2. Sign a container and store the signature in the registry
+### 2. Sign a container and store the signature in the registry
 
 ```shell
-$ cosign sign --key cosign.key dlorenc/demo
+$ cosign sign --key cosign.key user/demo
 Enter password for private key:
-Pushing signature to: index.docker.io/dlorenc/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
+Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
 ```
 
-The cosign command above prompts the user to enter the password for the private key.
-The user can either manually enter the password, or if the environment variable `COSIGN_PASSWORD` is set then it is used automatically.
+The `cosign` command above prompts the user to enter the password for the private key.
+The user can manually enter the password, or set an environment variable with `COSIGN_PASSWORD` to use a password automatically.
 
-#### 3. Verify a container against a public key
+### 3. Verify a container against a public key
 
 This command returns `0` if *at least one* `cosign` formatted signature for the image is found
-matching the public key.
-See the detailed usage below for information and caveats on other signature formats.
+matching the public key. Review the other sections of this site for information and caveats on other signature formats.
 
-Any valid payloads are printed to stdout, in json format.
+Any valid payloads are printed to `stdout`, in JSON format.
 Note that these signed payloads include the digest of the container image, which is how we can be
 sure these "detached" signatures cover the correct image.
 
@@ -89,33 +81,31 @@ The following checks were performed on these signatures:
 
 ## Kubernetes Integrations
 
-`cosign` comes with a few builtin Kubernetes integrations: `Secret` generation and a [policy webhook](installation#cosigned) called `cosigned`.
-In addition to `cosigned`, `cosign` is also compatible with and supported in other policy engines such as:
+Cosign comes with a few built-in Kubernetes integrations: `Secret` generation, and a [policy webhook](../policy-controller/overview) `policy-controller`.
+In addition to the `policy-controller`, Cosign is also compatible with and supported by other policy engines such as:
 
 * [Conaisseur](https://github.com/sse-secure-systems/connaisseur#what-is-connaisseur)
 * [Kyverno](https://kyverno.io/docs/writing-policies/verify-images/)
 * [OPA Gatekeeper](https://github.com/sigstore/cosign-gatekeeper-provider)
 
-To learn how to use `cosign` with Kubernetes, see [kubernetes](kubernetes).
+To learn how to use Cosign with Kubernetes, review [Kubernetes](kubernetes).
 
 ## More Info
 
-`cosign` can do lots more than is shown here.
-To see more information on the commands, checkout the [detailed usage](usage).
+Cosign can do much more than what is discussed here. Review more information on the commands by checking out the other sections of this site.
 
 ### Other Formats
 
-`cosign` is primarly for containers and container-related artifacts, but it can also be used for other file types!
-To learn how to sign SBOMs, WASM modules, Tekton bundles and more, see [other types](other_types).
-For basic blobs, see the [documentation](working_with_blobs) on working with blobs.
+Cosign is useful not only for containers and container-related artifacts; it can also be used for other file types. 
+
+To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review the [Signing Other Types](other_types) section. For basic blobs, review the [Working with blobs](working_with_blobs) section.
 
 ### SCM Integration
 
-`cosign` integrates natively with SCM systems like `GitHub` and `GitLab`.
-You can use the official [GitHub Action](https://github.com/marketplace/actions/cosign-installer)
-or use `cosign` to generate and work safely with [SCM secrets](git_support) with native API integration.
+Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab.
+You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use `cosign` to generate and work safely with [SCM secrets](git_support) with native API integration.
 
 ### Attestations
 
-In addition to signatures, `cosign` can be used with [In-Toto Attestations](https://github.com/in-toto/attestation).
+In addition to signatures, Cosign can be used with [In-Toto Attestations](https://github.com/in-toto/attestation).
 Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems.

@@ -5,7 +5,7 @@ menuTitle: "Overview"
 position: 140
 ---
 
-# Policy Controller Admission Controller
+# Admission Controller
 
 The `policy-controller` admission controller can be used to enforce policy on a Kubernetes cluster based on verifiable supply-chain metadata from `cosign`.
 
@@ -21,7 +21,7 @@ Enforcement is configured on a per-namespace basis, and multiple keys are suppor
 
 We're actively working on more features here.
 
-### Enable policy-controller Admission Controller for Namespaces
+## Enable policy-controller admission controller for namespaces
 
 The `policy-controller` admission controller will only validate resources in namespaces
 that have chosen to opt-in. This can be done by adding the label
@@ -31,14 +31,14 @@ that have chosen to opt-in. This can be done by adding the label
 kubectl label namespace my-secure-namespace policy.sigstore.dev/include=true
 ```
 
-### Admission of Images
+## Admission of images
 
 An image is admitted after it has been validated against all `ClusterImagePolicy` that matched the digest of the image
 and that there was at least one valid signature or attestation obtained from the authorities provided in each of the matched `ClusterImagePolicy`.
 So each `ClusterImagePolicy` that matches is `AND` for admission, and within each `ClusterImagePolicy` authorities
 are `OR`.
 
-See the [Configuring Image Pattern](#configuring-image-patterns) for more information.
+Review [Configuring Image Pattern](#configuring-image-patterns) for more information.
 
 If no policy is matched against the image digest, the [deprecated policy-controller validation behavior](#deprecated-policy-controller-validation-behavior) will occur.
 
@@ -61,13 +61,13 @@ An example of no policy matched:
   1. If a valid signature or attestation is obtained, image is admitted
   1. If no valid signature or attestation is obtained, image is denied
 
-### Configuring policy-controller ClusterImagePolicy
+## Configuring policy-controller `ClusterImagePolicy`
 
-`policy-controller` supports validation against multiple `ClusterImagePolicy` kubernetes resources.
+`policy-controller` supports validation against multiple `ClusterImagePolicy` Kubernetes resources.
 
 A policy is enforced when an image pattern for the policy is matched against the image being deployed.
 
-#### Configuring Image Patterns
+### Configuring image patterns
 
 The `ClusterImagePolicy` specifies `spec.images` which specifies a list of `glob` matching patterns.
 These matching patterns will be matched against the image digest of PodSpec resources attempting to be deployed.
@@ -91,14 +91,14 @@ spec:
   - glob: "**"
 ```
 
-#### Authorities
+### Authorities
 
 When a policy is selected to be evaluated against the matched image, the
 authorities will be used to validate signatures and attestations.
 If at least one authority is satisfied and a signature or attestation is
 validated, the policy is validated.
 
-#### Configuring `key` Authorities
+### Configuring `key` authorities
 
 Authorities can be `key` specifications, for example:
 
@@ -126,7 +126,7 @@ Each `key` authority can contain these properties:
   - `gcpkms://projects/[PROJECT]/locations/global/keyRings/[KEYRING]/cryptoKeys/[KEY]`
   - `hashivault://[KEY]`
 
-#### Configuring `keyless` Authorities
+### Configuring `keyless` authorities
 
 Authorities can be `keyless` specifications. For example:
 
@@ -160,7 +160,7 @@ Each `keyless` authority can contain these properties:
   - `issuer`: specifies the issuer found in the transparency log. Regex patterns are supported.
   - `subject`: specifies the subject found in the transparency log. Regex patterns are supported.
 
-#### Configuring `static` Authorities
+### Configuring `static` authorities
 
 Authorities can be `static` specifications. These are used for example when
 there are images that may not have any signatures or attestations (sidecar is
@@ -189,7 +189,7 @@ spec:
       action: pass
 ```
 
-#### Configuring Remote Signature Location
+### Configuring remote signature location
 
 If signatures are located in a different repository, it can be specified along with the `key` or `keyless` definition.
 When no `source` is specified for the key, the expectation is that the signature is colocated with the image.
@@ -216,7 +216,7 @@ spec:
         - oci: registry.example.com/project/signature-location
 ```
 
-#### Configure SignaturePullSecrets
+### Configure `SignaturePullSecrets`
 
 If the signatures / attestations are in a different repo or they use different
 PullSecrets, you can configure `source` to point to a `secret` which must live
@@ -258,7 +258,7 @@ spec:
         url: https://rekor.example.com
 ```
 
-#### Configuring policy that validates attestations
+### Configuring policy that validates attestations
 
 Just like with `cosign` CLI you can verify attestations (using `verify-attestation`),
 you can configure policies to validate that a particular attestation was signed by
@@ -297,7 +297,7 @@ spec:
 `policy` is optional and if left out, only the existence of the attestation is
 verified.
 
-#### Configuring policy at the `ClusterImagePolicy` level.
+### Configuring policy at the `ClusterImagePolicy` level.
 
 As discussed earlier, by specifying multiple `ClusterImagePolicy` creates an `AND`
 clause so that each `ClusterImagePolicy` must be satisfied for an admission, and
@@ -415,7 +415,7 @@ spec:
       }
 ```
 
-### Deprecated policy-controller Validation Behavior
+## Deprecated policy-controller validation behavior
 
 **Note:** This behavior is being deprecated in favor of using `ClusterImagePolicy` resources.
 

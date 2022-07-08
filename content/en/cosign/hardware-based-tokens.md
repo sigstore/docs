@@ -11,7 +11,7 @@ and the [go-piv](https://github.com/go-piv/piv-go) library, which is not include
 ---
 **NOTE**
 
-`cosign`'s hardware token support requires `libpcsclite` on platforms other than Windows and OSX.
+Cosign's hardware token support requires `libpcsclite` on platforms other than Windows and OSX.
 See [`go-piv`'s installation instructions for your platform.](https://github.com/go-piv/piv-go#installation)
 
 ---
@@ -95,24 +95,24 @@ You can then use the normal `cosign` commands to sign images and blobs with your
 **NOTE**: The default PIN is `123456`.
 
 ```shell
-$ cosign sign --sk gcr.io/dlorenc-vmtest2/demo
+$ cosign sign --sk gcr.io/user-vmtest2/demo
 Enter PIN for security key:
 Please tap security key...
-Pushing signature to: gcr.io/dlorenc-vmtest2/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.sig
+Pushing signature to: gcr.io/user-vmtest2/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.sig
 ```
 
 To verify, you can either use the hardware key directly:
 
 ```shell
-$ cosign verify --sk gcr.io/dlorenc-vmtest2/demo
+$ cosign verify --sk gcr.io/user-vmtest2/demo
 
-Verification for gcr.io/dlorenc-vmtest2/demo --
+Verification for gcr.io/user-vmtest2/demo --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
   - The signatures were verified against the specified public key
   - Any certificates were verified against the Fulcio roots.
 
-[{"critical":{"identity":{"docker-reference":"gcr.io/dlorenc-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd"},"type":"cosign container image signature"},"optional":null}]
+[{"critical":{"identity":{"docker-reference":"gcr.io/user-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd"},"type":"cosign container image signature"},"optional":null}]
 ```
 
 Or export the public key and verify against that:
@@ -120,15 +120,15 @@ Or export the public key and verify against that:
 ```shell
 $ cosign public-key --sk > pub.key
 
-$ cosign verify --key pub.key gcr.io/dlorenc-vmtest2/demo
+$ cosign verify --key pub.key gcr.io/user-vmtest2/demo
 
-Verification for gcr.io/dlorenc-vmtest2/demo --
+Verification for gcr.io/user-vmtest2/demo --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
   - The signatures were verified against the specified public key
   - Any certificates were verified against the Fulcio roots.
 
-[{"critical":{"identity":{"docker-reference":"gcr.io/dlorenc-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd"},"type":"cosign container image signature"},"optional":null}]
+[{"critical":{"identity":{"docker-reference":"gcr.io/user-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd"},"type":"cosign container image signature"},"optional":null}]
 ```
 
 ## CLI Usage

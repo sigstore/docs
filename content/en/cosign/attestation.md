@@ -1,7 +1,7 @@
 ---
 title: "In-Toto Attestations"
 category: "Cosign"
-position: 110
+position: 112
 ---
 
 Cosign also has built-in support for [in-toto](https://in-toto.io) attestations. The specification for these is
@@ -50,7 +50,7 @@ Let's give a try by following the links above:
 * Check out the documentation of
   the [verify-attestation](https://github.com/sigstore/cosign/blob/main/doc/cosign_verify-attestation.md) command.
 
-### [Cosign Custom Predicate](specifications#in-toto-attestation-predicate) type and CUE policy
+### [Cosign Custom Predicate](../cosign/specifications#in-toto-attestation-predicate) type and CUE policy
 
 ```shell
 $ cosign attest --key cosign.key --predicate foo gcr.io/rekor-testing/distroless
