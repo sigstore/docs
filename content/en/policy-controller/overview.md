@@ -145,9 +145,9 @@ spec:
     - keyless:
         identities:
           - issuer: https://accounts.google.com
-            subject: .*@example.com
+            subject: foo@example.com
           - issuer: https://token.actions.githubusercontent.com
-            subject: https://github.com/mycompany/*/.github/workflows/*@*
+            subjectRegExp: https://github.com/mycompany/*/.github/workflows/*@*
 
 ```
 
@@ -157,8 +157,8 @@ Each `keyless` authority can contain these properties:
   - `secretRef.name`: specifies the secret location name in the same namespace where `policy-controller` is installed. <br/>The first key value will be used in the secret for the `ca-cert`.
   - `data`: specifies the inline certificate data
 - `keyless.identities`: Identity may contain an array of `issuer` and/or the `subject` found in the transparency log. Either field supports a regex.
-  - `issuer`: specifies the issuer found in the transparency log. Regex patterns are supported.
-  - `subject`: specifies the subject found in the transparency log. Regex patterns are supported.
+  - `issuer`: specifies the issuer found in the transparency log. Regex patterns are supported through the `issuerRegExp` key.
+  - `subject`: specifies the subject found in the transparency log. Regex patterns are supported through the `subjectRegExp` key.
 
 ### Configuring `static` authorities
 
@@ -280,8 +280,8 @@ spec:
     keyless:
       url: http://fulcio.fulcio-system.svc
       identities:
-      - issuer: .*kubernetes.default.*
-        subject: .*kubernetes.io/namespaces/default/serviceaccounts/default
+      - issuerRegExp: .*kubernetes.default.*
+        subjectRegExp: .*kubernetes.io/namespaces/default/serviceaccounts/default
     ctlog:
       url: http://rekor.rekor-system.svc
     attestations:
