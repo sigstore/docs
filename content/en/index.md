@@ -14,8 +14,8 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 
 ## How to use Sigstore
 
-* Sign software artifacts with [Cosign](/cosign/overview) — [Quick start](https://docs.sigstore.dev/cosign/overview#getting-started-quick-start)
-* Sign Git commits with [Gitsign](/gitsign/overview) - [Quick start](https://docs.sigstore.dev/gitsign/overview#quick-start)
+* Sign software artifacts with [Cosign](/cosign/overview) — [Quick start](/cosign/overview#getting-started-quick-start)
+* Sign Git commits with [Gitsign](/gitsign/overview) - [Quick start](/gitsign/overview#quick-start)
 * Verify entries with [Rekor](/rekor/CLI#verify-proof-of-entry)
 * Use the [policy controller](/policy-controller/overview) to enfore Kubernetes policies
 * Use the [Fulcio Certificate Authority](/fulcio/overview)
