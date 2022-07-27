@@ -13,12 +13,12 @@ features:
   - Rego and Cuelang integrations for policy definition
 ---
 
-<img src="/cosign_overview_v1.jpg" class="light-img" width="1280" height="640" alt=""/>
+![Cosign Overview](/cosign_overview_v1.jpg)
 
 Cosign supports container signing, verification, and storage in an OCI registry.
 Cosign aims to make signatures invisible infrastructure.
 
-<img src="/cosign.gif" class="light-img" width="1280" height="640" alt=""/>
+![Cosign demo gif](/cosign.gif)
 
 Cosign supports:
 

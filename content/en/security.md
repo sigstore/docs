@@ -1,5 +1,5 @@
 ---
-title: 'Security model'
+title: 'Security Model'
 description: ''
 category: 'About sigstore'
 position: 3
