@@ -6,7 +6,7 @@ menuTitle: "Overview"
 position: 1
 ---
 
-<img src="/sigstore_overview_v2.jpg" class="light-img" width="1280" height="640" alt=""/>
+![Sigstore](/sigstore-logo_horizontal-color.svg)
 
 **Sigstore empowers software developers to securely sign software artifacts such as release files, container images, binaries, bill of material manifests and more. Signing materials are then stored in a tamper-resistant public log.**
 

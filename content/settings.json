@@ -5,8 +5,8 @@
   "defaultBranch": "docs",
   "defaultDir": "",
   "logo": {
-    "light": "/logo-light.svg",
-    "dark": "/logo-dark.svg"
+    "light": "/Sigstore-logo_horizontal-color.svg",
+    "dark": "/Sigstore-logo_horizontal-white.svg"
   },
   "github": "sigstore/sigstore-website",
   "twitter": "@projectsigstore"

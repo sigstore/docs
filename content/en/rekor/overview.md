@@ -6,7 +6,7 @@ menuTitle: "Overview"
 position: 301
 ---
 
-<img src="/rekor_overview_v1.jpg" class="light-img" width="1280" height="640" alt=""/>
+![Rekor Overview](/sigstore_rekor-horizontal-color.svg)
 
 Rekor aims to provide an immutable, tamper-resistant ledger of metadata generated within a software project’s supply chain.
 
