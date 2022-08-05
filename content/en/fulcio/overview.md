@@ -5,7 +5,7 @@ category: "Fulcio"
 position: 201
 ---
 
-<img src="/fulcio_overview_v1.jpg" class="light-img" width="1280" height="640" alt=""/>
+![Fulcio Overview](/sigstore_fulcio-horizontal-color.svg)
 
 Fulcio is a free code signing Certificate Authority, built to make short-lived certificates available to anyone. Based on an Open ID Connect email address, Fulcio signs x509 certificates valid for under 20 minutes.
 

@@ -5,7 +5,7 @@ category: "Gitsign"
 position: 150
 ---
 
-<img src="/sigstore_overview_v1.jpg" class="light-img" width="1280" height="640" alt=""/>
+![Gitsign Overview](/sigstore_gitsign-horizontal-color.svg)
 
 Gitsign implements keyless Sigstore to sign Git commits with a valid [OpenID](https://openid.net/connect/) identity.
 In practice, that means you won’t need GPG keys and a complicated setup in order to sign your Git commits. After installing and configuring Gitsign within your project and signing your commits, you will be redirected to a browser window to authenticate with a supported OpenID provider, such as GitHub or Google. Signing details will then be stored in [Rekor](/rekor/overview) for subsequent verification.
