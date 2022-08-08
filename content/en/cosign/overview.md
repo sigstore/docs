@@ -98,7 +98,7 @@ Cosign can do much more than what is discussed here. Review more information on 
 
 Cosign is useful not only for containers and container-related artifacts; it can also be used for other file types. 
 
-To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review the [Signing Other Types](other_types) section. For basic blobs, review the [Working with blobs](working_with_blobs) section.
+To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review the [Signing Other Types](/cosign/other_types) section. For basic blobs, review the [Working with blobs](working_with_blobs) section.
 
 ### SCM Integration
 

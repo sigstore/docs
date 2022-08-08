@@ -16,6 +16,6 @@ The webhook also resolves the image tags to ensure the image being ran is not di
 
 The `policy-controller` admission controller will only validate resources in
 namespaces that have chosen to opt-in. See the
-[Enable policy-controller Admission Controller for Namespaces](overview#enable-policy-controller-admission-controller-for-namespaces) instructions for more details.
+[Enable policy-controller Admission Controller for Namespaces](/policy-controller/overview#enable-policy-controller-admission-controller-for-namespaces) instructions for more details.
 
-See the [Configuring policy-controller ClusterImagePolicy](overview#configuring-policy-controller-clusterimagepolicy) instructions for more details on configuration.
+See the [Configuring policy-controller ClusterImagePolicy](/policy-controller/overview#configuring-policy-controller-clusterimagepolicy) instructions for more details on configuration.
