@@ -34,8 +34,8 @@ brew install gitsign
 Check the [releases page](https://github.com/sigstore/cosign/releases) for the latest release, and download the appropriate `.deb` file.
 
 ```console
-wget https://github.com/sigstore/gitsign/releases/download/v0.1.0/gitsign_0.1.0_linux_amd64.deb
-sudo dpkg -i gitsign_0.1.0_linux_amd64.deb
+wget https://github.com/sigstore/gitsign/releases/download/v0.2.0/gitsign_0.2.0_linux_amd64.deb
+sudo dpkg -i gitsign_0.2.0_linux_amd64.deb
 ```
 
 ### Installing Gitsign with the `.rpm` Package (Fedora Linux)
@@ -43,8 +43,8 @@ sudo dpkg -i gitsign_0.1.0_linux_amd64.deb
 Check the [releases page](https://github.com/sigstore/cosign/releases) for the latest release, and download the appropriate `.rpm` file. 
 
 ```console
-wget https://github.com/sigstore/gitsign/releases/download/v0.1.0/gitsign_0.1.0_linux_amd64.rpm
-rpm -ivh gitsign_0.1.0_linux_amd64.rpm
+wget https://github.com/sigstore/gitsign/releases/download/v0.2.0/gitsign_0.2.0_linux_amd64.rpm
+rpm -ivh gitsign_0.2.0_linux_amd64.rpm
 ```
 
 ## Checking your Installation
@@ -52,30 +52,8 @@ rpm -ivh gitsign_0.1.0_linux_amd64.rpm
 Once you finish installing Gitsign, you can test that it is functional and ensure that it can be found on your $PATH by running a `gitsign` command.
 
 ```shell
-gitsign --help
-```
-
-You'll get output similar to the following.
-
-```console
-Usage: gitsign [-abhsv] [--include-certs n] [--status-fd n] [-t url] [-u USER-ID] [--verify] [files]
- -a, --armor                    create ascii armored output
- -b, --detach-sign              make a detached signature
- -h, --help                     print this help message
-     --include-certs=n          -3 is the same as -2, but ommits issuer
-                                when cert has Authority Information
-                                Access extension. -2 includes all certs
-                                except root. -1 includes all certs. 0
-                                includes no certs. 1 includes leaf cert.
-                                >1 includes n from the leaf. Default -2.
- -s, --sign                     make a signature
-     --status-fd=n              write special status strings to the file
-                                descriptor n.
- -t, --timestamp-authority=url  URL of RFC3161 timestamp authority to
-                                use for timestamping
- -u, --local-user=USER-ID       use USER-ID to sign
-     --verify                   verify a signature
- -v, --version                  print the version number
+$ gitsign --version
+gitsign version v0.2.0
 ```
 
 ### Troubleshooting 
@@ -93,6 +71,7 @@ After installing Gitsign on your system and making sure it is functional, you’
 ```sh
 cd /path/to/my/repository
 git config --local commit.gpgsign true  # Sign all commits
+git config --local tag.gpgsign true  # Sign all tags
 git config --local gpg.x509.program gitsign  # Use Gitsign for signing
 git config --local gpg.format x509  # Gitsign expects x509 args
 ```
@@ -101,6 +80,7 @@ git config --local gpg.format x509  # Gitsign expects x509 args
 
 ```sh
 git config --global commit.gpgsign true  # Sign all commits
+git config --global tag.gpgsign true  # Sign all tags
 git config --global gpg.x509.program gitsign  # Use gGtsign for signing
 git config --global gpg.format x509  # Gitsign expects x509 args
 ```

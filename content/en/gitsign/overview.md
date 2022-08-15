@@ -16,40 +16,38 @@ Gitsign is part of the Sigstore project. Join us on our [Slack channel](https://
 
 Gitsign can be installed via the Go installer, with Homebrew, or with one of the package installers available on the project [releases page](https://github.com/sigstore/gitsign/releases). These include  `.deb` and `.rpm` formats for Debian and Fedora systems, respectively. Check the [installation](/gitsign/installation) page for more details on how to get Gitsign installed on your system.
 
-Once configured, you can sign commits as usual with `git commit -s`:
+Once configured, you can sign commits as usual with `git commit -S` (or
+`git config --global commit.gpgsign true` to enable signing for all commits).
 
 ```sh
-$ git commit -s --allow-empty --message="Signed commit"
-[main cb6eee1] Signed commit
+$ git commit --message="Signed commit"
+Your browser will now be opened to:
+https://oauth2.sigstore.dev/auth/auth?access_type=online&client_id=sigstore&...
+[main 040b9af] Signed commit
 ```
 
-This will redirect you through the [Sigstore Keyless flow](/cosign/openid_signing) to authenticate and sign the commit.
+This will redirect you through the [Sigstore Keyless](/cosign/openid_signing) flow to authenticate and
+sign the commit.
 
-Commits can then be verified using `git log`:
+Commits can then be verified using `git verify-commit`:
 
 ```sh
-$ git --no-pager log --show-signature -1
-```
-
-```console
-commit 227e796042fdd170e58b7e3b7627a1badd320224 (HEAD -> main)
-searching tlog for commit: 227e796042fdd170e58b7e3b7627a1badd320224
-tlog index: 2212633
-smimesign: Signature made using certificate ID 0x815ada5516906a862af8f528d69d3c86e4774b4f | CN=sigstore,O=sigstore.dev
-smimesign: Good signature from "" ([billy@chainguard.dev])
-Author: Billy Lynch <billy@chainguard.dev>
-Date:   Mon May 2 16:51:44 2022 -0400
-
-    Signed commit
+$ git verify-commit HEAD
+tlog index: 2801760
+gitsign: Signature made using certificate ID 0xf805288664f2e851dcb34e6a03b1a5232eb574ae | CN=sigstore-intermediate,O=sigstore.dev
+gitsign: Good signature from [billy@chainguard.dev]
+Validated Git signature: true
+Validated Rekor entry: true
 ```
 
 ## Environment Variables
 
-| Environment Variable      | Default                          | Description                                                                                                   |
-| ------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| GITSIGN_FULCIO_URL        | https://fulcio.sigstore.dev      | Address of Fulcio server                                                                                      |
-| GITSIGN_LOG               |                                  | Path to log status output. Helpful for debugging, since Git will not forward stderr output to user terminals. |
-| GITSIGN_OIDC_CLIENT_ID    | sigstore                         | OIDC client ID for application                                                                                |
-| GITSIGN_OIDC_ISSUER       | https://oauth2.sigstore.dev/auth | OIDC provider to be used to issue ID token                                                                    |
-| GITSIGN_OIDC_REDIRECT_URL |                                  | OIDC Redirect URL                                                                                             |
-| GITSIGN_REKOR_URL         | https://rekor.sigstore.dev       | Address of Rekor server                                                                                       |
+| Environment Variable      | Default                          | Description                                                                                   |
+| ------------------------- | -------------------------------- | --------------------------------------------------------------------------------------------- |
+| GITSIGN_CREDENTIAL_CACHE  |                                  | Optional path to [gitsign-credential-cache](cmd/gitsign-credential-cache/README.md) socket.   |
+| GITSIGN_FULCIO_URL        | https://fulcio.sigstore.dev      | Address of Fulcio server                                                                      |
+| GITSIGN_LOG               |                                  | Path to log status output. Helpful for debugging when no TTY is available in the environment. |
+| GITSIGN_OIDC_CLIENT_ID    | sigstore                         | OIDC client ID for application                                                                |
+| GITSIGN_OIDC_ISSUER       | https://oauth2.sigstore.dev/auth | OIDC provider to be used to issue ID token                                                    |
+| GITSIGN_OIDC_REDIRECT_URL |                                  | OIDC Redirect URL                                                                             |
+| GITSIGN_REKOR_URL         | https://rekor.sigstore.dev       | Address of Rekor server                                                                       |
