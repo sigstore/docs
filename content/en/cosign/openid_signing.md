@@ -7,9 +7,9 @@ position: 115
 The full design document for this can be found [here](https://docs.google.com/document/d/189w4Fp1GEA1b2P633HyqTwtcWFNTu_Af4meolMa_1_8/edit?resourcekey=0-QoqNqcHXvSuPnMUdn8RGOQ#heading=h.2mtrw7byet02)
 (join sigstore-dev@googlegroups.com for access).
 
-This document explains how the experimental `keyless` signatures work in Cosign.
+This document explains how the experimental keyless signatures work in Cosign.
 
-Try it out!
+To learn more about OIDC, please review [OIDC Usage in Fulcio](/fulcio/oidc-in-fulcio).
 
 ## Usage
 
@@ -42,38 +42,29 @@ The rest of the flags (annotations, claims, tlog, etc.) should all work the same
 
 ## Overview
 
-This uses ephemeral keys and certificates, which are signed automatically by the `fulcio` root CA.
-Signatures are stored in the `rekor` transparency log, which automatically provides an attestation
-as to when the signature was created.
+This uses ephemeral keys and certificates, which are signed automatically by the Fulcio root CA. Signatures are stored in the Rekor transparency log, which automatically provides an attestation as to when the signature was created.
 
-Information on the `fulcio` root CA can be found in the [fulcio repository](https://github.com/sigstore/fulcio).
+Information on the Fulcio root CA can be found in the [fulcio repository](https://github.com/sigstore/fulcio).
 
 ### Keys
 
-The root CA keys are hard-coded in `cosign` today.
-They can only be changed by recompiling the binary.
-This will be made more configurable in the future.
+The root CA keys are hard-coded in Cosign today. They can only be changed by recompiling the binary. This will be made more configurable in the future.
 
 ### OAuth flows
 
 Cosign supports two OAuth flows today: the standard flow and the device flow.
 
-When there is no terminal attached (non-interactive mode), `cosign` will automatically use the device flow
-where a link is printed to stdout.
-This link must be opened in a browser to complete the flow.
+When there is no terminal attached (non-interactive mode), `cosign` will automatically use the device flow where a link is printed to stdout. This link must be opened in a browser to complete the flow.
 
 ### Identity tokens
 
-In automated environments, cosign also supports directly using OIDC Identity Tokens from specific issuers.
-These can be supplied on the command line with the `--identity-token` flag.
-The `audiences` field must contain `sigstore`.
+In automated environments, cosign also supports directly using OIDC Identity Tokens from specific issuers. These can be supplied on the command line with the `--identity-token` flag. The `audiences` field must contain `sigstore`.
 
-`cosign` also has support for detecting some of these automated environments
-and producing an identity token.  Currently this supports Google and Github.
+Cosign also has support for detecting some of these automated environments and producing an identity token.  Currently this supports Google and Github.
 
-#### On GCP
+#### On Google Cloud Platform
 
-From a GCE VM, you can use the VM's service account identity to sign an image:
+From a Google Cloud Engine (GCE) virtual machine, you can use the VM's service account identity to sign an image:
 
 ```shell
 $ cosign sign --identity-token=$(
@@ -93,13 +84,9 @@ $ cosign sign --identity-token=$(
     gcr.io/user-vmtest2/demo
 ```
 
-In order to impersonate an IAM service account, your account must have the
-`roles/iam.serviceAccountTokenCreator` role.
+In order to impersonate an IAM service account, your account must have the `roles/iam.serviceAccountTokenCreator` role.
 
-**Note**: On Google Cloud Build, standard identity tokens are not supported through the GCE metadata server.
-`cosign` has a special flow for this case, where you can instruct the Cloud Build service account to impersonate
-another service account.
-To configure this flow:
+**Note**: On Google Cloud Build, standard identity tokens are not supported through the GCE metadata server. Cosign has a special flow for this case, where you can instruct the Cloud Build service account to impersonate another service account. To configure this flow:
 
 1. Create a service account to use for signatures (the email address will be present in the certificate subject).
 2. Grant the Cloud Build service account the `roles/iam.serviceAccountTokenCreator` role for this target account.

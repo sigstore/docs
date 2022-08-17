@@ -11,6 +11,6 @@ Fulcio is a free code signing Certificate Authority, built to make short-lived c
 
 Fulcio was designed to run as a centralized, public-good instance backed up by other transparency logs. Development is now underway to support different delegation models, and to deploy and run Fulcio as a disconnected instance.
 
-**Fulcio is a work in progress!** There’s working code, a running instance and a roadmap, but it’s not yet reliable or robust enough for public consumption.
-
 Fulcio is being developed as part of the sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://links.sigstore.dev/slack-invite)?)
+
+You can learn more about Fulcio in the [Fulcio repo](https://github.com/sigstore/fulcio) and the [repo docs](https://github.com/sigstore/fulcio/tree/6ac6b8c94c3ec6106d68c0f92225016a3a6eef79/docs). 

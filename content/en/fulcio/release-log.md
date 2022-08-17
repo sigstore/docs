@@ -1,7 +1,7 @@
 ---
 title: "Release log"
 category: "Fulcio"
-position: 202
+position: 206
 ---
 
-Review the [Release log](https://github.com/sigstore/fulcio/releases) on GitHub.
+Review Fulcio's [Release log](https://github.com/sigstore/fulcio/releases) on GitHub.
