@@ -11,6 +11,13 @@ an admission controller for Kubernetes, which can be installed on
 your Kubernetes cluster in a form of a
 [`helm chart`](https://github.com/sigstore/helm-charts/tree/main/charts/policy-controller).
 
+If you run a private instance of Sigstore components, you can specify your own
+`TUF` root by mounting your TUF root.json file into the container (for example
+by mounting a Secret) and then pointing to it with --tuf-root argument as well
+as using --tuf-mirror argument to point to where the TUF mirror is. There's
+an optional Secret `tuf-root` that you can create with key `root` that you can
+put the `root.json` file in that gets mounted as `/var/run/tuf/root.json`.
+
 The webhook can be used to automatically validate that all the container images have been signed.
 The webhook also resolves the image tags to ensure the image being ran is not different from when it was admitted.
 
