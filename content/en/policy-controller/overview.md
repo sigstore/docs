@@ -417,6 +417,36 @@ spec:
       }
 ```
 
+## Controlling warn vs. enforce behaviour
+
+When creating a `ClusterImagePolicy` by default when a policy fails to meet
+the requirements, it will not be admitted. However, sometimes folks want to
+allow these through, but warn the user about the fact that this operation did
+not meet the criteria. For this you can use a `mode` configuration option for
+a specific policy. When set to `warn`, it will not block the admission, but
+instead will allow it through and emit a warning.
+
+For example:
+```
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: image-policy-keyless-warn
+spec:
+  mode: warn
+  images:
+  - glob: registry.local:5000/policy-controller/demo*
+  authorities:
+  - keyless:
+      url: http://fulcio.fulcio-system.svc
+    ctlog:
+      url: http://rekor.rekor-system.svc
+```
+ By specifying the `spec.mode` as `warn`, even if an image is found to be not
+ compliant, it will be allowed through, but a warning is issued to the caller
+ informing them that this is not a compliant image.
+
+
 ## Deprecated policy-controller validation behavior
 
 **Note:** This behavior is being deprecated in favor of using `ClusterImagePolicy` resources.
