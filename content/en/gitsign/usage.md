@@ -36,7 +36,7 @@ The following config options are supported:
 
 | Environment Variable      | Sigstore<br>Prefix | Default                          | Description                                                                                                                                                                                                                                |
 | ------------------------- | ------------------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| GITSIGN_CREDENTIAL_CACHE  | ❌                 |                                  | Optional path to [gitsign-credential-cache](cmd/gitsign-credential-cache/README.md) socket.                                                                                                                                                |
+| GITSIGN_CREDENTIAL_CACHE  | ❌                 |                                  | Optional path to [gitsign-credential-cache](https://github.com/sigstore/gitsign/tree/main/cmd/gitsign-credential-cache) socket.                                                                                                            |
 | GITSIGN_CONNECTOR_ID      | ✅                 |                                  | Optional Connector ID to auto-select to pre-select auth flow to use. For the public sigstore instance, valid values are:<br>- `https://github.com/login/oauth`<br>- `https://accounts.google.com`<br>- `https://login.microsoftonline.com` |
 | GITSIGN_FULCIO_URL        | ✅                 | https://fulcio.sigstore.dev      | Address of Fulcio server                                                                                                                                                                                                                   |
 | GITSIGN_LOG               | ❌                 |                                  | Path to log status output. Helpful for debugging when no TTY is available in the environment.                                                                                                                                              |
@@ -53,7 +53,7 @@ are set, `GITSIGN_` prefix takes priority.
 ## Signing a Commit
 
 After installing Gitsign and
-[configuring Git to use it as a signer application](/gitsign/installation#configuring-git-to-use-gitsign-for-signing)
+[configuring Git to use it as a signer application](/gitsign/installation#configuring-git-to-use-gitsign)
 for your project (or globally), you can sign commits as usual with
 `git commit -S` (or `git config --global commit.gpgsign true` to enable signing
 for all commits).
