@@ -39,12 +39,12 @@ One of the targets secured by the Sigstore Trust Root is the Fulcio root certifi
 
 **Certificate Transparency Log**
 
-Fulcio assumes that a valid OIDC token from a trusted provider is sufficient “proof of ownership” of the associated identity.  To help protect against OIDC compromise, Fulcio uses an append-only certificate transparency log. This means:
+Fulcio assumes that a valid OIDC token from a trusted provider is sufficient “proof of ownership” of the associated identity. To mitigate against OIDC compromise, Fulcio appends certificates to an immutable, append-only cryptographically verifiable transparency log. This means:
 
 * Fulcio MUST publish all certificates to the log.
 * Clients MUST NOT trust certificates that are not in the log.
 
-As a result, users can detect any misissued certificates (detection). Combined with Rekor's signature transparency, artifacts signed with compromised accounts can be identified (auditability).
+As a result users can detect any mis-issued certificates, either due to the CA acting maliciously or a compromised OIDC identity provider. Combined with Rekor's signature transparency, artifacts signed with compromised accounts can be identified (auditability).
 
 _Note: Fulcio itself does not monitor the certificate transparency log; users are responsible for monitoring the log for unauthorized certificates issued to their identities._
 
