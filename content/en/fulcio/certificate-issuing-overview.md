@@ -50,7 +50,7 @@ a signature of the `sub` claim. For challenge and CSR are verified using the pro
 
 ## 4 — Constructing a certificate
 
-![Fulcio issue the certificate](/fulcio-4-issue-certificate.png)
+![Fulcio constructs the certificate](/fulcio-4-construct-certificate.png)
 
 The client is now authenticated and has proved possession of the private key. Fulcio now
 can issue a code signing certificate for the identity from the ID token.
@@ -94,7 +94,7 @@ publicly auditable.
 A special X.509 extension, called a poison extension, is included in the certificate before it
 is appended to the log. This certificate is called a precertificate, and is not yet usuable by clients.
 
-![Fulcio upload the certificate to the transparency log](/fulcio-6-transparency-log-upload.png)
+![Fulcio uploads the certificate to the transparency log](/fulcio-6-transparency-log-inclusion.png)
 
 The certificate transparency log returns a _Signed Certificate Timestamp_
 (SCT). The SCT is a promise of inclusion in the log, signed by the CT log. It can be
@@ -103,7 +103,7 @@ of inclusion directly from the log.
 
 The SCT is embedded within the certificate, and signed again.
 
-![Fulcio signs a certificate with the embedded SCT](/fulcio-7-sign-certificate-sct.png)
+![Fulcio signs a certificate with the embedded SCT](/fulcio-6-sign-again.png)
 
 Note that the Certificate Transparency (CT) log is separate from the [Rekor](https://github.com/sigstore/rekor)
 transparency log. Fulcio's CT Log only stores issued certificates, while Rekor stores artifact signatures and attestations.
@@ -112,4 +112,4 @@ See [Certificate Transparency Log Information](https://github.com/sigstore/fulci
 
 ## 7 — Return certificate to client
 
-![Fulcio return the certificate to the client](/fulcio-8-return-to-client.png)
+![Fulcio return the certificate to the client](/fulcio-7-return-to-client.png)
