@@ -1,8 +1,21 @@
-# docs
+# Sigstore docs
 
-This branch contains the documentation section on [sigstore.dev](https://sigstore.dev), hosted at [docs.sigstore.dev](https://docs.sigstore.dev/).
+This repo contains the Sigstore documentation, which is hosted at [docs.sigstore.dev](https://docs.sigstore.dev/).
 
-See the `main` branch for the rest of the site.
+If you are looking for the frontend development of the [Sigstore website](https://www.sigstore.dev/), please visit the [sigstore-wesbite](https://github.com/sigstore/sigstore-website) repo. 
+
+## Contributing
+
+We welcome contributions on the docs site!
+
+### Pull Request Process
+
+1. Please first discuss the change you wish to make via an [issue](https://github.com/sigstore/docs/issues).
+2. Fork the `docs` repository to your own GitHub account and clone it locally.
+3. Hack on your changes.
+4. Write a meaningful commit message (and sign your commit). Review the [commit message guidelines](https://github.com/sigstore/sigstore-website/blob/main/CONTRIBUTORS.md#commit-message-guidelines).
+5. Ensure that CI passes, if it fails, fix the failures. If you are making many commits into one PR, please [squash your commits](https://github.com/sigstore/sigstore-website/blob/main/CONTRIBUTORS.md#squash-commits).
+6. Every pull request requires a review from the [core sigstore-website team](https://github.com/orgs/github.com/sigstore/teams/codeowners-sigstore-website) before merging.
 
 ## Setup
 
