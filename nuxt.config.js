@@ -9,5 +9,8 @@ export default theme({
       name: 'English'
     }],
     defaultLocale: 'en'
+  },
+  build: {
+    publicPath: 'https://docs.sigstore.dev'
   }
 })
