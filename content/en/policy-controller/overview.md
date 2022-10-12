@@ -40,8 +40,6 @@ are `OR`.
 
 Review [Configuring Image Pattern](#configuring-image-patterns) for more information.
 
-If no policy is matched against the image digest, the [deprecated policy-controller validation behavior](#deprecated-policy-controller-validation-behavior) will occur.
-
 An example of an allowed admission would be:
 1. If the image matched against `policy1` and `policy3`
 1. A valid signature or attestation was obtained for `policy1` with at least one of the `policy1` authorities
@@ -116,7 +114,7 @@ spec:
 
 Each `key` authority can contain these properties:
 - `key.data`: specifies the plain text string of the public key
-- `key.hashAlgorithm` (optional): specifies the signature digest for the key, e.g. `sha512`, `sha256`, `sha384` or `sha224`
+- `key.hashAlgorithm` (optional): specifies the signature digest for the key, e.g. `sha512`, `sha256`, `sha384` or `sha224`. If no value is provided the hash algorith is set by default to `sha256`.
 - `key.secretRef.name`: specifies the secret location name in the same namespace where `policy-controller` is installed. <br/> The first key value will be used in the secret.
 - `key.kms`: specifies the location for the public key. Supported formats include:
   - `azurekms://[VAULT_NAME][VAULT_URI]/[KEY]`
@@ -170,8 +168,7 @@ a `static` authority is evaluated, no signatures or attestations are checked,
 but instead the `action` specified defines whether the policy is validated or
 rejected.
 
-You can also use a generic catch-all CIP that matches all images to effectively
-override the deprecated policy-controller validation behaviour. For example, if
+You can also use a generic catch-all CIP that matches all images. For example, if
 you want to allow all unsigned images through, but have certain images that must
 have signatures/attestations, you can then for those images create other CIP
 that is more restrictive, and since the CIP are all anded together they will
@@ -444,11 +441,11 @@ spec:
  compliant, it will be allowed through, but a warning is issued to the caller
  informing them that this is not a compliant image.
 
-## Policies matching specific resource types
+## Policies matching specific resource types and labels
 
-The `ClusterImagePolicy` supports a new field that defines which type of core type resources a policy will enforce against the defined authorities for a given glob pattern. 
+The `ClusterImagePolicy` supports a new field that defines which type of core resources a policy will enforce against the defined authorities for a given glob pattern. 
 
-The following is an example of a `ClusterImagePolicy` that defines a list of resource types to enforce a policy:
+The following is an example of a `ClusterImagePolicy` that defines a list of resource types to enforce a policy for `pods` and `cronjobs`:
 
 ```yaml
 apiVersion: cosigned.sigstore.dev/v1beta1
