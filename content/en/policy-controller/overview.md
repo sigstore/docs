@@ -40,8 +40,6 @@ are `OR`.
 
 Review [Configuring Image Pattern](#configuring-image-patterns) for more information.
 
-If no policy is matched against the image digest, the [deprecated policy-controller validation behavior](#deprecated-policy-controller-validation-behavior) will occur.
-
 An example of an allowed admission would be:
 1. If the image matched against `policy1` and `policy3`
 1. A valid signature or attestation was obtained for `policy1` with at least one of the `policy1` authorities
@@ -54,12 +52,8 @@ An example of a denied admission would be:
 1. No valid signature or attestation was obtained for `policy2` with at least one of the `policy2` authorities
 1. The image is not admitted
 
-An example of no policy matched:
-1. If the image does not match against any policy
-1. Fallback to [deprecated policy-controller validation behavior](#deprecated-policy-controller-validation-behavior)
-1. Validation will be attempted against the secret defined under `cosign.secretKeyRef.name` during helm installation.
-  1. If a valid signature or attestation is obtained, image is admitted
-  1. If no valid signature or attestation is obtained, image is denied
+In addition to that, the policy controller offers a configurable behavior defining whether to allow, deny or warn whenever an image does not match a policy. This behavior can be configured using the `config-policy-controller` ConfigMap created under the release namespace, and by adding an entry with the property `no-match-policy` and its value `warn|allow|deny`.
+By default, any image that does not match a policy is rejected whenever `no-match-policy` is not configured in the ConfigMap.
 
 ## Configuring policy-controller `ClusterImagePolicy`
 
@@ -106,6 +100,7 @@ Authorities can be `key` specifications, for example:
 spec:
   authorities:
     - key:
+        hashAlgorithm: sha256
         data: |
           -----BEGIN PUBLIC KEY-----
           ...
@@ -119,6 +114,7 @@ spec:
 
 Each `key` authority can contain these properties:
 - `key.data`: specifies the plain text string of the public key
+- `key.hashAlgorithm` (optional): specifies the signature digest for the key, e.g. `sha512`, `sha256`, `sha384` or `sha224`. If no value is provided the hash algorith is set by default to `sha256`.
 - `key.secretRef.name`: specifies the secret location name in the same namespace where `policy-controller` is installed. <br/> The first key value will be used in the secret.
 - `key.kms`: specifies the location for the public key. Supported formats include:
   - `azurekms://[VAULT_NAME][VAULT_URI]/[KEY]`
@@ -172,8 +168,7 @@ a `static` authority is evaluated, no signatures or attestations are checked,
 but instead the `action` specified defines whether the policy is validated or
 rejected.
 
-You can also use a generic catch-all CIP that matches all images to effectively
-override the deprecated policy-controller validation behaviour. For example, if
+You can also use a generic catch-all CIP that matches all images. For example, if
 you want to allow all unsigned images through, but have certain images that must
 have signatures/attestations, you can then for those images create other CIP
 that is more restrictive, and since the CIP are all anded together they will
@@ -446,26 +441,63 @@ spec:
  compliant, it will be allowed through, but a warning is issued to the caller
  informing them that this is not a compliant image.
 
+## Policies matching specific resource types and labels
 
-## Deprecated policy-controller validation behavior
+The `ClusterImagePolicy` supports a new field that defines which type of core resources a policy will enforce against the defined authorities for a given glob pattern. 
 
-**Note:** This behavior is being deprecated in favor of using `ClusterImagePolicy` resources.
+The following is an example of a `ClusterImagePolicy` that defines a list of resource types to enforce a policy for `pods` and `cronjobs`:
 
-During the admission validation, if no `ClusterImagePolicy` is matched, the deprecated behavior will occur.
-Image digests will be validated against the public key secret defined by `cosign.secretKeyRef.name` during installation.
-If the public key secret is not configured, the admission validation verifies against the fulcio root.
+```yaml
+apiVersion: cosigned.sigstore.dev/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: image-policy
+spec:
+  match:
+  - resource: jobs
+    group: batch
+    version: v1
+  - resource: pods
+    version: v1
+  images:
+  - glob: *
+  authorities:
+  - keyless:
+      url: https://fulcio.mattmoor.dev/
+      identities:
+      - issuer: https://container.googleapis.com/v1/projects/myco-prod/locations/*/clusters/*
+        subject: https://k8s.io/namespaces/*/serviceaccounts/*
 
-When installing `policy-controller` through helm, `cosign.secretKeyRef.name` can be specified.
-```bash
-helm install policy-controller -n cosign-system sigstore/policy-controller --devel --set cosign.secretKeyRef.name=mysecret
+    tlog:
+      url: https://rekor.mattmoor.dev
 ```
 
-The secret specified should contain the key `cosign.pub` and the public key data content.
+Besides the selection of specific types, the resources could also be selected using labels to filter them from other resources of the same type. In the next example, a `ClusterImagePolicy` enforce this policy on `cronjobs` with the label `prod=x-cluster1`:
 
-Where `cosign.pub` is a file containing the public key, the kubernetes secret can be created with:
-```bash
-kubectl create secret generic mysecret -n cosign-system --from-file=cosign.pub=./cosign.pub
+```yaml
+apiVersion: cosigned.sigstore.dev/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: image-cronjob-policy
+spec:
+  match:
+      - resource: cronjobs
+        group: batch
+        version: v1
+        selector:
+          matchLabels:
+            prod: x-cluster1
+  images:
+  - glob: *
+  authorities:
+  - keyless:
+      url: https://fulcio.mattmoor.dev/
+      identities:
+      - issuer: https://container.googleapis.com/v1/projects/myco-prod/locations/*/clusters/*
+        subject: https://k8s.io/namespaces/*/serviceaccounts/*
+
+    tlog:
+      url: https://rekor.mattmoor.dev
 ```
 
-If the public key is able to validate a signature for the image digest, the admission controller will admit the image.
-If the public key is not able to validate a signature for the image digest, the admission controller will deny the image.
+This feature only supports the selection of the following resource types: `pods, statefulsets, daemonsets, cronjobs, jobs, deployments and replicasets`.
