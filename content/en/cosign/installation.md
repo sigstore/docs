@@ -30,7 +30,7 @@ rpm -ivh cosign-1.6.0.x86_64.rpm
 
 # dkpg
 wget "https://github.com/sigstore/cosign/releases/download/v1.6.0/cosign_1.6.0_amd64.deb"
-dpkg -i "cosign_1.6.0_amd64.deb
+dpkg -i cosign_1.6.0_amd64.deb
 ```
 
 ## Homebrew/Linuxbrew
