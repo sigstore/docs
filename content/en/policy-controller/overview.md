@@ -239,7 +239,7 @@ spec:
 
 **Note:** The secret has to be in the format `type: dockerconfigjson`.
 
-#### Configuring Certificate Transparency Log
+### Configuring Certificate Transparency Log
 
 CTLog specifies the URL to a certificate transparency log that holds signature
 and public key information.
@@ -259,7 +259,8 @@ spec:
 
 Just like with `cosign` CLI you can verify attestations (using `verify-attestation`),
 you can configure policies to validate that a particular attestation was signed by
-a trusted authority. You do this by using `attestations` array within an `authorities`
+a trusted authority as well as that the attestation passes the policy you
+define. You do this by using `attestations` array within an `authorities`
 section. For example, to configure that a `custom` predicate has to exist and is
 attested by the specified `issuer` and `subject`, and the actual `Data` section
 of the predicate matches the string `foobar e2e test`:
@@ -294,7 +295,7 @@ spec:
 `policy` is optional and if left out, only the existence of the attestation is
 verified.
 
-### Configuring policy at the `ClusterImagePolicy` level.
+## Configuring policy at the `ClusterImagePolicy` level.
 
 As discussed earlier, by specifying multiple `ClusterImagePolicy` creates an `AND`
 clause so that each `ClusterImagePolicy` must be satisfied for an admission, and
@@ -302,10 +303,27 @@ having multiple `authorities` creates an `OR` clause so that any matching `autho
 is considered a success, sometimes you may want more flexibility, for example, if you
 wanted to specify that at least 2 out of N signatures match, and for those you
 can create a single `ClusterImagePolicy` but craft a `policy` that then gets applied
-after a `ClusterImagePolicy` has been validated. Here's a bit more complex example
-that ties all the bits from above together. It requires there to be two
-attestations `custom` and `vuln` and also two signatures, one signed with a `key`
-and one `keyless` signature
+after a `ClusterImagePolicy` has been validated and at least one of the
+authorities matches.
+
+You can also utilize the CIP level policy to fetch additional information about
+the specific Kubernetes resource being created that will then be available
+for the CIP level policy, for example:
+
+ * Apply policies against ObjectMetadata (things like labels, annotations for
+   example)
+ * Spec which has details about the resource being created. For example
+   Pod.Spec, which has details like which serviceAccount the Pod is being run as
+   and so forth.
+ * [OCI Image Configuration](https://github.com/opencontainers/image-spec/blob/main/config.md)
+   which contains root filesystem changes and the corresponding execution
+   parameters for use within a container runtime.
+
+Here is a slightly more complex policy that shows how one could craft more
+complex policies at the CIP level that then validates that the more specific
+authority policies are as expected. It requires there to be two attestations
+`custom` and `vuln` and also two signatures, one signed with a `key` and one
+with `keyless` signature.
 
 
 ```yaml
@@ -412,6 +430,85 @@ spec:
       }
 ```
 
+### Including OCI Image Configuration for CIP level policies
+
+In order to include the OCI Image Configuration, you have to explicitly
+configure the CIP.Spec.Policy to have `fetchConfigFile` set to `true`. For
+example, to configure a check that the container image is being run as a user
+`65532` on `linux/amd64` arch, you would configure your CIP like this:
+
+```
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: image-policy-config-file
+spec:
+  images:
+  - glob: "ghcr.io/sigstore/timestamp-server**"
+  authorities:
+  - static:
+      action: pass
+  policy:
+    fetchConfigFile: true
+    type: "cue"
+    data: |
+      config: "linux/amd64": config: User: "65532"
+```
+
+### Including ObjectMeta for CIP level policies
+
+In order to include the ObjectMeta, you have to explicitly configure the
+CIP.Spec.Policy to have `includeObjectMeta` set to `true`. For example, to
+configure a check that the resource contains a label `foo=bar`, you would
+configure your CIP like this:
+
+```
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: image-policy-objectmeta
+spec:
+  images:
+  - glob: "ghcr.io/sigstore/timestamp-server**"
+  authorities:
+  - static:
+      action: pass
+  policy:
+    includeObjectMeta: true
+    type: "cue"
+    data: |
+      objectMeta: "labels": "foo": "bar"
+```
+
+### Including Spec for CIP level policies
+
+In order to include the objects Spec, you have to explicitly configure the
+CIP.Spec.Policy to have `includeSpec` set to `true`. For example, to configure a
+check that the pod runs as serviceAccount `default`, you would configure your
+CIP like this:
+
+```
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: image-spec
+spec:
+  images:
+  - glob: "ghcr.io/sigstore/timestamp-server**"
+  authorities:
+  - static:
+      action: pass
+  policy:
+    includeSpec: true
+    type: "cue"
+    data: |
+      spec: "serviceAccount": "default"
+```
+
+*NOTE* For Spec, you may want to use MatchResource to restrict which resources
+you want to apply the CIP to since the Spec will be different between say a
+`Deployment` and a `Pod`.
+
 ## Controlling warn vs. enforce behaviour
 
 When creating a `ClusterImagePolicy` by default when a policy fails to meet
@@ -443,7 +540,7 @@ spec:
 
 ## Policies matching specific resource types and labels
 
-The `ClusterImagePolicy` supports a new field that defines which type of core resources a policy will enforce against the defined authorities for a given glob pattern. 
+The `ClusterImagePolicy` supports a new field that defines which type of core resources a policy will enforce against the defined authorities for a given glob pattern.
 
 The following is an example of a `ClusterImagePolicy` that defines a list of resource types to enforce a policy for `pods` and `cronjobs`:
 
