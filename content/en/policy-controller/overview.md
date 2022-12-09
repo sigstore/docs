@@ -16,8 +16,9 @@ See the [installation instructions](installation) for more information.
 **This component is still actively under development!**
 
 Today, `policy-controller` can automatically validate signatures and
-attestations on container images.
-Enforcement is configured on a per-namespace basis, and multiple keys are supported.
+attestations on container images as well as apply policies (using cue or rego )
+against attestations. Enforcement is configured on a per-namespace basis, and
+multiple policies are supported.
 
 We're actively working on more features here.
 
@@ -34,7 +35,7 @@ kubectl label namespace my-secure-namespace policy.sigstore.dev/include=true
 ## Admission of images
 
 An image is admitted after it has been validated against all `ClusterImagePolicy` that matched the digest of the image
-and that there was at least one valid signature or attestation obtained from the authorities provided in each of the matched `ClusterImagePolicy`.
+and that there was at least one passing `authority` in each of the matched `ClusterImagePolicy`.
 So each `ClusterImagePolicy` that matches is `AND` for admission, and within each `ClusterImagePolicy` authorities
 are `OR`.
 
@@ -52,7 +53,7 @@ An example of a denied admission would be:
 1. No valid signature or attestation was obtained for `policy2` with at least one of the `policy2` authorities
 1. The image is not admitted
 
-In addition to that, the policy controller offers a configurable behavior defining whether to allow, deny or warn whenever an image does not match a policy. This behavior can be configured using the `config-policy-controller` ConfigMap created under the release namespace, and by adding an entry with the property `no-match-policy` and its value `warn|allow|deny`.
+In addition to that, the policy controller offers a configurable behavior defining whether to allow, deny or warn whenever an image does not match a policy. This behavior can be configured using the `config-policy-controller` ConfigMap created under the release namespace (by default `cosign-system`), and by adding an entry with the property `no-match-policy` and its value `warn|allow|deny`.
 By default, any image that does not match a policy is rejected whenever `no-match-policy` is not configured in the ConfigMap.
 
 ## Configuring policy-controller `ClusterImagePolicy`
@@ -65,6 +66,12 @@ A policy is enforced when an image pattern for the policy is matched against the
 
 The `ClusterImagePolicy` specifies `spec.images` which specifies a list of `glob` matching patterns.
 These matching patterns will be matched against the image digest of PodSpec resources attempting to be deployed.
+Note that we use Duck typing here, so when we say PodSpec, we enforce these against
+higher level resources that result in pods, for example, Deployment, StatefulSet, etc. by default.
+You can configure these with `MatchResource` (see more below). Reason for this
+default is that if we only enforce at the Pod level, the user may be confused
+when their `Deployment` is accepted, yet later on the `Pod`s are unable to start
+due to policies blocking them.
 
 Glob uses golang [filepath](https://pkg.go.dev/path/filepath#Match) semantics for
 matching the images against. Additionally you can specify a more traditional
@@ -293,7 +300,39 @@ spec:
 ```
 
 `policy` is optional and if left out, only the existence of the attestation is
-verified.
+verified. We also support `rego` in policy evaluations, and a rego alternative
+for the above would look like this:
+
+```yaml
+apiVersion: policy.sigstore.dev/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: image-policy-keyless-with-attestations
+spec:
+  images:
+  - glob: registry.local:5000/policy-controller/demo*
+  authorities:
+  - name: verify custom attestation
+    keyless:
+      url: http://fulcio.fulcio-system.svc
+      identities:
+      - issuerRegExp: .*kubernetes.default.*
+        subjectRegExp: .*kubernetes.io/namespaces/default/serviceaccounts/default
+    ctlog:
+      url: http://rekor.rekor-system.svc
+    attestations:
+    - name: custom-match-predicate
+      predicateType: custom
+      policy:
+        type: rego
+        data: |
+          package sigstore
+          default isCompliant = false
+          isCompliant {
+            input.predicateType == "cosign.sigstore.dev/attestation/v1"
+            input.predicate.Data == "foobar e2e test"
+          }
+```
 
 ## Configuring policy at the `ClusterImagePolicy` level.
 
@@ -477,7 +516,33 @@ spec:
     includeObjectMeta: true
     type: "cue"
     data: |
-      objectMeta: "labels": "foo": "bar"
+      metadata: "labels": "foo": "bar"
+```
+
+### Including TypeMeta for CIP level policies
+
+In order to include the TypeMeta, you have to explicitly configure the
+CIP.Spec.Policy to have `includeTypeMeta` set to `true`. For example, to
+configure a check that the resource is a Pod, you would configure your CIP like
+this:
+
+```
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: image-policy-typemeta
+spec:
+  images:
+  - glob: "ghcr.io/sigstore/timestamp-server**"
+  authorities:
+  - static:
+      action: pass
+  policy:
+    includeTypeMeta: true
+    type: "cue"
+    data: |
+      typemeta:
+        kind: "Pod"
 ```
 
 ### Including Spec for CIP level policies
