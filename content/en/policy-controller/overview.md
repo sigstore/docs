@@ -222,7 +222,7 @@ spec:
 
 ### Configure `SignaturePullSecrets`
 
-If the signatures / attestations are in a different repo or they use different
+If the signatures/attestations are in a different repo or they use different
 PullSecrets, you can configure `source` to point to a `secret` which must live
 in the namespace where the pods are getting deployed.
 
