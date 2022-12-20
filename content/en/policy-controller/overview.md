@@ -509,6 +509,53 @@ spec:
 you want to apply the CIP to since the Spec will be different between say a
 `Deployment` and a `Pod`.
 
+### Using ConfigMapRef to specify policies
+
+Including longer cue/rego policies inlined into CIP can be a bit unwieldy, so
+you can decouple defining the policy from using it, and therefore making reuse
+easier. For this there's a `configMapRef` field in the policy (same field exists
+whether you define this at the attestation level, or at the CIP level). For this
+you would create a `ConfigMap` and you would add the policy as a key in that
+`ConfigMap` and then in the Policy.configMapRef specify the `ConfigMap` name and
+key where the policy comes in from. This is very similar to how we specify
+`SecretRef` for including PublicKeys for example.
+
+#### Create the file containing your policy
+
+```shell
+cat <<EOF > /tmp/mypolicy.cue
+config: "linux/amd64": config: User: "65532"
+config: "linux/arm/v7": config: User: "65532"
+EOF
+```
+
+#### Create a ConfigMap from the policy:
+
+```shell
+kubectl create -n cosign-system configmap policy-config --from-file=policy=/tmp/mypolicy.cue
+```
+
+#### Use the configmap from your policy
+
+```
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: image-policy-config-file
+spec:
+  images:
+  - glob: "ghcr.io/sigstore/timestamp-server**"
+  authorities:
+  - static:
+      action: pass
+  policy:
+    fetchConfigFile: true
+    type: "cue"
+    configMapRef:
+      name: policy-config
+      key: policy
+```
+
 ## Controlling warn vs. enforce behaviour
 
 When creating a `ClusterImagePolicy` by default when a policy fails to meet
