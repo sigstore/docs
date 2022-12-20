@@ -18,4 +18,4 @@ Rekor fulfils the signature transparency role of sigstore’s software signing i
 
 ## Usage and installation
 
-You can download and setup the Rekor Server and Rekor CLI by following the instructions on the [Installation](https://docs.sigstore.dev/rekor/installation/) page.
+You can download and setup the Rekor Server and Rekor CLI by following the instructions on the [Installation](/rekor/installation/) page.

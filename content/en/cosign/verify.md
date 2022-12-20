@@ -195,15 +195,15 @@ AcxvLtLEgRjRI4TKnMAXtIGp8K4X4CTWPEXMqSYZZUa2I1YvHyLLY2bEzA==
 
 ### Verify a signature was added to the transparency log
 
-There are two options for verifying a cosign signature was added to a transparency log:
+There are two options for verifying a Cosign signature was added to a transparency log:
 1. Check the log to make sure the entry exists in the log
-2. Use the `bundle` annotation on a cosign signature to verify an element was added to the log without hitting the log
+2. Use the `bundle` annotation on a Cosign signature to verify an element was added to the log without hitting the log
 
-The cosign `bundle` annotation contains a Signed Entry Timestamp (SET), which is conceptually similar to an SCT in a Web PKI system.
+The Cosign `bundle` annotation contains a Signed Entry Timestamp (SET), which is conceptually similar to an SCT in a Web PKI system.
 The SET is a signed inclusion promise provided by the transparency log, which acts as a guarantee by the log that an element has been included in it.
 The SET can be verified with the logs public key and used to prove that an element is in the log without actually checking the log itself.
 
-For more details on how the `bundle` annotation is formatted, see the cosign [spec](https://github.com/sigstore/cosign/blob/main/specs/SIGNATURE_SPEC.md).
+For more details on how the `bundle` annotation is formatted, review the Cosign [spec](https://github.com/sigstore/cosign/blob/main/specs/SIGNATURE_SPEC.md).
 
 To verify the `bundle` annotation, follow these steps:
 1. Marshal the `bundle` Payload into JSON

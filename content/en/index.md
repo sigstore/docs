@@ -14,11 +14,11 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 
 ## How to use Sigstore
 
-* Sign software artifacts with [Cosign](/cosign/overview) — [Quick start](/cosign/overview#getting-started-quick-start)
-* Sign Git commits with [Gitsign](/gitsign/overview) - [Quick start](/gitsign/overview#quick-start)
-* Verify entries with [Rekor](/rekor/CLI#verify-proof-of-entry)
-* Use the [policy controller](/policy-controller/overview) to enfore Kubernetes policies
-* Use the [Fulcio Certificate Authority](/fulcio/overview)
+* Sign software artifacts with [Cosign](/cosign/overview/) — [Quick start](/cosign/overview/#getting-started-quick-start)
+* Sign Git commits with [Gitsign](/gitsign/overview/) - [Quick start](/gitsign/overview/#quick-start)
+* Verify entries with [Rekor](/rekor/CLI/#verify-proof-of-entry)
+* Use the [policy controller](/policy-controller/overview/) to enfore Kubernetes policies
+* Use the [Fulcio Certificate Authority](/fulcio/overview/)
 
 ## How Sigstore works
 
@@ -42,4 +42,4 @@ Sigstore is a Linux Foundation project backed by Google, Red Hat and Purdue Univ
 
 Up to date documentation, best practices and detailed scenarios for Sigstore live here. These pages are maintained by the community and intended to help anyone get set up easily with any of the technologies, to find what you’re looking for fast. It’s also where we keep all the relevant pages for the Sigstore trust root, from ceremonies to security practices.
 
-Ready to jump in? Check the [contributing guidelines](/contributing).
+Ready to jump in? Check the [contributing guidelines](/contributing/).
