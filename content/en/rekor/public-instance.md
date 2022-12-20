@@ -19,7 +19,7 @@ A public instance of Rekor can be found at [rekor.sigstore.dev](https://rekor.si
 
 This instance is maintained by the Rekor community. Interested in helping operate and maintain our production CA system and Transparency Logs? Please reach out via the mailing list.
 
-If you have production use-cases in mind, again - please reach out over email via the mailing list. **We are interested in helping on board you!**
+If you have production use-cases in mind, again - please reach out over email via the mailing list. **We are interested in helping onboard you!**
 
 ## Auditing the Public Instance
 

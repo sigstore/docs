@@ -86,7 +86,7 @@ $ cosign sign --key <some provider>://<some key> gcr.io/user-vmtest2/demo
 Pushing signature to: gcr.io/user-vmtest2/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.cosign
 ```
 
-Read more about this in our [KMS Support page](../cosign/kms_support).
+Read more about this in our [KMS Support page](/cosign/kms_support/).
 
 ### Key stored in an environment variable
 

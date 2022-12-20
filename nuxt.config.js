@@ -1,6 +1,9 @@
 import theme from '@nuxt/content-theme-docs'
 
 export default theme({
+  router: {
+    trailingSlash: true,
+  },
   i18n: {
     locales: () => [{
       code: 'en',

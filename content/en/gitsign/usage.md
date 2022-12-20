@@ -53,7 +53,7 @@ are set, `GITSIGN_` prefix takes priority.
 ## Signing a Commit
 
 After installing Gitsign and
-[configuring Git to use it as a signer application](/gitsign/installation#configuring-git-to-use-gitsign)
+[configuring Git to use it as a signer application](/gitsign/installation/#configuring-git-to-use-gitsign)
 for your project (or globally), you can sign commits as usual with
 `git commit -S` (or `git config --global commit.gpgsign true` to enable signing
 for all commits).

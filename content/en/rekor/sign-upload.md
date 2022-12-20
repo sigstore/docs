@@ -4,7 +4,7 @@ category: "Rekor"
 position: 305
 ---
 
-This documentation contains information on how to sign and upload data in different [pluggable types](https://docs.sigstore.dev/rekor/pluggable-types).
+This documentation contains information on how to sign and upload data in different [pluggable types](/rekor/pluggable-types/).
 
 The following are covered:
 - [Minisign](#minisign)

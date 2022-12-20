@@ -36,7 +36,7 @@ To get up and running we'll demonstrate how to:
 
 ### Prerequisites
 
-You'll need to [install Cosign](installation) first, and you will need access to a container registry.
+You'll need to [install Cosign](/cosign/installation/) first, and you will need access to a container registry.
 
 [ttl.sh](https://ttl.sh) offers free, short-lived (hours), anonymous container image
 hosting if you just want to try out these commands.
@@ -81,14 +81,14 @@ The following checks were performed on these signatures:
 
 ## Kubernetes Integrations
 
-Cosign comes with a few built-in Kubernetes integrations: `Secret` generation, and a [policy webhook](../policy-controller/overview) `policy-controller`.
+Cosign comes with a few built-in Kubernetes integrations: `Secret` generation, and a [policy webhook](/policy-controller/overview/) `policy-controller`.
 In addition to the `policy-controller`, Cosign is also compatible with and supported by other policy engines such as:
 
 * [Conaisseur](https://github.com/sse-secure-systems/connaisseur#what-is-connaisseur)
 * [Kyverno](https://kyverno.io/docs/writing-policies/verify-images/)
 * [OPA Gatekeeper](https://github.com/sigstore/cosign-gatekeeper-provider)
 
-To learn how to use Cosign with Kubernetes, review [Kubernetes](kubernetes).
+To learn how to use Cosign with Kubernetes, review [Kubernetes](/cosign/kubernetes/).
 
 ## More Info
 
@@ -98,14 +98,15 @@ Cosign can do much more than what is discussed here. Review more information on 
 
 Cosign is useful not only for containers and container-related artifacts; it can also be used for other file types. 
 
-To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review the [Signing Other Types](/cosign/other_types) section. For basic blobs, review the [Working with blobs](working_with_blobs) section.
+To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types](/cosign/other_types/). For basic blobs, review [Working with Blobs](/cosign/working_with_blobs/).
 
 ### SCM Integration
 
 Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab.
-You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use `cosign` to generate and work safely with [SCM secrets](git_support) with native API integration.
+You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use `cosign` to generate and work safely with [SCM secrets](/cosign/git_support/) with native API integration.
 
 ### Attestations
 
 In addition to signatures, Cosign can be used with [In-Toto Attestations](https://github.com/in-toto/attestation).
+
 Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems.
