@@ -25,4 +25,8 @@ The `policy-controller` admission controller will only validate resources in
 namespaces that have chosen to opt-in. See the
 [Enable policy-controller Admission Controller for Namespaces](/policy-controller/overview/#enable-policy-controller-admission-controller-for-namespaces) instructions for more details.
 
+The `policy-controller` resyncs `ClusterImagePolicies` by default every 10 hours.
+Customize the resync period by using the `--policy-resync-period` argument and
+defining a duration for the `policy-webhook` deployment. See the [Golang time package's ParseDuration](https://pkg.go.dev/time#example-ParseDuration) for example duration string formats.
+
 See the [Configuring policy-controller ClusterImagePolicy](/policy-controller/overview/#configuring-policy-controller-clusterimagepolicy) instructions for more details on configuration.
