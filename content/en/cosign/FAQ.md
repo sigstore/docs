@@ -4,6 +4,10 @@ category: "Cosign"
 position: 123
 ---
 
+## Can I use Cosign to sign things *besides* OCI container images?
+
+Yes! See [Working with Blobs.](../working_with_blobs) But Cosign *does* have great support for OCI registries.
+
 ## Why not use Notary v2
 
 It's hard to answer this briefly. This post contains some comparisons:

@@ -4,7 +4,7 @@ description: ""
 position: 2
 category: "About sigstore"
 features:
-  - Cosign (container signing, verification and storage)
+  - Cosign (signing, verification and storage for containers and other artifacts)
   - Fulcio (root certificate authority)
   - Rekor (transparency log)
   - OpenID Connect (means of authentication)
@@ -16,7 +16,7 @@ Sigstore combines several different technologies that focus on automatic key man
 
 ### Cosign
 
-For container signing, verification and storage in an Open Container Initiative (OCI) registry, making signatures invisible infrastructure.
+Tool for signing/verifying containers (and other artifacts) that ties the rest of Sigstore together, making signatures invisible infrastructure. Includes storage in an Open Container Initiative (OCI) registry. 
 
 ### Fulcio
 
