@@ -11,7 +11,7 @@ This page describe how you could get in touch with us to get support.
 
 # Help from the community
 
-Sigstore has a [Slack community][sc]. Please post any support request in `#general` channel.
+Sigstore has a [Slack community](/community/#slack). Please post any support request in `#general` channel.
 
 # Help from project maintainers
 
@@ -30,5 +30,3 @@ Each repository has a `CODEOWNERS` file describing current maintainers. Join our
 # Asking questions
 
 We welcome questions! You can either join the [Slack community][sc] and post them on `#general` channel or open a GitHub issue in the relevant repository.
-
-[sc]: https://docs.sigstore.dev/community#slack

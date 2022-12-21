@@ -9,7 +9,7 @@ The full design document for this can be found [here](https://docs.google.com/do
 
 This document explains how the experimental keyless signatures work in Cosign.
 
-To learn more about OIDC, please review [OIDC Usage in Fulcio](/fulcio/oidc-in-fulcio).
+To learn more about OIDC, please review [OIDC Usage in Fulcio](/fulcio/oidc-in-fulcio/).
 
 ## Usage
 

@@ -97,7 +97,7 @@ The token must include the following claims:
 
 `job_workflow_ref` is included as a SAN URI: `https://github.com/{job_workflow_ref}`
 
-All other required claims are extracted and included in custom OID fields, as documented in [OID Information](oid-info.md).
+All other required claims are extracted and included in custom OID fields, as documented in [OID Information](https://github.com/sigstore/fulcio/blob/main/docs/oid-info.md).
 
 ### SPIFFE
 
