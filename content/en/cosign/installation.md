@@ -51,17 +51,11 @@ pacman -S cosign
 
 ## Alpine Linux
 
-If you are using Alpine Linux edge, with the community repository enabled,
+If you are using Alpine Linux edge, with the [community repository enabled](https://wiki.alpinelinux.org/w/index.php?title=Enable_Community_Repository,
 you can install `cosign` by running:
 
 ```console
 apk add cosign
-```
-
-The `sget` tool is also available:
-
-```console
-apk add sget
 ```
 
 ## Nix
