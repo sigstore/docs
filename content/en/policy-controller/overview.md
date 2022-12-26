@@ -190,7 +190,7 @@ spec:
     - glob: "gcr.io/vaikas/**"
   authorities:
     - static:
-      action: pass
+        action: pass
 ```
 
 ### Configuring remote signature location
