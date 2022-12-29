@@ -22,7 +22,7 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 
 ## How Sigstore works
 
-Using Fulcio, Sigstore requests a certificate from our root Certificate Authority (CA). This checks you are who you say you are using OpenID Connect, which looks at your email address to prove you’re the author. Fulcio grants a time-stamped certificate, a way to say you’re signed in and that it’s you.
+Using Fulcio, Sigstore requests a certificate from our root Certificate Authority (CA). This checks who you are using OpenID Connect, which looks at your email address to prove you’re the author. Fulcio grants a time-stamped certificate, a way to say you’re signed in and that it’s you.
 
 You don’t have to do anything with keys yourself, and Sigstore never obtains your private key. The public key that Cosign creates gets bound to your certificate, and the signing details get stored in Sigstore’s trust root, the deeper layer of keys and trustees and what we use to check authenticity.
 
