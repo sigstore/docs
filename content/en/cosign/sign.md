@@ -1,7 +1,7 @@
 ---
 title: "Signing"
 category: "Cosign"
-position: 104
+position: 105
 ---
 
 The general signing format with the `cosign sign` command is as follows.

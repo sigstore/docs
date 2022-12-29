@@ -1,7 +1,7 @@
 ---
 title: "Verifying Claims"
 category: "Cosign"
-position: 105
+position: 106
 ---
 
 The general verification format with the `cosign verify` command is as follows.
