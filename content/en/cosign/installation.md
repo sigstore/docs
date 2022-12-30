@@ -4,9 +4,9 @@ category: "Cosign"
 position: 102
 ---
 
-## With Go 1.17+
+## With Go 1.19+
 
-If you have Go 1.17+, you can directly install Cosign by running:
+If you have Go 1.19+, you can directly install Cosign by running:
 
 ```console
 go install github.com/sigstore/cosign/cmd/cosign@latest
