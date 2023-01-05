@@ -24,13 +24,7 @@ If you need to generate local keys, you can do so by running `cosign generate-ke
 
 ## Keyless signing
 
-You can use Cosign to sign without keys by authenticating with an OIDC (OpenID Connect) protocol supported by Sigstore. Currently, you can authenticate with Google, GitHub, or Microsoft. 
-
-```shell
-$ COSIGN_EXPERIMENTAL=1 cosign sign user/demo
-```
-
-This will open a browser window to authenticate your credentials for the signature. 
+You can use Cosign to sign with ephemeral keys by authenticating with an OIDC (OpenID Connect) protocol supported by Sigstore. Currently, you can authenticate with Google, GitHub, or Microsoft. For more information, read [Keyless Signatures](/cosign/keyless/).
 
 ## Sign a container multiple times
 
