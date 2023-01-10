@@ -77,7 +77,7 @@ Glob uses golang [filepath](https://pkg.go.dev/path/filepath#Match) semantics fo
 matching the images against. Additionally you can specify a more traditional
 `**` to match any number of characters. Furthermore to make it easier to specify
  images, there are few defaults when an image is matched, namely:
- * If there is no host in the glob pattern `index.docker.io` is used for the host. This allows users to specify commonly found images from Docker simply as myproject/nginx instead of inded.docker.io/myproject/nginx
+ * If there is no host in the glob pattern `index.docker.io` is used for the host. This allows users to specify commonly found images from Docker simply as `myproject/nginx` instead of `index.docker.io/myproject/nginx`
  * If the image is specified without multiple path elements (so not separated by `/`), then `library` is defaulted. For example specifying `busybox` will result in library/busybox. And combined with above, will result in match being made against `index.docker.io/library/busybox`.
 
 A sample of a `ClusterImagePolicy` which matches against all images using glob:
@@ -223,7 +223,7 @@ spec:
 ### Configure `SignaturePullSecrets`
 
 If the signatures/attestations are in a different repo or they use different
-PullSecrets, you can configure `source` to point to a `secret` which must live
+`imagePullSecrets`, you can configure `source` to point to a `secret` which must live
 in the namespace where the pods are getting deployed.
 
 ```yaml
