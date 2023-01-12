@@ -161,12 +161,10 @@ The following checks were performed on each of these signatures:
 
 ## Sign but skip upload (to store somewhere else)
 
-The base64 encoded signature is printed to stdout.
-This can be stored somewhere else.
+The upload is skipped by using the `--upload=false` flag (default true). To capture the output use the `--output-signature FILE` and/or `--output-certificate FILE` flags.
 
 ```shell
-$ cosign sign --key key.pem --upload=false user/demo
-Qr883oPOj0dj82PZ0d9mQ2lrdM0lbyLSXUkjt6ejrxtHxwe7bU6Gr27Sysgk1jagf1htO/gvkkg71oJiwWryCQ==
+$ cosign sign --key key.pem --upload=false --output-signature demo.sig --output-certificate demo.crt user/demo
 ```
 
 ## Generate the signature payload (to sign with another tool)
