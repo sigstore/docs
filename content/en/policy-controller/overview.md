@@ -159,11 +159,11 @@ Each `keyless` authority can contain these properties:
 - `keyless.ca-cert`: specifies `ca-cert` information for the `keyless` authority
   - `secretRef.name`: specifies the secret location name in the same namespace where `policy-controller` is installed. <br/>The first key value will be used in the secret for the `ca-cert`.
   - `data`: specifies the inline certificate data
-- `keyless.identities`: Identity may contain an array of `issuer` and/or the `subject` found in the transparency log. There are
+- `keyless.identities`: Identities must contain an array of `issuer` and the `subject` matching the certificate used to sign. There are
 variant fields `issuerRegExp` and `subjectRegExp` which support
 regular expressions.
-  - `issuer`: specifies the issuer found in the transparency log. Regex patterns are supported through the `issuerRegExp` key.
-  - `subject`: specifies the subject found in the transparency log. Regex patterns are supported through the `subjectRegExp` key.
+  - `issuer`: specifies the issuer certificate was issued by. Regex patterns are supported through the `issuerRegExp` key.
+  - `subject`: specifies the subject certificate was issued to. Regex patterns are supported through the `subjectRegExp` key.
 
 ### Configuring `static` authorities
 
@@ -377,6 +377,9 @@ spec:
   - name: keylessatt
     keyless:
       url: http://fulcio.fulcio-system.svc
+      identities:
+      - issuerRegExp: .*kubernetes.default.*
+        subjectRegExp: .*kubernetes.io/namespaces/default/serviceaccounts/default
     ctlog:
       url: http://rekor.rekor-system.svc
     attestations:
