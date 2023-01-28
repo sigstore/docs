@@ -90,7 +90,7 @@ Pushing signature to: us.gcr.io/user-vmtest2/wasm:sha256-9e7a511fb3130ee4641baf1
 
 ## OCI artifacts
 
-Push an artifact to a registry using [oras](https://github.com/deislabs/oras) (in this case, `cosign` itself):
+Push an artifact to a registry using [ORAS](https://oras.land/cli) (in this case, `cosign` itself):
 
 ```shell
 $ oras push us-central1-docker.pkg.dev/user-vmtest2/test/artifact ./cosign
@@ -119,6 +119,7 @@ The following checks were performed on each of these signatures:
   - Any certificates were verified against the Fulcio roots.
 
 {"Critical":{"Identity":{"docker-reference":""},"Image":{"Docker-manifest-digest":"sha256:551e6cce7ed2e5c914998f931b277bc879e675b74843e6f29bc17f3b5f692bef"},"Type":"cosign container image signature"},"Optional":null}
+```
 
 ## Tag signing
 
@@ -166,7 +167,7 @@ Timestamps could also be added here, to implement TUF-style freeze-attack preven
 
 Again, Cosign can sign anything in a registry.
 You could use `cosign` to sign an image that is intended to be used as a base image,
-and inlcude that provenance metadata in resulting derived images.
+and include that provenance metadata in resulting derived images.
 This could be used to enforce that an image was built from an authorized base image.
 
 Rough Idea:

@@ -77,7 +77,7 @@ Glob uses golang [filepath](https://pkg.go.dev/path/filepath#Match) semantics fo
 matching the images against. Additionally you can specify a more traditional
 `**` to match any number of characters. Furthermore to make it easier to specify
  images, there are few defaults when an image is matched, namely:
- * If there is no host in the glob pattern `index.docker.io` is used for the host. This allows users to specify commonly found images from Docker simply as myproject/nginx instead of inded.docker.io/myproject/nginx
+ * If there is no host in the glob pattern `index.docker.io` is used for the host. This allows users to specify commonly found images from Docker simply as `myproject/nginx` instead of `index.docker.io/myproject/nginx`
  * If the image is specified without multiple path elements (so not separated by `/`), then `library` is defaulted. For example specifying `busybox` will result in library/busybox. And combined with above, will result in match being made against `index.docker.io/library/busybox`.
 
 A sample of a `ClusterImagePolicy` which matches against all images using glob:
@@ -159,11 +159,11 @@ Each `keyless` authority can contain these properties:
 - `keyless.ca-cert`: specifies `ca-cert` information for the `keyless` authority
   - `secretRef.name`: specifies the secret location name in the same namespace where `policy-controller` is installed. <br/>The first key value will be used in the secret for the `ca-cert`.
   - `data`: specifies the inline certificate data
-- `keyless.identities`: Identity may contain an array of `issuer` and/or the `subject` found in the transparency log. There are
+- `keyless.identities`: Identities must contain an array of `issuer` and the `subject` matching the certificate used to sign. There are
 variant fields `issuerRegExp` and `subjectRegExp` which support
 regular expressions.
-  - `issuer`: specifies the issuer found in the transparency log. Regex patterns are supported through the `issuerRegExp` key.
-  - `subject`: specifies the subject found in the transparency log. Regex patterns are supported through the `subjectRegExp` key.
+  - `issuer`: specifies the issuer certificate was issued by. Regex patterns are supported through the `issuerRegExp` key.
+  - `subject`: specifies the subject certificate was issued to. Regex patterns are supported through the `subjectRegExp` key.
 
 ### Configuring `static` authorities
 
@@ -223,7 +223,7 @@ spec:
 ### Configure `SignaturePullSecrets`
 
 If the signatures/attestations are in a different repo or they use different
-PullSecrets, you can configure `source` to point to a `secret` which must live
+`imagePullSecrets`, you can configure `source` to point to a `secret` which must live
 in the namespace where the pods are getting deployed.
 
 ```yaml
@@ -377,6 +377,9 @@ spec:
   - name: keylessatt
     keyless:
       url: http://fulcio.fulcio-system.svc
+      identities:
+      - issuerRegExp: .*kubernetes.default.*
+        subjectRegExp: .*kubernetes.io/namespaces/default/serviceaccounts/default
     ctlog:
       url: http://rekor.rekor-system.svc
     attestations:

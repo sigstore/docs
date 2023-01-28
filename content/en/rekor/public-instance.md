@@ -19,6 +19,8 @@ A public instance of Rekor can be found at [rekor.sigstore.dev](https://rekor.si
 
 This instance is maintained by the Rekor community. Interested in helping operate and maintain our production CA system and Transparency Logs? Please reach out via the mailing list.
 
+The file size limit for uploads to the public instance is [100KB](https://github.com/sigstore/rekor/blob/18c81d9f4def67c72f630c5406e26d5e568bc83b/cmd/rekor-server/app/root.go#L104). If you need to upload larger files, please run your own instance of Rekor. You can find instructions for doing so in the [installation](https://docs.sigstore.dev/rekor/overview#usage-and-installation) documentation.
+
 If you have production use-cases in mind, again - please reach out over email via the mailing list. **We are interested in helping onboard you!**
 
 ## Auditing the Public Instance

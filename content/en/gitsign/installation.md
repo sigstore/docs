@@ -95,6 +95,6 @@ git config --local gpg.format x509  # Gitsign expects x509 args
 ```sh
 git config --global commit.gpgsign true  # Sign all commits
 git config --global tag.gpgsign true  # Sign all tags
-git config --global gpg.x509.program gitsign  # Use gGtsign for signing
+git config --global gpg.x509.program gitsign  # Use Gitsign for signing
 git config --global gpg.format x509  # Gitsign expects x509 args
 ```
