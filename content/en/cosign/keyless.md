@@ -4,41 +4,55 @@ category: "Cosign"
 position: 122
 ---
 
-You can review the [full design document](https://docs.google.com/document/d/1461lQUoVqbhCve7PuKNf-2_NfpjrzBG5tFohuMVTuK4/edit#) for more details.
+This page explains how the keyless signatures work in Cosign. This signature mode relies on the Sigstore Public Good Instance.
 
-This document explains how the keyless signatures work in Cosign. This signature mode relies on the Sig store Public Good Instance.
+## Quickstart
 
-The following examples use this image:
+> NOTE: You will need access to a container registry for cosign to work with. [ttl.sh](https://ttl.sh/) offers free, short-lived (ie: hours), anonymous container image hosting if you just want to try these commands out.
+
+Using `ttl.sh` and [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) for to prepare the image that we want to sign, run the following:
 
 ```shell
-$ IMAGE=gcr.io/dlorenc-vmtest2/demo
-$ IMAGE_DIGEST=$IMAGE@sha256:97fc222cee7991b5b061d4d4afdb5f3428fcb0c9054e1690313786befa1e4e36
+$ SRC_IMAGE=busybox
+$ SRC_DIGEST=$(crane digest busybox)
+$ IMAGE_URI=ttl.sh/$(uuidgen | head -c 8 | tr 'A-Z' 'a-z')
+$ crane cp $SRC_IMAGE@$SRC_DIGEST $IMAGE_URI:1h
+$ IMAGE_URI_DIGEST=$IMAGE_URI@$SRC_DIGEST
 ```
 
-## Usage
+Using the image that we prepared above, run through the following to perform Keyless signing and Keyless verifying.
 
-Keyless signing:
+### Keyless Signing
 
 ```shell
-$ COSIGN_EXPERIMENTAL=1 cosign sign $IMAGE_DIGEST
+$ COSIGN_EXPERIMENTAL=1 cosign sign $IMAGE_URI_DIGEST
 Generating ephemeral keys...
 Retrieving signed certificate...
+
+        Note that there may be personally identifiable information associated with this signed artifact.
+        This may include the email address associated with the account with which you authenticate.
+        This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later.
+        By typing 'y', you attest that you grant (or have permission to grant) and agree to have this information stored permanently in transparency logs.
+
+Are you sure you want to continue? (y/[N]): y
 Your browser will now be opened to:
-https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&client_id=&redirect_uri=http%3A%2F%2F127.0.0.1%3A5556%2Fauth%2Fgoogle%2Fcallback&response_type=code
-Pushing signature to: gcr.io/dlorenc-vmtest2/demo:sha256-97fc222cee7991b5b061d4d4afdb5f3428fcb0c9054e1690313786befa1e4e36.sig
+https://oauth2.sigstore.dev/auth/auth?access_type=online&client_id=sigstore&code_challenge=Dl6DvO9FOJ2G2rb0isnG5-S1hAbcQV6PkJgDlDyFqGM&code_challenge_method=S256&nonce=2KyBdYtLSqyLGOwUkt1ij1Fiu30&redirect_uri=http%3A%2F%2Flocalhost%3A55362%2Fauth%2Fcallback&response_type=code&scope=openid+email&state=2KyBdXb8zadBfqMdbVoAIz88OBy
+Successfully verified SCT...
+tlog entry created with index: 12151804
+Pushing signature to: ttl.sh/ace19e66
 ```
 
-Keyless verifying:
+### Keyless verifying
 
 ```shell
-$ COSIGN_EXPERIMENTAL=1 cosign verify $IMAGE
-The following checks were performed on all of these signatures:
+$ COSIGN_EXPERIMENTAL=1 cosign verify $IMAGE_URI_DIGEST
+Verification for ttl.sh/ace19e66@sha256:7b3ccabffc97de872a30dfd234fd972a66d247c8cfc69b0550f276481852627c --
+The following checks were performed on each of these signatures:
   - The cosign claims were validated
-  - The claims were present in the transparency log
-  - The signatures were integrated into the transparency log when the certificate was valid
+  - Existence of the claims in the transparency log was verified offline
   - Any certificates were verified against the Fulcio roots.
-Certificate subject:  dlorenc@google.com
-{"Critical":{"Identity":{"docker-reference":""},"Image":{"Docker-manifest-digest":"sha256:97fc222cee7991b5b061d4d4afdb5f3428fcb0c9054e1690313786befa1e4e36"},"Type":"cosign container image signature"},"Optional":null}
+
+[{"critical":{"identity":{"docker-reference":"ttl.sh/ace19e66"},"image":{"docker-manifest-digest":"sha256:7b3ccabffc97de872a30dfd234fd972a66d247c8cfc69b0550f276481852627c"},"type":"cosign container image signature"},"optional": null}]
 ```
 
 The rest of the flags (annotations, claims, tlog, etc.) should all work the same.
@@ -115,7 +129,6 @@ Signature timestamps are checked in the [rekor](https://github.com/sigstore/reko
 > TODO: Add more documentation here
 
 ## Public Staging Environment
-
 
 There is a public staging environment that is running Fulcio, Rekor and OIDC issuer.
 
