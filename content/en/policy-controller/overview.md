@@ -624,6 +624,39 @@ spec:
       key: policy
 ```
 
+### Using Remote (URL + SHA256) to specify policies
+
+Another way to reference policies without embedding them into the CIP is by
+providing a URL where to fetch the policy from. In order to ensure that the
+policy has not been tampered with, you must also provide a SHA256 checksum which
+will then be computed against the retrieved policy to make sure it is what you
+expect it to be. Note that the URLs must be HTTPS. Here's an example of how
+to specify that a CIP policy should be fetched from the URL.
+
+```
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: image-policy-url
+spec:
+  images:
+  - glob: "ghcr.io/sigstore/timestamp-server**"
+  authorities:
+  - static:
+      action: pass
+  policy:
+    fetchConfigFile: true
+    type: "cue"
+    remote:
+      url: "https://gist.githubusercontent.com/hectorj2f/af0d32d4be4bf2710cff76c397a14751/raw/d4dd87fffdf9624a21e62b8719e3ce8d61334ab9/policy-controller-test-fail-cue"
+      sha256sum: 291534e501184200a3933969277403acf50582fbe73509571a5b73017e49a957
+```
+
+*NOTE:* URLs are not automatically refreshed. They are fetched whenever a CIP
+changes (to simulate this you can update a label for example), or whatever the
+reconcile frequency is (by default 10 hours, but configurable).
+
+
 ## Controlling warn vs. enforce behaviour
 
 When creating a `ClusterImagePolicy` by default when a policy fails to meet
