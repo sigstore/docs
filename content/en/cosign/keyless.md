@@ -65,14 +65,6 @@ as to when the signature was created.
 
 Information on the `fulcio` CA can be found in the [fulcio repository](https://github.com/sigstore/fulcio).
 
-### Keys
-
-The root CA keys are hard-coded in Cosign today.
-They can only be changed by recompiling the binary.
-This will be made more configurable in the future.
-
-> TODO: Add more documentation here.
-
 ### OAuth Flows
 
 Cosign supports two OAuth flows today: the standard flow and the device flow.
@@ -157,29 +149,21 @@ To use this instance, follow the steps below:
 * Step 5 specify the staging environment with flags needed for signing.
 * Step 6 specify the staging environment with flags needed for verifying.
 
-#### Revert back to Production
+#### Revert Back to Production
 
 We need to clear the local TUF root data and re-initialize with the default production TUF root data.
 
 1. `rm -r ~/.sigstore`
 1. `cosign initialize`
 
-## Custom Infrastructure
+## Custom Components
 
-If you're running your own sigstore services flags are available to set your own endpoint's, e.g
+For configuring Cosign to work with custom components, checkout the [Configuring Cosign with Custom Components](https://docs.sigstore.dev/cosign/custom_components/) docs to find out how to achieve this.
 
-```
- COSIGN_EXPERIMENTAL=1 cosign sign -oidc-issuer "https://oauth2.example.com/auth" \
-                        -fulcio-url "https://fulcio.example.com" \
-                        -rekor-url "https://rekor.example.com"  \
-                        $IMAGE_DIGEST
-
-```
-
-### Custom root Cert
+### Custom Root Cert
 
 You can override the public good instance CA using the environment variable `SIGSTORE_ROOT_FILE`, e.g.
 
-```
+```shell
 export SIGSTORE_ROOT_FILE="/home/jdoe/myrootCA.pem"
 ```
