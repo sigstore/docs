@@ -4,52 +4,21 @@ category: "Rekor"
 position: 302
 ---
 
-A public instance of Rekor can be found at [rekor.sigstore.dev](https://rekor.sigstore.dev).
-
-<div class="bg-orange-100 border-l-4 border-orange-500 p-3">
-  <p>
-    <span class="font-bold">🚨🚨 IMPORTANT 🚨🚨</span>
-  </p>
-  <p>
-    This instance is currently operated on a best-effort basis.<br>
-    <span class="font-bold">We will take the log down and reset it with zero notice.</span><br>
-    We will improve the stability and publish SLOs over time.
-  </p>
-</div>
-
-This instance is maintained by the Rekor community. Interested in helping operate and maintain our production CA system and Transparency Logs? Please reach out via the mailing list.
-
-The file size limit for uploads to the public instance is [100KB](https://github.com/sigstore/rekor/blob/18c81d9f4def67c72f630c5406e26d5e568bc83b/cmd/rekor-server/app/root.go#L104). If you need to upload larger files, please run your own instance of Rekor. You can find instructions for doing so in the [installation](https://docs.sigstore.dev/rekor/overview#usage-and-installation) documentation.
-
-If you have production use-cases in mind, again - please reach out over email via the mailing list. **We are interested in helping onboard you!**
+A public instance of Rekor can be found at [rekor.sigstore.dev](https://rekor.sigstore.dev). The public instance offers an SLO
+of 99.9% availability and is monitored by an oncall team.
 
 ## Auditing the Public Instance
 
-The sigstore community runs a job to publish the latest Signed Tree Hashes on GCS.
+Rekor is built on top of a [verifiable data structure](https://transparency.dev/verifiable-data-structures/). Auditors
+can monitor the log for consistency, meaning that the log remains append-only and entries are never mutated or removed.
+Verifiers can also monitor the log for their identities.
+Learn more about transparency logs [here](https://transparency.dev/), and about binary transparency [here](https://binary.transparency.dev/).
 
-They are served publicly, and can be found with:
+There are few options for auditing and monitoring the Rekor log. We've built a monitor that runs on GitHub Actions,
+[Rekor monitor](https://github.com/sigstore/rekor-monitor). Follow the instructions to set up a new repository and
+use the [provided reusable workflow](https://github.com/sigstore/rekor-monitor/blob/main/.github/workflows/reusable_monitoring.yml)
+to audit the log. You can also monitor the log for specified identities, though
+this feature is a work in progress and supports a limited set of identities and entry types.
 
-    $ gsutil ls gs://rekor-sth/
-    gs://rekor-sth/sth-1173.json
-
-The format is currently:
-
-    $ gsutil cat gs://rekor-sth/sth-1173.json | jq .
-    {
-      "SignedLogRoot": {
-        "key_hint": "Ni+Oy6cvQyY=",
-        "log_root": "AAEAAAAAAAAElSB3sp4yw0NFEWsTB6RT5mjr6GCKxVQ8Tlym+P3uKTQwuxZquNPzzd3mAAAAAAAACIUAAA==",
-        "log_root_signature": "MEUCIQCb8QHWym7jBvBMFk8ir1ZTqT83zpjE0c90vi7VrTG70wIgBwQmaQ96Od62ODZkdT6r1eVsl4r14tYR1MwQbkNv8ZM="
-      },
-      "VerifiedLogRoot": {
-        "TreeSize": 1173,
-        "RootHash": "d7KeMsNDRRFrEwekU+Zo6+hgisVUPE5cpvj97ik0MLs=",
-        "TimestampNanos": 1615306636833709600,
-        "Revision": 2181,
-        "Metadata": ""
-      }
-    }
-
-We store them in both raw (unverified) and decoded (verified) formats. You can verify the signatures against Rekor's public key.
-
-These entries contain the tree length, tree root hash as well as the timestamp. The (signed) timestamp and index of a (signed) tree hash may be used as an attestation that any entries in the log prior to this index were witnessed by Rekor before this time.
+You can also run [omniwitness](https://github.com/google/trillian-examples/tree/master/witness/golang/omniwitness) to
+audit the log, built by the team who created Trillian, which provides Rekor's verifiable log.
