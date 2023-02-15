@@ -262,6 +262,47 @@ spec:
         url: https://rekor.example.com
 ```
 
+#### Configuring Timestamp Authorities
+
+You can now verify images against a Timestamp Authority Service looking for RFC-3161 timestamp tokens in your image.
+
+Timestamp authorities specifies the reference to a [TrustRoot CR](https://github.com/sigstore/policy-controller/blob/main/docs/api-types/index-v1alpha1.md#trustroot) where a timestamp service has been defined.
+
+```yaml
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: TrustRoot
+metadata:
+  name: my-tsa-keys
+spec:
+  sigstoreKeys:
+    certificateAuthorities: []
+    timestampAuthorities:
+    - subject:
+        organization: example.dev
+        commonName: example-tsa
+      uri: https://tsa.example.dev
+      certChain: |-
+        CERTIFICATE_CHAIN_IN_BASE64
+```
+
+You can define a list of trusted timestamp authorities setting its `uri`, certificate chain in base64 format and its `subject`.
+
+Whenever you use a ClusterImagePolicy with a `rfc3161timestamp`, you must also specify a `key` or `keyless` block.
+You can find more information about these fields in [here](https://github.com/sigstore/policy-controller/blob/main/docs/api-types/index-v1alpha1.md#certificateauthority).
+
+```yaml
+spec:
+  authorities:
+    - keyless:
+        url: https://fulcio.example.com
+      identities:
+        - issuer: 'https://issuer/'
+          subject: 'foo@example.dev'
+      rfc3161timestamp:
+        trustRootRef: my-tsa-keys
+```
+
+
 ### Configuring policy that validates attestations
 
 Just like with `cosign` CLI you can verify attestations (using `verify-attestation`),
