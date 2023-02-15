@@ -22,15 +22,39 @@ multiple policies are supported.
 
 We're actively working on more features here.
 
-## Enable policy-controller admission controller for namespaces
+## Configure policy-controller admission controller for namespaces
 
-The `policy-controller` admission controller will only validate resources in namespaces
-that have chosen to opt-in. This can be done by adding the label
-`policy.sigstore.dev/include: "true"` to the namespace resource.
+The `policy-controller` admission controller will by default only validate
+resources in namespaces that have chosen to opt-in. This can be done by adding
+the label `policy.sigstore.dev/include: "true"` to the namespace resource.
 
-```bash
+```shell
 kubectl label namespace my-secure-namespace policy.sigstore.dev/include=true
 ```
+
+You can however customize this behaviour to be opt-out by changing the
+`matchExpressions` in the
+[ValidatingWebhookConfiguration](https://github.com/sigstore/policy-controller/blob/main/config/500-webhook-configuration.yaml#L23-L26) and
+[MutatingWebhookConfiguration](https://github.com/sigstore/policy-controller/blob/main/config/500-webhook-configuration.yaml#L44-L47)
+
+For example changing both of them to this:
+```
+    - key: policy.sigstore.dev/exclude
+      operator: DoesNotExist
+```
+
+would mean that any namespace that does not have a label
+`policy.sigstore.dev/exclude` would be enforced. After making the change as
+above, you can then exclude namespaces like this:
+
+```shell
+kubectl label namespace my-excluded-namespace policy.sigstore.dev/exclude=true
+```
+
+*Note* If you change the behaviour to opt-out, it might cause some grief in
+system namespaces, so be mindful. Also, consider looking at changing the default
+behaviour of when an image is not matched below and while rolling things out,
+consider changing the `no-match-policy` to `warn`.
 
 ## Admission of images
 
@@ -61,6 +85,8 @@ By default, any image that does not match a policy is rejected whenever `no-matc
 `policy-controller` supports validation against multiple `ClusterImagePolicy` Kubernetes resources.
 
 A policy is enforced when an image pattern for the policy is matched against the image being deployed.
+
+Detailed field descriptions for the [ClusterImagePolicy CRD](https://github.com/sigstore/policy-controller/blob/main/docs/api-types/index-v1alpha1.md#clusterimagepolicy).
 
 ### Configuring image patterns
 
@@ -262,9 +288,10 @@ spec:
         url: https://rekor.example.com
 ```
 
-#### Configuring Timestamp Authorities
+### Configuring Timestamp Authorities
 
-You can now verify images against a Timestamp Authority Service looking for RFC-3161 timestamp tokens in your image.
+You can verify images against a Timestamp Authority Service looking for RFC-3161
+timestamp tokens in your image.
 
 Timestamp authorities specifies the reference to a [TrustRoot CR](https://github.com/sigstore/policy-controller/blob/main/docs/api-types/index-v1alpha1.md#trustroot) where a timestamp service has been defined.
 
@@ -302,6 +329,45 @@ spec:
         trustRootRef: my-tsa-keys
 ```
 
+### Configuring verification against different Sigstore instances.
+
+By default policy-controller trusts Public Good Instance of Sigstore. You can
+add (or replace) this by specifying a different [Trust Root](#support-for-multiple-or-custom-sigstore-instances).
+For example, to use your custom installation of Sigstore (Fulcio/Rekor), you
+would first create a [Trust Root CR](#support-for-multiple-or-custom-sigstore-instances)
+and then refer to it in your `keyless` section. For example, if your `TrustRoot`
+CR pointing to your custom Sigstore installation is `my-sigstore`, you would
+refer to it in the CIP `trustRootRef`. This example shows both custom Fulcio,
+and Rekor pointing to your custom Sigstore.
+
+```yaml
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: image-policy-keyless-with-trustroot-remote-with-attestations
+spec:
+  images:
+  - glob: "**demo**"
+  authorities:
+  - name: attestation
+    keyless:
+      url: http://fulcio.fulcio-system.svc
+      trustRootRef: my-sigstore
+      identities:
+      - issuerRegExp: .*kubernetes.default.*
+        subjectRegExp: .*kubernetes.io/namespaces/default/serviceaccounts/default
+    ctlog:
+      url: http://rekor.rekor-system.svc
+      trustRootRef: my-sigstore
+    attestations:
+    - name: custom-match-predicate
+      predicateType: custom
+      policy:
+        type: cue
+        data: |
+          predicateType: "cosign.sigstore.dev/attestation/v1"
+          predicate: Data: "foobar e2e test"
+```
 
 ### Configuring policy that validates attestations
 
@@ -375,7 +441,7 @@ spec:
           }
 ```
 
-## Configuring policy at the `ClusterImagePolicy` level.
+### Configuring policy at the `ClusterImagePolicy` level.
 
 As discussed earlier, by specifying multiple `ClusterImagePolicy` creates an `AND`
 clause so that each `ClusterImagePolicy` must be satisfied for an admission, and
@@ -520,7 +586,7 @@ configure the CIP.Spec.Policy to have `fetchConfigFile` set to `true`. For
 example, to configure a check that the container image is being run as a user
 `65532` on `linux/amd64` arch, you would configure your CIP like this:
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1alpha1
 kind: ClusterImagePolicy
 metadata:
@@ -545,7 +611,7 @@ CIP.Spec.Policy to have `includeObjectMeta` set to `true`. For example, to
 configure a check that the resource contains a label `foo=bar`, you would
 configure your CIP like this:
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1alpha1
 kind: ClusterImagePolicy
 metadata:
@@ -570,7 +636,7 @@ CIP.Spec.Policy to have `includeTypeMeta` set to `true`. For example, to
 configure a check that the resource is a Pod, you would configure your CIP like
 this:
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1alpha1
 kind: ClusterImagePolicy
 metadata:
@@ -596,7 +662,7 @@ CIP.Spec.Policy to have `includeSpec` set to `true`. For example, to configure a
 check that the pod runs as serviceAccount `default`, you would configure your
 CIP like this:
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1alpha1
 kind: ClusterImagePolicy
 metadata:
@@ -644,9 +710,9 @@ EOF
 kubectl create -n cosign-system configmap policy-config --from-file=policy=/tmp/mypolicy.cue
 ```
 
-#### Use the configmap from your policy
+#### Use the ConfigMap from your policy
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1alpha1
 kind: ClusterImagePolicy
 metadata:
@@ -674,7 +740,7 @@ will then be computed against the retrieved policy to make sure it is what you
 expect it to be. Note that the URLs must be HTTPS. Here's an example of how
 to specify that a CIP policy should be fetched from the URL.
 
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1alpha1
 kind: ClusterImagePolicy
 metadata:
@@ -698,7 +764,7 @@ changes (to simulate this you can update a label for example), or whatever the
 reconcile frequency is (by default 10 hours, but configurable).
 
 
-## Controlling warn vs. enforce behaviour
+### Controlling warn vs. enforce behaviour
 
 When creating a `ClusterImagePolicy` by default when a policy fails to meet
 the requirements, it will not be admitted. However, sometimes folks want to
@@ -708,7 +774,7 @@ a specific policy. When set to `warn`, it will not block the admission, but
 instead will allow it through and emit a warning.
 
 For example:
-```
+```yaml
 apiVersion: policy.sigstore.dev/v1alpha1
 kind: ClusterImagePolicy
 metadata:
@@ -727,7 +793,7 @@ spec:
  compliant, it will be allowed through, but a warning is issued to the caller
  informing them that this is not a compliant image.
 
-## Policies matching specific resource types and labels
+### Policies matching specific resource types and labels
 
 The `ClusterImagePolicy` supports a new field that defines which type of core resources a policy will enforce against the defined authorities for a given glob pattern.
 
@@ -787,3 +853,149 @@ spec:
 ```
 
 This feature only supports the selection of the following resource types: `pods, statefulsets, daemonsets, cronjobs, jobs, deployments and replicasets`.
+
+## Support for multiple or custom Sigstore instances
+
+By default policy-controller trusts the Public Good Instance of Sigstore and
+can be used to validate against it. Sometimes however, if you are using a
+private instance of Sigstore, you need to configure policy-controller to verify
+against the Trusted Roots for that instance. This can also be used to implement
+running in an airgapped by configuring the TUF roots that get installed Out Of
+Band (OOB), or lastly if you want to just provide the necessary keys and
+certificates necessary for verification. Using TrustRoots is also necessary if
+you are using TimeStamp Authority for verification.
+
+TrustRoots can be specified as TUF Roots, serialized TUF repository (for
+air-gap scenarios), as well as serialized keys/certificates (if there's not TUF
+root, and can also be used for air-gap scenarios) for bring your own keys/certs.
+
+You can learn more about [TUF](https://github.com/theupdateframework/) and
+[why](https://blog.sigstore.dev/sigstore-bring-your-own-stuf-with-tuf-40febfd2badd/)/[
+ how](https://github.com/sigstore/root-signing) Sigstore uses it.
+
+Detailed field descriptions for the [TrustRoot CRD](https://github.com/sigstore/policy-controller/blob/main/docs/api-types/index-v1alpha1.md#trustroot).
+
+### Configuring TrustRoot for custom TUF Root
+
+You configure a TrustRoot to point to a custom TUF root by providing an initial
+root.json as well as the mirror where to fetch updates. An example of this
+would be:
+
+```yaml
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: TrustRoot
+metadata:
+  name: my-remote
+spec:
+  remote:
+    mirror: TUF_MIRROR
+    root: |-
+      ROOT_JSON
+```
+
+where `TUF_MIRROR` is the URL to the TUF mirror, and `ROOT_JSON` is the base64
+encoded `root.json` file from the TUF. Policy-controller will keep TUF
+up-to-date automatically. This is the recommended way to ensure keys/certs are
+rotated automatically as they are updated by TUF.
+
+### Configuring TrustRoot for custom TUF repository
+
+If you have a TUF set up, but are unable to access the mirror (air-gap for
+example), you can provide the serialized repository. In this mode however, you
+have to manually rotate the keys/certificates.
+
+```yaml
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: TrustRoot
+metadata:
+  name: my-repository-serialized
+spec:
+  repository:
+    root: |-
+      ROOT_JSON
+    mirrorFS: |-
+      REPOSITORY
+```
+
+where `ROOT_JSON` is same as above, the base64 encoded `root.json` file from the
+TUF. `REPOSITORY` is a tarred, gzipped, and base64 encoded remote repository. So
+you would have to get tar the repository, gzip it and then base64 encode it.
+
+### Configuring TrustRoot for 'bring your own keys'
+
+If you do not have TUF set up, you can still establish trust by bringing the
+keys and certificates in OOB. Here you have to explicitly configure each
+key/cert:
+
+```yaml
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: TrustRoot
+metadata:
+  name: my-sigstore-keys
+spec:
+  sigstoreKeys:
+    certificateAuthorities:
+    - subject:
+        organization: fulcio-organization
+        commonName: fulcio-common-name
+      uri: https://fulcio.fulcio-system.svc
+      certChain: |-
+        FULCIO_CERT_CHAIN
+    ctLogs:
+    - baseURL: https://ctfe.example.com
+      hashAlgorithm: sha-256
+      publicKey: |-
+        CTFE_PUBLIC_KEY
+    tLogs:
+    - baseURL: https://rekor.rekor-system.svc
+      hashAlgorithm: sha-256
+      publicKey: |-
+        REKOR_PUBLIC_KEY
+    timestampAuthorities:
+    - subject:
+        organization: tsa-organization
+        commonName: tsa-common-name
+      uri: https://tsa.example.com
+      certChain: |-
+        TSA_CERT_CHAIN
+```
+
+#### certificateAuthorities
+
+`certificateAuthorities` specifies the trust for the signing certificates, which
+is Fulcio in Sigstore case. `FULCIO_CERT_CHAIN` is the base64 encoded
+certificates including the root for Fulcio that matches `fulcio-organization`
+and `commonName` in the certificate for the specified `url`.
+
+#### ctLogs
+
+`ctLogs` specifies the Certificate Transparency Log (CTLog) trust. This is used
+to validate entries received from `certificateAuthorities` that certificates
+created for signing purposes were properly recorded in the Certificate
+Transparency Log for auditing.
+`baseURL` is the base URL to the log conforming to
+[RFC6962](https://datatracker.ietf.org/doc/html/rfc6962), for example,
+[Trillian](https://github.com/google/trillian) in the case of Public Good
+Instance of Sigstore. `hashAlgorithm` specifies the hash algorithm used and
+`publicKey` is the base64 encoded Public Key of the CTLog.
+
+#### tLogs
+
+`tLogs` specifies the Transparency Log (TLog) trust, which is Rekor in Sigstore
+case. `REKOR_PUBLIC_KEY` base64 encoded Public Key of the TLog. `baseURL` is the
+base URL for the service providing the TLog, and again the `hashAlgorithm` is
+the hash algorithm used.
+
+#### timestampAuthorities
+
+`timestampAuthorities` specifies the trust to an
+[RFC3161](https://datatracker.ietf.org/doc/html/rfc3161) Time-Stamp Authority.
+`uri` specifies the URL to the Timestamp Service. `TSA_CERT_CHAIN` is the base64
+encoded certificates with Leaf, Intermediates, and Root for the Time-Stamp
+Authority that matches `tsa-organization` and `commonName`.
+
+**NOTE** the `ctLogs` and `tLogs` naming is currently inconsistent between CIP
+and TrustRoot. We will fix this in a newer API version, but can't do it without
+reving the API version due to backwards compatibility. In CIP the ctLog refers
+to Rekor, which in TrustRoot was correctly named `tLog`. Whereas in TrustRoot
+the `ctLog` correctly refers to the `Certificate Transparency Log`.
