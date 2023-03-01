@@ -20,17 +20,17 @@ Check for the file in https://github.com/sigstore/cosign/releases
 
 ```console
 # binary
-wget "https://github.com/sigstore/cosign/releases/download/v1.6.0/cosign-linux-amd64"
+wget "https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64"
 mv cosign-linux-amd64 /usr/local/bin/cosign
 chmod +x /usr/local/bin/cosign
 
 # rpm
-wget "https://github.com/sigstore/cosign/releases/download/v1.6.0/cosign-1.6.0.x86_64.rpm"
-rpm -ivh cosign-1.6.0.x86_64.rpm
+wget "https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-2.0.0.x86_64.rpm"
+rpm -ivh cosign-2.0.0.x86_64.rpm
 
 # dkpg
-wget "https://github.com/sigstore/cosign/releases/download/v1.6.0/cosign_1.6.0_amd64.deb"
-dpkg -i cosign_1.6.0_amd64.deb
+wget "https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign_2.0.0_amd64.deb"
+dpkg -i cosign_2.0.0_amd64.deb
 ```
 
 ## Homebrew/Linuxbrew
@@ -81,13 +81,13 @@ Cosign can be installed in your GitHub Actions using the [Cosign installer](http
 ```yaml
 uses: sigstore/cosign-installer@main
 with:
-  cosign-release: 'v1.2.1' # optional
+  cosign-release: 'v2.0.0' # optional
 ```
 
 ## Container Images
 
 Signed release images are available at [`gcr.io/projectsigstore/cosign`](http://gcr.io/projectsigstore/cosign).
-They are tagged with the release name (for example, `gcr.io/projectsigstore/cosign:v1.0.0`).
+They are tagged with the release name (for example, `gcr.io/projectsigstore/cosign:v2.0.0`).
 They can be found with `crane ls`:
 
 ```console
@@ -116,15 +116,15 @@ Releases are published in the Cosign repository under the [Releases page](https:
 They can be reviewed with `gsutil`:
 
 ```console
-$ gsutil ls gs://cosign-releases/v1.0.0
-gs://cosign-releases/v1.0.0/cosign-darwin-amd64
-gs://cosign-releases/v1.0.0/cosign-darwin-amd64.sig
-gs://cosign-releases/v1.0.0/cosign-darwin-arm64
-gs://cosign-releases/v1.0.0/cosign-darwin-arm64.sig
-gs://cosign-releases/v1.0.0/cosign-linux-amd64
-gs://cosign-releases/v1.0.0/cosign-linux-amd64.sig
-gs://cosign-releases/v1.0.0/cosign-windows-amd64.exe
-gs://cosign-releases/v1.0.0/cosign-windows-amd64.exe.sig
-gs://cosign-releases/v1.0.0/cosign_checksums.txt
-gs://cosign-releases/v1.0.0/release-cosign.pub
+$ gsutil ls gs://cosign-releases/v2.0.0
+gs://cosign-releases/v2.0.0/cosign-darwin-amd64
+gs://cosign-releases/v2.0.0/cosign-darwin-amd64.sig
+gs://cosign-releases/v2.0.0/cosign-darwin-arm64
+gs://cosign-releases/v2.0.0/cosign-darwin-arm64.sig
+gs://cosign-releases/v2.0.0/cosign-linux-amd64
+gs://cosign-releases/v2.0.0/cosign-linux-amd64.sig
+gs://cosign-releases/v2.0.0/cosign-windows-amd64.exe
+gs://cosign-releases/v2.0.0/cosign-windows-amd64.exe.sig
+gs://cosign-releases/v2.0.0/cosign_checksums.txt
+gs://cosign-releases/v2.0.0/release-cosign.pub
 ```
