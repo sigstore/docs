@@ -9,7 +9,7 @@ position: 102
 If you have Go 1.19+, you can directly install Cosign by running:
 
 ```console
-go install github.com/sigstore/cosign/cmd/cosign@latest
+go install github.com/sigstore/cosign/v2/cmd/cosign@latest
 ```
 
 The resulting binary will be placed at `$GOPATH/bin/cosign` (or `$GOBIN/cosign`, if set).
