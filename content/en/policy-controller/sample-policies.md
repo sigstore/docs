@@ -29,7 +29,7 @@ spec:
         -----END PUBLIC KEY-----
     attestations:
     - name: must-have-spdxjson
-      predicateType: spdxjson
+      predicateType: https://spdx.dev/Document
       policy:
         type: cue
         data: |
@@ -46,12 +46,12 @@ Use the tool of your choice to generate an [SPDX](https://spdx.dev/) SBOM.
 
 For example purposes, you can use [`sboms/example.spdx.json`](https://github.com/sigstore/policy-controller/blob/main/examples/sboms/example.spdx.json).
 
-Then attach the SBOM to your image using [`cosign attest`](https://github.com/sigstore/cosign/blob/main/doc/cosign_attest.md) with the flag `--type spdxjson`, and signing it with a private key (for example, one located in a `keys` directory as in `keys/cosign.key`). You can review this in our [examples directory](https://github.com/sigstore/policy-controller/tree/main/examples).
+Then attach the SBOM to your image using [`cosign attest`](https://github.com/sigstore/cosign/blob/main/doc/cosign_attest.md) with the flag `--type 'https://spdx.dev/Document'`, and signing it with a private key (for example, one located in a `keys` directory as in `keys/cosign.key`). You can review this in our [examples directory](https://github.com/sigstore/policy-controller/tree/main/examples).
 
 ```
 export COSIGN_PASSWORD=""
 
-cosign attest --yes --type spdxjson \
+cosign attest --yes --type https://spdx.dev/Document \
   --predicate sboms/example.spdx.json \
   --key keys/cosign.key \
   "${IMAGE}"
@@ -77,7 +77,7 @@ spec:
       url: "https://fulcio.sigstore.dev"
     attestations:
     - name: must-have-spdxjson
-      predicateType: spdxjson
+      predicateType: https://spdx.dev/Document
       policy:
         type: cue
         data: |
@@ -94,12 +94,12 @@ Use the tool of your choice to generate an [SPDX](https://spdx.dev/) SBOM.
 
 For example purposes, you can use [`sboms/example.spdx.json`](https://github.com/sigstore/policy-controller/blob/main/examples/sboms/example.spdx.json).
 
-Then attach the SBOM to your image using [`cosign attest`](https://github.com/sigstore/cosign/blob/main/doc/cosign_attest.md) along with the flag `--type spdxjson`, signing keylessly against the public Fulcio root:
+Then attach the SBOM to your image using [`cosign attest`](https://github.com/sigstore/cosign/blob/main/doc/cosign_attest.md) along with the flag `--type 'https://spdx.dev/Document'`, signing keylessly against the public Fulcio root:
 
 ```
 export COSIGN_EXPERIMENTAL=1
 
-cosign attest --yes --type spdxjson \
+cosign attest --yes --type https://spdx.dev/Document \
   --predicate sboms/example.spdx.json \
   "${IMAGE}"
 ```

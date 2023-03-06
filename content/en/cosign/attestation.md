@@ -66,7 +66,7 @@ The following checks were performed on each of these signatures:
   - Any certificates were verified against the Fulcio roots.
 {
   "_type": "https://in-toto.io/Statement/v0.1",
-  "predicateType": "cosign.sigstore.dev/attestation/v1",
+  "predicateType": "https://cosign.sigstore.dev/attestation/v1",
   "subject": [
     {
       "name": "gcr.io/rekor-testing/distroless",
@@ -87,7 +87,7 @@ import "time"
 before: time.Parse(time.RFC3339, "2021-10-09T17:10:27Z")
 
 // The predicateType field must match this string
-predicateType: "cosign.sigstore.dev/attestation/v1"
+predicateType: "https://cosign.sigstore.dev/attestation/v1"
 
 // The predicate must match the following constraints.
 predicate: {
@@ -123,7 +123,7 @@ The following checks were performed on each of these signatures:
   - Any certificates were verified against the Fulcio roots.
 {
   "_type": "https://in-toto.io/Statement/v0.1",
-  "predicateType": "cosign.sigstore.dev/attestation/v1",
+  "predicateType": "https://cosign.sigstore.dev/attestation/v1",
   "subject": [
     {
       "name": "gcr.io/rekor-testing/distroless",
