@@ -321,10 +321,10 @@ You can find more information about these fields in [here](https://github.com/si
 spec:
   authorities:
     - keyless:
-        url: https://fulcio.example.com
-      identities:
-        - issuer: 'https://issuer/'
-          subject: 'foo@example.dev'
+        url: https://fulcio.sigstore.dev
+        identities:
+          - issuer: 'https://issuer/'
+            subject: 'foo@example.dev'
       rfc3161timestamp:
         trustRootRef: my-tsa-keys
 ```
