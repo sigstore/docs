@@ -398,12 +398,12 @@ spec:
       url: http://rekor.rekor-system.svc
     attestations:
     - name: custom-match-predicate
-      predicateType: custom
+      predicateType: https://cosign.sigstore.dev/attestation/v1
       policy:
         type: cue
         data: |
-          predicateType: "cosign.sigstore.dev/attestation/v1"
-          predicate: Data: "foobar e2e test"
+          predicateType: "https://cosign.sigstore.dev/attestation/v1"
+          predicate: "foobar e2e test"
 ```
 
 `policy` is optional and if left out, only the existence of the attestation is
@@ -429,15 +429,15 @@ spec:
       url: http://rekor.rekor-system.svc
     attestations:
     - name: custom-match-predicate
-      predicateType: custom
+      predicateType: https://cosign.sigstore.dev/attestation/v1
       policy:
         type: rego
         data: |
           package sigstore
           default isCompliant = false
           isCompliant {
-            input.predicateType == "cosign.sigstore.dev/attestation/v1"
-            input.predicate.Data == "foobar e2e test"
+            input.predicateType == "https://cosign.sigstore.dev/attestation/v1"
+            input.predicate == "foobar e2e test"
           }
 ```
 
@@ -490,19 +490,19 @@ spec:
     ctlog:
       url: http://rekor.rekor-system.svc
     attestations:
-    - predicateType: custom
+    - predicateType: https://cosign.sigstore.dev/attestation/v1
       name: customkeyless
       policy:
         type: cue
         data: |
           import "time"
           before: time.Parse(time.RFC3339, "2049-10-09T17:10:27Z")
-          predicateType: "cosign.sigstore.dev/attestation/v1"
+          predicateType: "https://cosign.sigstore.dev/attestation/v1"
           predicate: {
-            Data: "foobar e2e test"
+            foo: "foobar e2e test"
             Timestamp: <before
           }
-    - predicateType: vuln
+    - predicateType: https://cosign.sigstore.dev/attestation/vuln/v1
       name: vulnkeyless
       policy:
         type: cue
@@ -510,7 +510,7 @@ spec:
           import "time"
           before: time.Parse(time.RFC3339, "2022-04-15T17:10:27Z")
           after: time.Parse(time.RFC3339, "2022-03-09T17:10:27Z")
-          predicateType: "cosign.sigstore.dev/attestation/vuln/v1"
+          predicateType: "https://cosign.sigstore.dev/attestation/vuln/v1"
           predicate: {
             invocation: {
               uri: "invocation.example.com/cosign-testing"
@@ -536,12 +536,12 @@ spec:
       url: http://rekor.rekor-system.svc
     attestations:
     - name: custom-match-predicate
-      predicateType: custom
+      predicateType: https://cosign.sigstore.dev/attestation/v1
       policy:
         type: cue
         data: |
-          predicateType: "cosign.sigstore.dev/attestation/v1"
-          predicate: Data: "foobar key e2e test"
+          predicateType: "https://cosign.sigstore.dev/attestation/v1"
+          predicate: "foobar key e2e test"
   - name: keylesssignature
     keyless:
       url: http://fulcio.fulcio-system.svc
