@@ -66,7 +66,7 @@ At a high level, this process involves:
 
 ## 5 — Signing the certificate
 
-![Fulcio signing the certificate](/fulcio-5-sign-certificate.png)
+![Fulcio signing the certificate](/fulcio-5-signing-certificate.png)
 
 The code signing certificate is now populated, but needs to be signed
 by the certificate authority. This will form a chain of trust from the issued
