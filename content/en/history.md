@@ -5,9 +5,7 @@ category: 'About sigstore'
 position: 4
 ---
 
-Over 100 contributors have pushed over 2,800 commits to Sigstore since its founding. Contributors to the project represent over 20 different organizations, including Red Hat, Google, Chainguard, Purdue University, VMware, Twitter, Citi, Charm, Anchore, and Iron Bank. Today, Sigstore Cosign has over 2,300 GitHub Stars and Sigstore Rekor has more than 3 million log entries. Today, there are over 1,200 active members on the [public Slack channel](https://join.slack.com/t/sigstore/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ), and many contributors and end users regularly attend Sigstore community meetings.
-
-The Sigstore Rekor project was initiated by Luke Hinds with Red Hat as the founding company in mid-2020. Later, Bob Callaway and Dan Lorenc joined as co-founders of the Sigstore project, which launched in March 2021 with the three major projects of Rekor, Fulcio, and Cosign. Sigstore became a Linux Foundation project on March 9, 2021, [citing founding members](https://www.linuxfoundation.org/press-release/linux-foundation-announces-free-sigstore-signing-service-to-confirm-origin-and-authenticity-of-software/) that include Red Hat, Google, and Purdue University. On July 28, 2021, the 1.0 version of Cosign was released, and the community is currently planning a general availability of Sigstore. 
+The Sigstore Rekor project was initiated by Luke Hinds with Red Hat as the founding company in mid-2020. Later, Bob Callaway and Dan Lorenc joined as co-founders of the Sigstore project, which launched in March 2021 with the three major projects of Rekor, Fulcio, and Cosign. Sigstore became a Linux Foundation project on March 9, 2021, [citing founding members](https://www.linuxfoundation.org/press-release/linux-foundation-announces-free-sigstore-signing-service-to-confirm-origin-and-authenticity-of-software/) that include Red Hat, Google, and Purdue University. October, 2022, Sigstore was marked publicaly available for announced general avail for rekor and fulcio https://blog.sigstore.dev/sigstore-ga-ddd6ba67894d/
 
 ## Relevant Research
 
