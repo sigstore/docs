@@ -6,7 +6,7 @@ position: 115
 
 ---------
 
-**NOTE:** This page contains outdated information. Identity-based signing is now fully support in Cosign.
+**NOTE:** This page contains outdated information. Identity-based signing is now fully supported in Cosign.
 
 ---------
 
