@@ -40,7 +40,7 @@ cosign sign --key cosign.key gcr.io/user-vmtest2/artifact
 Enter password for private key:
 Pushing signature to: gcr.io/user-vmtest2/artifact:sha256-3f612a4520b2c245d620d0cca029f1173f6bea76819dde8543f5b799ea3c696c.sig
 ```
-### sget
+### sget  remove this section
 
 We also include the `sget` command for safer, automatic verification of signatures and integration with our binary transparency log, Rekor.
 
@@ -78,7 +78,7 @@ The signature, claims and transparency log proofs are all verified automatically
 
 `curl | bash` isn't a great idea, but `sget | bash` is less-bad.
 
-## Signing blobs as files
+## Signing blobs as files  needs updating
 
 The `cosign sign-blob` and `cosign verify-blob` commands can be used to sign and verify standard files, in the absence of a registry.
 
