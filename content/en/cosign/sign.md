@@ -155,10 +155,10 @@ The following checks were performed on each of these signatures:
 
 ## Sign but skip upload (to store somewhere else)
 
-The upload is skipped by using the `--upload=false` flag (default true). To capture the output use the `--output-signature FILE` and/or `--output-certificate FILE` flags.
+The upload is skipped by using the `--upload=false` flag (default true). To capture the output use the `--output-signature FILE`, `--output-payload FILE`, and/or `--output-certificate FILE` flags.
 
 ```shell
-$ cosign sign --key key.pem --upload=false --output-signature demo.sig --output-certificate demo.crt user/demo
+$ cosign sign --key key.pem --upload=false --output-signature demo.sig --output-payload demo.payload --output-certificate demo.crt user/demo
 ```
 
 ## Generate the signature payload (to sign with another tool)
