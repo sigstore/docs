@@ -155,10 +155,10 @@ The following checks were performed on each of these signatures:
 
 ## Sign but skip upload (to store somewhere else)
 
-The upload is skipped by using the `--upload=false` flag (default true). To capture the output use the `--output-signature FILE` and/or `--output-certificate FILE` flags.
+The upload is skipped by using the `--upload=false` flag (default true). To capture the output use the `--output-signature FILE`, `--output-payload FILE`, and/or `--output-certificate FILE` flags.
 
 ```shell
-$ cosign sign --key key.pem --upload=false --output-signature demo.sig --output-certificate demo.crt user/demo
+$ cosign sign --key key.pem --upload=false --output-signature demo.sig --output-payload demo.payload --output-certificate demo.crt user/demo
 ```
 
 ## Generate the signature payload (to sign with another tool)
@@ -182,21 +182,21 @@ The signature is passed via the `--signature` flag.
 It can be a file:
 
 ```shell
-$ cosign attach signature --signature file.sig user/demo
+$ cosign attach signature --signature file.sig --payload payload.json user/demo
 Pushing signature to: user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
 ```
 
 The base64-encoded signature:
 
 ```shell
-$ cosign attach signature --signature Qr883oPOj0dj82PZ0d9mQ2lrdM0lbyLSXUkjt6ejrxtHxwe7bU6Gr27Sysgk1jagf1htO/gvkkg71oJiwWryCQ== user/demo
+$ cosign attach signature --signature Qr883oPOj0dj82PZ0d9mQ2lrdM0lbyLSXUkjt6ejrxtHxwe7bU6Gr27Sysgk1jagf1htO/gvkkg71oJiwWryCQ== --payload payload.json user/demo
 Pushing signature to: user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def.sig
 ```
 
 Or, `-` for `stdin` for chaining from other commands:
 
 ```shell
-$ cosign generate user/demo | openssl... | cosign attach signature --signature -- user/demo
+$ … | openssl... | cosign attach signature --signature - --payload … user/demo
 Pushing signature to: user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def.sig
 ```
 
