@@ -44,4 +44,4 @@ As a living open source project with an engaged community, there are a number of
     * [Policy Controller repository](https://github.com/sigstore/policy-controller)
 * [Sigstore YouTube Channel](https://www.youtube.com/channel/UCWPVc8glVGOODxsA_ep0VVws)
 * [Sigstore Blog](https://blog.sigstore.dev/) 
-* [Sigstore Slack](https://join.slack.com/t/sigstore/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ)
+* [Sigstore Slack](https://links.sigstore.dev/slack-invite)
