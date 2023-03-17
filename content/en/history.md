@@ -5,7 +5,7 @@ category: 'About sigstore'
 position: 4
 ---
 
-The Sigstore Rekor project was initiated by Luke Hinds with Red Hat as the founding company in mid-2020. Later, Bob Callaway and Dan Lorenc joined as co-founders of the Sigstore project, which launched in March 2021 with the three major projects of Rekor, Fulcio, and Cosign. Sigstore became a Linux Foundation project on March 9, 2021, [citing founding members](https://www.linuxfoundation.org/press-release/linux-foundation-announces-free-sigstore-signing-service-to-confirm-origin-and-authenticity-of-software/) that include Red Hat, Google, and Purdue University. October, 2022, Sigstore was marked publicly available for announced general availability for rekor and fulcio https://blog.sigstore.dev/sigstore-ga-ddd6ba67894d/
+The Sigstore Rekor project was initiated by Luke Hinds with Red Hat as the founding company in mid-2020. Later, Bob Callaway and Dan Lorenc joined as co-founders of the Sigstore project, which launched in March 2021 with the three major projects of Rekor, Fulcio, and Cosign. Sigstore became a Linux Foundation project on March 9, 2021, [citing founding members](https://www.linuxfoundation.org/press-release/linux-foundation-announces-free-sigstore-signing-service-to-confirm-origin-and-authenticity-of-software/) that include Red Hat, Google, and Purdue University. On October 25, 2022, Sigstore was marked publicly available as it announced [general availability for Rekor and Fulcio](https://blog.sigstore.dev/sigstore-ga-ddd6ba67894d/).
 
 ## Relevant Research
 
