@@ -40,7 +40,7 @@ cosign sign --key cosign.key gcr.io/user-vmtest2/artifact
 Enter password for private key:
 Pushing signature to: gcr.io/user-vmtest2/artifact:sha256-3f612a4520b2c245d620d0cca029f1173f6bea76819dde8543f5b799ea3c696c.sig
 ```
-]
+
 ## Signing blobs as files
 
 The `cosign sign-blob` and `cosign verify-blob` commands can be used to sign and verify standard files, in the absence of a registry.
