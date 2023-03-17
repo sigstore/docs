@@ -4,9 +4,9 @@ category: "Cosign"
 position: 102
 ---
 
-## With Go 1.19+  Download the cosign binary first THEN install with GO
+## With Go 1.19+ 
 
-If you have Go 1.19+, you can directly install Cosign by running:
+If you have Go 1.19+, you can directly install Cosign by downloading the cosign binary and running:
 
 ```console
 go install github.com/sigstore/cosign/v2/cmd/cosign@latest
