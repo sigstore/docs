@@ -4,7 +4,7 @@ category: "Cosign"
 position: 102
 ---
 
-## Kubernetes Secrets  remove this page
+## Kubernetes Secrets
 
 Cosign can use keys stored in Kubernetes Secrets to sign and verify signatures.
 In order to generate a secret, pass a `k8s://[NAMESPACE]/[NAME]` URI specifying the namespace and secret name to `cosign generate-key-pair` as follows.
