@@ -30,6 +30,13 @@ yarn install
 ```bash
 yarn dev
 ```
+**Note:** If the error "digital envelope routines::unsupported" appears and the build fails, correct this by enabling the legacy OpenSSL provider.
+
+On Unix-like, enter the command:
+
+```bash
+export NODE_OPTIONS=--openssl-legacy-provider
+```
 
 ## Static Generation
 
