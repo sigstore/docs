@@ -15,98 +15,84 @@ features:
 
 ![Cosign Overview](/sigstore_cosign-horizontal-color.svg)
 
-Cosign supports container signing, verification, and storage in an OCI registry.
+## Getting Started (Quick Start)
+
+Cosign supports blob and container signing, verification, and storage in an OCI registry.
 Cosign aims to make signatures invisible infrastructure.
-
-![Cosign demo gif](/cosign.gif)
-
-Cosign supports:
-
-<list :items="features" type="info"></list>
 
 Cosign is part of the Sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://links.sigstore.dev/slack-invite)?)
 
-## Getting Started (Quick Start)
+### Installation
 
-To get up and running we'll demonstrate how to: 
+To get sigstore up and running, you simply need to install Cosign. instructions to install Cosign can be found at https://docs.sigstore.dev/cosign/installation/. 
 
-1. Generate a keypair
-1. Sign a container image and store that signature in the registry
-1. Find signatures for a container image, and verify them against a public key
+This will allow you to sign both blobs and containers.   If you need a sample container to test signing with, you can create one by following the instructions at: https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images
 
-### Prerequisites
+### Signing a blob
 
-You'll need to [install Cosign](/cosign/installation/) first, and you will need access to a container registry.
+The basic signing format for a blob is as follows:
 
-[ttl.sh](https://ttl.sh) offers free, short-lived (hours), anonymous container image
-hosting if you just want to try out these commands.
 
-### 1. Generate a keypair
-
-```shell
-$ cosign generate-key-pair
-Enter password for private key:
-Enter again:
-Private key written to cosign.key
-Public key written to cosign.pub
+```
+$ cosign sign-blob <file> --bundle txtbundle.bundle
 ```
 
-### 2. Sign a container and store the signature in the registry
+The bundle contains signing metadata, including the signature and certificate.  
 
-```shell
+The Cosign command requests a certificate from our Certificate Authority Fulcio. Fulcio checks your identity by using an authentication protocol (OpenID Connect) to look at your email address. If your identity is correct, Fulcio grants a short-lived, time-stamped certificate. The certificate is bound to the public key to attest to your identity.  This activity is logged using Rekor.
+ 
+Note that you don’t need to use a key to sign.  Currently, you can authenticate with Google, GitHub, or Microsoft. For more information, read [Keyless Signatures](https://docs.sigstore.dev/cosign/keyless/).
+
+Cosign has additional options and features.   For more information enter the command:
+
+```
+cosign sign-blob --help
+```
+
+### Verifying a signed blob
+
+To verify a signed blob, you need to provide three pieces of information:
+* The certificate, found in the bundle
+* The signature, also found in the bundle
+* The identity used in signing
+
+The following example verifies the signature on file.txt from user "name@example.com" issued by "accounts@example.com":
+
+```
+$ cosign verify-blob file.txt --bundle txtbundle.bundle --certificate-identity=name@example.com 
+                              --certificate-oidc-issuer=https://accounts.example.com
+```
+
+To verify, Cosign queries the transparency log to compare the public key to what’s in Rekor, and checks the timestamp on the signature against the artifact’s entry in the transparency log. The signature is valid if its timestamp falls within the small window of time that the key pair and certificate issued by OpenID Connect were valid.
+
+### Working with containers
+
+Signing and verifying a container is similar to working with blobs.   The Cosign command to sign a container image is:
+
+```
+$ cosign sign <image URI>
+```
+
+This works the same as signing a blob, but the signature becomes attached to the container itself.
+
+To verify a signed container image, use the following command:
+
+```
+$ cosign verify <image URI>
+```
+### Signing with a generated key
+
+While you do not have to use an existing key you can generate a key and sign with it or another key you may wish to use.  However, it is recommended that you use keyless signing.
+
+To generate keys using a KMS provider, you can use the cosign generate-key-pair command with the --kms flag.
+
+```
+$ cosign generate-key-pair --kms <some provider>://<some key>
+```
+
+The following example shows the process of signing with an existing key.  You must enter the password of the private key to sign.
+```
 $ cosign sign --key cosign.key user/demo
 Enter password for private key:
-Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
+Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79be4def8.sig
 ```
-
-The `cosign` command above prompts the user to enter the password for the private key.
-The user can manually enter the password, or set an environment variable with `COSIGN_PASSWORD` to use a password automatically.
-
-### 3. Verify a container against a public key
-
-This command returns `0` if *at least one* `cosign` formatted signature for the image is found
-matching the public key. Review the other sections of this site for information and caveats on other signature formats.
-
-Any valid payloads are printed to `stdout`, in JSON format.
-Note that these signed payloads include the digest of the container image, which is how we can be
-sure these "detached" signatures cover the correct image.
-
-```shell
-$ cosign verify --key cosign.pub dlorenc/demo
-The following checks were performed on these signatures:
-  - The cosign claims were validated
-  - The signatures were verified against the specified public key
-{"Critical":{"Identity":{"docker-reference":""},"Image":{"Docker-manifest-digest":"sha256:87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8"},"Type":"cosign container image signature"},"Optional":null}
-```
-
-## Kubernetes Integrations
-
-Cosign comes with a few built-in Kubernetes integrations: `Secret` generation, and a [policy webhook](/policy-controller/overview/) `policy-controller`.
-In addition to the `policy-controller`, Cosign is also compatible with and supported by other policy engines such as:
-
-* [Conaisseur](https://github.com/sse-secure-systems/connaisseur#what-is-connaisseur)
-* [Kyverno](https://kyverno.io/docs/writing-policies/verify-images/)
-* [OPA Gatekeeper](https://github.com/sigstore/cosign-gatekeeper-provider)
-
-To learn how to use Cosign with Kubernetes, review [Kubernetes](/cosign/kubernetes/).
-
-## More Info
-
-Cosign can do much more than what is discussed here. Review more information on the commands by checking out the other sections of this site.
-
-### Other Formats
-
-Cosign is useful not only for containers and container-related artifacts; it can also be used for other file types. 
-
-To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types](/cosign/other_types/). For basic blobs, review [Working with Blobs](/cosign/working_with_blobs/).
-
-### SCM Integration
-
-Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab.
-You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use `cosign` to generate and work safely with [SCM secrets](/cosign/git_support/) with native API integration.
-
-### Attestations
-
-In addition to signatures, Cosign can be used with [In-Toto Attestations](https://github.com/in-toto/attestation).
-
-Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems.
