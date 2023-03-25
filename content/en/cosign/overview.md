@@ -17,7 +17,7 @@ features:
 
 ## Getting Started (Quick Start)
 
-Cosign is part of the Sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://links.sigstore.dev/slack-invite)?)
+Cosign is part of the Sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/). (Need an [invite](https://links.sigstore.dev/slack-invite)?)
 
 ### Installation
 
