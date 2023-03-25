@@ -56,7 +56,7 @@ To verify a signed blob, you need to provide three pieces of information:
 The following example verifies the signature on file.txt from user "name@example.com" issued by "accounts@example.com":
 
 ```
-$ cosign verify-blob file.txt --bundle txtbundle.bundle --certificate-identity=name@example.com 
+$ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@example.com 
                               --certificate-oidc-issuer=https://accounts.example.com
 ```
 
