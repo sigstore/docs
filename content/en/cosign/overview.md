@@ -87,7 +87,7 @@ To generate keys using a KMS provider, you can use the cosign generate-key-pair 
 $ cosign generate-key-pair --kms <some provider>://<some key>
 ```
 
-The following example shows the process of signing with an existing key.  You must enter the password of the private key to sign.
+The following example shows the process of signing with an existing key. You must enter the password of the private key to sign.
 ```
 $ cosign sign --key cosign.key user/demo
 Enter password for private key:
