@@ -64,7 +64,7 @@ To verify, Cosign queries the transparency log to compare the public key to what
 
 ### Working with containers
 
-Signing and verifying a container is similar to working with blobs.   The Cosign command to sign a container image is:
+Signing and verifying a container is similar to working with blobs.  The Cosign command to sign a container image is:
 
 ```
 $ cosign sign <image URI>
