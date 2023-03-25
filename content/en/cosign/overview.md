@@ -31,7 +31,7 @@ The basic signing format for a blob is as follows:
 
 
 ```
-$ cosign sign-blob <file> --bundle txtbundle.bundle
+$ cosign sign-blob <file> --bundle cosign.bundle
 ```
 
 The bundle contains signing metadata, including the signature and certificate.  
