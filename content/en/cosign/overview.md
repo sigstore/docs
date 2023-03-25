@@ -70,7 +70,7 @@ Signing and verifying a container is similar to working with blobs.  The Cosign 
 $ cosign sign <image URI>
 ```
 
-This works the same as signing a blob, but the signature becomes attached to the container itself.
+This works the same as signing a blob, but the signature and certificate are attached as container metadata.
 
 To verify a signed container image, use the following command:
 
