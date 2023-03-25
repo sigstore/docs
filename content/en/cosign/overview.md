@@ -40,7 +40,7 @@ The Cosign command requests a certificate from our Certificate Authority, which 
  
 Note that you don’t need to use a key to sign.  Currently, you can authenticate with Google, GitHub, or Microsoft, which will associate your identity with a short-lived signing key. For more information, read [Keyless Signatures](https://docs.sigstore.dev/cosign/keyless/).
 
-Cosign has additional options and features.   For more information enter the command:
+For more information about Cosign's additional options and features, run the command:
 
 ```
 cosign sign-blob --help
