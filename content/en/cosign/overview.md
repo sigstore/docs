@@ -17,9 +17,6 @@ features:
 
 ## Getting Started (Quick Start)
 
-Cosign supports blob and container signing, verification, and storage in an OCI registry.
-Cosign aims to make signatures invisible infrastructure.
-
 Cosign is part of the Sigstore project. Join us on our [Slack channel](https://sigstore.slack.com/) (need an [invite](https://links.sigstore.dev/slack-invite)?)
 
 ### Installation
