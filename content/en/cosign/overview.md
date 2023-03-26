@@ -36,7 +36,7 @@ $ cosign sign-blob <file> --bundle cosign.bundle
 
 The bundle contains signing metadata, including the signature and certificate.  
 
-The Cosign command requests a certificate from our certificate authority, Fulcio. Fulcio checks your identity by using an authentication protocol (OpenID Connect) to look at your email address. If your identity is correct, Fulcio grants a short-lived, time-stamped certificate. The certificate is bound to the public key to attest to your identity.  This activity is logged using our transparency log, Rekor.
+The Cosign command requests a certificate from our certificate authority, Fulcio. Fulcio checks your identity by using an authentication protocol (OpenID Connect) to look at your email address. If your identity is correct, Fulcio grants a short-lived, time-stamped certificate. The certificate is bound to the public key to attest to your identity.  This activity is logged using our transparency and timestamping log, Rekor.
  
 Note that you don’t need to use a key to sign.  Currently, you can authenticate with Google, GitHub, or Microsoft, which will associate your identity with a short-lived signing key. For more information, read [Keyless Signatures](https://docs.sigstore.dev/cosign/keyless/).
 
