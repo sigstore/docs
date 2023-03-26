@@ -93,3 +93,15 @@ $ cosign sign --key cosign.key user/demo
 Enter password for private key:
 Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79be4def8.sig
 ```
+### Other Formats
+Cosign is useful not only for blobs, containers, and container-related artifacts; it can also be used for other file types.
+
+To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review Signing Other Types. For basic blobs, review Working with Blobs.
+
+### SCM Integration
+Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official GitHub Actions Cosign installer or use cosign to generate and work safely with SCM secrets with native API integration.
+
+### Attestations
+In addition to signatures, Cosign can be used with In-Toto Attestations.
+
+Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems.
