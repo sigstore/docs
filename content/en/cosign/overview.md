@@ -102,6 +102,6 @@ To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review Signin
 Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official GitHub Actions Cosign installer or use cosign to generate and work safely with SCM secrets with native API integration.
 
 ### Attestations
-In addition to signatures, Cosign can be used with In-Toto Attestations.
+In addition to signatures, Cosign can be used with [In-Toto Attestations](https://github.com/in-toto/attestation).
 
 Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems.
