@@ -78,7 +78,8 @@ This works the same as signing a blob, but the signature and certificate are att
 To verify a signed container image, use the following command:
 
 ```
-$ cosign verify <image URI>
+$ cosign verify <image URI> --certificate-identity=name@example.com 
+                            --certificate-oidc-issuer=https://accounts.example.com
 ```
 ### Signing with a generated key
 
