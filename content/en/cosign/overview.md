@@ -69,7 +69,8 @@ To verify, Cosign queries the transparency log to compare the public key to what
 Signing and verifying a container is similar to working with blobs.  The Cosign command to sign a container image is:
 
 ```
-$ cosign sign <image URI>
+$ cosign sign <image URI> --certificate-identity=name@example.com 
+                          --certificate-oidc-issuer=https://accounts.example.com
 ```
 
 This works the same as signing a blob, but the signature and certificate are attached as container metadata.
