@@ -96,7 +96,7 @@ Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79be4def8.si
 ### Other Formats
 Cosign is useful not only for blobs, containers, and container-related artifacts; it can also be used for other file types.
 
-To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review Signing Other Types. For basic blobs, review Working with Blobs.
+To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types](https://docs.sigstore.dev/cosign/other_types/). For more information about blobs, review [Working with Blobs](https://docs.sigstore.dev/cosign/working_with_blobs/).
 
 ### SCM Integration
 Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use cosign to generate and work safely with [SCM secrets](https://docs.sigstore.dev/cosign/git_support/) with native API integration.
