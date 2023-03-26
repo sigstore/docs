@@ -23,7 +23,7 @@ Cosign is part of the Sigstore project. Join us on our [Slack channel](https://s
 
 To use Sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page](https://docs.sigstore.dev/cosign/installation/). 
 
-This will allow you to sign both blobs and containers.   If you need a sample container to test signing with, you can create one by following the instructions at: https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images
+This will allow you to sign both blobs and containers.   If you need a sample container to test signing with, you can create one by following [these instructions](https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images).
 
 ### Signing a blob
 
@@ -36,7 +36,7 @@ $ cosign sign-blob <file> --bundle cosign.bundle
 
 The bundle contains signing metadata, including the signature and certificate.  
 
-The Cosign command requests a certificate from our Certificate Authority, which is called Fulcio. Fulcio checks your identity by using an authentication protocol (OpenID Connect) to look at your email address. If your identity is correct, Fulcio grants a short-lived, time-stamped certificate. The certificate is bound to the public key to attest to your identity.  This activity is logged using our Transparency Log, which is called Rekor.
+The Cosign command requests a certificate from our certificate authority, Fulcio. Fulcio checks your identity by using an authentication protocol (OpenID Connect) to look at your email address. If your identity is correct, Fulcio grants a short-lived, time-stamped certificate. The certificate is bound to the public key to attest to your identity.  This activity is logged using our transparency log, Rekor.
  
 Note that you don’t need to use a key to sign.  Currently, you can authenticate with Google, GitHub, or Microsoft, which will associate your identity with a short-lived signing key. For more information, read [Keyless Signatures](https://docs.sigstore.dev/cosign/keyless/).
 
