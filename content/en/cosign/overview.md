@@ -49,11 +49,13 @@ cosign sign-blob --help
 ### Verifying a signed blob
 
 To verify a signed blob, you need to provide three pieces of information:
-* The certificate, found in the bundle
-* The signature, also found in the bundle
+* The certificate
+* The signature
 * The identity used in signing
 
-The following example verifies the signature on file.txt from user "name@example.com" issued by "accounts@example.com":
+You may be provided with a bundle that includes the certificate and signature.  The blob maintainer should provide the trusted identity.
+
+The following example verifies the signature on file.txt from user "name@example.com" issued by "accounts@example.com".  It uses a provided bundle "cosign.bundle" that contains the certificate and signature.
 
 ```
 $ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@example.com 
@@ -81,10 +83,10 @@ $ cosign verify <image URI>
 
 While you do not have to use an existing key you can generate a key and sign with it or another key you may wish to use.  However, it is recommended that you use keyless signing.
 
-To generate keys using a KMS provider, you can use the cosign generate-key-pair command with the --kms flag.
+To generate keys using Cosign, use the cosign generate-key-pair command.
 
 ```
-$ cosign generate-key-pair --kms <some provider>://<some key>
+$ cosign generate-key-pair 
 ```
 
 The following example shows the process of signing with an existing key. You must enter the password of the private key to sign.
