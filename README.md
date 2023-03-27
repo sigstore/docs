@@ -19,6 +19,8 @@ We welcome contributions on the docs site!
 
 ## Setup
 
+Ensure that your system is using Node [16.X.X](https://nodejs.org/en/blog/release/v16.16.0) version.
+
 Install dependencies:
 
 ```bash
