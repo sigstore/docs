@@ -14,7 +14,7 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 
 ## How to use Sigstore
 
-* Sign software artifacts with [Cosign](/cosign/overview/) — [Quick start](/cosign/overview/#Quick-Start)
+* Sign software artifacts with [Cosign](/cosign/overview/) — [Quick start](/cosign/overview)
 * Sign Git commits with [Gitsign](/gitsign/overview/) - [Quick start](/gitsign/overview/#quick-start)
 * Verify entries with [Rekor](/rekor/CLI/#verify-proof-of-entry)
 * Use the [policy controller](/policy-controller/overview/) to enfore Kubernetes policies
