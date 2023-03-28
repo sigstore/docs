@@ -53,7 +53,7 @@ To verify a signed blob, you need to provide three pieces of information:
 
 You may be provided with a bundle that includes the certificate and signature.  The blob maintainer should provide the trusted identity.
 
-The following example verifies the signature on file.txt from user "name@example.com" issued by "accounts@example.com".  It uses a provided bundle "cosign.bundle" that contains the certificate and signature.
+The following example verifies the signature on `file.txt` from user `name@example.com` issued by `accounts@example.com`.  It uses a provided bundle `cosign.bundle` that contains the certificate and signature.
 
 ```
 $ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@example.com 
