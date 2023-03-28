@@ -60,7 +60,7 @@ $ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@e
                               --certificate-oidc-issuer=https://accounts.example.com
 ```
 
-To verify, Cosign queries the transparency log (Rekor) to compare the public key,, and checks the timestamp on the signature against the artifact’s entry in the transparency log. The signature is valid if its timestamp falls within the small window of time that the key pair and certificate issued by the certificate authority were valid.
+To verify, Cosign queries the transparency log (Rekor) to compare the public key bound to the cerfiicate, and checks the timestamp on the signature against the artifact’s entry in the transparency log. The signature is valid if its timestamp falls within the small window of time that the key pair and certificate issued by the certificate authority were valid.
 
 ### Working with containers
 
