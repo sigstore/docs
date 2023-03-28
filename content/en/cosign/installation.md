@@ -4,7 +4,7 @@ category: "Cosign"
 position: 102
 ---
 
-## With Go 1.19+ 
+## With Go 1.19+
 
 If you have Go 1.19+, you can directly install Cosign by downloading the Cosign binary and running:
 
@@ -81,7 +81,7 @@ Cosign can be installed in your GitHub Actions using the [Cosign installer](http
 ```yaml
 uses: sigstore/cosign-installer@main
 with:
-  cosign-release: 'v2.0.0' # optional
+  cosign-release: "v2.0.0" # optional
 ```
 
 ## Container Images
@@ -108,6 +108,23 @@ $ crane ls gcr.io/projectsigstore/cosign/ci/cosign
 ```
 
 Further details and installation instructions for `crane` available via https://github.com/google/go-containerregistry/tree/main/cmd/crane
+
+## Verifying Cosign Releases
+
+Before using a downloaded Cosign binary, it's important to verify its authenticity to ensure that it hasn't been tampered with. The Cosign binary is signed both with keyless signing and an artifact key. You first need to verify Cosign with the artifact key, since you will need Cosign to verify the keyless signature.
+
+```console
+tuf-client get https://sigstore-tuf-root.storage.googleapis.com cosign.pub > cosign.pub
+
+curl -o cosign-release.sig -L https://github.com/sigstore/cosign/releases/download/<version>/cosign-<os>.sig
+base64 -d cosign-release.sig > cosign-release.sig.decoded
+
+curl -o cosign -L https://github.com/sigstore/cosign/releases/download/<version>/cosign-<os>
+
+openssl dgst -sha256 -verify cosign.pub -signature cosign-release.sig.decoded cosign
+```
+
+The `<version>`and `<os>` placeholders in the URLs should be replaced with the specific version and operating system that you want to download.
 
 ## Releases
 
