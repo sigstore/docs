@@ -100,7 +100,7 @@ Cosign is useful not only for blobs, containers, and container-related artifacts
 To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types](/cosign/other_types/). For more information about blobs, review [Working with Blobs](/cosign/working_with_blobs/).
 
 ### SCM Integration
-Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use cosign to generate and work safely with [SCM secrets](https://docs.sigstore.dev/cosign/git_support/) with native API integration.
+Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use cosign to generate and work safely with [SCM secrets](/cosign/git_support/) with native API integration.
 
 ### Attestations
 In addition to signatures, Cosign can be used with [In-Toto Attestations](https://github.com/in-toto/attestation).
