@@ -1,6 +1,6 @@
 ---
 title: "Cosign"
-menuTitle:"Overview"
+menuTitle: "Overview"
 description: ""
 category: "Cosign"
 position: 100
