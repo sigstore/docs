@@ -1,6 +1,6 @@
 ---
 title: "Cosign"
-menuTitle: "Overview"
+menuTitle: "Quick Start"
 description: ""
 category: "Cosign"
 position: 100
