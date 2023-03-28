@@ -21,9 +21,7 @@ Cosign is part of the Sigstore project. Join us on our [Slack channel](https://s
 
 ### Installation
 
-To sign software artifacts and verify signatures using Sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page](/cosign/installation/). 
-
-This will allow you to sign both blobs and containers.   If you need a sample container to test signing with, you can create one by following [these instructions](https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images).
+To sign software artifacts and verify signatures using Sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page](/cosign/installation/). This will allow you to sign and verify both blobs and containers.  
 
 ### Signing a blob
 
