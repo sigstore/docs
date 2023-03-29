@@ -80,7 +80,7 @@ $ cosign verify <image URI> --certificate-identity=name@example.com
 ```
 ### Signing with a generated key
 
-Although you do not have to use an existing key, you can generate a key or use an existing key for signing.  However, it is recommended that you use keyless signing, as a main feature of Sigstore is to make signatures invisible infrastructure.
+It it recommended that you use keyless signing, as a main feature of Sigstore is to make signatures invisible infrastructure that do not require key management. However, Sigstore allows you to use an existing key or generate a key if you prefer.
 
 To generate keys using Cosign, use the `cosign generate-key-pair` command.
 
