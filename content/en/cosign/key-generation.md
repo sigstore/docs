@@ -16,6 +16,8 @@ Public key written to cosign.pub
 
 Alternatively, you can use the `COSIGN_PASSWORD` environment variable to provide one. 
 
+*Note:* Cosign does not support RSA keys. Please generate and use only ED25519 keys for signing and verifying software artifacts.
+
 ## Key generation and management
 
 To generate keys using a KMS provider, you can use the `cosign generate-key-pair` command with the `--kms` flag.
