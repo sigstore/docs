@@ -23,13 +23,13 @@ There’s plenty of good style guides for writing technical documentation. [Micr
 
 - Using insets, alert banners and callouts help make each page a little more visually interesting, which helps a reader engage with, follow and understand what you’re writing about.
 
-- Always check your assumptions. It’s easy to assume your reader knows exactly what you do. But that’s not always the case. Be careful writing about anything that might require more context, embed links in passing if it’ll help. If you’re introducing something difficult for the first time, state it, explain it as simply as you can, and then move to its application using consistent language - don’t be tempted to start using variations or introducing more tangents than is absolutely critical.
+- Always check your assumptions. It’s easy to assume your reader knows exactly what you do. But that’s not always the case. Be careful writing about anything that might require more context, and embed links in passing if it’ll help. If you’re introducing something difficult for the first time, state it, explain it as simply as you can, and then move to its application using consistent language - don’t be tempted to start using variations or introducing more tangents than is absolutely critical.
 
 ## Website content
 
 ### Overview
 
-As website content grows, matures and adapts, it can be tricky to keep the content’s style and tone of voice consistent. This is crucial in making things feel they’ve been written from one single author, which helps create trust and authority, and keeps the user experience streamlined. Here’s a few pointers to help guide your changes:
+As website content grows, matures and adapts, it can be tricky to keep the content’s style and tone of voice consistent. This is crucial in making things feel they’ve been written by one single author, which helps create trust and authority, and keeps the user experience streamlined. Here’s a few pointers to help guide your changes:
 
 - Write like you’re onboarding a new colleague. You want to help them get up to speed. Prioritise your points and be action-focused, cut anything that’s not really necessary. Be friendly but direct, and focus on the end goal together.
 

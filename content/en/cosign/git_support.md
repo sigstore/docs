@@ -18,7 +18,7 @@ it is `github://`.
 
 ### Key Generation and Management
 
-To generate keys using a Git provider, you can use the `cosign generate-key-pair` command with the as the last
+To generate keys using a Git provider, you can use the `cosign generate-key-pair` command with the last
 argument `github://` or `gitlab://`. For example:
 
 ```shell
@@ -74,7 +74,7 @@ The following checks were performed on each of these signatures:
 You might notice that in the verification part we used `gitlab://` instead of `<some provider>` because initially this
 feature is only available to GitLab. GitHub does not support it to fetch the secret variables.
 
-You can also export the public key and verify against that file:
+You can also export the public key and verify it against that file:
 
 ```shell
 $ cosign public-key --key gitlab://<owner>/<project> > gitlab.pub

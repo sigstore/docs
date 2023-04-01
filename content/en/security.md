@@ -44,7 +44,7 @@ Fulcio assumes that a valid OIDC token from a trusted provider is sufficient “
 * Fulcio MUST publish all certificates to the log.
 * Clients MUST NOT trust certificates that are not in the log.
 
-As a result users can detect any mis-issued certificates, either due to the CA acting maliciously or a compromised OIDC identity provider. Combined with Rekor's signature transparency, artifacts signed with compromised accounts can be identified (auditability).
+As a result, users can detect any mis-issued certificates, either due to the CA acting maliciously or a compromised OIDC identity provider. Combined with Rekor's signature transparency, artifacts signed with compromised accounts can be identified (auditability).
 
 _Note: Fulcio itself does not monitor the certificate transparency log; users are responsible for monitoring the log for unauthorized certificates issued to their identities._
 
@@ -64,7 +64,7 @@ Storing the signature in a transparency log also makes certificates easily disco
 
 **Ephemeral Keys**
 
-Sigstore clients like Cosign can also eliminate the key management problem by using ephemeral keys. These ephermeral keys only exist in memory; the private key never hits disk and is never known by Sigstore services.
+Sigstore clients like Cosign can also eliminate the key management problem by using ephemeral keys. These ephemeral keys only exist in memory; the private key never hits disk and is never known by Sigstore services.
 
 Cosign will:
 1. Generate an ephemeral public/private keypair in memory

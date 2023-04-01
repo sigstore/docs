@@ -125,7 +125,7 @@ If you're running your own sigtore services flags are available to set your own 
 
 ### Custom root cert
 
-You can override the public good instance root CA using the enviromental variable `SIGSTORE_ROOT_FILE`, e.g.
+You can override the public good instance root CA using the environmental variable `SIGSTORE_ROOT_FILE`, e.g.
 
 ```
 export SIGSTORE_ROOT_FILE="/home/jdoe/myrootCA.pem"

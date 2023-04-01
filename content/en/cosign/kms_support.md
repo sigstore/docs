@@ -22,7 +22,7 @@ The URI format for AWS KMS is:
 
 where ENDPOINT and KEYID are replaced with the correct values.
 
-The ENDPOINT value is left blank in most scenerios, but can be set for testing with KMS-compatible servers such as [localstack](https://localstack.cloud/).
+The ENDPOINT value is left blank in most scenarios, but can be set for testing with KMS-compatible servers such as [localstack](https://localstack.cloud/).
 If omitting a custom endpoint, it is mandatory to prefix the URI with `awskms:///` (with three slashes).
 
 If a custom endpoint is used, you may disable TLS verification by setting an environment variable: `AWS_TLS_INSECURE_SKIP_VERIFY=1`.

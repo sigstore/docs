@@ -17,7 +17,7 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 * Sign software artifacts with [Cosign](/cosign/overview/) — [Quick start](/cosign/overview/#quick-start)
 * Sign Git commits with [Gitsign](/gitsign/overview/) - [Quick start](/gitsign/overview/#quick-start)
 * Verify entries with [Rekor](/rekor/CLI/#verify-proof-of-entry)
-* Use the [policy controller](/policy-controller/overview/) to enfore Kubernetes policies
+* Use the [policy controller](/policy-controller/overview/) to enforce Kubernetes policies
 * Use the [Fulcio Certificate Authority](/fulcio/overview/)
 
 ## How Sigstore works
@@ -30,7 +30,7 @@ Your certificate then comes back to Sigstore, where Sigstore exchanges keys, ass
 
 ## Software supply chain security
 
-Software supply chains are exposed to multiple risks. Users are susceptible to various targeted attacks, along with account and cryptographic key compromise. Keys in particular are a challenge for software maintainers to manage. Projects often have to maintain a list of current keys in use, and manage the keys of individuals who no longer contribute to a project. Projects all too often store public keys and digests on git repo readme files or websites, two forms of storage susceptible to tampering and less than ideal means of securely communicating trust.
+Software supply chains are exposed to multiple risks. Users are susceptible to various targeted attacks, along with account and cryptographic key compromises. Keys in particular are a challenge for software maintainers to manage. Projects often have to maintain a list of current keys in use, and manage the keys of individuals who no longer contribute to a project. Projects all too often store public keys and digests on git repo readme files or websites, two forms of storage susceptible to tampering and less than ideal means of securely communicating trust.
 
 The tool sets we’ve historically relied on were not built for the present circumstance of remote teams either. This can be seen by the need to create a web of trust, with teams having to meet in person and sign each others’ keys. The current tooling (outside of controlled environments) all too often feel inappropriate to even technical users.
 
