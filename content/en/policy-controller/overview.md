@@ -53,7 +53,7 @@ kubectl label namespace my-excluded-namespace policy.sigstore.dev/exclude=true
 
 *Note* If you change the behaviour to opt-out, it might cause some grief in
 system namespaces, so be mindful. Also, consider looking at changing the default
-behaviour when an image is not matched below and while rolling things out,
+behaviour of when an image is not matched below and while rolling things out,
 consider changing the `no-match-policy` to `warn`.
 
 ## Admission of images

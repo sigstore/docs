@@ -66,7 +66,7 @@ When there is no terminal attached (non-interactive mode), `cosign` will automat
 
 In automated environments, cosign also supports directly using OIDC Identity Tokens from specific issuers. These can be supplied on the command line with the `--identity-token` flag. The `audiences` field must contain `sigstore`.
 
-Cosign also has support for detecting some of these automated environments and producing an identity token.  Currently this supports Google and Github.
+Cosign also has support for detecting some of these automated environments and producing an identity token. Currently this supports Google and Github.
 
 #### On Google Cloud Platform
 

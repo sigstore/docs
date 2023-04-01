@@ -119,8 +119,7 @@ To do this, install and use [go-tuf](https://github.com/theupdateframework/go-tu
 $ go install github.com/theupdateframework/go-tuf/cmd/tuf-client@latest
 ```
 
-Then, obtain trusted root keys for Sigstore. You will use the 5th iteration of Sigstore's TUF root to start the root of trust, due to
-a backward incompatible change.
+Then, obtain trusted root keys for Sigstore. You will use the 5th iteration of Sigstore's TUF root to start the root of trust, due to a backward incompatible change.
 
 ```console
 curl -o sigstore-root.json https://raw.githubusercontent.com/sigstore/root-signing/main/ceremony/2022-10-18/repository/5.root.json

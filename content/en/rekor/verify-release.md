@@ -90,13 +90,11 @@ email:ctadeu@gmail.com
 
 OK, so we can see that a Fulcio-generated certificate, with a chain to the root certificate has the email identity of a sigstore maintainer (in this instance, our own release manager the awesome Carlos).
 
-If you wanted to be super paranoid, you could email Carlos and ask him to give you assurance he is Carlos and he signed the release.
-
 #### Verify the entry is in the transparency log
 
-On the  [release page](https://github.com/sigstore/rekor/releases) you will see some URLs, these are the rekor entries of the signing events.
+On the [release page](https://github.com/sigstore/rekor/releases) you will see some URLs, these are the rekor entries of the signing events.
 
-This is the link for the binary and signing materials we have been working within this guide
+This is the link for the binary and signing materials we have been working with throughout this guide
 
 https://rekor.sigstore.dev/api/v1/log/entries/b6fdc91e6af5bdd8df133802b7966aa53c1e59365741ee56e287f11263e02c33
 
@@ -140,7 +138,7 @@ $ curl -X GET "https://rekor.sigstore.dev/api/v1/log/entries/b6fdc91e6af5bdd8df1
 }
 ```
 
-Woah, that's a lot of stuff. Let's focus on the body and decode it from base64:
+Let's focus on the body and decode it from base64:
 
 ```
 $ curl -X GET "https://rekor.sigstore.dev/api/v1/log/entries/b6fdc91e6af5bdd8df133802b7966aa53c1e59365741ee56e287f11263e02c33"  | jq -r '.[].body'| base64 -d | jq -r '.[]'

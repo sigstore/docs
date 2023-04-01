@@ -18,7 +18,7 @@ it is `github://`.
 
 ### Key Generation and Management
 
-To generate keys using a Git provider, you can use the `cosign generate-key-pair` command with the last
+To generate keys using a Git provider, you can use the `cosign generate-key-pair` command as the last
 argument `github://` or `gitlab://`. For example:
 
 ```shell

@@ -181,7 +181,7 @@ This can be used to verify the hardware is authentic and came from the manufactu
 To verify this, retrieve the manufacturer's CA.
 See [here](https://developers.yubico.com/yubico-piv-tool/Attestation.html) for instructions from Yubico.
 
-This certificate can be validated with `openssl` or another tooling:
+This certificate can be validated with `openssl` or other tooling:
 
 ```shell
 # Obtained from https://developers.yubico.com/PIV/Introduction/piv-attestation-ca.pem

@@ -34,7 +34,7 @@ There are three levels of stability and support:
 
 **Beta**: Backwards incompatible changes require at least 2 months notice
 
-**Generally Available**: Deprecating features require at least 6 months notice
+**Generally Available**: Deprecating features requires at least 6 months notice
 
 _Note: These guidelines will be followed on a best-effort basis.
 Since Sigstore is a security project, maintainers reserve the right to break things faster if necessary to address a security issue._
