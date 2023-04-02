@@ -29,7 +29,7 @@ There’s plenty of good style guides for writing technical documentation. [Micr
 
 ### Overview
 
-As website content grows, matures and adapts, it can be tricky to keep the content’s style and tone of voice consistent. This is crucial in making things feel they’ve been written from one single author, which helps create trust and authority, and keeps the user experience streamlined. Here’s a few pointers to help guide your changes:
+As website content grows, matures and adapts, it can be tricky to keep the content’s style and tone of voice consistent. This is crucial in making things feel they’ve been written by one single author, which helps create trust and authority, and keeps the user experience streamlined. Here’s a few pointers to help guide your changes:
 
 - Write like you’re onboarding a new colleague. You want to help them get up to speed. Prioritise your points and be action-focused, cut anything that’s not really necessary. Be friendly but direct, and focus on the end goal together.
 

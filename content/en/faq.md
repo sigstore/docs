@@ -21,7 +21,7 @@ Public blockchains often end up using a centralized entry point for canonicaliza
 
 - Rekor's back end is [Trillian](https://github.com/google/trillian)
 - Trillian is an open source community under active development
-- Trilian is deployed by Google, CloudFlare (nimbus), Let's Encrypt for cerficate transparency, so it already is considered production grade
+- Trilian is deployed by Google, CloudFlare (nimbus), Let's Encrypt for certificate transparency, so it already is considered production grade
 
 ## Can I get Rekor to work with my X format, framework standard?
 

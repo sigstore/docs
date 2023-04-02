@@ -24,7 +24,7 @@ A free root certification authority, issuing temporary certificates to an author
 
 ### Rekor
 
-A built in transparency and timestamping service, Rekor records signed metadata to a ledger that can be searched, but can’t be tampered with.
+A built-in transparency and timestamping service, Rekor records signed metadata to a ledger that can be searched, but can’t be tampered with.
 
 ### OpenID Connect
 

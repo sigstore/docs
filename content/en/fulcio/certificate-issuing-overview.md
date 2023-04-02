@@ -92,7 +92,7 @@ cryptographically verifiable certificate transparency (CT) log, which allows for
 publicly auditable.
 
 A special X.509 extension, called a poison extension, is included in the certificate before it
-is appended to the log. This certificate is called a precertificate, and is not yet usuable by clients.
+is appended to the log. This certificate is called a precertificate, and is not yet usable by clients.
 
 ![Fulcio uploads the certificate to the transparency log](/fulcio-6-transparency-log-inclusion.png)
 

@@ -147,7 +147,7 @@ spec:
 
 Each `key` authority can contain these properties:
 - `key.data`: specifies the plain text string of the public key
-- `key.hashAlgorithm` (optional): specifies the signature digest for the key, e.g. `sha512`, `sha256`, `sha384` or `sha224`. If no value is provided the hash algorith is set by default to `sha256`.
+- `key.hashAlgorithm` (optional): specifies the signature digest for the key, e.g. `sha512`, `sha256`, `sha384` or `sha224`. If no value is provided the hash algorithm is set by default to `sha256`.
 - `key.secretRef.name`: specifies the secret location name in the same namespace where `policy-controller` is installed. <br/> The first key value will be used in the secret.
 - `key.kms`: specifies the location for the public key. Supported formats include:
   - `azurekms://[VAULT_NAME][VAULT_URI]/[KEY]`

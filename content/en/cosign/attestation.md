@@ -40,7 +40,7 @@ Next, I think the most important question that we need to answer is that why do 
 quote a sentence for this from the blog post written by [Dan Lorenc](https://twitter.com/lorenc_dan). You can reach out
 the blog post from [here](https://dlorenc.medium.com/policy-and-attestations-89650fd6f4fa).
 
-> A more important consideration (and relevant back to our vulnerability discussion) is that systems that verify attestations must be carefully designed to work correctly if an attacker can delete or hide any specific attestation or set of attestations. Signatures can guarantee a file has not been tampered with, but they can’t guarantee the file arrives at all. To be safe, your systems should be designed to fail closed rather than open.]
+> A more important consideration (and relevant back to our vulnerability discussion) is that systems that verify attestations must be carefully designed to work correctly if an attacker can delete or hide any specific attestation or set of attestations. Signatures can guarantee a file has not been tampered with, but they can’t guarantee the file arrives at all. To be safe, your systems should be designed to fail closed rather than open.
 
 Quick note here, we'll be validating the predicate portion of the attestation. So, please do not forget to write your
 validations against predicate portion of the attestation.

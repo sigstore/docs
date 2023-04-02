@@ -252,7 +252,7 @@ $ tree .
 └── staged
 ```
 
-Upload any TUF manifest to rekor by using the `root.json` as a the public key:
+Upload any TUF manifest to rekor by using the `root.json` as the public key:
 
 ```console
 $ ./rekor-cli upload --artifact repository/timestamp.json --type tuf --public-key repository/root.json
