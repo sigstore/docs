@@ -82,3 +82,15 @@ Append the following onto the `sharding-config.yaml` key (it will be empty if th
 7. Restart traffic to your Rekor service.
 
 8. Congratulations, you've successfully sharded the log!
+
+## Identifier Definitions: EntryID, UUID, LogID, Log Index
+
+An **EntryID** is a 40 bytes long, specific artifact ID. It is made up of two parts; the TreeID and UUID. 
+
+  `EntryID = TreeID (8 byte hex) + UUID (32 byte hex)`
+
+The **TreeID** is a hex-encoded int64 (8 bytes) referring to the specific trillian tree (also known as log or shard) where the artifact can be found. Trillian uses a [Merkle tree](https://transparency.dev/verifiable-data-structures/) to implement the verifiable log.
+
+The **UUID**, universally unique identifier is a hex-encoded 32-byte number referring to the artifact's merkle leaf hash from trillian. Artifact lookup by UUID occurs by finding the UUID within the tree specified by the TreeID. To access the data stored in Rekor, the entry UUID or LogIndex is needed.
+
+The **LogIndex** of an artifact identifies the index or order in which the artifact was entered into the transperancy log while the **LogID** of an artifact is the SHA256 hash of the DER-encoded public key generated at the time of the log entry. The LogID is a string and the LogIndex is a 64bit integer.
