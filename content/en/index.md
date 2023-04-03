@@ -22,11 +22,11 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 
 ## How Sigstore works
 
-Using Fulcio, Sigstore requests a certificate from our root Certificate Authority (CA). This checks you are who you say you are using OpenID Connect, which looks at your email address to prove you’re the author. Fulcio grants a time-stamped certificate, a way to say you’re signed in and that it’s you.
+A Sigstore client, such as Cosign, requests a certificate from Fulcio, a code-signing certificate authority. A verifiable OpenID Connect identity token, which contains a user's email address or service account, is provided in the request. Fulcio verifies this token and issues a short-lived certificate bound to the provided identity. 
 
-You don’t have to do anything with keys yourself, and Sigstore never obtains your private key. The public key that Cosign creates gets bound to your certificate, and the signing details get stored in Sigstore’s trust root, the deeper layer of keys and trustees and what we use to check authenticity.
+You don’t have to manage signing keys, and Sigstore services never obtain your private key. The public key that a Sigstore client creates gets bound to the issued certificate, and the private key is discarded after a single signing.
 
-Your certificate then comes back to Sigstore, where Sigstore exchanges keys, asserts your identity and signs everything off. The signature contains the hash itself, public key, signature content and the time stamp. This all gets uploaded to a Rekor transparency log, so anyone can check that what you’ve put out there went through all the checks needed to be authentic.
+After the client signs the artifact, the artifact's digest, signature and certificate are persisted in Rekor, an immutable, append-only transparency ledger, so that signing events can be publicly audited. This also timestamps the signing event, so that the short-lived certificate can be later verified.
 
 ## Software supply chain security
 
