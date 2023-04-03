@@ -16,7 +16,7 @@ Public key written to cosign.pub
 
 Alternatively, you can use the `COSIGN_PASSWORD` environment variable to provide one. 
 
-*Note:* Cosign supports RSA, ECDSA, and ED25519 keys. For RSA, Cosign only support RSA PKCS#1.5 padded keys.
+*Note:* Cosign supports RSA, ECDSA, and ED25519 keys. For RSA, Cosign only supports RSA PKCS#1.5 padded keys.
 
 ## Key generation and management
 
