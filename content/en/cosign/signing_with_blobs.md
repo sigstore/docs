@@ -1,5 +1,5 @@
 ---
-title: "signing with Blobs"
+title: "Signing with Blobs"
 category: "Cosign"
 position: 109
 ---
