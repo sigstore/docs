@@ -6,9 +6,6 @@ position: 109
 
 Cosign supports signing and verifying standard files and blobs (or binary large objects), in addition to containers. This topic discusses signing.  For invormation on verifying see [verifying](../verifying.md).
 
-
-```
-
 ## Signing blobs as files
 
 The `cosign sign-blob` command can be used to sign standard files. Signature and certificate information can be sent to a bundled text file, which makes key management invisible infrastructure.  Using a bundle is the simplest way of signing a blob.  Use the `cosign` command to sign:
