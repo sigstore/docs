@@ -6,34 +6,19 @@ position: 109
 
 Cosign supports signing and verifying standard files and blobs (or binary large objects), in addition to containers. This topic discusses signing.  For invormation on verifying see [verifying](../verifying.md).
 
-## Signing blobs as files
+## Signing blobs as files in keyless mode
 
 The `cosign sign-blob` command can be used to sign standard files. Signature and certificate information can be sent to a bundled text file, which makes key management invisible infrastructure.  Using a bundle is the simplest way of signing a blob.  Use the `cosign` command to sign:
 
-```
+```shell
 cosign sign-blob <file> --bundle cosign.bundle
 ```
 The bundle is output as a `base64` encoded string that contains the certificate and signature. In addition, signatures are output as `base64` encoded strings to stdout by default. 
 
-```shell
-$ cosign sign-blob --key cosign.key README.md
-Using payload from: README.md
-Enter password for private key:
-MEQCIAU4wPBpl/U5Vtdx/eJFgR0nICiiNCgyWPWarupH0onwAiAv5ycIKgztxHNVG7bzUjqHuvK2gsc4MWxwDgtDh0JINw==
-
-$ cosign verify-blob --key cosign.pub --signature MEQCIAU4wPBpl/U5Vtdx/eJFgR0nICiiNCgyWPWarupH0onwAiAv5ycIKgztxHNVG7bzUjqHuvK2gsc4MWxwDgtDh0JINw== README.md
-Verified OK
-```
-
-This supports all the same flags and features as `cosign sign`, including KMS support, hardware tokens, and keyless signatures.
-
-#### Certificate management
-
-When using `cosign sign-blob` in keyless mode, you may need to store the certificate (in addition to the signature) for verification.
-This output defaults to stderr, but can be redirected to a file by using the `--output-certificate` and `--output-signature` flags.
+When using cosign sign-blob in keyless mode, you need to store the bundle for verification. If you don't want to use the bundle, you can direct the output of the certificate by using the --output-certificate and --output-signature flags. The result from using the output flags:
 
 ```shell
-COSIGN_EXPERIMENTAL=1 cosign sign-blob README.md --output-certificate cert.pem --output-signature sig
+cosign sign-blob README.md --output-certificate cert.pem --output-signature sig
 Using payload from: README.md
 Generating ephemeral keys...
 Retrieving signed certificate...
@@ -63,3 +48,19 @@ tlog entry created with index: 965333
 Signature wrote in the file sig
 Certificate wrote in the file cert.pem
 ```
+
+
+## Signing with a key
+
+You may specify your own keys for signing.  You will need the password for the private key to sign:
+
+```shell
+$ cosign sign-blob --key cosign.key README.md
+Using payload from: README.md
+Enter password for private key:
+MEQCIAU4wPBpl/U5Vtdx/eJFgR0nICiiNCgyWPWarupH0onwAiAv5ycIKgztxHNVG7bzUjqHuvK2gsc4MWxwDgtDh0JINw==
+```
+
+This supports all the same flags and features as `cosign sign`, including KMS support, hardware tokens, and keyless signatures.
+
+
