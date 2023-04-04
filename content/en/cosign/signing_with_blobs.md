@@ -4,48 +4,19 @@ category: "Cosign"
 position: 109
 ---
 
-Cosign supports signing and verifying standard files and blobs (or binary large objects), in addition to containers.
+Cosign supports signing and verifying standard files and blobs (or binary large objects), in addition to containers. This topic discusses signing.  For invormation on verifying see [verifying](../verifying.md).
 
-You can upload blobs to an OCI registry (similar to ORAS) where they can then be signed/verified like any other image, or you can sign blobs locally as standard files.
 
-## Blobs in OCI Registries
-
-You can publish an artifact with `cosign upload blob`:
-
-```shell
-$ echo "my first artifact" > artifact
-$ cosign upload blob -f artifact gcr.io/user-vmtest2/artifact
-Uploading file from [artifact] to [gcr.io/user-vmtest2/artifact:latest] with media type [text/plain; charset=utf-8]
-File is available directly at [us.gcr.io/v2/user-vmtest2/readme/blobs/sha256:b57400c0ad852a7c2f6f7da4a1f94547692c61f3e921a49ba3a41805ae8e1e99]
-us.gcr.io/user-vmtest2/readme@sha256:4aa3054270f7a70b4528f2064ee90961788e1e1518703592ae4463de3b889dec
-```
-
-Your users can download it from the "direct" url with standard tools like curl or wget:
-
-```shell
-$ curl -L gcr.io/v2/user-vmtest2/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b > artifact
-```
-
-The digest is baked right into the URL, so they can check that as well:
-
-```shell
-curl -L gcr.io/v2/user-vmtest2/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b | shasum -a 256
-97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b  -
-```
-
-You can sign it with the normal `cosign sign` command and flags:
-
-```shell
-cosign sign --key cosign.key gcr.io/user-vmtest2/artifact
-Enter password for private key:
-Pushing signature to: gcr.io/user-vmtest2/artifact:sha256-3f612a4520b2c245d620d0cca029f1173f6bea76819dde8543f5b799ea3c696c.sig
 ```
 
 ## Signing blobs as files
 
-The `cosign sign-blob` and `cosign verify-blob` commands can be used to sign and verify standard files, in the absence of a registry.
+The `cosign sign-blob` command can be used to sign standard files. Signature and certificate information can be sent to a bundled text file, which makes key management invisible infrastructure.  Using a bundle is the simplest way of signing a blob.  Use the `cosign` command to sign:
 
-Signatures are output as `base64` encoded strings to stdout by default.
+```
+cosign sign-blob <file> --bundle cosign.bundle
+```
+The bundle is output as a `base64` encoded string that contains the certificate and signature. In addition, signatures are output as `base64` encoded strings to stdout by default. 
 
 ```shell
 $ cosign sign-blob --key cosign.key README.md
