@@ -65,7 +65,7 @@ This supports all the same flags and features as `cosign sign`, including KMS su
 
 ## Blobs in OCI Registries
 
-You can upload blobs to an OCI registry (similar to ORAS) where they can then be signed/verified like any other image, or you can sign blobs locally as standard files.
+You can upload blobs to an OCI registry (similar to ORAS) where they can then be signedblike any other image.
 
 You can publish an artifact with `cosign upload blob`:
 
