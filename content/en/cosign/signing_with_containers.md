@@ -4,15 +4,21 @@ category: "Cosign"
 position: 105
 ---
 
+You can use Cosign to sign with ephemeral keys by authenticating with an OIDC (OpenID Connect) protocol supported by Sigstore. Currently, you can authenticate with Google, GitHub, or Microsoft. For more information, read [Keyless Signatures](/cosign/keyless/). 
+
+The format for keyless signing of a container is as follows.
+
+```
+$ cosign sign --key cosign.key user/demo
+```
+
+## General signing format
 
 The general signing format with the `cosign sign` command is as follows.
 
 ```shell
 $ cosign sign --key <key path>|<kms uri> [--payload <path>] [-a key=value] [--upload=true|false] [-f] [-r] <image uri>
 ```
-## Keyless signing
-
-You can use Cosign to sign with ephemeral keys by authenticating with an OIDC (OpenID Connect) protocol supported by Sigstore. Currently, you can authenticate with Google, GitHub, or Microsoft. For more information, read [Keyless Signatures](/cosign/keyless/).
 
 We'll use `user/demo` as our example image in the following commands. 
 
