@@ -37,21 +37,8 @@ MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEXc+DQU8Pb7Xo2RWCjFG/f6qbdABN
 jnVtSyKZxNzBfNMLLtVxdu8q+AigrGCS2KPmejda9bICTcHQCRUrD5OLGQ==
 -----END PUBLIC KEY-----
 ```
----
-title: "Signing"
-category: "Cosign"
-position: 105
----
 
-The general signing format with the `cosign sign` command is as follows.
-
-```shell
-$ cosign sign --key <key path>|<kms uri> [--payload <path>] [-a key=value] [--upload=true|false] [-f] [-r] <image uri>
-```
-
-We'll use `user/demo` as our example image in the following commands. 
-
-## Sign with a local key pair
+## Signing with a local key pair
 
 This usage is a common use case that uses traditional key signing from a key pair. 
 
