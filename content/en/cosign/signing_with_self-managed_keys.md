@@ -44,4 +44,5 @@ This usage is a common use case that uses traditional key signing from a key pai
 
 ```shell
 $ cosign sign --key cosign.key user/demo
-```
+Enter password for private key:
+Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
