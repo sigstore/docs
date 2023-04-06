@@ -9,8 +9,9 @@ You can use Cosign to sign with ephemeral keys by authenticating with an OIDC (O
 The format for keyless signing of a container is as follows.
 
 ```
-$ cosign sign --key cosign.key user/demo
+$ cosign sign user/demo
 ```
+Where `user/demo` is the image URI. We'll use `user/demo` as our example image in the following commands. 
 
 ## General signing format
 
@@ -20,8 +21,6 @@ The general signing format with the `cosign sign` command is as follows.
 $ cosign sign --key <key path>|<kms uri> [--payload <path>] [-a key=value] [--upload=true|false] [-f] [-r] <image uri>
 ```
 
-We'll use `user/demo` as our example image in the following commands. 
-
 ## Sign with a local key pair
 
 This usage is a common use case that uses traditional key signing from a key pair. 
@@ -30,23 +29,19 @@ This usage is a common use case that uses traditional key signing from a key pai
 $ cosign sign --key cosign.key user/demo
 ```
 
-If you need to generate local keys, you can do so by running `cosign generate-key-pair`.
+If you need to generate local keys, you can do so by running `cosign generate-key-pair`. 
 
 ## Sign a container multiple times
 
-Multiple signatures can be "attached" to a single container image:
+Multiple signatures can be "attached" to a single container image.  In this example, the container is signed keylessly and then with a local key:
 
 ```shell
-$ cosign sign --key cosign.key user/demo
-Enter password for private key:
-Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
+$ cosign sign user/demo
 
 $ cosign sign --key other.key user/demo
 Enter password for private key:
 Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
 ```
-
-This only signs the digest, but you can pass by tag or digest.
 
 ## Add annotations with a signature
 
@@ -55,9 +50,7 @@ The `-a` flag can be used to add annotations to the generated, signed payload.
 This flag can be repeated:
 
 ```shell
-$ cosign sign --key other.key -a foo=bar user/demo
-Enter password for private key:
-Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
+$ cosign sign -a foo=bar user/demo
 ```
 
 These values are included in the signed payload under the `Optional` section.
@@ -73,7 +66,7 @@ They can be verified with the `-a` flag as part of the `cosign verify` command.
 You can sign a container and attach an existing certificate and certificate chain to an image. Note that you cannot currently generate a certificate chain but can use an existing chain. 
 
 ```shell
-$ cosign sign --key cosign.key --cert cosign.crt --cert-chain chain.crt user/demo
+$ cosign sign --cert cosign.crt --cert-chain chain.crt user/demo
 ```
 
 ## Sign with a key pair stored elsewhere
@@ -129,10 +122,8 @@ $ cosign sign --key k8s://[NAMESPACE]/[KEY] user/demo
 The payload must be specified as a path to a file.
 
 ```shell
-$ cosign sign --key cosign.key --payload README.md user/demo
+$ cosign sign --payload README.md user/demo
 Using payload from: README.md
-Enter password for private key:
-Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
 ```
 
 You can also sign with another tool.
@@ -164,7 +155,7 @@ The following checks were performed on each of these signatures:
 The upload is skipped by using the `--upload=false` flag (default true). To capture the output use the `--output-signature FILE` and/or `--output-certificate FILE` flags.
 
 ```shell
-$ cosign sign --key key.pem --upload=false --output-signature demo.sig --output-certificate demo.crt user/demo
+$ cosign sign --upload=false --output-signature demo.sig --output-certificate demo.crt user/demo
 ```
 
 ## Generate the signature payload (to sign with another tool)
