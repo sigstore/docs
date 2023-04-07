@@ -29,6 +29,7 @@ $ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@e
 With container images, the signature and certificate are attached to the container.  For blobs, the signature and certificate can be stored in a bundle file that is created at the time of signing.  Either it must be specified, or the individual signature and certificate must be specified.
 
 ```
+
 **Important Note**:
 
 Signature payloads created by `cosign` included the digest of the container image they are attached to.
