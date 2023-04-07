@@ -1,5 +1,5 @@
 ---
-title: "Signing With Self-Managed Keys"
+title: "Signing with Self-Managed Keys"
 category: "Cosign"
 position: 103
 ---
