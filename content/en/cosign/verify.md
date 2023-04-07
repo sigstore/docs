@@ -9,7 +9,7 @@ The general verification format with the `cosign verify` command is as follows.
 ```shell
 $ cosign verify --key <key path>|<key url>|<kms uri> <image uri> 
 ```
-## Keyless verification using OpenIDConnect
+## Keyless verification using OpenID Connect
 
 We'll use `user/demo` as our example image in the following commands and keyless signing where appropriate.
 
@@ -27,8 +27,6 @@ $ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@e
 ```
 
 With container images, the signature and certificate are attached to the container.  For blobs, the signature and certificate can be stored in a bundle file that is created at the time of signing.  Either it must be specified, or the individual signature and certificate must be specified.
-
-```
 
 **Important Note**:
 
