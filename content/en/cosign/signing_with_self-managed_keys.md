@@ -38,8 +38,6 @@ jnVtSyKZxNzBfNMLLtVxdu8q+AigrGCS2KPmejda9bICTcHQCRUrD5OLGQ==
 -----END PUBLIC KEY-----
 ```
 
-```
-
 ## Signing with a local key pair
 
 This usage is a common use case that uses traditional key signing from a key pair. 
