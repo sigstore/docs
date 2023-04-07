@@ -11,14 +11,14 @@ Cosign supports signing and verifying standard files and blobs (or binary large 
 The `cosign sign-blob` command can be used to sign standard files. Signature and certificate information can be sent to a bundled text file, which makes key management invisible infrastructure.  Using a bundle is the simplest way of signing a blob.  Use the `cosign` command to sign:
 
 ```shell
-cosign sign-blob <file> --bundle cosign.bundle
+$ cosign sign-blob <file> --bundle cosign.bundle
 ```
 The bundle is output as a `base64` encoded string that contains the certificate and signature. In addition, signatures are output as `base64` encoded strings to stdout by default. 
 
 When using cosign sign-blob in keyless mode, you need to store the bundle for verification. If you don't want to use the bundle, you can direct the output of the certificate by using the --output-certificate and --output-signature flags. The result from using the output flags:
 
 ```shell
-cosign sign-blob README.md --output-certificate cert.pem --output-signature sig
+$ cosign sign-blob README.md --output-certificate cert.pem --output-signature sig
 Using payload from: README.md
 Generating ephemeral keys...
 Retrieving signed certificate...
@@ -86,15 +86,13 @@ $ curl -L gcr.io/v2/user-vmtest2/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c
 The digest is baked right into the URL, so they can check that as well:
 
 ```shell
-curl -L gcr.io/v2/user-vmtest2/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b | shasum -a 256
+$ curl -L gcr.io/v2/user-vmtest2/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b | shasum -a 256
 97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b  -
 ```
 
 You can sign it with the normal `cosign sign` command and flags:
 
 ```shell
-cosign sign --key cosign.key gcr.io/user-vmtest2/artifact
-Enter password for private key:
-Pushing signature to: gcr.io/user-vmtest2/artifact:sha256-3f612a4520b2c245d620d0cca029f1173f6bea76819dde8543f5b799ea3c696c.sig
+$ cosign sign gcr.io/user-vmtest2/artifact
 ```
 
