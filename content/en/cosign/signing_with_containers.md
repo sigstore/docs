@@ -1,5 +1,5 @@
 ---
-title: "Signing With Containers"
+title: "Signing with Containers"
 category: "Cosign"
 position: 105
 ---
