@@ -17,8 +17,7 @@ features:
 
 ## Getting Started (Quick Start)
 
-Cosign is a tool developed as part of the Sigstore project used to verify and sign container images, ensuring their integrity and authenticity.It can also work with blobs, which are binary large objects or files that you can use to store and transfer data.
-
+Cosign is a command line utility that can sign and verify software artifact, such as container images and blobs.
 Join us on our [Slack channel](https://sigstore.slack.com/). (Need an [invite](https://links.sigstore.dev/slack-invite)?)
 
 ### Installation
