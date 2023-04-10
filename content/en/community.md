@@ -5,7 +5,7 @@ position: 810
 ---
 
 The [sigstore/community](https://github.com/sigstore/community/) repository contains the most up-to-date information about how to get involved with the Sigstore project and its community.
-In this repository you can find our [code of conduct](https://github.com/sigstore/community/blob/main/CODE_OF_CONDUCT.md) and our [contributing guidelines](https://github.com/sigstore/community/blob/main/CONTRIBUTORS.md).
+In this repository you can find our [code of conduct](https://github.com/sigstore/community/blob/main/CODE_OF_CONDUCT.md) and our [contributing guidelines](https://github.com/sigstore/community/blob/main/CONTRIBUTING.md).
 
 ## Mailing list
 

@@ -42,6 +42,6 @@ As a living open source project with an engaged community, there are a number of
     * [Rekor repository](https://github.com/sigstore/rekor)
     * [Gitsign repository](https://github.com/sigstore/gitsign)
     * [Policy Controller repository](https://github.com/sigstore/policy-controller)
-* [Sigstore YouTube Channel](https://www.youtube.com/channel/UCWPVc8glVGOODxsA_ep0VVws)
+* [Sigstore YouTube Channel](https://www.youtube.com/@projectsigstore)
 * [Sigstore Blog](https://blog.sigstore.dev/) 
 * [Sigstore Slack](https://links.sigstore.dev/slack-invite)
