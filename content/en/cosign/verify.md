@@ -18,7 +18,11 @@ To verify a container image keylessly, use the following command:
 ```
 $ cosign verify <image URI> --certificate-identity=name@example.com 
                             --certificate-oidc-issuer=https://accounts.example.com
+                           
 ```
+
+The oidc-issuer for Google is https://accounts.google.com, Microsoft is https://login.microsoftonline.com, and GitHub is https://github.com/login/oauth.
+
 The following example verifies the signature on file.txt from user name@example.com issued by accounts@example.com. It uses a provided bundle cosign.bundle that contains the certificate and signature.
 
 ```
