@@ -15,7 +15,7 @@ $ cosign sign-blob <file> --bundle cosign.bundle
 ```
 The bundle is output as a `base64` encoded string that contains the certificate and signature. In addition, signatures are output as `base64` encoded strings to stdout by default. 
 
-When using cosign sign-blob in keyless mode, you need to store the bundle for verification. If you don't want to use the bundle, you can direct the output of the certificate by using the --output-certificate and --output-signature flags. The result from using the output flags:
+When using `cosign sign-blob` in keyless mode, you need to store the bundle for verification. If you don't want to use the bundle, you can direct the output of the certificate by using the `--output-certificate` and `--output-signature` flags. The result from using the output flags:
 
 ```shell
 $ cosign sign-blob README.md --output-certificate cert.pem --output-signature sig
