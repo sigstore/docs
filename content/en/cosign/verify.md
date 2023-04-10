@@ -1,5 +1,5 @@
 ---
-title: "Verifying Claims"
+title: "Verifying"
 category: "Cosign"
 position: 106
 ---
