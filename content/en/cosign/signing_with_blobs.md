@@ -77,7 +77,7 @@ File is available directly at [us.gcr.io/v2/user-vmtest2/readme/blobs/sha256:b57
 us.gcr.io/user-vmtest2/readme@sha256:4aa3054270f7a70b4528f2064ee90961788e1e1518703592ae4463de3b889dec
 ```
 
-Your users can download it from the "direct" url with standard tools like curl or wget:
+Your users can download it from the "direct" URL with standard tools like curl or wget:
 
 ```shell
 $ curl -L gcr.io/v2/user-vmtest2/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b > artifact
