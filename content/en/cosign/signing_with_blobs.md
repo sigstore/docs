@@ -71,28 +71,28 @@ You can publish an artifact with `cosign upload blob`:
 
 ```shell
 $ echo "my first artifact" > artifact
-$ cosign upload blob -f artifact gcr.io/user/artifact
-Uploading file from [artifact] to [gcr.io/user/artifact:latest] with media type [text/plain; charset=utf-8]
-File is available directly at [us.gcr.io/v2/user/readme/blobs/sha256:b57400c0ad852a7c2f6f7da4a1f94547692c61f3e921a49ba3a41805ae8e1e99]
-us.gcr.io/user/readme@sha256:4aa3054270f7a70b4528f2064ee90961788e1e1518703592ae4463de3b889dec
+$ cosign upload blob -f artifact gcr.io/user/demo/artifact
+Uploading file from [artifact] to [gcr.io/user/demo/artifact:latest] with media type [text/plain; charset=utf-8]
+File is available directly at [us.gcr.io/v2/user/demo/readme/blobs/sha256:b57400c0ad852a7c2f6f7da4a1f94547692c61f3e921a49ba3a41805ae8e1e99]
+us.gcr.io/user/demo/readme@sha256:4aa3054270f7a70b4528f2064ee90961788e1e1518703592ae4463de3b889dec
 ```
 
 Your users can download it from the "direct" URL with standard tools like curl or wget:
 
 ```shell
-$ curl -L gcr.io/v2/user-vmtest2/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b > artifact
+$ curl -L gcr.io/v2/user/demo/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b > artifact
 ```
 
 The digest is baked right into the URL, so users can check that as well:
 
 ```shell
-$ curl -L gcr.io/v2/user/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b | shasum -a 256
+$ curl -L gcr.io/v2/user/demo/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b | shasum -a 256
 97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b  -
 ```
 
 You can sign it with the normal `cosign sign` command and flags:
 
 ```shell
-$ cosign sign gcr.io/user/artifact
+$ cosign sign gcr.io/user/demo/artifact
 ```
 
