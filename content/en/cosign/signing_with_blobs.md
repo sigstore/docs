@@ -8,7 +8,7 @@ Cosign supports signing and verifying standard files and blobs (or binary large 
 
 ## Signing blobs as files in keyless mode
 
-The `cosign sign-blob` command can be used to sign standard files. Signature and certificate information can be sent to a bundled text file, which makes key management invisible infrastructure.  Using a bundle is the simplest way of signing a blob.  Use the `cosign` command to sign:
+The `cosign sign-blob` command can be used to sign standard files. Signature and certificate information can be sent to a bundled text file, which makes key management invisible infrastructure.  Using a bundle is the recommended way of signing a blob.  Use the `cosign` command to sign:
 
 ```shell
 $ cosign sign-blob <file> --bundle cosign.bundle
