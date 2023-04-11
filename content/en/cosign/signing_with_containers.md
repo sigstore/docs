@@ -29,7 +29,7 @@ This usage is a common use case that uses traditional key signing from a key pai
 $ cosign sign --key cosign.key user/demo
 ```
 
-If you need to generate local keys, you can do so by running `cosign generate-key-pair`. 
+If you need to generate local keys, you can do so by running `cosign generate-key-pair`. See [Signing with Self-Managed Keys](/cosign/signing_with_self-managed_keys/) for more information.
 
 ## Sign a container multiple times
 
