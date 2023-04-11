@@ -7,7 +7,7 @@ position: 106
 The general verification format with the `cosign verify` command is as follows.
 
 ```shell
-$ cosign verify --key <key path>|<key url>|<kms uri> <image uri> 
+$ cosign verify [--key <key path>|<key url>|<kms uri>] <image uri> 
 ```
 ## Keyless verification using OpenID Connect
 
