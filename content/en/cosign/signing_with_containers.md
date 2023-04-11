@@ -33,7 +33,7 @@ If you need to generate local keys, you can do so by running `cosign generate-ke
 
 ## Sign a container multiple times
 
-Multiple signatures can be "attached" to a single container image.  In this example, the container is signed keylessly and then with a local key:
+Multiple signatures can be "attached" to a single container image.  In this example, the container is signed and then again with a local key:
 
 ```shell
 $ cosign sign user/demo
