@@ -58,7 +58,7 @@ $ cosign verify user-0/demo-0 user-1/demo-1
 
 ## Local verifications
 
-Verify with an on-disk public key:
+Verify with a provided on-disk public key:
 
 ```shell
 $ cosign verify --key cosign.pub user/demo
