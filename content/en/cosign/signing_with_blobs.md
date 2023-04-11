@@ -61,7 +61,7 @@ Enter password for private key:
 MEQCIAU4wPBpl/U5Vtdx/eJFgR0nICiiNCgyWPWarupH0onwAiAv5ycIKgztxHNVG7bzUjqHuvK2gsc4MWxwDgtDh0JINw==
 ```
 
-This supports all the same flags and features as `cosign sign`, including KMS support, hardware tokens, and keyless signatures. See [Signing with Self-Managed Keys](/cosign/signing_with_self_managed_keys/) for more information.
+This supports all the same flags and features as `cosign sign`, including KMS support, hardware tokens, and keyless signatures. See [Signing with Self-Managed Keys](/cosign/signing_with_self-managed_keys/) for more information.
 
 ## Blobs in OCI Registries
 
