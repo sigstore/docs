@@ -6,7 +6,7 @@ position: 109
 
 Cosign supports signing and verifying standard files and blobs (or binary large objects), in addition to containers. This topic discusses signing. For information on verifying, see [Verifying](/cosign/verify).
 
-## Signing b lobs as files in keyless mode
+## Signing blobs as files in keyless mode
 
 Cosign supports identity-based signing, associating an ephemeral signing key with an identity from an OpenID Connect provider. We refer to this process as "keyless signing". The `cosign sign-blob` command can be used to sign standard files as well as blobs. Signature and certificate information can be sent to a bundled text file, which makes key management invisible infrastructure.  Using a bundle is the recommended way of signing a blob.  Use the `cosign` command to sign:
 
