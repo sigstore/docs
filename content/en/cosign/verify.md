@@ -30,7 +30,7 @@ $ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@e
                               --certificate-oidc-issuer=https://accounts.example.com
 ```
 
-With container images, the signature and certificate are attached to the container.  For blobs, the signature and certificate can be stored in a bundle file that is created at the time of signing.  Either it must be specified, or the individual signature and certificate must be specified.
+With container images, the signature and certificate are attached to the container.  For blobs, the signature and certificate can be stored in a bundle file that is created at the time of signing.  Either the bundle must be specified, or the individual signature and certificate must be specified.
 
 **Important Note**:
 
