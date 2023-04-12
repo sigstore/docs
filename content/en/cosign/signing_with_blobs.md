@@ -83,7 +83,7 @@ Your users can download it from the "direct" URL with standard tools like curl o
 $ curl -L gcr.io/v2/user/demo/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b > artifact
 ```
 
-The digest is baked right into the URL, so users can check that as well:
+The digest is included in the URL, so users can check that as well:
 
 ```shell
 $ curl -L gcr.io/v2/user/demo/artifact/blobs/sha256:97f16c28f6478f3c02d7fff4c7f3c2a30041b72eb6852ca85b919fd85534ed4b | shasum -a 256
