@@ -52,7 +52,7 @@ Certificate wrote in the file cert.pem
 
 ## Signing with a key
 
-You may specify your own keys for signing.  You will need the password for the private key to sign:
+While keyless signing is recommended, you may specify your own keys for signing.  You will need the password for the private key to sign:
 
 ```shell
 $ cosign sign-blob --key cosign.key README.md
