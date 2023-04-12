@@ -18,7 +18,7 @@ Where `user/demo` is the image URI. We'll use `user/demo` as our example image i
 The general signing format with the `cosign sign` command is as follows.
 
 ```shell
-$ cosign sign --key <key path>|<kms uri> [--payload <path>] [-a key=value] [--upload=true|false] [-f] [-r] <image uri>
+$ cosign sign [--key <key path>|<kms uri>] [--payload <path>] [-a key=value] [--upload=true|false] [-f] [-r] <image uri>
 ```
 
 ## Sign with a local key pair
@@ -75,8 +75,8 @@ Cosign can use environment variables and KMS (Key Management Service) APIs, in a
 When referring to a key managed by a KMS provider, `cosign` takes a [go-cloud](https://gocloud.dev) style URI to refer to the specific provider. The URI path syntax is provider specific.
 
 ```shell
-$ cosign sign --key <some provider>://<some key> gcr.io/user-vmtest2/demo
-Pushing signature to: gcr.io/user-vmtest2/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.cosign
+$ cosign sign --key <some provider>://<some key> gcr.io/user/demo
+Pushing signature to: gcr.io/user/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.cosign
 ```
 
 Read more about this in our [KMS Support page](/cosign/kms_support/).
@@ -134,20 +134,20 @@ Cosign uses standard PKIX cryptographic formats, here's a full example with `ope
 $ openssl ecparam -name prime256v1 -genkey -noout -out openssl.key
 $ openssl ec -in openssl.key -pubout -out openssl.pub
 # Generate the payload to be signed
-$ cosign generate us.gcr.io/user-vmtest2/demo > payload.json
+$ cosign generate us.gcr.io/user/demo > payload.json
 # Sign it and convert to base64
 $ openssl dgst -sha256 -sign openssl.key -out payload.sig payload.json
 $ cat payload.sig | base64 > payloadbase64.sig
 # Upload the signature
-$ cosign attach signature --payload payload.json --signature payloadbase64.sig us.gcr.io/user-vmtest2/demo
+$ cosign attach signature --payload payload.json --signature payloadbase64.sig us.gcr.io/user/demo
 # Verify!
-$ cosign verify --key openssl.pub us.gcr.io/user-vmtest2/demo
-Verification for us.gcr.io/user-vmtest2/demo --
+$ cosign verify --key openssl.pub us.gcr.io/user/demo
+Verification for us.gcr.io/user/demo --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
   - The signatures were verified against the specified public key
   - Any certificates were verified against the Fulcio roots.
-{"critical":{"identity":{"docker-reference":"us.gcr.io/user-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:124e1fdee94fe5c5f902bc94da2d6e2fea243934c74e76c2368acdc8d3ac7155"},"type":"cosign container image signature"},"optional":null}
+{"critical":{"identity":{"docker-reference":"us.gcr.io/user/demo"},"image":{"docker-manifest-digest":"sha256:124e1fdee94fe5c5f902bc94da2d6e2fea243934c74e76c2368acdc8d3ac7155"},"type":"cosign container image signature"},"optional":null}
 ```
 
 ## Sign but skip upload (to store somewhere else)
@@ -175,8 +175,7 @@ $ cosign generate user/demo | openssl...
 
 ## Upload a generated signature
 
-The signature is passed via the `--signature` flag.
-It can be a file:
+The signature is passed via the `--signature` flag. It can be a file:
 
 ```shell
 $ cosign attach signature --signature file.sig user/demo
@@ -210,7 +209,7 @@ index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab
 They can be reviewed with `crane`:
 
 ```shell
-$ crane manifest $(cosign triangulate gcr.io/user-vmtest2/demo) | jq .
+$ crane manifest $(cosign triangulate gcr.io/user/demo) | jq .
 {
   "schemaVersion": 2,
   "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
@@ -243,5 +242,5 @@ $ crane manifest $(cosign triangulate gcr.io/user-vmtest2/demo) | jq .
 Some registries support deletion too (DockerHub does not):
 
 ```shell
-$ cosign clean gcr.io/user-vmtest2/demo
+$ cosign clean gcr.io/user/demo
 ```
