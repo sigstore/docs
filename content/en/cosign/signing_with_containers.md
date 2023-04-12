@@ -33,14 +33,12 @@ If you need to generate local keys, you can do so by running `cosign generate-ke
 
 ## Sign a container multiple times
 
-Multiple signatures can be "attached" to a single container image.  In this example, the container is signed and then again with a local key:
+Multiple signatures can be "attached" to a single container image.  In this example, the container is signed and then signed again:
 
 ```shell
 $ cosign sign user/demo
 
-$ cosign sign --key other.key user/demo
-Enter password for private key:
-Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
+$ cosign sign user/demo
 ```
 
 ## Add annotations with a signature
