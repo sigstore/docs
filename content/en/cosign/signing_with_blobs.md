@@ -8,7 +8,7 @@ You can use Cosign for signing and verifying standard files and blobs (or binary
 
 ## Keyless signing of blobs and files
 
-Cosign supports identity-based signing, associating an ephemeral signing key with an identity from an OpenID Connect provider. We refer to this process as "keyless signing". The `cosign sign-blob` command can be used to sign standard files as well as blobs. Signature and certificate information can be sent to a bundled text file, which makes key management invisible infrastructure.  Using a bundle is the recommended way of signing a blob.  Use the `cosign` command to sign:
+Cosign supports identity-based signing, associating an ephemeral signing key with an identity from an OpenID Connect provider. We refer to this process as "keyless signing". You use `cosign sign-blob` to sign standard files as well as blobs. You can store signature and certificate information either as separate file, or in a bundled text file, but using a bundle is the recommended way of signing a blob, as users can specify just the bundle name instead of separate files for the signature and certificate.  Use the `cosign` command to sign:
 
 ```shell
 $ cosign sign-blob <file> --bundle cosign.bundle
