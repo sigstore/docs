@@ -40,7 +40,7 @@ jnVtSyKZxNzBfNMLLtVxdu8q+AigrGCS2KPmejda9bICTcHQCRUrD5OLGQ==
 
 ## Signing with a local key pair
 
-This usage is a common use case that uses traditional key signing from a key pair. 
+This section shows traditional key signing from a key pair:
 
 ```shell
 $ cosign sign --key cosign.key user/demo
