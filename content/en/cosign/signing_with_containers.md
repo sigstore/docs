@@ -156,19 +156,120 @@ The upload is skipped by using the `--upload=false` flag (default true). To capt
 $ cosign sign --upload=false --output-signature demo.sig --output-certificate demo.crt user/demo
 ```
 
-## Generate the signature payload (to sign with another tool)
+## Generate the Signature Payload with Cosign (to sign with another tool)
 
-The json payload is printed to stdout:
+You can also use other tools for signing - not just `cosign`. This section will provide examples of how to sign with tools other than `cosign`.
+
+### GCP KMS with `gcloud`
+
+To sign with `gcloud kms`, first use `cosign generate` to generate the payload and dump it into a JSON file:
 
 ```shell
-$ cosign generate user/demo
-{"Critical":{"Identity":{"docker-reference":""},"Image":{"Docker-manifest-digest":"87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8"},"Type":"cosign container image signature"},"Optional":null}
+$ cosign generate us-central1-docker.pkg.dev/user/test/taskrun > payload.json
 ```
 
-This can be piped directly into OpenSSL.
+Sign the payload with `gcloud kms`:
 
 ```shell
-$ cosign generate user/demo | openssl...
+$ gcloud kms asymmetric-sign \
+      --digest-algorithm=sha256 \
+      --input-file=payload.json \
+      --signature-file=gcpkms.sig \
+      --key=foo \
+      --keyring=foo \
+      --version=1 \
+      --location=us-central
+```
+
+Base64 encode the signature into a temporary variable and use it to upload with `cosign`:
+
+```shell
+$ BASE64_SIGNATURE=$(cat gcpkms.sig | base64)
+$ cosign attach signature --payload payload.json --signature $BASE64_SIGNATURE us-central1-docker.pkg.dev/user/test/taskrun
+```
+
+Now (on another machine) use `cosign` to download signature bundle and dump into a JSON file:
+
+```shell
+$ cosign download signature us-central1-docker.pkg.dev/user/test/taskrun > signatures.json
+```
+
+Extract a payload and signature value and dump into their own respective files:
+
+```shell
+$ cat signatures.json | tail -1 | jq -r .Payload | base64 -D > payload
+$ cat signatures.json | tail -1 | jq -r .Base64Signature | base64 -D > signature
+```
+
+Download (on the same machine as the previous step) the public key:
+
+```shell
+$ gcloud kms keys versions get-public-key 1 --key=foo --keyring=foo --location=us-central1 > pubkey.pem
+```
+
+Finally, verify the signature with `openssl`:
+
+```shell
+$ openssl dgst -sha256 -verify pubkey.pem -signature gcpkms.sig payload
+```
+
+### AWS KMS with `aws`
+
+To use a AWS KMS CMK (Custom Master Key) for signing and verification, first create the CMK (just need to do this once) using the `aws` CLI (Version 2):
+
+```shell
+$ export AWS_CMK_ID=$(aws kms create-key --customer-master-key-spec RSA_4096 \
+                                   --key-usage SIGN_VERIFY \
+                                   --description "Cosign Signature Key Pair" \
+                                   --query KeyMetadata.KeyId --output text)
+```
+
+Use `cosign` to generate the payload:
+
+```shell
+$ cosign generate docker.io/davivcgarcia/hello-world:latest > payload.json
+```
+
+Sign the payload with the AWS KMS CMK we created above:
+
+```shell
+$ aws kms sign --key-id $AWS_CMK_ID \
+              --message file://payload.json \
+              --message-type RAW \
+              --signing-algorithm RSASSA_PKCS1_V1_5_SHA_256 \
+              --output text \
+              --query Signature > payload.sig
+```
+
+Upload the signature with `cosign`:
+
+```shell
+$ cosign attach signature docker.io/davivcgarcia/hello-world:latest --signature $(< payload.sig) --payload payload.json
+```
+
+Now (on another machine) use cosign to download signature bundle and dump into a JSON file:
+
+```shell
+$ cosign download signature docker.io/davivcgarcia/hello-world:latest > signatures.json
+```
+
+Extract the payload and signature value and dump into their own respective files:
+
+```shell
+$ cat signatures.json | tail -1 | jq -r .Base64Signature | base64 -D > remote_payload.sig
+$ cat signatures.json | tail -1 | jq -r .Payload | base64 -D > remote_payload.json
+```
+
+Verify with AWS KMS using the CMK key we created in the first step:
+
+```shell
+$ aws kms verify --key-id $AWS_CMK_ID \
+               --message file://remote_payload.json \
+               --message-type RAW \
+               --signing-algorithm RSASSA_PKCS1_V1_5_SHA_256 \
+               --signature fileb://remote_payload.sig \
+               --output text \
+               --query SignatureValid
 ```
 
 ## Upload a generated signature
