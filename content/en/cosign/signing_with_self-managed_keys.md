@@ -4,7 +4,7 @@ category: "Cosign"
 position: 103
 ---
 
-To generate a key pair in Cosign, run `cosign generate-key-pair`, you'll be interactively prompted to provide a password. 
+To generate a key pair in Cosign, run `cosign generate-key-pair`. You'll be interactively prompted to provide a password. 
 
 ```shell
 $ cosign generate-key-pair
