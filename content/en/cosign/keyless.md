@@ -139,9 +139,8 @@ These instances are operated and maintained in the same manner as the public pro
 To use this instance, follow the steps below:
 
 1. `rm -r ~/.sigstore`
-1. `gsutil cp -r gs://tuf-root-staging/root.json .`
-1. `cd tuf-root-staging`
-1. `cosign initialize --mirror=tuf-root-staging --root=root.json`
+1. `curl -O https://raw.githubusercontent.com/sigstore/root-signing/main/staging/repository/1.root.json`
+1. `cosign initialize --mirror=https://tuf-repo-cdn.sigstore.dev --root=1.root.json`
 1. `COSIGN_EXPERIMENTAL=1 cosign sign --oidc-issuer "https://oauth2.sigstage.dev/auth" --fulcio-url "https://fulcio.sigstage.dev" --rekor-url "https://rekor.sigstage.dev" ${IMAGE_DIGEST}`
 1. `COSIGN_EXPERIMENTAL=1 cosign verify --rekor-url "https://rekor.sigstage.dev" ${IMAGE}`
 

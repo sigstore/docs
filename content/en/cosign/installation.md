@@ -130,7 +130,7 @@ curl -o sigstore-root.json https://raw.githubusercontent.com/sigstore/root-signi
 Then initialize the tuf client with the previously obtained root key and the remote repository;
 
 ```console
-$ tuf-client init https://sigstore-tuf-root.storage.googleapis.com sigstore-root.json
+$ tuf-client init https://tuf-repo-cdn.sigstore.dev sigstore-root.json
 ```
 
 ## Verifying Cosign Releases
@@ -138,14 +138,14 @@ $ tuf-client init https://sigstore-tuf-root.storage.googleapis.com sigstore-root
 Before using a downloaded Cosign binary, it's important to verify its authenticity to ensure that it hasn't been tampered with. The Cosign binary is signed both with keyless signing and an artifact key. You first need to verify Cosign with the artifact key, since you will need Cosign to verify the keyless signature.
 
 ```console
-tuf-client get https://sigstore-tuf-root.storage.googleapis.com cosign.pub > cosign.pub
+tuf-client get https://tuf-repo-cdn.sigstore.dev artifact.pub > artifact.pub
 
 curl -o cosign-release.sig -L https://github.com/sigstore/cosign/releases/download/<version>/cosign-<os>.sig
 base64 -d cosign-release.sig > cosign-release.sig.decoded
 
 curl -o cosign -L https://github.com/sigstore/cosign/releases/download/<version>/cosign-<os>
 
-openssl dgst -sha256 -verify cosign.pub -signature cosign-release.sig.decoded cosign
+openssl dgst -sha256 -verify artifact.pub -signature cosign-release.sig.decoded cosign
 ```
 
 The `<version>`and `<os>` placeholders in the URLs should be replaced with the specific version and operating system that you want to download.
