@@ -13,7 +13,7 @@ $ cosign verify [--key <key path>|<key url>|<kms uri>] <image uri>
 
 We'll use `user/demo` as our example image in the following commands and keyless signing where appropriate.
 
-To verify a container image keylessly, use the following command:
+For identity-based verification of a container image, use the following command:
 
 ```
 $ cosign verify <image URI> --certificate-identity=name@example.com 
