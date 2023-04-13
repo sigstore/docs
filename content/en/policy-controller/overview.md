@@ -10,6 +10,7 @@ position: 140
 The `policy-controller` admission controller can be used to enforce policy on a Kubernetes cluster based on verifiable supply-chain metadata from `cosign`.
 
 `policy-controller` also resolves the image tags to ensure the image being ran is not different from when it was admitted.
+The validation results are stored in a resource annotation with key `policy.sigstore.dev/policy-controller-results`.
 
 See the [installation instructions](/policy-controller/installation/) for more information.
 
