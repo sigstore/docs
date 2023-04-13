@@ -64,7 +64,7 @@ They can be verified with the `-a` flag as part of the `cosign verify` command.
 You can sign a container and attach an existing certificate and certificate chain to an image. Note that you cannot currently generate a certificate chain but can use an existing chain. 
 
 ```shell
-$ cosign sign --cert cosign.crt --cert-chain chain.crt user/demo
+$ cosign sign --certificate cosign.crt --certificate-chain chain.crt user/demo
 ```
 
 ## Sign with a key pair stored elsewhere
