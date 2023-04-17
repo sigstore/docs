@@ -999,3 +999,14 @@ and TrustRoot. We will fix this in a newer API version, but can't do it without
 reving the API version due to backwards compatibility. In CIP the ctLog refers
 to Rekor, which in TrustRoot was correctly named `tLog`. Whereas in TrustRoot
 the `ctLog` correctly refers to the `Certificate Transparency Log`.
+
+## Enabling annotations
+
+The policy-controller can be configured to write the results of the policy
+validation as an annotation. The validation results are stored in a resource
+annotation with key `policy.sigstore.dev/policy-controller-results`.
+
+This behavior can be configured using the `config-policy-controller` ConfigMap
+created under the release namespace (by default `cosign-system`), and by adding
+an entry with the property `annotate-validation-results` and its value `false|true`.
+The default is `false`.
