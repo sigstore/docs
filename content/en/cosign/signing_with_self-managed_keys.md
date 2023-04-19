@@ -1,6 +1,9 @@
+---
+title: "Signing with Self-Managed Keys"
+category: "Cosign"
+position: 103
+---
 
-
-=======
 To generate a key pair in Cosign, run `cosign generate-key-pair`. You'll be interactively prompted to provide a password. 
 
 ```shell
@@ -33,4 +36,14 @@ $ cosign public-key --key <some provider>://<some key>
 MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEXc+DQU8Pb7Xo2RWCjFG/f6qbdABN
 jnVtSyKZxNzBfNMLLtVxdu8q+AigrGCS2KPmejda9bICTcHQCRUrD5OLGQ==
 -----END PUBLIC KEY-----
+```
+
+## Signing with a local key pair
+
+This section shows traditional key signing from a key pair:
+
+```shell
+$ cosign sign --key cosign.key user/demo
+Enter password for private key:
+Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
 ```

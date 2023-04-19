@@ -1,5 +1,5 @@
 ---
-title: "Verifying Claims"
+title: "Verifying"
 category: "Cosign"
 position: 106
 ---
@@ -7,10 +7,30 @@ position: 106
 The general verification format with the `cosign verify` command is as follows.
 
 ```shell
-$ cosign verify --key <key path>|<key url>|<kms uri> <image uri> 
+$ cosign verify [--key <key path>|<key url>|<kms uri>] <image uri> 
+```
+## Keyless verification using OpenID Connect
+
+We'll use `user/demo` as our example image in the following commands and keyless signing where appropriate.
+
+For identity-based verification of a container image, use the following command:
+
+```
+$ cosign verify <image URI> --certificate-identity=name@example.com 
+                            --certificate-oidc-issuer=https://accounts.example.com
+                           
 ```
 
-We'll use `user/demo` as our example image in the following commands. 
+The oidc-issuer for Google is https://accounts.google.com, Microsoft is https://login.microsoftonline.com, and GitHub is https://github.com/login/oauth.
+
+The following example verifies the signature on file.txt from user name@example.com issued by accounts@example.com. It uses a provided bundle cosign.bundle that contains the certificate and signature.
+
+```
+$ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@example.com 
+                              --certificate-oidc-issuer=https://accounts.example.com
+```
+
+With container images, the signature and certificate are attached to the container.  For blobs, the signature and certificate can be stored in a bundle file that is created at the time of signing.  Either the bundle must be specified, or the individual signature and certificate must be specified.
 
 **Important Note**:
 
@@ -20,7 +40,7 @@ By default, `cosign` validates that this digest matches the container during `co
 If you are using other payload formats with `cosign`, you can use the `--check-claims=false` flag:
 
 ```shell
-$ cosign verify --check-claims=false --key cosign.pub user/demo
+$ cosign verify --check-claims=false user/demo
 Warning: the following claims have not been verified:
 {"Critical":{"Identity":{"docker-reference":""},"Image":{"Docker-manifest-digest":"87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8"},"Type":"cosign container image signature"},"Optional":null}
 ```
@@ -38,7 +58,7 @@ $ cosign verify user-0/demo-0 user-1/demo-1
 
 ## Local verifications
 
-Verify with an on-disk public key:
+Verify with an on-disk public key provided by the signer or other organization:
 
 ```shell
 $ cosign verify --key cosign.pub user/demo
