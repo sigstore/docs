@@ -15,7 +15,7 @@ We welcome contributions on the docs site!
 3. Hack on your changes.
 4. Write a meaningful commit message (and sign your commit). Review the [commit message guidelines](https://github.com/sigstore/sigstore-website/blob/main/CONTRIBUTORS.md#commit-message-guidelines).
 5. Ensure that CI passes, if it fails, fix the failures. If you are making many commits into one PR, please [squash your commits](https://github.com/sigstore/sigstore-website/blob/main/CONTRIBUTORS.md#squash-commits).
-6. Every pull request requires a review from the [core sigstore-website team](https://github.com/orgs/sigstore/people) before merging.
+6. Every pull request requires a review from the core sigstore-website team before merging.
 
 ## Setup
 
