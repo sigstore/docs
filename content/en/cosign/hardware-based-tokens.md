@@ -21,7 +21,7 @@ We recommend using an application provided by your hardware vendor to manage key
 The following exmamples use this image:
 
 ```shell
-$ IMAGE=gcr.io/dlorenc-vmtest2/demo
+$ IMAGE=gcr.io/user-vmtest2/demo
 $ IMAGE_DIGEST=$IMAGE@sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd
 ```
 
@@ -105,7 +105,7 @@ You can then use the normal `cosign` commands to sign images and blobs with your
 $ cosign sign --sk $IMAGE_DIGEST
 Enter PIN for security key:
 Please tap security key...
-Pushing signature to: gcr.io/dlorenc-vmtest2/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.sig
+Pushing signature to: gcr.io/user-vmtest2/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.sig
 ```
 
 To verify, you can either use the hardware key directly:
@@ -113,13 +113,13 @@ To verify, you can either use the hardware key directly:
 ```shell
 $ cosign verify --sk $IMAGE_DIGEST
 
-Verification for gcr.io/dlorenc-vmtest2/demo --
+Verification for gcr.io/user-vmtest2/demo --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
   - The signatures were verified against the specified public key
   - The code-signing certificate was verified using trusted certificate authority certificates
 
-[{"critical":{"identity":{"docker-reference":"gcr.io/dlorenc-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd"},"type":"cosign container image signature"},"optional":null}]
+[{"critical":{"identity":{"docker-reference":"gcr.io/user-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd"},"type":"cosign container image signature"},"optional":null}]
 ```
 
 Or export the public key and verify against that:
@@ -129,13 +129,13 @@ $ cosign public-key --sk > pub.key
 
 $ cosign verify --key pub.key $IMAGE
 
-Verification for gcr.io/dlorenc-vmtest2/demo --
+Verification for gcr.io/user-vmtest2/demo --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
   - The signatures were verified against the specified public key
   - The code-signing certificate was verified using trusted certificate authority certificates
 
-[{"critical":{"identity":{"docker-reference":"gcr.io/dlorenc-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd"},"type":"cosign container image signature"},"optional":null}]
+[{"critical":{"identity":{"docker-reference":"gcr.io/user-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd"},"type":"cosign container image signature"},"optional":null}]
 ```
 
 ## CLI Usage
