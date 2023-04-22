@@ -11,7 +11,7 @@ and the [go-piv](https://github.com/go-piv/piv-go) library, which is not include
 ---
 **NOTE**
 
-`cosign`'s hardware token support requires `libpcsclite` on platforms other than Windows and OSX.
+Cosign's hardware token support requires `libpcsclite` on platforms other than Windows and OSX.
 See [`go-piv`'s installation instructions for your platform.](https://github.com/go-piv/piv-go#installation)
 
 ---
