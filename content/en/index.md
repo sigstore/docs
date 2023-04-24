@@ -10,7 +10,7 @@ position: 1
 
 **Sigstore is a Linux Foundation project backed by Google, Red Hat and Purdue University, that help improve software suppy chain security through automation and transparency. We provide a public good, non-profit service to improve the open source software supply chain by easing the adoption of cryptographic software signing.**
 
-Sigstore empower software developers to securely sign software artifacts such as release files, container images, binaries, bill of material manifests and more. Signing materials are then stored in a tamper-resistant public log.
+Sigstore empowers software developers to securely sign software artifacts such as release files, container images, binaries, bill of material manifests and more. Signing materials are then stored in a tamper-resistant public log.
 
 It’s free to use for all developers and software providers, with Sigstore’s code and operational tooling being 100% open source, and everything maintained and developed by the Sigstore community.
 
