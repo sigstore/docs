@@ -1,8 +1,8 @@
-# Sigstore docs
+# sigstore docs
 
-This repo contains the Sigstore documentation, which is hosted at [docs.sigstore.dev](https://docs.sigstore.dev/).
+This repo contains the sigstore documentation, which is hosted at [docs.sigstore.dev](https://docs.sigstore.dev/).
 
-If you are looking for the frontend development of the [Sigstore website](https://www.sigstore.dev/), please visit the [sigstore-wesbite](https://github.com/sigstore/sigstore-website) repo. 
+If you are looking for the frontend development of the [sigstore website](https://www.sigstore.dev/), please visit the [sigstore-wesbite](https://github.com/sigstore/sigstore-website) repo.
 
 ## Contributing
 

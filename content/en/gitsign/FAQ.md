@@ -23,7 +23,7 @@ open source project.
 At the moment, GitHub doesn’t recognize Gitsign signatures as `verified` for two
 reasons:
 
-1. The Sigstore CA root is not a part of
+1. The sigstore CA root is not a part of
    [GitHub’s trust root](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#smime-commit-signature-verification).
 2. Gitsign’s ephemeral keys are only valid for a short time, so using standard
    x509 verification would consider the certificate invalid after expiration.
@@ -79,7 +79,7 @@ few options to help automating the authentication process:
 
 - Setting the [`connectorID`](/gitsign/usage/#configuration) value can be set to
   automatically select the desired provider for Dex backed OIDC providers
-  (including the public Sigstore instance at `oauth.sigstore.dev`). While this
+  (including the public sigstore instance at `oauth.sigstore.dev`). While this
   still requires a browser window to open, this does not require an extra click
   to select the provider.
 - Starting in v0.2.0, Gitsign has experimental support for key caching to allow

@@ -10,7 +10,7 @@ Verifying keyless signatures require verifying signatures from Rekor, material (
 
 There are three options to configure Cosign to verify against custom components:
 
-1. Use [scaffolding](https://github.com/sigstore/scaffolding) to create a custom Sigstore stack. This provides a TUF root distributing verification material for the custom components, and pre-configured Cosign with the trust root.
+1. Use [scaffolding](https://github.com/sigstore/scaffolding) to create a custom sigstore stack. This provides a TUF root distributing verification material for the custom components, and pre-configured Cosign with the trust root.
 
 2. Create a TUF repository yourself, using [go-tuf](https://github.com/theupdateframework/go-tuf) or [python-tuf](https://github.com/theupdateframework/python-tuf)'s repository writers. Instructions for how to configure this root is in this [blog post](https://blog.sigstore.dev/sigstore-bring-your-own-stuf-with-tuf-40febfd2badd). This [script](https://gist.github.com/asraa/947f1a38afd03af57c7b71d893c36af0) can be used to create a TUF repository from the custom Fulcio, Rekor, and CT log verification material.
 

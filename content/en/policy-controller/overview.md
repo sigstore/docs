@@ -329,16 +329,16 @@ spec:
         trustRootRef: my-tsa-keys
 ```
 
-### Configuring verification against different Sigstore instances.
+### Configuring verification against different sigstore instances.
 
-By default policy-controller trusts Public Good Instance of Sigstore. You can
+By default policy-controller trusts Public Good Instance of sigstore. You can
 add (or replace) this by specifying a different [Trust Root](#support-for-multiple-or-custom-sigstore-instances).
-For example, to use your custom installation of Sigstore (Fulcio/Rekor), you
+For example, to use your custom installation of sigstore (Fulcio/Rekor), you
 would first create a [Trust Root CR](#support-for-multiple-or-custom-sigstore-instances)
 and then refer to it in your `keyless` section. For example, if your `TrustRoot`
-CR pointing to your custom Sigstore installation is `my-sigstore`, you would
+CR pointing to your custom sigstore installation is `my-sigstore`, you would
 refer to it in the CIP `trustRootRef`. This example shows both custom Fulcio,
-and Rekor pointing to your custom Sigstore.
+and Rekor pointing to your custom sigstore.
 
 ```yaml
 apiVersion: policy.sigstore.dev/v1alpha1
@@ -854,11 +854,11 @@ spec:
 
 This feature only supports the selection of the following resource types: `pods, statefulsets, daemonsets, cronjobs, jobs, deployments and replicasets`.
 
-## Support for multiple or custom Sigstore instances
+## Support for multiple or custom sigstore instances
 
-By default policy-controller trusts the Public Good Instance of Sigstore and
+By default policy-controller trusts the Public Good Instance of sigstore and
 can be used to validate against it. Sometimes however, if you are using a
-private instance of Sigstore, you need to configure policy-controller to verify
+private instance of sigstore, you need to configure policy-controller to verify
 against the Trusted Roots for that instance. This can also be used to implement
 running in an airgapped by configuring the TUF roots that get installed Out Of
 Band (OOB), or lastly if you want to just provide the necessary keys and
@@ -871,7 +871,7 @@ root, and can also be used for air-gap scenarios) for bring your own keys/certs.
 
 You can learn more about [TUF](https://github.com/theupdateframework/) and
 [why](https://blog.sigstore.dev/sigstore-bring-your-own-stuf-with-tuf-40febfd2badd/)/[
- how](https://github.com/sigstore/root-signing) Sigstore uses it.
+ how](https://github.com/sigstore/root-signing) sigstore uses it.
 
 Detailed field descriptions for the [TrustRoot CRD](https://github.com/sigstore/policy-controller/blob/main/docs/api-types/index-v1alpha1.md#trustroot).
 
@@ -963,7 +963,7 @@ spec:
 #### certificateAuthorities
 
 `certificateAuthorities` specifies the trust for the signing certificates, which
-is Fulcio in Sigstore case. `FULCIO_CERT_CHAIN` is the base64 encoded
+is Fulcio in sigstore case. `FULCIO_CERT_CHAIN` is the base64 encoded
 certificates including the root for Fulcio that matches `fulcio-organization`
 and `commonName` in the certificate for the specified `url`.
 
@@ -976,12 +976,12 @@ Transparency Log for auditing.
 `baseURL` is the base URL to the log conforming to
 [RFC6962](https://datatracker.ietf.org/doc/html/rfc6962), for example,
 [Trillian](https://github.com/google/trillian) in the case of Public Good
-Instance of Sigstore. `hashAlgorithm` specifies the hash algorithm used and
+Instance of sigstore. `hashAlgorithm` specifies the hash algorithm used and
 `publicKey` is the base64 encoded Public Key of the CTLog.
 
 #### tLogs
 
-`tLogs` specifies the Transparency Log (TLog) trust, which is Rekor in Sigstore
+`tLogs` specifies the Transparency Log (TLog) trust, which is Rekor in sigstore
 case. `REKOR_PUBLIC_KEY` base64 encoded Public Key of the TLog. `baseURL` is the
 base URL for the service providing the TLog, and again the `hashAlgorithm` is
 the hash algorithm used.

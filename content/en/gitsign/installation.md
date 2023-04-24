@@ -26,7 +26,7 @@ The resulting binary will be placed at `$GOPATH/bin/gitsign`.
 
 If you are using [Homebrew](https://docs.brew.sh/) as a package manager for
 macOS or Linux, you can use it to install Gitsign. Use `brew tap` to add
-Sigstore's repository to your system, then run `brew install` to get it
+sigstore's repository to your system, then run `brew install` to get it
 installed:
 
 ```console

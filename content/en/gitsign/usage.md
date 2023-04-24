@@ -34,7 +34,7 @@ The following config options are supported:
 
 ### Environment Variables
 
-| Environment Variable      | Sigstore<br>Prefix | Default                          | Description                                                                                                                                                                                                                                |
+| Environment Variable      | sigstore<br>Prefix | Default                          | Description                                                                                                                                                                                                                                |
 | ------------------------- | ------------------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | GITSIGN_CREDENTIAL_CACHE  | ❌                 |                                  | Optional path to [gitsign-credential-cache](https://github.com/sigstore/gitsign/tree/main/cmd/gitsign-credential-cache) socket.                                                                                                            |
 | GITSIGN_CONNECTOR_ID      | ✅                 |                                  | Optional Connector ID to auto-select to pre-select auth flow to use. For the public sigstore instance, valid values are:<br>- `https://github.com/login/oauth`<br>- `https://accounts.google.com`<br>- `https://login.microsoftonline.com` |
@@ -45,7 +45,7 @@ The following config options are supported:
 | GITSIGN_OIDC_REDIRECT_URL | ✅                 |                                  | OIDC Redirect URL                                                                                                                                                                                                                          |
 | GITSIGN_REKOR_URL         | ✅                 | https://rekor.sigstore.dev       | Address of Rekor server                                                                                                                                                                                                                    |
 
-For environment variables that support `Sigstore Prefix`, the values may be
+For environment variables that support `sigstore Prefix`, the values may be
 provided with either a `GITSIGN_` or `SIGSTORE_` prefix - e.g.
 `GITSIGN_CONNECTOR_ID` or `SIGSTORE_CONNECTOR_ID`. If both environment variables
 are set, `GITSIGN_` prefix takes priority.
@@ -87,7 +87,7 @@ Your browser will now be opened to:
 https://oauth2.sigstore.dev/auth/auth?access_type=online&client_id=sigstore&...
 ```
 
-This will redirect you through the Sigstore Keyless flow to authenticate and
+This will redirect you through the sigstore Keyless flow to authenticate and
 sign the tag.
 
 Tags can then be verified using `git verify-tag`:

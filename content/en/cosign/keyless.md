@@ -4,7 +4,7 @@ category: "Cosign"
 position: 122
 ---
 
-This page explains how the keyless signatures work in Cosign. This signature mode relies on the Sigstore Public Good Instance.
+This page explains how the keyless signatures work in Cosign. This signature mode relies on the sigstore Public Good Instance.
 
 ## Quickstart
 
@@ -132,7 +132,7 @@ The endpoints are as follows:
 * https://rekor.sigstage.dev
 * https://oauth2.sigstage.dev/auth
 
-These instances are operated and maintained in the same manner as the public production environment for Sigstore.
+These instances are operated and maintained in the same manner as the public production environment for sigstore.
 
 ### Usage
 

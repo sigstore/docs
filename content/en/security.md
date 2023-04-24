@@ -5,21 +5,21 @@ category: 'About sigstore'
 position: 3
 ---
 
-The Sigstore security model has a few key components, each aimed at establishing trust or proving identity. For a quick overview of the key services mentioned in this document, see [main concepts](/main-concepts/).
+The sigstore security model has a few key components, each aimed at establishing trust or proving identity. For a quick overview of the key services mentioned in this document, see [main concepts](/main-concepts/).
 
-## Proving Identity in Sigstore
+## Proving Identity in sigstore
 
-Sigstore relies on the widely used OpenID Connect (OIDC) protocol to prove identity. When running something like `cosign sign`, users will complete an OIDC flow and authenticate via an identity provider (GitHub, Google, etc.) to prove they are the owner of their account. Similarly, automated systems (like GitHub Actions) can use Workload Identity or [SPIFFE](https://spiffe.io/) Verifiable Identity Documents (SVIDs) to authenticate themselves via OIDC. The identity and issuer associated with the OIDC token is embedded in the short-lived certificate issued by Sigstore’s Certificate Authority, Fulcio. 
+sigstore relies on the widely used OpenID Connect (OIDC) protocol to prove identity. When running something like `cosign sign`, users will complete an OIDC flow and authenticate via an identity provider (GitHub, Google, etc.) to prove they are the owner of their account. Similarly, automated systems (like GitHub Actions) can use Workload Identity or [SPIFFE](https://spiffe.io/) Verifiable Identity Documents (SVIDs) to authenticate themselves via OIDC. The identity and issuer associated with the OIDC token is embedded in the short-lived certificate issued by sigstore’s Certificate Authority, Fulcio.
 
-## Sigstore’s Trust Model
+## sigstore’s Trust Model
 
-Sigstore’s trust model originates from the Trust Root and chains down to short-lived certificates issued by Fulcio. 
+sigstore’s trust model originates from the Trust Root and chains down to short-lived certificates issued by Fulcio.
 
-### Sigstore’s Trust Root
+### sigstore’s Trust Root
 
-The Trust Root, which was established during a public [root key signing ceremony](https://www.youtube.com/watch?v=GEuFsc8Zm9U), is made up of a rotation of five keyholders from varying companies and academic institutions who contribute to Sigstore. It leverages the principles of [The Update Framework](https://theupdateframework.io/) (TUF), a set of defined attacks and threat models specific to software distribution systems. TUF provides a cleverly designed set of protocols to protect against these types of attacks, which the Trust Root follows.
+The Trust Root, which was established during a public [root key signing ceremony](https://www.youtube.com/watch?v=GEuFsc8Zm9U), is made up of a rotation of five keyholders from varying companies and academic institutions who contribute to sigstore. It leverages the principles of [The Update Framework](https://theupdateframework.io/) (TUF), a set of defined attacks and threat models specific to software distribution systems. TUF provides a cleverly designed set of protocols to protect against these types of attacks, which the Trust Root follows.
 
-The Sigstore Trust Root is used to secure the keys used by the entire Sigstore project. It allows individuals and systems to automatically retrieve trusted keys and certificates used to verify artifacts produced by the Sigstore ecosystem. Using the Sigstore Trust Root, end users can verify:
+The sigstore Trust Root is used to secure the keys used by the entire sigstore project. It allows individuals and systems to automatically retrieve trusted keys and certificates used to verify artifacts produced by the sigstore ecosystem. Using the sigstore Trust Root, end users can verify:
 * Certificates issued by Fulcio
 * Entries in the Rekor transparency log
 This allows end users to verify (and trust) that the distributors of the software they use are who they say they are.
@@ -35,7 +35,7 @@ Transparency Logs make it hard to forge timestamps long term, but in short time 
 
 ### Fulcio Security Model
 
-One of the targets secured by the Sigstore Trust Root is the Fulcio root certificate, which is used to issue short-lived code signing certificates. 
+One of the targets secured by the sigstore Trust Root is the Fulcio root certificate, which is used to issue short-lived code signing certificates.
 
 **Certificate Transparency Log**
 
@@ -64,7 +64,7 @@ Storing the signature in a transparency log also makes certificates easily disco
 
 **Ephemeral Keys**
 
-Sigstore clients like Cosign can also eliminate the key management problem by using ephemeral keys. These ephemeral keys only exist in memory; the private key never hits disk and is never known by Sigstore services.
+sigstore clients like Cosign can also eliminate the key management problem by using ephemeral keys. These ephemeral keys only exist in memory; the private key never hits disk and is never known by sigstore services.
 
 Cosign will:
 1. Generate an ephemeral public/private keypair in memory
@@ -74,7 +74,7 @@ Cosign will:
 
 Clients like Cosign only need to find the correct Rekor entry to verify the artifact.
 
-## What Sigstore *Doesn't* Guarantee
+## What sigstore *Doesn't* Guarantee
 
 - If an OIDC identity or OIDC provider is compromised, Fulcio might issue unauthorized certificates. However, these certificates are useless unless they are published to the certificate transparency log, so such compromise can be detected.
 - If Fulcio is compromised, it might issue unauthorized certificates. However, like before, these should be detectable.

@@ -22,7 +22,7 @@ Join us on our [Slack channel](https://sigstore.slack.com/). (Need an [invite](h
 
 ### Installation
 
-To sign software artifacts and verify signatures using Sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page](/cosign/installation/). This will allow you to sign and verify both blobs and containers.
+To sign software artifacts and verify signatures using sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page](/cosign/installation/). This will allow you to sign and verify both blobs and containers.
 
 ### Signing a blob
 
@@ -34,7 +34,7 @@ $ cosign sign-blob <file> --bundle cosign.bundle
 
 The bundle contains signing metadata, including the signature and certificate.
 
-The Cosign command requests a certificate from the Sigstore certificate authority, Fulcio. Fulcio checks your identity by using an authentication protocol (OpenID Connect) to confirm your email address. If your identity is correct, Fulcio grants a short-lived, time-stamped certificate. The certificate is bound to the public key to attest to your identity. This activity is logged using the Sigstore transparency and timestamping log, Rekor.
+The Cosign command requests a certificate from the sigstore certificate authority, Fulcio. Fulcio checks your identity by using an authentication protocol (OpenID Connect) to confirm your email address. If your identity is correct, Fulcio grants a short-lived, time-stamped certificate. The certificate is bound to the public key to attest to your identity. This activity is logged using the sigstore transparency and timestamping log, Rekor.
 
 Note that you don’t need to use a key to sign. Currently, you can authenticate with Google, GitHub, or Microsoft, which will associate your identity with a short-lived signing key. For more information, read [Keyless Signatures](/cosign/keyless/).
 
@@ -82,7 +82,7 @@ $ cosign verify <image URI> --certificate-identity=name@example.com
 
 ### Signing with a generated key
 
-It is recommended that you use keyless signing, as a main feature of Sigstore is to make signatures invisible infrastructure that do not require key management. However, Sigstore allows you to use an existing key or generate a key if you prefer.
+It is recommended that you use keyless signing, as a main feature of sigstore is to make signatures invisible infrastructure that do not require key management. However, sigstore allows you to use an existing key or generate a key if you prefer.
 
 To generate keys using Cosign, use the `cosign generate-key-pair` command.
 
