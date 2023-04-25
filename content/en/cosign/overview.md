@@ -77,6 +77,41 @@ $ crane cp $SRC_IMAGE@$SRC_DIGEST $IMAGE_URI:1h
 $ IMAGE_URI_DIGEST=$IMAGE_URI@$SRC_DIGEST
 ```
 
+### Keyless Signing
+
+```shell
+$ cosign sign $IMAGE_URI_DIGEST
+Generating ephemeral keys...
+Retrieving signed certificate...
+
+        Note that there may be personally identifiable information associated with this signed artifact.
+        This may include the email address associated with the account with which you authenticate.
+        This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later.
+        By typing 'y', you attest that you grant (or have permission to grant) and agree to have this information stored permanently in transparency logs.
+
+Are you sure you want to continue? (y/[N]): y
+Your browser will now be opened to:
+https://oauth2.sigstore.dev/auth/auth?access_type=online&client_id=sigstore&code_challenge=Dl6DvO9FOJ2G2rb0isnG5-S1hAbcQV6PkJgDlDyFqGM&code_challenge_method=S256&nonce=2KyBdYtLSqyLGOwUkt1ij1Fiu30&redirect_uri=http%3A%2F%2Flocalhost%3A55362%2Fauth%2Fcallback&response_type=code&scope=openid+email&state=2KyBdXb8zadBfqMdbVoAIz88OBy
+Successfully verified SCT...
+tlog entry created with index: 12151804
+Pushing signature to: ttl.sh/ace19e66
+```
+
+### Keyless verifying
+
+```shell
+cosign verify $IMAGE_URI_DIGEST
+Verification for ttl.sh/ace19e66@sha256:7b3ccabffc97de872a30dfd234fd972a66d247c8cfc69b0550f276481852627c --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - Any certificates were verified against the Fulcio roots.
+
+[{"critical":{"identity":{"docker-reference":"ttl.sh/ace19e66"},"image":{"docker-manifest-digest":"sha256:7b3ccabffc97de872a30dfd234fd972a66d247c8cfc69b0550f276481852627c"},"type":"cosign container image signature"},"optional": null}]
+```
+
+The rest of the flags (annotations, claims, tlog, etc.) should all work the same.
+
 Using the image that we prepared above, run through the following to perform Keyless signing and Keyless verifying.
 
 Signing and verifying a container is similar to working with blobs. The Cosign command to sign a container image is:
