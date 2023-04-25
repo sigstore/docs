@@ -65,7 +65,7 @@ To verify, Cosign queries the transparency log (Rekor) to compare the public key
 
 ## Working with containers
 
-> NOTE: You will need access to a container registry for cosign to work with. [ttl.sh](https://ttl.sh/) offers free, short-lived (ie: hours), anonymous container image hosting if you just want to try these commands out.
+> NOTE: You will need access to a container registry for cosign to work with. [ttl.sh](https://ttl.sh/) offers free, short-lived (i.e., hours), anonymous container image hosting if you just want to try these commands out.
 
 Using `ttl.sh` and [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) to prepare the image that we want to sign. Run the following:
 
@@ -107,7 +107,6 @@ $ cosign verify <image URI> --certificate-identity=name@example.com
 > Note that in the following example we use the `regexp` versions of the identity options:
 
 ```
-
 cosign verify $IMAGE_URI_DIGEST --certificate-identity-regexp=.* --certificate-oidc-issuer-regexp=.*
 
 Verification for ttl.sh/4d6d55ae@sha256:b5d6fe0712636ceb7430189de28819e195e8966372edfc2d9409d79402a0dc16 --
@@ -116,9 +115,10 @@ The following checks were performed on each of these signatures:
   - Existence of the claims in the transparency log was verified offline
   - The code-signing certificate was verified using trusted certificate authority certificates
 
-[{"critical":{"identity":{"docker-reference":"ttl.sh/4d6d55ae"},"image":{"docker-manifest-digest":"sha256:b5d6fe07129409d79402a0dc16"
+[{"critical":{"identity":{"docker-reference":"ttl.sh/4d6d55ae"},"image":{"docker-manifest-digest":"sha256:b5d6f2a0dc1"
 
 ...
+```
 
 The rest of the flags (annotations, claims, tlog, etc.) all work the same.
 
@@ -126,7 +126,7 @@ The above example uses ephemeral keys and certificates, which are signed automat
 Signatures are stored in the `rekor` transparency log, which automatically provides an attestation
 as to when the signature was created.
 
-Information on the `fulcio` CA can be found in the [fulcio repository](https://github.com/sigstore/fulcio).
+Information on the `fulcio` CA can be found in the [fulcio repository](https://github.com/sigstore/fulcio).  Information about the `rekor` log can be found in the [rekor repository](https://github.com/sigstore/rekor).
 
 ### Signing with a generated key
 
