@@ -183,7 +183,7 @@ $ cosign sign --identity-token=$IDENTITY_TOKEN $IMAGE_DIGEST
 In order to impersonate an IAM service account, your account must have the
 `roles/iam.serviceAccountTokenCreator` role.
 
-**Note**: On Google Cloud Build, standard identity tokens are not supported through the GCE metadata server.
+> Note: On Google Cloud Build, standard identity tokens are not supported through the GCE metadata server.
 Cosign has a special flow for this case, where you can instruct the Cloud Build service account to impersonate
 another service account.
 To configure this flow:
@@ -211,7 +211,7 @@ For configuring Cosign to work with custom components, checkout the [Configuring
 
 You can override the public good instance CA using the environment variable `SIGSTORE_ROOT_FILE`, e.g.
 
-```shell
+```
 export SIGSTORE_ROOT_FILE="/home/jdoe/myrootCA.pem"
 ```
 
