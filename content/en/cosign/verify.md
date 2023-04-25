@@ -76,12 +76,12 @@ Verify image with local certificate and local certificate chain:
 $ cosign verify --certificate cosign.crt --certificate-chain chain.crt user/demo
 ```
 
-## Keyless verification using only a provided certificate chain with non-Fulcio roots
+## Verify image with user-provided trusted chain
 Verify image with the provided certificate chain and identity parameters (intended for
 a "bring your own PKI" use case):
 
 ```shell
-$ cosign verify --cert-chain chain.crt --certificate-oidc-issuer https://issuer.example.com --certificate-identity foo@example.com user/demo
+$ cosign verify --certificate-chain chain.crt --certificate-oidc-issuer https://issuer.example.com --certificate-identity foo@example.com user/demo
 ```
 
 ## Verify an image on the transparency log
