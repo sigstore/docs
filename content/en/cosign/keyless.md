@@ -6,21 +6,8 @@ position: 122
 
 This page explains how the keyless signatures work in Cosign. This signature mode relies on the Sigstore Public Good Instance.
 
-## Quickstart
 
-> NOTE: You will need access to a container registry for cosign to work with. [ttl.sh](https://ttl.sh/) offers free, short-lived (ie: hours), anonymous container image hosting if you just want to try these commands out.
 
-Using `ttl.sh` and [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) for to prepare the image that we want to sign, run the following:
-
-```shell
-$ SRC_IMAGE=busybox
-$ SRC_DIGEST=$(crane digest busybox)
-$ IMAGE_URI=ttl.sh/$(uuidgen | head -c 8 | tr 'A-Z' 'a-z')
-$ crane cp $SRC_IMAGE@$SRC_DIGEST $IMAGE_URI:1h
-$ IMAGE_URI_DIGEST=$IMAGE_URI@$SRC_DIGEST
-```
-
-Using the image that we prepared above, run through the following to perform Keyless signing and Keyless verifying.
 
 ### Keyless Signing
 
