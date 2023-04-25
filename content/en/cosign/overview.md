@@ -63,7 +63,7 @@ $ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@e
 
 To verify, Cosign queries the transparency log (Rekor) to compare the public key bound to the certificate, and checks the timestamp on the signature against the artifact’s entry in the transparency log. The signature is valid if its timestamp falls within the small window of time that the key pair and certificate issued by the certificate authority were valid.
 
-### Working with containers
+## Working with containers
 
 > NOTE: You will need access to a container registry for cosign to work with. [ttl.sh](https://ttl.sh/) offers free, short-lived (ie: hours), anonymous container image hosting if you just want to try these commands out.
 
@@ -77,7 +77,7 @@ $ crane cp $SRC_IMAGE@$SRC_DIGEST $IMAGE_URI:1h
 $ IMAGE_URI_DIGEST=$IMAGE_URI@$SRC_DIGEST
 ```
 
-### Keyless Signing
+### Keyless signing of container
 
 ```shell
 $ cosign sign $IMAGE_URI_DIGEST
@@ -97,7 +97,7 @@ tlog entry created with index: 12151804
 Pushing signature to: ttl.sh/ace19e66
 ```
 
-### Keyless verifying
+### Keyless verifying of container
 
 ```shell
 cosign verify $IMAGE_URI_DIGEST
@@ -128,6 +128,12 @@ To verify a signed container image, use the following command:
 $ cosign verify <image URI> --certificate-identity=name@example.com
                             --certificate-oidc-issuer=https://accounts.example.com
 ```
+
+The above example uses ephemeral keys and certificates, which are signed automatically by the `fulcio` CA.
+Signatures are stored in the `rekor` transparency log, which automatically provides an attestation
+as to when the signature was created.
+
+Information on the `fulcio` CA can be found in the [fulcio repository](https://github.com/sigstore/fulcio).
 
 ### Signing with a generated key
 
