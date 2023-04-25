@@ -39,14 +39,3 @@ We need to clear the local TUF root data and re-initialize with the default prod
 1. `rm -r ~/.sigstore`
 1. `cosign initialize`
 
-## Custom Components
-
-For configuring Cosign to work with custom components, checkout the [Configuring Cosign with Custom Components](https://docs.sigstore.dev/cosign/custom_components/) docs to find out how to achieve this.
-
-### Custom Root Cert
-
-You can override the public good instance CA using the environment variable `SIGSTORE_ROOT_FILE`, e.g.
-
-```shell
-export SIGSTORE_ROOT_FILE="/home/jdoe/myrootCA.pem"
-```
