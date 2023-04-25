@@ -69,7 +69,7 @@ To verify, Cosign queries the transparency log (Rekor) to compare the public key
 
 Using `ttl.sh` and [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) to prepare the image that we want to sign. Run the following:
 
-```shell
+```
 $ SRC_IMAGE=busybox
 $ SRC_DIGEST=$(crane digest busybox)
 $ IMAGE_URI=ttl.sh/$(uuidgen | head -c 8 | tr 'A-Z' 'a-z')
@@ -79,7 +79,7 @@ $ IMAGE_URI_DIGEST=$IMAGE_URI@$SRC_DIGEST
 
 ### Keyless signing of container
 
-```shell
+```
 $ cosign sign $IMAGE_URI_DIGEST
 Generating ephemeral keys...
 Retrieving signed certificate...
@@ -106,9 +106,7 @@ $ cosign verify <image URI> --certificate-identity=name@example.com
 
 > Note that in the following example we use the `regexp` versions of the identity options:
 
-```shell
-
-
+```
 
 cosign verify $IMAGE_URI_DIGEST --certificate-identity-regexp=.* --certificate-oidc-issuer-regexp=.*
 
@@ -167,14 +165,14 @@ and producing an identity token. Currently this supports Google Compute Engine, 
 
 From a GCE VM, you can use the VM's service account identity to sign an image:
 
-```shell
+```
 $ IDENTITY_TOKEN=$(gcloud auth print-identity-token --audiences=sigstore)
 $ cosign sign --identity-token=$IDENTITY_TOKEN $IMAGE_DIGEST
 ```
 
 From outside a GCE VM, you can impersonate a GCP IAM service account to sign an image:
 
-```shell
+```
 $ IDENTITY_TOKEN=$(gcloud auth print-identity-token \
         --audiences=sigstore \
         --include-email \
@@ -199,7 +197,6 @@ To configure this flow:
 
 Signature timestamps are checked in the [rekor](https://github.com/sigstore/rekor) transparency log. Rekor's `IntegratedTime` is signed as part of its `signedEntryTimestamp`. Cosign verifies the signature over the timestamp and checks that the signature was created while the certificate was valid.
 
-> TODO: Add more documentation here
 ### Other Formats
 
 Cosign is useful not only for blobs, containers, and container-related artifacts; it can also be used for other file types.
@@ -217,7 +214,6 @@ You can override the public good instance CA using the environment variable `SIG
 ```shell
 export SIGSTORE_ROOT_FILE="/home/jdoe/myrootCA.pem"
 ```
-
 
 ### SCM Integration
 
