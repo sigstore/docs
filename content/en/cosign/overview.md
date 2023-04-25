@@ -144,7 +144,60 @@ $ cosign sign --key cosign.key user/demo
 Enter password for private key:
 Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79be4def8.sig
 ```
+### OAuth Flows
 
+Cosign supports two OAuth flows today: the standard flow and the device flow.
+
+When there is no terminal attached (non-interactive mode), Cosign will automatically use the device flow
+where a link is printed to stdout.
+This link must be opened in a browser to complete the flow.
+
+### Identity Tokens
+
+In automated environments, Cosign also supports directly using OIDC Identity Tokens from specific issuers.
+These can be supplied on the command line with the `--identity-token` flag.
+The `audiences` field must contain `sigstore`.
+
+Cosign also has support for detecting some of these automated environments
+and producing an identity token. Currently this supports Google Compute Engine, GitHub Actions and SPIFFE tokens.
+
+#### On GCP
+
+From a GCE VM, you can use the VM's service account identity to sign an image:
+
+```shell
+$ IDENTITY_TOKEN=$(gcloud auth print-identity-token --audiences=sigstore)
+$ cosign sign --identity-token=$IDENTITY_TOKEN $IMAGE_DIGEST
+```
+
+From outside a GCE VM, you can impersonate a GCP IAM service account to sign an image:
+
+```shell
+$ IDENTITY_TOKEN=$(gcloud auth print-identity-token \
+        --audiences=sigstore \
+        --include-email \
+        --impersonate-service-account my-sa@my-project.iam.gserviceaccount.com)
+$ cosign sign --identity-token=$IDENTITY_TOKEN $IMAGE_DIGEST
+```
+
+In order to impersonate an IAM service account, your account must have the
+`roles/iam.serviceAccountTokenCreator` role.
+
+**Note**: On Google Cloud Build, standard identity tokens are not supported through the GCE metadata server.
+Cosign has a special flow for this case, where you can instruct the Cloud Build service account to impersonate
+another service account.
+To configure this flow:
+
+1. Create a service account to use for signatures (the email address will be present in the certificate subject).
+2. Grant the Cloud Build service account the `roles/iam.serviceAccountTokenCreator` role for this target account.
+3. Set the `GOOGLE_SERVICE_ACCOUNT_NAME` environment variable to the name of the target account in your cloudbuild.yaml
+4. Sign images in GCB, without keys!
+
+### Timestamps
+
+Signature timestamps are checked in the [rekor](https://github.com/sigstore/rekor) transparency log. Rekor's `IntegratedTime` is signed as part of its `signedEntryTimestamp`. Cosign verifies the signature over the timestamp and checks that the signature was created while the certificate was valid.
+
+> TODO: Add more documentation here
 ### Other Formats
 
 Cosign is useful not only for blobs, containers, and container-related artifacts; it can also be used for other file types.
