@@ -104,7 +104,7 @@ $ cosign verify <image URI> --certificate-identity=name@example.com
                             --certificate-oidc-issuer=https://accounts.example.com
 ```
 
-Note that in the following example we use the `regexp` versions of the identity options:
+> Note that in the following example we use the `regexp` versions of the identity options:
 
 ```shell
 
