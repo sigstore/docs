@@ -97,35 +97,29 @@ Pushing signature to: ttl.sh/4d6d55ae
 
 ### Keyless verifying of container
 
-```shell
-cosign verify $IMAGE_URI_DIGEST
-Verification for ttl.sh/ace19e66@sha256:7b3ccabffc97de872a30dfd234fd972a66d247c8cfc69b0550f276481852627c --
-The following checks were performed on each of these signatures:
-  - The cosign claims were validated
-  - Existence of the claims in the transparency log was verified offline
-  - Any certificates were verified against the Fulcio roots.
-
-[{"critical":{"identity":{"docker-reference":"ttl.sh/ace19e66"},"image":{"docker-manifest-digest":"sha256:7b3ccabffc97de872a30dfd234fd972a66d247c8cfc69b0550f276481852627c"},"type":"cosign container image signature"},"optional": null}]
-```
-
-The rest of the flags (annotations, claims, tlog, etc.) should all work the same.
-
-Using the image that we prepared above, run through the following to perform Keyless signing and Keyless verifying.
-
-Signing and verifying a container is similar to working with blobs. The Cosign command to sign a container image is:
-
-```
-$ cosign sign <image URI>
-```
-
-This works the same as signing a blob, but the signature and certificate are attached as container metadata.
-
-To verify a signed container image, use the following command:
+This works the same as verifying a blob, but the signature and certificate are attached as container metadata, so there is no need to place the certificate and signature on the verify command. To verify a signed container image, use the following command:
 
 ```
 $ cosign verify <image URI> --certificate-identity=name@example.com
                             --certificate-oidc-issuer=https://accounts.example.com
 ```
+
+```shell
+
+Note that in the following example we use the `regexp` versions of the identity options:
+
+cosign verify $IMAGE_URI_DIGEST --certificate-identity-regexp=.* --certificate-oidc-issuer-regexp=.*
+
+Verification for ttl.sh/4d6d55ae@sha256:b5d6fe0712636ceb7430189de28819e195e8966372edfc2d9409d79402a0dc16 --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The code-signing certificate was verified using trusted certificate authority certificates
+
+[{"critical":{"identity":{"docker-reference":"ttl.sh/4d6d55ae"},"image":{"docker-manifest-digest":"sha256:b5d6fe0712636ceb7430189de28819e195e8966372edfc2d9409d79402a0dc16"},"type":"cosign container image signature"},"optional":{"1.3.6.1.4.1.57264.1.1":"https://accounts.google.com","Bundle":{"SignedEntryTimestamp":"MEUCIQDmOqOr4No4x8e9U5U1OM8CUfky9Jjegyiab2kehLKgGwIge8McPnB9CKq7MIS+U/IpbHTPub1UFGhDeie/bCqF+tM=","Payload":{"body":"eyJhcGlWZXJzaW9uIjoiMC4wLjEiLCJraW5kIjoiaGFzaGVkcmVrb3JkIiwic3BlYyI6eyJkYXRhIjp7Imhhc2giOnsiYWxnb3JpdGhtIjoic2hhMjU2IiwidmFsdWUiOiIyYzRkOGE1NDljODBiMTViNjQ3ODAyNTA5ZGQxMzVkZDRiMmYxMGMxYzRiMzc5MDEwNGM2ODgzOTBiZjgzMmIzIn19LCJzaWduYXR1cmUiOnsiY29udGVudCI6Ik1FVUNJSFdWckJOUGptWVpFQS9NWUliZGFoNWxjVjVSRGl0QllFdHB4SmJWL09UVEFpRUF4bG1nNGViQlVHc1pnSm15WFV3aTltN25WTHlxVzh4cVovQTMzaFV1VW5NPSIsInB1YmxpY0tleSI6eyJjb250ZW50IjoiTFMwdExTMUNSVWRKVGlCRFJWSlVTVVpKUTBGVVJTMHRMUzB0Q2sxSlNVUkNla05EUVc4eVowRjNTVUpCWjBsVlRqRnRWVmRtZFZwRE0wMU1WbmRMUjJGSlR6VjFkRXBZY1RCcmQwTm5XVWxMYjFwSmVtb3dSVUYzVFhjS1RucEZWazFDVFVkQk1WVkZRMmhOVFdNeWJHNWpNMUoyWTIxVmRWcEhWakpOVWpSM1NFRlpSRlpSVVVSRmVGWjZZVmRrZW1SSE9YbGFVekZ3WW01U2JBcGpiVEZzV2tkc2FHUkhWWGRJYUdOT1RXcE5kMDVFU1RGTlZHTjVUbXBSTUZkb1kwNU5hazEzVGtSSk1VMVVZM3BPYWxFd1YycEJRVTFHYTNkRmQxbElDa3R2V2tsNmFqQkRRVkZaU1V0dldrbDZhakJFUVZGalJGRm5RVVZ5S3pkcGJFRjFWMEV6VDBoVWFrRnpLMUJZUkdwTmNWaG5lVEppVDAwNFNHaHJlalFLYVZWMlZsWTJWbmhIWlV4U1puTkZkbWxCZUU1eVVTc3pTRkpGTTB4TFVVeGFiME5XU3poc2NXOHJPU3RHTmxCdGVqWlBRMEZoZDNkblowZHZUVUUwUndwQk1WVmtSSGRGUWk5M1VVVkJkMGxJWjBSQlZFSm5UbFpJVTFWRlJFUkJTMEpuWjNKQ1owVkdRbEZqUkVGNlFXUkNaMDVXU0ZFMFJVWm5VVlZ0U0dOQ0NpOWtWamRMU2tweFNsSkxaMGRvUnpoSVlUSjNZV2xyZDBoM1dVUldVakJxUWtKbmQwWnZRVlV6T1ZCd2VqRlphMFZhWWpWeFRtcHdTMFpYYVhocE5Ga0tXa1E0ZDFoQldVUldVakJTUVZGSUwwSkdTWGRWU1VaUFlWYzFlbHBYVGpGamJWVjBXVEo0ZG1SWFVqQmlNMEYwWXpKb2FHTnRWbXRNV0ZaNldsaEtRUXBaTW5oMlpGZFNNR0l6UVhSalNFcDJXa00xYm1JeU9XNWlSMVYxV1RJNWRFeHRiR2hpVXpWdVl6SldlV1J0YkdwYVYwWnFXVEk1TVdKdVVYVlpNamwwQ2sxRGEwZERhWE5IUVZGUlFtYzNPSGRCVVVWRlJ6Sm9NR1JJUW5wUGFUaDJXVmRPYW1JelZuVmtTRTExV2pJNWRsb3llR3hNYlU1MllsUkJja0puYjNJS1FtZEZSVUZaVHk5TlFVVkpRa0l3VFVjeWFEQmtTRUo2VDJrNGRsbFhUbXBpTTFaMVpFaE5kVm95T1haYU1uaHNURzFPZG1KVVEwSnBaMWxMUzNkWlFncENRVWhYWlZGSlJVRm5VamhDU0c5QlpVRkNNa0ZPTURsTlIzSkhlSGhGZVZsNGEyVklTbXh1VG5kTGFWTnNOalF6YW5sMEx6UmxTMk52UVhaTFpUWlBDa0ZCUVVKb04yd3dSVmhOUVVGQlVVUkJSV04zVWxGSmFFRk1jRGhYVm1vclRGaFFSVEUyTDBVeE5IZGpTekk0YldWcE9UaENUMnd3V0hWek5GTkJhblVLVVZWeU1FRnBRVkF2Ym1oMk1GTndkR2N5UkdoTFVXbENVVXR5VGpoQlJIaGFZM2RPWWpCQ1puUlFXRlZSTW1oQ1kzcEJTMEpuWjNGb2EycFBVRkZSUkFwQmQwNXZRVVJDYkVGcVJVRnRhREZETWxCVk5GRkROemxSY1VwWU1UUk9NM1ZSZW5aVlMwTkNRVXRYVkVOUFJFeHlUa2MxYVhBM2NYUkJiblJSZUhvdkNsb3dlbEp5T0hBMFlXRlpOa0ZxUW5vd00yMHJZbE0xWlRaa01URnJkV1psTjJ0M05rRjBkRmsyYVVSd2VYVmxkbEpMVFV3eE5XMXVPRmhqUmtsallXY0tXa1ZOU1RCQlpGUmhMMFpMV21WTlBRb3RMUzB0TFVWT1JDQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENnPT0ifX19fQ==","integratedTime":1682443609,"logIndex":18914440,"logID":"c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d"}},"Issuer":"https://accounts.google.com","Subject":"insecure-cloudtop-shared-user@cloudtop-prod.google.com.iam.gserviceaccount.com"}}]
+```
+
+The rest of the flags (annotations, claims, tlog, etc.) all work the same.
 
 The above example uses ephemeral keys and certificates, which are signed automatically by the `fulcio` CA.
 Signatures are stored in the `rekor` transparency log, which automatically provides an attestation
