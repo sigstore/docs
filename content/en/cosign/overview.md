@@ -83,18 +83,16 @@ $ IMAGE_URI_DIGEST=$IMAGE_URI@$SRC_DIGEST
 $ cosign sign $IMAGE_URI_DIGEST
 Generating ephemeral keys...
 Retrieving signed certificate...
-
-        Note that there may be personally identifiable information associated with this signed artifact.
-        This may include the email address associated with the account with which you authenticate.
-        This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later.
-        By typing 'y', you attest that you grant (or have permission to grant) and agree to have this information stored permanently in transparency logs.
-
-Are you sure you want to continue? (y/[N]): y
-Your browser will now be opened to:
-https://oauth2.sigstore.dev/auth/auth?access_type=online&client_id=sigstore&code_challenge=Dl6DvO9FOJ2G2rb0isnG5-S1hAbcQV6PkJgDlDyFqGM&code_challenge_method=S256&nonce=2KyBdYtLSqyLGOwUkt1ij1Fiu30&redirect_uri=http%3A%2F%2Flocalhost%3A55362%2Fauth%2Fcallback&response_type=code&scope=openid+email&state=2KyBdXb8zadBfqMdbVoAIz88OBy
 Successfully verified SCT...
-tlog entry created with index: 12151804
-Pushing signature to: ttl.sh/ace19e66
+
+	Note that there may be personally identifiable information associated with this signed artifact.
+	This may include the email address associated with the account with which you authenticate.
+	This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later.
+
+By typing 'y', you attest that you grant (or have permission to grant) and agree to have this information stored permanently in transparency logs.
+Are you sure you would like to continue? [y/N] y
+tlog entry created with index: 18914440
+Pushing signature to: ttl.sh/4d6d55ae
 ```
 
 ### Keyless verifying of container
