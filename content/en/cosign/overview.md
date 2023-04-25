@@ -65,6 +65,20 @@ To verify, Cosign queries the transparency log (Rekor) to compare the public key
 
 ### Working with containers
 
+> NOTE: You will need access to a container registry for cosign to work with. [ttl.sh](https://ttl.sh/) offers free, short-lived (ie: hours), anonymous container image hosting if you just want to try these commands out.
+
+Using `ttl.sh` and [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) to prepare the image that we want to sign. Run the following:
+
+```shell
+$ SRC_IMAGE=busybox
+$ SRC_DIGEST=$(crane digest busybox)
+$ IMAGE_URI=ttl.sh/$(uuidgen | head -c 8 | tr 'A-Z' 'a-z')
+$ crane cp $SRC_IMAGE@$SRC_DIGEST $IMAGE_URI:1h
+$ IMAGE_URI_DIGEST=$IMAGE_URI@$SRC_DIGEST
+```
+
+Using the image that we prepared above, run through the following to perform Keyless signing and Keyless verifying.
+
 Signing and verifying a container is similar to working with blobs. The Cosign command to sign a container image is:
 
 ```
