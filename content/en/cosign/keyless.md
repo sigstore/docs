@@ -25,7 +25,7 @@ Using the image that we prepared above, run through the following to perform Key
 ### Keyless Signing
 
 ```shell
-$ COSIGN_EXPERIMENTAL=1 cosign sign $IMAGE_URI_DIGEST
+$ cosign sign $IMAGE_URI_DIGEST
 Generating ephemeral keys...
 Retrieving signed certificate...
 
@@ -43,9 +43,10 @@ Pushing signature to: ttl.sh/ace19e66
 ```
 
 ### Keyless verifying
+For keyless verification, it is required to pass `--certificate-oidc-issuer` (or `--certificate-oidc-issuer-regexp`) and `----certificate-identity` (or `--certificate-identity-regexp`) to `cosign verify`:
 
 ```shell
-$ COSIGN_EXPERIMENTAL=1 cosign verify $IMAGE_URI_DIGEST
+$ cosign verify --certificate-oidc-issuer="https://github.com/login/oauth" --certificate-identity-regexp='changeme@xyzfoobar.com' $IMAGE_URI_DIGEST
 Verification for ttl.sh/ace19e66@sha256:7b3ccabffc97de872a30dfd234fd972a66d247c8cfc69b0550f276481852627c --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
