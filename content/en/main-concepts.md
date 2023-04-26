@@ -8,7 +8,7 @@ features:
   - Fulcio (root certificate authority)
   - Rekor (transparency log)
   - OpenID Connect (means of authentication)
-  - Policy Controller (enforcing policy on containers)
+  - policy-controller (enforcing container orchestration policy)
 ---
 
 Sigstore combines several different technologies that focus on automatic key management and transparency logs. They can be used independently or as one single process, and together they create a safer chain of custody tracing software back to the source.
