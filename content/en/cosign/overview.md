@@ -206,24 +206,3 @@ Cosign is useful not only for blobs, containers, and container-related artifacts
 
 To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types](/cosign/other_types/). For more information about blobs, review [Working with Blobs](/cosign/working_with_blobs/).
 
-## Custom Components
-
-For configuring Cosign to work with custom components, checkout the [Configuring Cosign with Custom Components](https://docs.sigstore.dev/cosign/custom_components/) docs to find out how to achieve this.
-
-### Custom Root Cert
-
-You can override the public good instance CA using the environment variable `SIGSTORE_ROOT_FILE`, e.g.
-
-```
-export SIGSTORE_ROOT_FILE="/home/jdoe/myrootCA.pem"
-```
-
-### SCM Integration
-
-Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use cosign to generate and work safely with [SCM secrets](/cosign/git_support/) with native API integration.
-
-### Attestations
-
-In addition to signatures, Cosign can be used with [In-Toto Attestations](https://github.com/in-toto/attestation).
-
-Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems.
