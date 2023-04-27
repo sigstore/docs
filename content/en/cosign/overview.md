@@ -196,9 +196,6 @@ To configure this flow:
 3. Set the `GOOGLE_SERVICE_ACCOUNT_NAME` environment variable to the name of the target account in your cloudbuild.yaml
 4. Sign images in GCB, without keys!
 
-### Timestamps
-
-Signature timestamps are checked in the [rekor](https://github.com/sigstore/rekor) transparency log. Rekor's `IntegratedTime` is signed as part of its `signedEntryTimestamp`. Cosign verifies the signature over the timestamp and checks that the signature was created while the certificate was valid.
 
 ### Other Formats
 
