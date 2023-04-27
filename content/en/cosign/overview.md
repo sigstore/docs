@@ -36,7 +36,7 @@ The bundle contains signing metadata, including the signature and certificate.
 
 The Cosign command requests a certificate from the Sigstore certificate authority, Fulcio. Fulcio checks your identity by using an authentication protocol (OpenID Connect) to confirm your email address. If your identity is correct, Fulcio grants a short-lived, time-stamped certificate. The certificate is bound to the public key to attest to your identity. This activity is logged using the Sigstore transparency and timestamping log, Rekor.
 
-Note that you don’t need to use a key to sign. Currently, you can authenticate with Google, GitHub, or Microsoft, which will associate your identity with a short-lived signing key. For more information, read [Keyless Signatures](/cosign/keyless/).
+Note that you don’t need to use a key to sign. Currently, you can authenticate with Google, GitHub, or Microsoft, which will associate your identity with a short-lived signing key. 
 
 For more information about Cosign's additional options and features, run the command:
 
@@ -201,5 +201,5 @@ To configure this flow:
 
 Cosign is useful not only for blobs, containers, and container-related artifacts; it can also be used for other file types.
 
-To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types](/cosign/other_types/). For more information about blobs, review [Working with Blobs](/cosign/working_with_blobs/).
+To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types](/cosign/other_types/). For more information about blobs, review [Signing with Blobs](/cosign/signing_with_blobs/).
 
