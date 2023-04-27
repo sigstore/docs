@@ -77,7 +77,7 @@ $ crane cp $SRC_IMAGE@$SRC_DIGEST $IMAGE_URI:1h
 $ IMAGE_URI_DIGEST=$IMAGE_URI@$SRC_DIGEST
 ```
 
-### Keyless signing of container
+### Keyless signing of a container
 
 The following code signs the created container image.  The command to sign container images is `cosign sign <image URI>`.  Note that for containers, there is no bundle as there is with blobs, as the signature and certificate are attached directly to the container:
 
@@ -97,7 +97,7 @@ tlog entry created with index: 18914440
 Pushing signature to: ttl.sh/4d6d55ae
 ```
 
-### Keyless verifying of container
+### Keyless verifying of a container
 
 This works the similar to verifying a blob, but there is no need to place the certificate and signature on the verify command. To verify a signed container image, use the following command:
 
@@ -147,7 +147,7 @@ $ cosign sign --key cosign.key user/demo
 Enter password for private key:
 Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79be4def8.sig
 ```
-### OAuth Flows
+## OAuth Flows
 
 Cosign supports two OAuth flows today: the standard flow and the device flow.
 
@@ -155,7 +155,7 @@ When there is no terminal attached (non-interactive mode), Cosign will automatic
 where a link is printed to stdout.
 This link must be opened in a browser to complete the flow.
 
-### Identity Tokens
+## Identity Tokens
 
 In automated environments, Cosign also supports directly using OIDC Identity Tokens from specific issuers.
 These can be supplied on the command line with the `--identity-token` flag.
@@ -164,7 +164,7 @@ The `audiences` field must contain `sigstore`.
 Cosign also has support for detecting some of these automated environments
 and producing an identity token. Currently this supports Google Compute Engine, GitHub Actions and SPIFFE tokens.
 
-#### On GCP
+### On GCP
 
 From a GCE VM, you can use the VM's service account identity to sign an image:
 
@@ -197,7 +197,7 @@ To configure this flow:
 4. Sign images in GCB, without keys!
 
 
-### Other Formats
+## Other Formats
 
 Cosign is useful not only for blobs, containers, and container-related artifacts; it can also be used for other file types.
 
