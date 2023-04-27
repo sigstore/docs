@@ -83,18 +83,6 @@ The following code signs the created container image.  The command to sign conta
 
 ```
 $ cosign sign $IMAGE_URI_DIGEST
-Generating ephemeral keys...
-Retrieving signed certificate...
-Successfully verified SCT...
-
-	Note that there may be personally identifiable information associated with this signed artifact.
-	This may include the email address associated with the account with which you authenticate.
-	This information will be used for signing this artifact and will be stored in public transparency logs and cannot be removed later.
-
-By typing 'y', you attest that you grant (or have permission to grant) and agree to have this information stored permanently in transparency logs.
-Are you sure you would like to continue? [y/N] y
-tlog entry created with index: 18914440
-Pushing signature to: ttl.sh/4d6d55ae
 ```
 
 ### Keyless verifying of a container
@@ -110,16 +98,6 @@ $ cosign verify <image URI> --certificate-identity=name@example.com
 
 ```
 cosign verify $IMAGE_URI_DIGEST --certificate-identity-regexp=.* --certificate-oidc-issuer-regexp=.*
-
-Verification for ttl.sh/4d6d55ae@sha256:b5d6fe0712636ceb7430189de28819e195e8966372edfc2d9409d79402a0dc16 --
-The following checks were performed on each of these signatures:
-  - The cosign claims were validated
-  - Existence of the claims in the transparency log was verified offline
-  - The code-signing certificate was verified using trusted certificate authority certificates
-
-[{"critical":{"identity":{"docker-reference":"ttl.sh/4d6d55ae"},"image":{"docker-manifest-digest":"sha256:b5d6f2a0dc1"
-
-...
 ```
 
 ## Signing with a generated key
