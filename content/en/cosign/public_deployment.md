@@ -1,12 +1,10 @@
 ---
-title: "Public Staging Environment"
+title: "Public Deployment"
 category: "Cosign"
 position: 122
 ---
 
-## Public Staging Environment
-
-There is a public staging environment that is running Fulcio, Rekor and OIDC issuer.
+There is a public staging environment, or deployment, that is running Fulcio, Rekor and OIDC issuer.
 
 **NOTE** The staging environment provides no SLO guarantees nor the same protection of the root key material for TUF. This environment is meant for development and testing only, PLEASE do not use for production purposes.
 
