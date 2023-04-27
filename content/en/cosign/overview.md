@@ -122,14 +122,6 @@ The following checks were performed on each of these signatures:
 ...
 ```
 
-The rest of the flags (annotations, claims, tlog, etc.) all work the same.
-
-The above example uses ephemeral keys and certificates, which are signed automatically by the `fulcio` CA.
-Signatures are stored in the `rekor` transparency log, which automatically provides an attestation
-as to when the signature was created.
-
-Information on the `fulcio` CA can be found in the [fulcio repository](https://github.com/sigstore/fulcio).  Information about the `rekor` log can be found in the [rekor repository](https://github.com/sigstore/rekor).
-
 ## Signing with a generated key
 
 It is recommended that you use keyless signing, as a main feature of Sigstore is to make signatures invisible infrastructure that do not require key management. However, Sigstore allows you to use an existing key or generate a key if you prefer.
