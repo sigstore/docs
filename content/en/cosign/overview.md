@@ -63,11 +63,11 @@ $ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@e
 
 To verify, Cosign queries the transparency log (Rekor) to compare the public key bound to the certificate, and checks the timestamp on the signature against the artifact’s entry in the transparency log. The signature is valid if its timestamp falls within the small window of time that the key pair and certificate issued by the certificate authority were valid.
 
-## Working with containers
+## Example: Working with containers
 
-> NOTE: You will need access to a container registry for cosign to work with. [ttl.sh](https://ttl.sh/) offers free, short-lived (i.e., hours), anonymous container image hosting if you just want to try these commands out.
+> NOTE: In this example, we will create a container using [ttl.sh](https://ttl.sh/).  It offers free, short-lived (i.e., hours), anonymous container image hosting if you just want to try out signing and verifying commands.  
 
-Using `ttl.sh` and [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) to prepare the image that we want to sign. Run the following:
+To use `ttl.sh` and [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) to prepare the image that we want to sign. Run the following:
 
 ```
 $ SRC_IMAGE=busybox
@@ -78,6 +78,8 @@ $ IMAGE_URI_DIGEST=$IMAGE_URI@$SRC_DIGEST
 ```
 
 ### Keyless signing of container
+
+The following code signs the created container image.  The command to sign container images is `cosign sign <image URI>`.  Note that for containers, there is no bundle as there is with blobs, as the signature and certificate are attached directly to the container:
 
 ```
 $ cosign sign $IMAGE_URI_DIGEST
@@ -97,14 +99,14 @@ Pushing signature to: ttl.sh/4d6d55ae
 
 ### Keyless verifying of container
 
-This works the same as verifying a blob, but the signature and certificate are attached as container metadata, so there is no need to place the certificate and signature on the verify command. To verify a signed container image, use the following command:
+This works the similar to verifying a blob, but there is no need to place the certificate and signature on the verify command. To verify a signed container image, use the following command:
 
 ```
 $ cosign verify <image URI> --certificate-identity=name@example.com
                             --certificate-oidc-issuer=https://accounts.example.com
 ```
 
-> Note that in the following example we use the `regexp` versions of the identity options:
+> Note that for our example we use the `regexp` versions of the identity options:
 
 ```
 cosign verify $IMAGE_URI_DIGEST --certificate-identity-regexp=.* --certificate-oidc-issuer-regexp=.*
@@ -128,7 +130,7 @@ as to when the signature was created.
 
 Information on the `fulcio` CA can be found in the [fulcio repository](https://github.com/sigstore/fulcio).  Information about the `rekor` log can be found in the [rekor repository](https://github.com/sigstore/rekor).
 
-### Signing with a generated key
+## Signing with a generated key
 
 It is recommended that you use keyless signing, as a main feature of Sigstore is to make signatures invisible infrastructure that do not require key management. However, Sigstore allows you to use an existing key or generate a key if you prefer.
 
