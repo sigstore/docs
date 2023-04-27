@@ -222,16 +222,6 @@ You can override the public good instance CA using the environment variable `SIG
 export SIGSTORE_ROOT_FILE="/home/jdoe/myrootCA.pem"
 ```
 
-### SCM Integration
-
-Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use cosign to generate and work safely with [SCM secrets](/cosign/git_support/) with native API integration.
-
-### Attestations
-
-In addition to signatures, Cosign can be used with [In-Toto Attestations](https://github.com/in-toto/attestation).
-
-Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems.
-
 ## Experimental Features
 
 ### Verify a signature was added to the transparency log
