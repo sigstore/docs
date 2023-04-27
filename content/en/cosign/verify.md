@@ -73,13 +73,13 @@ $ cosign verify --key cosign.pub --local-image PATH/to/user/demo
 Verify image with local certificate and local certificate chain:
 
 ```shell
-$ cosign verify --cert cosign.crt --cert-chain chain.crt user/demo
+$ cosign verify --certificate cosign.crt --certificate-chain chain.crt user/demo
 ```
 
 ## Verify an image on the transparency log
 
 ```shell
-$ COSIGN_EXPERIMENTAL=1 cosign verify user/demo
+$ cosign verify user/demo
 ```
 
 ## Verify attestation
@@ -99,7 +99,7 @@ $ cosign verify-attestation --key cosign.pub user/demo
 You can also verify an attestation with the transparency log.
 
 ```shell
-$ COSIGN_EXPERIMENTAL=1 cosign verify-attestation user/demo
+$ cosign verify-attestation user/demo
 ```
 
 ## Verify annotations
