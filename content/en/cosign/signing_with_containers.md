@@ -9,9 +9,18 @@ You can use Cosign to sign containers with ephemeral keys by authenticating with
 The format for keyless signing of a container is as follows.
 
 ```
-$ cosign sign user/demo
+$ cosign sign $IMAGE
 ```
-Where `user/demo` is the image URI. We'll use `user/demo` as our example image in the following commands. 
+
+> NOTE: You will need access to a container registry for cosign to work with. [ttl.sh](https://ttl.sh/) offers free, short-lived (ie: hours), anonymous container image hosting if you just want to try these commands out.
+
+To create a test image to sign using [ttl.sh](https://ttl.sh), run the following commands:
+
+```
+$ IMAGE_NAME=$(uuidgen)
+$ IMAGE=ttl.sh/$IMAGE_NAME:1h
+$ cosign copy alpine $IMAGE
+```
 
 ## General signing format
 
@@ -26,7 +35,7 @@ $ cosign sign [--key <key path>|<kms uri>] [--payload <path>] [-a key=value] [--
 This usage is a common use case that uses traditional key signing from a key pair. 
 
 ```shell
-$ cosign sign --key cosign.key user/demo
+$ cosign sign --key cosign.key $IMAGE
 ```
 
 If you need to generate local keys, you can do so by running `cosign generate-key-pair`. See [Signing with Self-Managed Keys](/cosign/signing_with_self-managed_keys/) for more information.
@@ -36,9 +45,9 @@ If you need to generate local keys, you can do so by running `cosign generate-ke
 Multiple signatures can be "attached" to a single container image.  In this example, the container is signed and then signed again:
 
 ```shell
-$ cosign sign user/demo
+$ cosign sign $IMAGE
 
-$ cosign sign user/demo
+$ cosign sign $IMAGE
 ```
 
 ## Add annotations with a signature
@@ -48,7 +57,7 @@ The `-a` flag can be used to add annotations to the generated, signed payload.
 This flag can be repeated:
 
 ```shell
-$ cosign sign -a foo=bar user/demo
+$ cosign sign -a foo=bar $IMAGE
 ```
 
 These values are included in the signed payload under the `Optional` section.
@@ -64,7 +73,7 @@ They can be verified with the `-a` flag as part of the `cosign verify` command.
 You can sign a container and attach an existing certificate and certificate chain to an image. Note that you cannot currently generate a certificate chain but can use an existing chain. 
 
 ```shell
-$ cosign sign --certificate cosign.crt --certificate-chain chain.crt user/demo
+$ cosign sign --certificate cosign.crt --certificate-chain chain.crt $IMAGE
 ```
 
 ## Sign with a key pair stored elsewhere
@@ -73,8 +82,7 @@ Cosign can use environment variables and KMS (Key Management Service) APIs, in a
 When referring to a key managed by a KMS provider, `cosign` takes a [go-cloud](https://gocloud.dev) style URI to refer to the specific provider. The URI path syntax is provider specific.
 
 ```shell
-$ cosign sign --key <some provider>://<some key> gcr.io/user/demo
-Pushing signature to: gcr.io/user/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.cosign
+$ cosign sign --key <some provider>://<some key> $IMAGE
 ```
 
 Read more about this in our [KMS Support page](/cosign/kms_support/).
@@ -82,37 +90,37 @@ Read more about this in our [KMS Support page](/cosign/kms_support/).
 ### Key stored in an environment variable
 
 ```shell
-$ cosign sign --key env://[ENV_VAR] user/demo
+$ cosign sign --key env://[ENV_VAR] $IMAGE
 ```
 
 ### Key stored in Azure Key Vault
 
 ```shell
-$ cosign sign --key azurekms://[VAULT_NAME][VAULT_URI]/[KEY] user/demo
+$ cosign sign --key azurekms://[VAULT_NAME][VAULT_URI]/[KEY] $IMAGE
 ```
 
 ### Key stored in AWS KMS
 
 ```shell
-$ cosign sign --key awskms://[ENDPOINT]/[ID/ALIAS/ARN] user/demo
+$ cosign sign --key awskms://[ENDPOINT]/[ID/ALIAS/ARN] $IMAGE
 ```
 
 ### Key stored in Google Cloud KMS
 
 ```shell
-$ cosign sign --key gcpkms://projects/[PROJECT]/locations/global/keyRings/[KEYRING]/cryptoKeys/[KEY]/versions/[VERSION] user/demo
+$ cosign sign --key gcpkms://projects/[PROJECT]/locations/global/keyRings/[KEYRING]/cryptoKeys/[KEY]/versions/[VERSION] $IMAGE
 ```
 
 ### Key stored in Hashicorp Vault
 
 ```shell
-$ cosign sign --key hashivault://[KEY] user/demo
+$ cosign sign --key hashivault://[KEY] $IMAGE
 ```
 
 ### Key stored in a Kubernetes secret
 
 ```shell
-$ cosign sign --key k8s://[NAMESPACE]/[KEY] user/demo
+$ cosign sign --key k8s://[NAMESPACE]/[KEY] $IMAGE
 ```
 
 ## Sign and upload a generated payload (in another format, from another tool)
@@ -120,7 +128,7 @@ $ cosign sign --key k8s://[NAMESPACE]/[KEY] user/demo
 The payload must be specified as a path to a file.
 
 ```shell
-$ cosign sign --payload README.md user/demo
+$ cosign sign --payload README.md $IMAGE
 Using payload from: README.md
 ```
 
@@ -132,14 +140,14 @@ Cosign uses standard PKIX cryptographic formats, here's a full example with `ope
 $ openssl ecparam -name prime256v1 -genkey -noout -out openssl.key
 $ openssl ec -in openssl.key -pubout -out openssl.pub
 # Generate the payload to be signed
-$ cosign generate us.gcr.io/user/demo > payload.json
+$ cosign generate $IMAGE > payload.json
 # Sign it and convert to base64
 $ openssl dgst -sha256 -sign openssl.key -out payload.sig payload.json
 $ cat payload.sig | base64 > payloadbase64.sig
 # Upload the signature
-$ cosign attach signature --payload payload.json --signature payloadbase64.sig us.gcr.io/user/demo
+$ cosign attach signature --payload payload.json --signature payloadbase64.sig $IMAGE
 # Verify!
-$ cosign verify --key openssl.pub us.gcr.io/user/demo
+$ cosign verify --key openssl.pub $IMAGE
 Verification for us.gcr.io/user/demo --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
@@ -153,7 +161,7 @@ The following checks were performed on each of these signatures:
 The upload is skipped by using the `--upload=false` flag (default true). To capture the output use the `--output-signature FILE` and/or `--output-certificate FILE` flags.
 
 ```shell
-$ cosign sign --upload=false --output-signature demo.sig --output-certificate demo.crt user/demo
+$ cosign sign --upload=false --output-signature demo.sig --output-certificate demo.crt $IMAGE
 ```
 
 ## Generate the Signature Payload with Cosign (to sign with another tool)
@@ -277,21 +285,13 @@ $ aws kms verify --key-id $AWS_CMK_ID \
 The signature is passed via the `--signature` flag. It can be a file:
 
 ```shell
-$ cosign attach signature --signature file.sig user/demo
-Pushing signature to: user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
-```
-
-The base64-encoded signature:
-
-```shell
-$ cosign attach signature --signature Qr883oPOj0dj82PZ0d9mQ2lrdM0lbyLSXUkjt6ejrxtHxwe7bU6Gr27Sysgk1jagf1htO/gvkkg71oJiwWryCQ== user/demo
-Pushing signature to: user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def.sig
+$ cosign attach signature --signature file.sig $IMAGE
 ```
 
 Or, `-` for `stdin` for chaining from other commands:
 
 ```shell
-$ cosign generate user/demo | openssl... | cosign attach signature --signature -- user/demo
+$ cosign generate $IMAGE | openssl... | cosign attach signature --signature - $IMAGE
 Pushing signature to: user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def.sig
 ```
 
@@ -301,14 +301,14 @@ Signatures are uploaded to an OCI artifact stored with a predictable name.
 This name can be located with the `cosign triangulate` command:
 
 ```shell
-$ cosign triangulate user/demo
+$ cosign triangulate $IMAGE
 index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
 ```
 
 They can be reviewed with `crane`:
 
 ```shell
-$ crane manifest $(cosign triangulate gcr.io/user/demo) | jq .
+$ crane manifest $(cosign triangulate $IMAGE) | jq .
 {
   "schemaVersion": 2,
   "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
@@ -341,5 +341,5 @@ $ crane manifest $(cosign triangulate gcr.io/user/demo) | jq .
 Some registries support deletion too (DockerHub does not):
 
 ```shell
-$ cosign clean gcr.io/user/demo
+$ cosign clean $IMAGE
 ```
