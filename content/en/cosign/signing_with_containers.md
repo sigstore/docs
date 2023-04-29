@@ -146,8 +146,11 @@ $ openssl dgst -sha256 -sign openssl.key -out payload.sig payload.json
 $ cat payload.sig | base64 > payloadbase64.sig
 # Upload the signature
 $ cosign attach signature --payload payload.json --signature payloadbase64.sig $IMAGE
-# Verify!
-$ cosign verify --key openssl.pub $IMAGE
+
+# Verify! Need to pass `--insecure-ignore-tlog` because attaching a signature
+# doesn't upload it to the transparency log.
+$ cosign verify --key openssl.pub --insecure-ignore-tlog $IMAGE
+
 Verification for us.gcr.io/user/demo --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
