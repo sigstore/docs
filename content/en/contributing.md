@@ -35,7 +35,7 @@ As website content grows, matures and adapts, it can be tricky to keep the conte
 
 - Who’s your audience? They’re a wide mix of readers with different levels of know-how. Good, accessible website content tends to keep things simple and more entry level rather than diving straight in at the deep end.
 
-- Branded terms. Fulcio, Cosign and Rekor all get capitalized. sigstore doesn’t, and shouldn’t in any context. Making sure this stays consistent helps make them feel more established, more long-lasting.
+- Branded terms. Sigstore, Cosign, Fulcio, Rekor, Gitsign, and Policy Controller all get capitalized. Making sure this stays consistent helps them feel more established and long-lasting.
 
 - Compare similar content before making new changes. This will help pick out things like syntax and grammar, which should help you know what conventions to follow and keep things consistent.
 
