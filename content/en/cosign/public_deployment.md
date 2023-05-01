@@ -32,7 +32,7 @@ To use this instance, follow the steps below:
 
 #### Revert Back to Production
 
-We need to clear the local TUF root data and re-initialize with the default production TUF root data.
+In order to revert, we need to clear the local TUF root data and re-initialize with the default production TUF root data.
 
 1. `rm -r ~/.sigstore`
 1. `cosign initialize`
