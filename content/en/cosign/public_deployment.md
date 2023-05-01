@@ -6,7 +6,7 @@ position: 122
 
 There is a public staging environment, or deployment, that is running Fulcio, Rekor and OIDC issuer.
 
-**NOTE** The staging environment provides no SLO guarantees nor the same protection of the root key material for TUF. This environment is meant for development and testing only, PLEASE do not use for production purposes.
+**NOTE** The staging environment provides neither SLO guarantees nor the same protection of the root key material for TUF. This environment is meant for development and testing only. It is not appropriate to use for production purposes.
 
 The endpoints are as follows:
 
