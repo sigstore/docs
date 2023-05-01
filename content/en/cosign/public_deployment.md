@@ -28,7 +28,7 @@ To use this instance, follow the steps below:
 
 * Steps 1-4 configures your local environment to use the staging keys and certificates.
 * Step 5 specifies the staging environment with flags needed for signing.
-* Step 6 specify the staging environment with flags needed for verifying.
+* Step 6 specifies the staging environment with flags needed for verifying.
 
 #### Revert Back to Production
 
