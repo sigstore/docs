@@ -65,7 +65,7 @@ To verify, Cosign queries the transparency log (Rekor) to compare the public key
 
 ## Example: Working with containers
 
-> NOTE: In this example, we will create a container using [ttl.sh](https://ttl.sh/).  It offers free, short-lived (i.e., hours), anonymous container image hosting if you just want to try out signing and verifying commands.  
+> NOTE: In this example, we will create a container using [ttl.sh](https://ttl.sh/).  It offers free, short-lived (as in minutes or hours), anonymous container image hosting so you can try out signing and verifying commands in a sample workflow
 
 To use `ttl.sh` and [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) to prepare the image to sign, run the following:
 
