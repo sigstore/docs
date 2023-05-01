@@ -27,7 +27,7 @@ To use this instance, follow the steps below:
 1. `COSIGN_EXPERIMENTAL=1 cosign verify --rekor-url "https://rekor.sigstage.dev" ${IMAGE}`
 
 * Steps 1-4 configures your local environment to use the staging keys and certificates.
-* Step 5 specify the staging environment with flags needed for signing.
+* Step 5 specifies the staging environment with flags needed for signing.
 * Step 6 specify the staging environment with flags needed for verifying.
 
 #### Revert Back to Production
