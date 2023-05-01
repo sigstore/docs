@@ -216,7 +216,7 @@ For configuring Cosign to work with custom components, checkout the [Configuring
 
 ### Custom Root Cert
 
-You can override the public good instance CA using the environment variable `SIGSTORE_ROOT_FILE`, e.g.
+You can override the public good instance CA using the environment variable `SIGSTORE_ROOT_FILE` by running the following.
 
 ```
 export SIGSTORE_ROOT_FILE="/home/jdoe/myrootCA.pem"
