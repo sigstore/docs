@@ -119,7 +119,7 @@ Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79be4def8.si
 ```
 ## SCM Integration
 
-Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use cosign to generate and work safely with [SCM secrets](/cosign/git_support/) with native API integration.
+Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use Cosign to generate and work safely with [SCM secrets](/cosign/git_support/) with native API integration.
 
 ## Attestations
 
