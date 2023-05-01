@@ -79,7 +79,7 @@ $ IMAGE_URI_DIGEST=$IMAGE_URI@$SRC_DIGEST
 
 ### Keyless signing of a container
 
-The following code signs the created container image.  The command to sign container images is `cosign sign <image URI>`.  Note that for containers, there is no bundle as there is with blobs, as the signature and certificate are attached directly to the container:
+The following code signs the created container image.  The command to sign container images is `cosign sign <image URI>`.  For our example, `<image URI>` is `$IMAGE_URI_DIGEST`. Note that for containers, there is no bundle as there is with blobs, as the signature and certificate are attached directly to the container:
 
 ```
 $ cosign sign $IMAGE_URI_DIGEST
