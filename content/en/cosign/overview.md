@@ -87,7 +87,7 @@ $ cosign sign $IMAGE_URI_DIGEST
 
 ### Keyless verifying of a container
 
-This works the similar to verifying a blob, but there is no need to place the certificate and signature on the verify command. To verify a signed container image, use the following command:
+This works similarly to verifying a blob, but there is no need to place the certificate and signature on the `cosign verify` command. To verify a signed container image, use the following command:
 
 ```
 $ cosign verify <image URI> --certificate-identity=name@example.com
