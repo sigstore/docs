@@ -27,7 +27,7 @@ To use this instance, follow the steps below:
 1. `cosign verify --rekor-url "https://rekor.sigstage.dev" ${IMAGE}` --certificate-identity=name@example.com
                                                                      --certificate-oidc-issuer=accounts.example.com
 
-* Steps 1-4 configures your local environment to use the staging keys and certificates.
+* Steps 1-4 configure your local environment to use the staging keys and certificates.
 * Step 5 specifies the staging environment with flags needed for signing.
 * Step 6 specifies the staging environment with flags needed for verifying.
 
