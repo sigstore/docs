@@ -7,7 +7,7 @@ position: 106
 The general verification format with the `cosign verify` command is as follows.
 
 ```shell
-$ cosign verify [--key <key path>|<key url>|<kms uri>] <image uri> 
+$ cosign verify [--key <key path>|<key url>|<kms uri>] <image uri>
 ```
 ## Keyless verification using OpenID Connect
 
@@ -16,9 +16,9 @@ We'll use `user/demo` as our example image in the following commands and keyless
 For identity-based verification of a container image, use the following command:
 
 ```
-$ cosign verify <image URI> --certificate-identity=name@example.com 
+$ cosign verify <image URI> --certificate-identity=name@example.com
                             --certificate-oidc-issuer=https://accounts.example.com
-                           
+
 ```
 
 The oidc-issuer for Google is https://accounts.google.com, Microsoft is https://login.microsoftonline.com, and GitHub is https://github.com/login/oauth.
@@ -26,7 +26,7 @@ The oidc-issuer for Google is https://accounts.google.com, Microsoft is https://
 The following example verifies the signature on file.txt from user name@example.com issued by accounts@example.com. It uses a provided bundle cosign.bundle that contains the certificate and signature.
 
 ```
-$ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@example.com 
+$ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@example.com
                               --certificate-oidc-issuer=https://accounts.example.com
 ```
 
@@ -50,7 +50,7 @@ verify any claims in the payload.
 
 ## Verify multiple images
 
-You can pass more than one image to `cosign verify`. 
+You can pass more than one image to `cosign verify`.
 
 ```shell
 $ cosign verify user-0/demo-0 user-1/demo-1
@@ -74,6 +74,14 @@ Verify image with local certificate and local certificate chain:
 
 ```shell
 $ cosign verify --certificate cosign.crt --certificate-chain chain.crt user/demo
+```
+
+## Verify image with user-provided trusted chain
+Verify image with the provided certificate chain and identity parameters (intended for
+a "bring your own PKI" use case):
+
+```shell
+$ cosign verify --certificate-chain chain.crt --certificate-oidc-issuer https://issuer.example.com --certificate-identity foo@example.com user/demo
 ```
 
 ## Verify an image on the transparency log
