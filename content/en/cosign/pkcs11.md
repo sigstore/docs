@@ -74,7 +74,7 @@ To verify, you can either use the PKCS11 token key directly:
 
 ```shell
 $ cosign verify --key "<PKCS11_URI>" $IMAGE
-Verification for gcr.io/dlorenc-vmtest2/demo --
+Verification for gcr.io/vmtest2/demo --
 The following checks were performed on each of these signatures:
 - The cosign claims were validated
 - The signatures were verified against the specified public key
