@@ -80,4 +80,4 @@ If you're running your own sigtore services flags are available to set your own 
 
 ### Custom roots of trust
 
-For information on custom roots of trust, see [Configuring Cosign with Custom Components](https://docs.sigstore.dev/cosign/custom_components/).
+For information on custom roots of trust, see [Configuring Cosign with Custom Components](/cosign/custom_components/).
