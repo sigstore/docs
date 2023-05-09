@@ -67,7 +67,7 @@ You can then use the normal `cosign` commands to sign images and blobs with your
 
 ```shell
 $ cosign sign --key "<PKCS11_URI>" $IMAGE_DIGEST
-Pushing signature to: gcr.io/dlorenc-vmtest2/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.sig
+Pushing signature to: gcr.io/vmtest2/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.sig
 ```
 
 To verify, you can either use the PKCS11 token key directly:
