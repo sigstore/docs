@@ -89,7 +89,7 @@ Or export the public key and verify against that:
 $ cosign public-key --key "<PKCS11_URI>" > pub.key
 
 $ cosign verify --key pub.key $IMAGE_DIGEST
-Verification for gcr.io/dlorenc-vmtest2/demo --
+Verification for gcr.io/vmtest2/demo --
 The following checks were performed on each of these signatures:
 - The cosign claims were validated
 - The signatures were verified against the specified public key
