@@ -53,7 +53,7 @@ You can also construct the PKCS11 URI of your key manually by providing the foll
 
 * **token** and/or **slot-id** : either or both of the PKCS11 token label and the PKCS11 slot ID **(mandatory)**
 
-* **object** and/or **id** : either or both of the PKCS11 key label and the PKCS11 key id **(mandatory)**
+* **object** and/or **ID** : either or both of the PKCS11 key label and the PKCS11 key ID **(mandatory)**
 
 * **pin-value** : the PIN of the PKCS11 token **(optional)**
 
