@@ -12,7 +12,7 @@ Keyless signing associates identities, rather than keys, with an artifact signat
 
 See the [Fulcio repository](https://github.com/sigstore/fulcio) and [Rekor repository](https://github.com/sigstore/rekor) for more information.
 
-## Keys
+## Root of Trust
 
 Sigstore's root of trust, which includes Fulcio's root CA certificate and Rekor's public key, are distributed by The Update Framework (TUF). TUF is a framework to provide secure software and file updates. TUF defines a set of protocols to protect against [various types of attacks](https://theupdateframework.io/security/). For more information about how Sigstore uses TUF, see [How Sigstore uses TUF](https://dlorenc.medium.com/using-the-update-framework-in-sigstore-dc393cfe6b52).
 
