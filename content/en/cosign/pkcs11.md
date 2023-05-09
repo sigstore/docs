@@ -20,7 +20,7 @@ $ IMAGE_DIGEST=$IMAGE@sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61
 
 To get started, make sure you already have your PKCS11 module installed, and insert your PKCS11-compatible token.
 
-Then, run the command `cosign pkcs11-tool list-tokens` to get the slot id of your token, as follows :
+Then, run the command `cosign pkcs11-tool list-tokens` to get the slot ID of your token, as follows :
 
 ```shell
 $ cosign pkcs11-tool list-tokens --module-path /usr/local/lib/libp11.so
