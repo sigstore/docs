@@ -51,7 +51,7 @@ You can also construct the PKCS11 URI of your key manually by providing the foll
 
 * **module-path** : the absolute path to the PKCS11 module **(optional)**
 
-* **token** and/or **slot-id** : either or both of the PKCS11 token label and the PKCS11 slot id **(mandatory)**
+* **token** and/or **slot-id** : either or both of the PKCS11 token label and the PKCS11 slot ID **(mandatory)**
 
 * **object** and/or **id** : either or both of the PKCS11 key label and the PKCS11 key id **(mandatory)**
 
