@@ -33,7 +33,7 @@ To log in and set up your OIDC Identity, follow these steps:
 ![Identity Sign-in](/cosign_identity_login.png)
 3. Go back to your terminal or other application. Redirection back to Cosign is seamless.
 
-Currently Sigstore supports Microsoft, Google, and GitHub. As an alternative you can also use the environment variable `SIGSTORE_ID_TOKEN` to identify yourself. Cosign also has support for detecting some of these automated environments and producing an identity token. Currently this supports Google and GitHub, in addition to other environments. See [Cosign's providers](https://github.com/sigstore/cosign/tree/main/pkg/providers) for a complete list.
+Currently, Sigstore supports Microsoft, Google, and GitHub. As an alternative, you can also use the environment variable `SIGSTORE_ID_TOKEN` to identify yourself. Cosign also has support for detecting some of these automated environments and producing an identity token. Currently this supports Google and GitHub, in addition to other environments. See [Cosign's providers](https://github.com/sigstore/cosign/tree/main/pkg/providers) for a complete list.
 
 ### On Google Cloud Platform
 
