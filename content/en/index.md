@@ -19,7 +19,7 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 * Sign Git commits with [Gitsign](/gitsign/overview/) - [Quick start](/gitsign/overview/#quick-start)
 * Use the [policy controller](/policy-controller/overview/) to enforce Kubernetes policies
 
-Once installed, Cosign can also be used to verify.  If you need to verify a signed artifact, install Cosign and follow the instructions at [verify](/cosign/verify/).
+Once installed, Cosign can also be used to verify.  If you need to verify a signed artifact, install Cosign and follow the  [verify instructions](/cosign/verify/).
 
 ## How Sigstore works
 
