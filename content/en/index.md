@@ -15,7 +15,7 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 ## How to use Sigstore
 
 * Install Cosign - [Cosign Installation page](/cosign/installation/)
-* Sign and verify software artifacts with [Cosign](/cosign/overview/) — [Quick start](/cosign/overview/#quick-start)
+* Sign software artifacts with [Cosign](/cosign/overview/) — [Quick start](/cosign/overview/#quick-start)
 * Sign Git commits with [Gitsign](/gitsign/overview/) - [Quick start](/gitsign/overview/#quick-start)
 * Use the [policy controller](/policy-controller/overview/) to enforce Kubernetes policies
 * Use the [Fulcio Certificate Authority](/fulcio/overview/)
