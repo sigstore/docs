@@ -124,6 +124,41 @@ Where `$PROJECT`, `$LOCATION`, `$KEYRING`, `$KEY` and `$KEY_VERSION` are replace
 
 Cosign automatically uses GCP Application Default Credentials for authentication. See the GCP [API documentation](https://cloud.google.com/docs/authentication/production) for information on how to authenticate in different environments.
 
+Example:
+
+```shell
+
+$ export PROJECT=GCP-PROJECT-ID
+$ gcloud config set project ${PROJECT}
+$ export LOCATION=northamerica-northeast1
+$ export ZONE=${LOCATION}-a
+$ export KEY_VERSION=1
+
+
+$ KEYRING=cosign
+$ gcloud kms keyrings create ${KEYRING} \
+    --location ${LOCATION}
+
+$ KEY=cosign
+$ gcloud kms keys create ${KEY} \
+    --keyring ${KEYRING} \
+    --location ${LOCATION} \
+    --purpose asymmetric-signing \
+    --default-algorithm ec-sign-p256-sha256
+
+$ cosign generate-key-pair \
+    --kms gcpkms://projects/$PROJECT/locations/$LOCATION/keyRings/$KEYRING/cryptoKeys/$KEY/versions/$KEY_VERSION
+
+$ cosign sign \
+    --key gcpkms://projects/$PROJECT/locations/$LOCATION/keyRings/$KEYRING/cryptoKeys/$KEY/versions/$KEY_VERSION \
+    $IMAGE_DIGEST
+
+$ cosign verify \
+    --key gcpkms://projects/$PROJECT/locations/$LOCATION/keyRings/$KEYRING/cryptoKeys/$KEY/versions/$KEY_VERSION \
+    $IMAGE_DIGEST
+```
+
+
 The user must have the following IAM roles:
 
 - Safer KMS Viewer Role
