@@ -117,7 +117,7 @@ Before using a downloaded Cosign binary, it's important to verify its authentici
 
 #### Downloading The Update Framework (TUF) client
 
-Before using Cosign, you will need to download and also initialize the TUF environment which allows you to ensure that your software artifacts are distributed securely and that any updates to these artifacts are signed and verified being installed.
+Before using Cosign, you will need to download and also initialize the TUF environment which allows you to ensure that your software artifacts are distributed securely and that any updates to these artifacts are signed and verified.
 
 To do this, install and use [go-tuf](https://github.com/theupdateframework/go-tuf)'s CLI tools:
 
