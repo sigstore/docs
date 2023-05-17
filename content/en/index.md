@@ -14,10 +14,11 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 
 ## How to use Sigstore
 
-* Install Cosign - [Cosign Installation page](/cosign/installation/)
-* Sign software artifacts with [Cosign](/cosign/overview/) — [Quick start](/cosign/overview/#quick-start)
-* Sign Git commits with [Gitsign](/gitsign/overview/) - [Quick start](/gitsign/overview/#quick-start)
-* Use the [policy controller](/policy-controller/overview/) to enforce Kubernetes policies
+* I want to [install and Quick start](/cosign/overview/#quick-start)
+* I want to [sign a blob](cosign/signing_with_blobs/)
+* I want to [sign a container](cosign/signing_with_containers/)
+* I want to Sign Git commits with [Gitsign](/gitsign/overview/) - [Quick start](/gitsign/overview/#quick-start)
+* I want to [verify entries with Cosign](/cosign/verify/)
 
 Once installed, Cosign can also be used to verify.  If you need to verify a signed artifact, install Cosign and follow the [verify instructions](/cosign/verify/).
 
