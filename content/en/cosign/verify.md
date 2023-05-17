@@ -4,6 +4,8 @@ category: "Cosign"
 position: 106
 ---
 
+> **Note**: If you need to verify a signed artifact, you must first install Cosign. Follow the  [installation instructions](/cosign/installation/) to install.
+
 The general verification format with the `cosign verify` command is as follows.
 
 ```shell
