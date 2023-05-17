@@ -4,7 +4,7 @@ category: "Cosign"
 position: 106
 ---
 
-> **Note**: If you need to verify a signed artifact or blob, you must first install Cosign. Follow the  [installation instructions](/cosign/installation/) to install.
+> **Note**: To verify a signed artifact or blob, first [install Cosign](/cosign/installation/), then follow the instructions below.
 
 The general verification format with the `cosign verify` command is as follows.
 
