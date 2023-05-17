@@ -20,8 +20,6 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 * I want to Sign Git commits with [Gitsign](/gitsign/overview/) - [Quick start](/gitsign/overview/#quick-start)
 * I want to [verify entries with Cosign](/cosign/verify/)
 
-Once installed, Cosign can also be used to verify.  If you need to verify a signed artifact, install Cosign and follow the [verify instructions](/cosign/verify/).
-
 ## How Sigstore works
 
 A Sigstore client, such as Cosign, requests a certificate from Fulcio, a code-signing certificate authority. A verifiable OpenID Connect identity token, which contains a user's email address or service account, is provided in the request. Fulcio verifies this token and issues a short-lived certificate bound to the provided identity. 
