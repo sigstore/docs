@@ -190,23 +190,3 @@ COSIGN_DIGEST=$(crane digest gcr.io/projectsigstore/cosign:$COSIGN_VERSION)
 cosign verify gcr.io/projectsigstore/cosign@$COSIGN_DIGEST \
   --certificate-identity keyless@projectsigstore.iam.gserviceaccount.com --certificate-oidc-issuer https://accounts.google.com
 ```
-
-## Releases
-
-Releases are published in the Cosign repository under the [Releases page](https://github.com/sigstore/cosign/releases), and hosted in the GCS bucket `cosign-releases`.
-
-They can be reviewed with `gsutil`:
-
-```console
-$ gsutil ls gs://cosign-releases/v2.0.0
-gs://cosign-releases/v2.0.0/cosign-darwin-amd64
-gs://cosign-releases/v2.0.0/cosign-darwin-amd64.sig
-gs://cosign-releases/v2.0.0/cosign-darwin-arm64
-gs://cosign-releases/v2.0.0/cosign-darwin-arm64.sig
-gs://cosign-releases/v2.0.0/cosign-linux-amd64
-gs://cosign-releases/v2.0.0/cosign-linux-amd64.sig
-gs://cosign-releases/v2.0.0/cosign-windows-amd64.exe
-gs://cosign-releases/v2.0.0/cosign-windows-amd64.exe.sig
-gs://cosign-releases/v2.0.0/cosign_checksums.txt
-gs://cosign-releases/v2.0.0/release-cosign.pub
-```
