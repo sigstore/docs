@@ -59,38 +59,50 @@ newType:
 
 2. Create a subdirectory under `pkg/types/` with your type name (e.g. `newType`) as a new Go package
 
-3. In this new Go package, define a struct that implements the `TypeImpl` interface as defined in `types.go`:
+3. In this new Go package, define a struct that implements the `TypeImpl` interface as defined in `pkg/types/types.go`:
 
 ```go
 type TypeImpl interface {
-	Kind() string
+  CreateProposedEntry(context.Context, version string, ArtifactProperties) (models.ProposedEntry, error)
+	DefaultVersion() string
+	SupportedVersions() []string
+	IsSupportedVersion(version string) bool
 	UnmarshalEntry(pe models.ProposedEntry) (EntryImpl, error)
 }
 ```
 
-- `Kind` must return the _exact_ same string as you named your new type in `openapi.yaml` (e.g. "`newType`")
+- `CreateProposedEntry` creates an instance of a proposed entry based on the specified API version and the provided artifact properties
+- `DefaultVersion` returns the default API version string across all types (to be used if a caller does not specify an explicit version)
+- `SupportedVersions` returns the list of all API version strings that can currently be inserted into the log.
+- `IsSupportedVersion` returns a boolean denoting whether the specified version could be inserted into the log
 - `UnmarshalEntry` will be called with a pointer to a struct that was automatically generated for the type defined in `openapi.yaml` by the [go-swagger](http://github.com/go-swagger/go-swagger) tool used by Rekor
   - This struct will be defined in the generated file at `pkg/generated/models/newType.go` (where `newType` is replaced with the name of the type you are adding)
-  - This method should return a pointer to an instance of a struct that implements the `EntryImpl` interface as defined in `types.go`, or a `nil` pointer with an error specified
+  - This method should return a pointer to an instance of a struct that implements the `EntryImpl` interface as defined in `pkg/types/types.go`, or a `nil` pointer with an error specified
 
-4. Also in this Go package, provide an implementation of the `EntryImpl` interface as defined in `types.go`:
+Also, the `Kind` constant must return the _exact_ same string as you named your new type in `openapi.yaml` (e.g. "`newType`")
+
+4. Also in this Go package, provide an implementation of the `EntryImpl` interface as defined in `pkg/types/entries.go`:
 
 ```go
 type EntryImpl interface {
-	APIVersion() string
-	Canonicalize(ctx context.Context) ([]byte, error)
-	FetchExternalEntities(ctx context.Context) error
-	HasExternalEntities() bool
-	Unmarshal(pe models.ProposedEntry) error
+  APIVersion() string                               // the supported versions for this implementation
+	IndexKeys() ([]string, error)                     // the keys that should be added to the external index for this entry
+	Canonicalize(ctx context.Context) ([]byte, error) // marshal the canonical entry to be put into the tlog
+	Unmarshal(e models.ProposedEntry) error           // unmarshal the abstract entry into the specific struct for this versioned type
+	CreateFromArtifactProperties(context.Context, ArtifactProperties) (models.ProposedEntry, error)
+	Verifier() (pki.PublicKey, error)
+	Insertable() (bool, error) // denotes whether the entry that was unmarshalled has the writeOnly fields required to validate and insert into the log
 }
 ```
 
 - `APIVersion` should return a version string that identifies the version of the type supported by the Rekor server
+- `IndexKeys` should return a `[]string` containing the keys that are stored in the search index that should map to this log entry's ID.
 - `Canonicalize` should return a `[]byte` containing the canonicalized contents representing the entry. The canonicalization of contents is important as we should have one record per unique signed object in the transparency log.
-- `FetchExternalEntities` should retrieve any entities that make up the entry which were not included in the object provided in the HTTP request to the Rekor server
-- `HasExternalEntities` indicates whether the instance of the struct has any external entities it has yet to fetch and resolve
 - `Unmarshal` will be called with a pointer to a struct that was automatically generated for the type defined in `openapi.yaml` by the [go-swagger](http://github.com/go-swagger/go-swagger) tool used by Rekor
   - This method should validate the contents of the struct to ensure any string or cross-field dependencies are met to successfully insert an entry of this type into the transparency log
+- `CreateFromArtifactProperties` returns a proposed entry of this specific entry implementation given the provided artifact properties
+- `Verifier` returns the verification material that was used to verify the digital signature
+- `Insertable` introspects the entry and determines if the object is sufficiently hydrated to make a new entry into the log. Entry instances that are created by reading the contents stored in the log may not be sufficiently hydrated.
 
 5. In the Go package you have created for the new type, be sure to add an entry in the `TypeMap` in `github.com/sigstore/rekor/pkg/types` for your new type in the `init` method for your package. The key for the map is the unique string used to define your type in `openapi.yaml` (e.g. `newType`), and the value for the map is the name of a factory function for an instance of `TypeImpl`.
 
