@@ -16,21 +16,23 @@ The resulting binary will be placed at `$GOPATH/bin/cosign` (or `$GOBIN/cosign`,
 
 ## With the Cosign binary or rpm/dpkg package
 
-Check for the file in https://github.com/sigstore/cosign/releases
+Download the binary for your platform at https://github.com/sigstore/cosign/releases/latest.
 
 ```console
 # binary
-wget "https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64"
+curl -O -L "https://github.com/sigstore/cosign/releases/latest/download/cosign-linux-amd64"
 mv cosign-linux-amd64 /usr/local/bin/cosign
 chmod +x /usr/local/bin/cosign
 
 # rpm
-wget "https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-2.0.0.x86_64.rpm"
-rpm -ivh cosign-2.0.0.x86_64.rpm
+LATEST_VERSION=$(curl https://api.github.com/repos/sigstore/cosign/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")
+curl -O -L "https://github.com/sigstore/cosign/releases/latest/download/cosign-${LATEST_VERSION}.x86_64.rpm"
+rpm -ivh cosign-${LATEST_VERSION}.x86_64.rpm
 
 # dkpg
-wget "https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign_2.0.0_amd64.deb"
-dpkg -i cosign_2.0.0_amd64.deb
+LATEST_VERSION=$(curl https://api.github.com/repos/sigstore/cosign/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")
+curl -O -L "https://github.com/sigstore/cosign/releases/latest/download/cosign_${LATEST_VERSION}_amd64.deb"
+dpkg -i cosign_${LATEST_VERSION}_amd64.deb
 ```
 
 ## Homebrew/Linuxbrew
@@ -80,20 +82,30 @@ Cosign can be installed in your GitHub Actions using the [Cosign installer](http
 
 ```yaml
 uses: sigstore/cosign-installer@main
+```
+
+You can specify a specific release of Cosign:
+
+```yaml
+uses: sigstore/cosign-installer@main
 with:
-  cosign-release: "v2.0.0" # optional
+  cosign-release: "v2.0.2" # optional
 ```
 
 ## Container Images
 
 Signed release images are available at [`gcr.io/projectsigstore/cosign`](http://gcr.io/projectsigstore/cosign).
-They are tagged with the release name (for example, `gcr.io/projectsigstore/cosign:v2.0.0`).
-They can be found with `crane ls`:
+They are tagged with the release name (for example, `gcr.io/projectsigstore/cosign:v2.0.2`).
+
+You can get the latest release with `crane ls gcr.io/projectsigstore/cosign | tail -1`. To list all versions, signatures and SBOMs:
 
 ```console
 $ crane ls gcr.io/projectsigstore/cosign
-sha256-7e9a6ca62c3b502a125754fbeb4cde2d37d4261a9c905359585bfc0a63ff17f4.sig
-v0.4.0
+...
+sha256-a95d7c4ab27e48aaf89253e0703014709129f010578be809b6c95ccee908fa1b.sbom
+sha256-a95d7c4ab27e48aaf89253e0703014709129f010578be809b6c95ccee908fa1b.sig
+...
+v2.0.2
 ...
 ```
 
@@ -109,9 +121,15 @@ $ crane ls gcr.io/projectsigstore/cosign/ci/cosign
 
 Further details and installation instructions for `crane` are available via https://github.com/google/go-containerregistry/tree/main/cmd/crane
 
-## Downloading The Update Framework (TUF) client
+## Verifying Cosign Releases
 
-Before using cosign, you will need to download and also initialize the TUF environment which allows you to ensure that your software artifacts are distributed securely and that any updates to these artifacts are signed and verified being installed.
+Before using a downloaded Cosign binary, it's important to verify its authenticity to ensure that it hasn't been tampered with. The Cosign binary is signed both with keyless signing and an artifact key. You first need to verify Cosign with the artifact key, since you will need Cosign to verify the keyless signature.
+
+### Verifying Cosign with artifact key
+
+#### Downloading The Update Framework (TUF) client
+
+Before using Cosign, you will need to download and also initialize the TUF environment which allows you to ensure that your software artifacts are distributed securely and that any updates to these artifacts are signed and verified.
 
 To do this, install and use [go-tuf](https://github.com/theupdateframework/go-tuf)'s CLI tools:
 
@@ -119,13 +137,15 @@ To do this, install and use [go-tuf](https://github.com/theupdateframework/go-tu
 $ go install github.com/theupdateframework/go-tuf/cmd/tuf-client@latest
 ```
 
-Then, obtain trusted root keys for Sigstore. You will use the 5th iteration of Sigstore's TUF root to start the root of trust, due to a backward incompatible change.
+Then, obtain trusted root keys for Sigstore. You will use the 5th iteration of Sigstore's TUF root to start the root of trust, due to a backward incompatible change. The TUF client uses this root to start a chain of roots, and will download the latest, unexpired root as part of [its workflow](https://theupdateframework.github.io/specification/latest/#update-root).
 
 ```console
 curl -o sigstore-root.json https://raw.githubusercontent.com/sigstore/root-signing/main/ceremony/2022-10-18/repository/5.root.json
 ```
 
-## Initializing TUF Environment
+Note that you can verify the 5th TUF root against the 1st TUF root, which was signed in a publicly documented signing ceremony. However, due to the backward incompatible change, this requires manual verification steps. See the [Sigstore root repo](https://github.com/sigstore/root-signing) for more information.
+
+#### Initializing TUF Environment
 
 Then initialize the tuf client with the previously obtained root key and the remote repository;
 
@@ -133,9 +153,9 @@ Then initialize the tuf client with the previously obtained root key and the rem
 $ tuf-client init https://tuf-repo-cdn.sigstore.dev sigstore-root.json
 ```
 
-## Verifying Cosign Releases
+#### Verifying with key
 
-Before using a downloaded Cosign binary, it's important to verify its authenticity to ensure that it hasn't been tampered with. The Cosign binary is signed both with keyless signing and an artifact key. You first need to verify Cosign with the artifact key, since you will need Cosign to verify the keyless signature.
+You will retrieve the artifact verification key from the trusted TUF repository and use it to verify the Cosign release.
 
 ```console
 tuf-client get https://tuf-repo-cdn.sigstore.dev artifact.pub > artifact.pub
@@ -150,22 +170,35 @@ openssl dgst -sha256 -verify artifact.pub -signature cosign-release.sig.decoded 
 
 The `<version>`and `<os>` placeholders in the URLs should be replaced with the specific version and operating system that you want to download.
 
-## Releases
+### Verifying Cosign with identity-based verification
 
-Releases are published in the Cosign repository under the [Releases page](https://github.com/sigstore/cosign/releases), and hosted in the GCS bucket `cosign-releases`.
+Once you have verified Cosign with an artifact key, you can use Cosign to verify future releases of Cosign using identity-based verification. 
 
-They can be reviewed with `gsutil`:
+#### Verifying Cosign binary
+
+To verify a Cosign binary, you will need to fetch the signature and certificate from GitHub.
 
 ```console
-$ gsutil ls gs://cosign-releases/v2.0.0
-gs://cosign-releases/v2.0.0/cosign-darwin-amd64
-gs://cosign-releases/v2.0.0/cosign-darwin-amd64.sig
-gs://cosign-releases/v2.0.0/cosign-darwin-arm64
-gs://cosign-releases/v2.0.0/cosign-darwin-arm64.sig
-gs://cosign-releases/v2.0.0/cosign-linux-amd64
-gs://cosign-releases/v2.0.0/cosign-linux-amd64.sig
-gs://cosign-releases/v2.0.0/cosign-windows-amd64.exe
-gs://cosign-releases/v2.0.0/cosign-windows-amd64.exe.sig
-gs://cosign-releases/v2.0.0/cosign_checksums.txt
-gs://cosign-releases/v2.0.0/release-cosign.pub
+curl -o cosign-release.sig -L https://github.com/sigstore/cosign/releases/download/<version>/cosign-<os>-keyless.sig
+base64 -d cosign-release.sig > cosign-release.sig.decoded
+
+curl -o cosign-release.pem -L https://github.com/sigstore/cosign/releases/download/<version>/cosign-<os>-keyless.pem
+base64 -d cosign-release.pem > cosign-release.pem.decoded
+
+curl -o new-cosign -L https://github.com/sigstore/cosign/releases/download/<version>/cosign-<os>
+
+cosign verify-blob new-cosign --certificate cosign-release.pem.decoded --signature cosign-release.sig.decoded \
+  --certificate-identity keyless@projectsigstore.iam.gserviceaccount.com --certificate-oidc-issuer https://accounts.google.com
+```
+
+#### Verify Cosign in container image
+
+You can also verify a container image of Cosign. You can use [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md) to get the latest version of Cosign. You can skip the first two steps if you already have the container image.
+
+```console
+COSIGN_VERSION=$(crane ls gcr.io/projectsigstore/cosign | tail -1)
+COSIGN_DIGEST=$(crane digest gcr.io/projectsigstore/cosign:$COSIGN_VERSION)
+
+cosign verify gcr.io/projectsigstore/cosign@$COSIGN_DIGEST \
+  --certificate-identity keyless@projectsigstore.iam.gserviceaccount.com --certificate-oidc-issuer https://accounts.google.com
 ```

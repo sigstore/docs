@@ -4,6 +4,8 @@ category: "Cosign"
 position: 106
 ---
 
+> **Note**: To verify a signed artifact or blob, first [install Cosign](/cosign/installation/), then follow the instructions below.
+
 The general verification format with the `cosign verify` command is as follows.
 
 ```shell

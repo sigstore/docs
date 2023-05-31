@@ -1,7 +1,7 @@
 ---
 title: "FAQ"
 category: "Cosign"
-position: 123
+position: 124
 ---
 
 ## Can I use Cosign to sign things *besides* OCI container images?
