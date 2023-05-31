@@ -35,6 +35,26 @@ To log in and set up your OIDC Identity, follow these steps:
 
 Currently, Sigstore supports Microsoft, Google, and GitHub. As an alternative, you can also use the environment variable `SIGSTORE_ID_TOKEN` to identify yourself by setting its value to that of the identity token. Cosign also has support for detecting some of these automated environments and producing an identity token. Currently this supports Google and GitHub, in addition to other environments. See [Cosign's providers](https://github.com/sigstore/cosign/tree/main/pkg/providers) for a complete list.
 
+### The signing, witnessing, and verifying process
+
+When taking advantage of sigstore’s full capabilities, the process of signing is as follows:
+
+#### Verifying identity and signing the artifact
+
+1) A keypair is created. 
+2) Sigstore checks the identity of the user signing the artifact and issues a certificate attesting to their identity. 
+3) The certificate is bound to the public key, which adds an extra layer of verification. Exchanging the keys will prove the identity of the private keyholder. 
+4) As the artifact is signed, the keys are exchanged, confirming the signer’s identity. 
+5) For security, the private key is destroyed shortly after and the short-lived identity certificate expires. Users who wish to verify the software will use the transparency log entry, rather than relying on the signer to safely store and manage the private key.
+
+#### Witnessing and recording the process
+
+To create the transparency log entry, Sigstore creates an object containing information that will allow signature verification without the (destroyed) private key. The object contains the hash of the artifact, the public key, and the signature. Crucially, this object is timestamped. The Rekor transparency log "witnesses" the signing event by entering a timestamped entry into the records that attests that the secure signing process has occurred. The software creator publishes the timestamped object, including the hash of the artifact, public key, and signature.
+
+#### Verifying the signed artifact
+
+When a software consumer wants to verify the software’s signature, sigstore compares the signature from the timestamped object against the timestamped Rekor entry. If they match, it confirms that the signature is valid because the user knows that the expected software creator, whose identity was certified at the moment of signing, published the software artifact in their possession. The entry in the Rekor’s immutable transparency log means that there’s no need to rely on a potentially insecure private key to perform the verification. 
+
 ### On Google Cloud Platform
 
 From a Google Cloud Engine (GCE) virtual machine, you can use the VM's service account identity to sign an image:
@@ -81,3 +101,5 @@ If you're running your own sigtore services flags are available to set your own 
 ### Custom roots of trust
 
 For information on custom roots of trust, see [Configuring Cosign with Custom Components](/cosign/custom_components/).
+
+
