@@ -37,7 +37,7 @@ Currently, Sigstore supports Microsoft, Google, and GitHub. As an alternative, y
 
 ### The signing, witnessing, and verifying process
 
-When taking advantage of sigstore’s full capabilities, the process of signing is as follows:
+When using Sigstore's defaults for signing and verification, the process of signing is as follows:
 
 #### Verifying identity and signing the artifact
 
