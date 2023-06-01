@@ -53,7 +53,7 @@ To create the transparency log entry, a Sigstore client creates an object contai
 
 #### Verifying the signed artifact
 
-When a software consumer wants to verify the software’s signature, sigstore compares the signature from the timestamped object against the timestamped Rekor entry. If they match, it confirms that the signature is valid because the user knows that the expected software creator, whose identity was certified at the moment of signing, published the software artifact in their possession. The entry in the Rekor’s immutable transparency log means that there’s no need to rely on a potentially insecure private key to perform the verification. 
+When a software consumer wants to verify the software’s signature, sigstore compares a tuple of signature, key/certificate, and artifacts from the timestamped object against the timestamped Rekor entry. If they match, it confirms that the signature is valid because the user knows that the expected software creator, whose identity was certified at the moment of signing, published the software artifact in their possession. The entry in the Rekor’s immutable transparency log means that there’s no need to rely on a potentially insecure private key to perform the verification. 
 
 ### On Google Cloud Platform
 
