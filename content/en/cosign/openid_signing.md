@@ -49,7 +49,7 @@ When using Sigstore's defaults for signing and verification, the process of sign
 
 #### Witnessing and recording the process
 
-To create the transparency log entry, Sigstore creates an object containing information that will allow signature verification without the (destroyed) private key. The object contains the hash of the artifact, the public key, and the signature. Crucially, this object is timestamped. The Rekor transparency log "witnesses" the signing event by entering a timestamped entry into the records that attests that the secure signing process has occurred. The software creator publishes the timestamped object, including the hash of the artifact, public key, and signature.
+To create the transparency log entry, a Sigstore client creates an object containing information that will allow signature verification without the (destroyed) private key. The object contains the hash of the artifact, the public key, and the signature. Crucially, this object is timestamped. The Rekor transparency log "witnesses" the signing event by entering a timestamped entry into the records that attests that the secure signing process has occurred. The software creator publishes the timestamped object, including the hash of the artifact, public key, and signature.
 
 #### Verifying the signed artifact
 
