@@ -12,7 +12,7 @@ Instead, Sigstore relies on time provided by another service. When verifying the
 
 ## Timestamping in Rekor
 
-Sigstore clients relying on Rekor to provide the timestamp use the entry's inclusion time from the [`integratedTime`](https://github.com/sigstore/rekor/blob/35c4489abcff256298f1bc9f7caaf5a946750dac/openapi.yaml#L461-L462) response field, which is signed over in the [`signedEntryTimestamp`](https://github.com/sigstore/rekor/blob/35c4489abcff256298f1bc9f7caaf5a946750dac/openapi.yaml#L475-L482) signature.
+Sigstore clients relying on Rekor to provide the timestamp use the entry's inclusion time from the [`integratedTime` response field](https://github.com/sigstore/rekor/blob/35c4489abcff256298f1bc9f7caaf5a946750dac/openapi.yaml#L461-L462), which is signed over in the [`signedEntryTimestamp` signature](https://github.com/sigstore/rekor/blob/35c4489abcff256298f1bc9f7caaf5a946750dac/openapi.yaml#L475-L482).
 
 Note that this timestamp comes from Rekor's internal clock, which is not externally verifiable, and a timestamp is not a part of the node that goes into the append-only data structure that backs Rekor, meaning the timestamp is mutable in Rekor without detection.
 
@@ -51,6 +51,6 @@ cosign verify --timestamp-certificate-chain ts_chain.pem <artifact>
 
 ## Future goals
 
-We could like to make timestamps immutable in Rekor. While the clock would not be verifiable and trust isn't distributed, it would make mutations to the timestamps detectable. We would like to include a signed timestamp, which could come from a 3rd party TSA or from a TSA operated by the Sigstore community, in the Rekor entry so that it is a part of the Merkle leaf hash computation and therefore becomes immutable. 
+We would like to make timestamps immutable in Rekor. While the clock would not be verifiable and trust isn't distributed, it would make mutations to the timestamps detectable. We would like to include a signed timestamp, which could come from a 3rd party TSA or from a TSA operated by the Sigstore community, in the Rekor entry so that it is a part of the Merkle leaf hash computation and therefore becomes immutable. 
 
-As a long-term goal, we would also like to support Roughtime (https://blog.cloudflare.com/roughtime/), which distributes trust across a set of time providers. The specification is still under development, and there's opportunities for client & server development.
+As a long-term goal, we would also like to support [Roughtime](https://blog.cloudflare.com/roughtime/), which distributes trust across a set of time providers. The specification is still under development, and there are opportunities for client & server development.
