@@ -130,7 +130,7 @@ which would set up your own Rekor instance.
 ### Why does a browser window open for each commit in a rebase?
 
 For Git, each commit in a rebase is considered a distinct signing operation so
-by default an ephemeral key is generated for each commit. To help, there are a
+by default an ephemeral key is generated for each commit. There are a
 few options to help automating the authentication process:
 
 - Setting the [`connectorID`](/gitsign/usage/#configuration) value can be set to
