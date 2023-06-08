@@ -35,7 +35,6 @@ signatures in the registry.
 
 ### Why not use $FOO?
 
-See [Requirements](#design-requirements).
 We designed `cosign` to meet a few specific requirements.  The design requirements are:
 
 * No external services for signature storage, querying, or retrieval
