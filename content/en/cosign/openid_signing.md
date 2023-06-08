@@ -43,7 +43,7 @@ When using Sigstore's defaults for signing and verification, the process of sign
 
 1) An in-memory public/private keypair is created. 
 2) The identity token is retrieved.
-3) Sigstore's certificate authority checks the identity of the user signing the artifact and issues a certificate attesting to their identity. The identity is bound to the public key. Decrypting with the public key will prove the identity of the private keyholder. 
+3) Sigstore's certificate authority verifies the identity token of the user signing the artifact and issues a certificate attesting to their identity. The identity is bound to the public key. Decrypting with the public key will prove the identity of the private keyholder. 
 4) For security, the private key is destroyed shortly after and the short-lived identity certificate expires. Users who wish to verify the software will use the transparency log entry, rather than relying on the signer to safely store and manage the private key.
 
 #### Witnessing and recording the process
