@@ -19,23 +19,15 @@ Sigstore is co-led by Santiago Torres-Arias, the lead of the in-toto project, an
 
 ### What is the relationship between Sigstore and TUF?
 
-Sigstore's root of trust for Fulcio and Rekor are distributed using TUF.  The releases for Cosign, Rekor, and Fulcio are also signed by a key distributed with TUF.  The projects solve a similar problem of signing and verifying software that will be distributed via a repository. Sigstore provides key signing using multiple techniques, including without requiring developers to manage keys by using OIDC.  In contrast, TUF typically requires keys to be managed by developers, but addresses a threat model where all online servers and keys could be compromised.  The projects are collaborating and can be used cooperatively.  More guidance on this will be forthcoming as the communities collaborate on their first large co-deployments.
+Sigstore's root of trust for Fulcio and Rekor are distributed using The Update Framework [TUF](https://theupdateframework.io).  The releases for Cosign, Rekor, and Fulcio are also signed by a key distributed with TUF.  The projects solve a similar problem of signing and verifying software that will be distributed via a repository. Sigstore provides key signing using multiple techniques, including without requiring developers to manage keys by using OIDC.  In contrast, TUF typically requires keys to be managed by developers, but addresses a threat model where all online servers and keys could be compromised.  The projects are collaborating and can be used cooperatively.  More guidance on this will be forthcoming as the communities collaborate on their first large co-deployments.
 
 ## Cosign
 
-### Can I use Cosign to sign things *besides* OCI container images?
-
-Yes! See [Signing with Blobs.](../signing_with_blobs) But Cosign *does* have great support for OCI registries.
-
 ### Why not use Notary v2?
 
-It's hard to answer this briefly. This post contains some comparisons:
+The differences right now between Notary V2 and Cosignare in three main parts — Signature Formats, Signature Discovery, and Key Management. For a complete discussion, see [Notary V2 and Cosign](https://medium.com/@dlorenc/notary-v2-and-cosign-b816658f044d)
 
-[Notary V2 and Cosign](https://medium.com/@dlorenc/notary-v2-and-cosign-b816658f044d)
-
-If you find other comparison posts, please send a PR here and we'll link them all.
-
-### Why not use containers/image signing
+### Why not use containers/image signing?
 
 `containers/image` signing is close to `cosign`, and we reuse payload formats.
 `cosign` differs in that it signs with ECDSA-P256 keys instead of PGP, and stores
@@ -44,10 +36,7 @@ signatures in the registry.
 ### Why not use $FOO?
 
 See [Requirements](#design-requirements).
-We designed `cosign` to meet a few specific requirements, and didn't find anything else that met all of these.
-If you're aware of another system that does meet these, please let us know!
-
-### What are the design requirements?
+We designed `cosign` to meet a few specific requirements.  The design requirements are:
 
 * No external services for signature storage, querying, or retrieval
 * We aim for as much registry support as possible
@@ -156,7 +145,7 @@ We would love that. The more people monitoring the logs and providing useful ser
   
 ### Why is Rekor centralized?
 
-- Well, why not? There's no need for a distributed source of transparency. There can be multiple points of transparency which only adds more sources of security guarantee, not less. An entity can post to as many Rekors as they want and inform users of where they post. We do encourage folks to use common public instances, but we don't seek to enforce this. We do plan to look to produce a gossip protocol, for those that desire a more decentralised model (if there's demand).
+There's no need for a distributed source of transparency as there can be multiple points of transparency which only adds more sources of security guarantee, not less. An entity can post to as many Rekors as they want and inform users of where they post. We do encourage folks to use common public instances, but we don't seek to enforce this. We do plan to look to produce a gossip protocol, for those that desire a more decentralised model (if there's demand).
 
 ### How do I verify downloaded code?
 
