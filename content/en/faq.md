@@ -27,7 +27,7 @@ Sigstore's root of trust for Fulcio and Rekor are distributed using TUF.  The re
 
 Yes! See [Signing with Blobs.](../signing_with_blobs) But Cosign *does* have great support for OCI registries.
 
-### Why not use Notary v2
+### Why not use Notary v2?
 
 It's hard to answer this briefly. This post contains some comparisons:
 
