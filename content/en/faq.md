@@ -55,8 +55,7 @@ A typical commit signing workflow requires developers to create special signing
 keys that must be safely stored in the system that will sign the commits.
 Additionally, verifying signatures requires access to the signer’s public key.
 Distributing public keys while also attesting that they truly belong to a
-certain identity can be very challenging. That’s where
-[keyless signing](/cosign/openid_signing/) comes in handy, allowing developers to
+certain identity can be very challenging. That’s where keyless signing comes in handy, allowing developers to
 use their OpenID identities to sign commits and improve the overall trust of an
 open source project.
 
