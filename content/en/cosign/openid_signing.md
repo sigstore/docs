@@ -37,7 +37,7 @@ Currently, Sigstore supports Microsoft, Google, and GitHub. As an alternative, y
 
 ### The signing, witnessing, and verifying process
 
-When using Sigstore's defaults for signing and verification, the process of signing is as follows:
+Identity-based signing is the default because managing and distributing keys is hard to do securely, and developers are very likely to already have a trusted identity rather than a signing key. When using Sigstore's defaults for signing and verification, the process of signing is as follows:
 
 #### Verifying identity and signing the artifact
 
@@ -46,7 +46,7 @@ When using Sigstore's defaults for signing and verification, the process of sign
 3) Sigstore's certificate authority verifies the identity token of the user signing the artifact and issues a certificate attesting to their identity. The identity is bound to the public key. Decrypting with the public key will prove the identity of the private keyholder. 
 4) For security, the private key is destroyed shortly after and the short-lived identity certificate expires. Users who wish to verify the software will use the transparency log entry, rather than relying on the signer to safely store and manage the private key.
 
-#### Witnessing and recording the process
+#### Recording signing event
 
 To create the transparency log entry, a Sigstore client creates an object containing information that will allow signature verification without the (destroyed) private key. The object contains the hash of the artifact, the public key, and the signature. Crucially, this object is timestamped. The Rekor transparency log "witnesses" the signing event by entering a timestamped entry into the records that attests that the secure signing process has occurred. Clients upload signing events to the transparency log so that the events are publicly auditable. Artifact owners should monitor the log for their identity to verify each occurrence.The software creator publishes the timestamped object, including the hash of the artifact, public key, and signature.
 
