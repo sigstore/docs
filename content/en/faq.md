@@ -11,7 +11,7 @@ This FAQ is intended to go as in depth as possible for anyone using sigstore.
 
 ### What security checks do you use internally?
  
-We’ve adopted a security disclosures and response policy to make sure we can responsibly handle critical issues. We have an initial Security Response Committee, who for each vulnerability reported will coordinate to create the fix and release, and keep the committee looped in. The policy in full is here: <https://github.com/sigstore/.github/blob/main/SECURITY.md>.
+We’ve adopted a security disclosures and response policy to make sure we can responsibly handle critical issues. We have an initial Security Response Committee, who for each vulnerability reported will coordinate to create the fix and release, and communicate the process. You can read the [full policy on GitHub](https://github.com/sigstore/.github/blob/main/SECURITY.md).
 
 ### How does Sigstore integrate in-toto?
 
