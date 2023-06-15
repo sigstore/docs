@@ -25,7 +25,7 @@ Sigstore's root of trust for Fulcio and Rekor are distributed using The Update F
 
 ### Why not use Notary v2?
 
-The differences right now between Notary V2 and Cosignare in three main parts — Signature Formats, Signature Discovery, and Key Management. For a complete discussion, see [Notary V2 and Cosign](https://medium.com/@dlorenc/notary-v2-and-cosign-b816658f044d)
+The differences right now between Notary V2 and Cosign are in three main parts — Signature Formats, Signature Discovery, and Key Management. For a complete discussion, review [Notary V2 and Cosign](https://medium.com/@dlorenc/notary-v2-and-cosign-b816658f044d).
 
 ### Why not use containers/image signing?
 
