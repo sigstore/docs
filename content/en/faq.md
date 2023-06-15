@@ -127,7 +127,7 @@ few options to help automating the authentication process:
   to select the provider.
 - Starting in v0.2.0, Gitsign has experimental support for key caching to allow
   users to reuse ephemeral keys for the lifetime of the Fulcio certificate. If
-  you are interested, check out the
+  you are interested in learning more, check out the
   [`gitsign-credential-cache` README](https://github.com/sigstore/gitsign/tree/main/cmd/gitsign-credential-cache).
 
 
