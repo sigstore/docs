@@ -37,7 +37,7 @@ Currently, Sigstore supports Microsoft, Google, and GitHub. As an alternative, y
 
 ### The signing, witnessing, and verifying process
 
-Identity-based signing is the default because managing and distributing keys is hard to do securely, and developers are very likely to already have a trusted identity rather than a signing key. When using Sigstore's defaults for signing and verification, the process of signing is as follows:
+Identity-based signing is the default because managing and distributing keys can be challenging to do securely, and developers are very likely to already have a trusted identity rather than a signing key. When using Sigstore's defaults for signing and verification, the process of signing is as follows:
 
 #### Verifying identity and signing the artifact
 
