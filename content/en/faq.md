@@ -15,7 +15,7 @@ We’ve adopted a security disclosures and response policy to make sure we can r
 
 ### How does Sigstore integrate in-toto?
 
-Sigstore is co-led by Santiago Torres-Arias, the lead of the in-toto project, and the two efforts are complementary. Sigstore supports and uses in-toto in a number of ways. Cosign can be used to generate and verify in-toto attestations and Rekor can store those attestations. in-toto also supports the use of PKI semantics for signing metadata which will be used in future to support Fulcio for developer key management.
+Sigstore is co-led by Santiago Torres-Arias, the lead of the in-toto project, and the two efforts are complementary. Sigstore supports and uses in-toto in a number of ways: Cosign can be used to generate and verify in-toto attestations and Rekor can store those attestations. in-toto also supports the use of PKI semantics for signing metadata which will be used in future to support Fulcio for developer key management.
 
 ### What is the relationship between Sigstore and TUF?
 
