@@ -143,7 +143,7 @@ We would love that. The more people monitoring the logs and providing useful ser
   
 ### Why is Rekor centralized?
 
-There's no need for a distributed source of transparency as there can be multiple points of transparency which only adds more sources of security guarantee, not less. An entity can post to as many Rekors as they want and inform users of where they post. We do encourage folks to use common public instances, but we don't seek to enforce this. We do plan to look to produce a gossip protocol, for those that desire a more decentralised model (if there's demand).
+There's no need for a distributed source of transparency as there can be multiple points of transparency which only adds more sources of security guarantee, not fewer. An entity can post to as many Rekor logs as they want and inform users of where they post. We do encourage folks to use common public instances, but we don't seek to enforce this. We do plan to look to produce a gossip protocol, for those that desire a more decentralised model (if there's demand).
 
 ### How do I verify downloaded code?
 
