@@ -139,7 +139,7 @@ Purdue University operates a log monitor, checking that the log remains append-o
 
 ### Can I run my own transparency log monitor?
 
-We would love that. The more people monitoring the logs and providing useful services to users, the better. Check out https://github.com/sigstore/rekor-monitor for a GitHub Actions based monitor.
+We would love that. The more people monitoring the logs and providing useful services to users, the better. Check out [https://github.com/sigstore/rekor-monitor](https://github.com/sigstore/rekor-monitor) for a GitHub Actions based monitor.
   
 ### Why is Rekor centralized?
 
