@@ -135,7 +135,7 @@ few options to help automating the authentication process:
 
 ### Is the transparency log monitored?
 
-Purdue University operates a log monitor, checking that the log remains append-only. Sigstore provides an easy-to-use GitHub Actions-based monitor for consistency and identity at https://github.com/sigstore/rekor-monitor.
+Purdue University operates a log monitor, checking that the log remains append-only. Sigstore provides an easy-to-use GitHub Actions-based monitor for consistency and identity at [https://github.com/sigstore/rekor-monitor](https://github.com/sigstore/rekor-monitor).
 
 ### Can I run my own transparency log monitor?
 
