@@ -121,7 +121,7 @@ by default an ephemeral key is generated for each commit. There are a
 few options to help automating the authentication process:
 
 - Setting the [`connectorID`](/gitsign/usage/#configuration) value can be set to
-  automatically select the desired provider for Dex backed OIDC providers
+  automatically select the desired provider for Dex-backed OIDC providers
   (including the public Sigstore instance at `oauth.sigstore.dev`). While this
   still requires a browser window to open, this does not require an extra click
   to select the provider.
