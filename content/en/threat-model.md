@@ -5,7 +5,7 @@ category: 'About sigstore'
 position: 3
 ---
 
-We provide a threat model that details the impact of a compromise in any piece of the Sigstore ecosystem. Based on this assessment, we discuss existing mitigations and provide recommendations about the secure configuration of Sigstore. We find that the TUF root of trust provides strong revocation abilities for all Sigstore services in the event of a compromise, but OIDC accounts and issuers used with Sigstore do not have the same revocation abilities. Further, identity and consistency monitoring are critical to many of the security claims of Sigstore, but they are not yet widely applied in practice. We recommend an increased focus on monitoring and 2fa for all OIDC accounts used with Sigstore.
+We provide a threat model that details the impact of a compromise in any piece of the Sigstore ecosystem. Based on this assessment, we discuss existing mitigations and provide recommendations about the secure configuration of Sigstore. We find that the TUF root of trust provides strong revocation abilities for all Sigstore services in the event of a compromise, but OIDC accounts and issuers used with Sigstore do not have the same revocation abilities. Further, identity and consistency monitoring are critical to many of the security claims of Sigstore, but they are not yet widely applied in practice. We recommend an increased focus on monitoring and 2FA for all OIDC accounts used with Sigstore.
 
 In this threat model, we consider the compromise of any of the following:
 * Fulcio CA server
@@ -26,7 +26,7 @@ Here’s a high-level diagram of the Sigstore signing flow, with the components 
 * Identity and consistency monitoring is critical to mitigate risks of compromise to both the Fulcio CT log and Rekor. All signers should monitor the Fulcio CT log for unauthorized use of their identity, and all verifiers should look for alerts from consistency monitors.
 * The Fulcio CA is a particularly important source of trust and must be hardened.
 * OIDC issuers are highly trusted in Sigstore, and only properly hardened OIDC issuers should be used.
-* OIDC account compromise is not handled by Sigstore, but we recommend that OIDC issuers provide revocation in the case of a compromised OIDC account. In addition, we recommend the use of 2fa on all OIDC accounts used with Sigstore in order to reduce the likelihood of a compromise. 
+* OIDC account compromise is not handled by Sigstore, but we recommend that OIDC issuers provide revocation in the case of a compromised OIDC account. In addition, we recommend the use of 2FA on all OIDC accounts used with Sigstore in order to reduce the likelihood of a compromise. 
 * TUF root of trust provides strong revocation abilities for all services managed by Sigstore.
 
 ## Sigstore threat model
@@ -77,10 +77,10 @@ Deborah queries the Fulcio CT log periodically to ensure that all entries that u
 
 Here, we describe recommendations for using Sigstore in such a way that the likelihood and impact of a compromise are both mitigated.
 
-### 2fa on OIDC accounts
-As shown in the table above, compromise of an OIDC account is sufficient for an arbitrary software attack for any packages that account is trusted to sign. To mitigate this risk, we recommend reducing the likelihood of account compromise through the use of 2fa on all accounts that will be used with Sigstore. 2fa requires that not just a password, but a second factor like a YubiKey or authenticator app is also compromised. For maximum security, users should avoid less secure forms of 2fa such as text messages and phone calls. 
+### 2FA on OIDC accounts
+As shown in the table above, compromise of an OIDC account is sufficient for an arbitrary software attack for any packages that account is trusted to sign. To mitigate this risk, we recommend reducing the likelihood of account compromise through the use of 2FA on all accounts that will be used with Sigstore. 2FA requires that not just a password, but a second factor like a YubiKey or authenticator app is also compromised. For maximum security, users should avoid less secure forms of 2FA such as text messages and phone calls. 
 
-OIDC does not provide a mechanism for checking if accounts have 2fa enabled, and so enforcement of this recommendation is up to individual signers in the ecosystem.
+OIDC does not provide a mechanism for checking if accounts have 2FA enabled, and so enforcement of this recommendation is up to individual signers in the ecosystem.
 
 ### Identity monitors
 All certificates that are issued by Fulcio are written to a Certificate Transparency log, accessible at ctfe.sigstore.dev. For each artifact, Sigstore clients publish the artifact's hash, signature, and certificate. A signature verifier must check that an artifact has been uploaded to Rekor and the certificate has been published to Fulcio's log before trusting the artifact. This ensures that the artifact and certificate are publicly auditable, so that the identity owner can monitor the log to find unexpected occurrences of their identity.
