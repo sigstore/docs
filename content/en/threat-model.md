@@ -97,15 +97,15 @@ This means that secure distribution of Sigstore key material is paramount for se
 
 To deal with this, we recommend the use of a strong root of trust for distributing the key material. Once that root of trust is established, all additional key material can flow through the root of trust. Specifically, we recommend using The Update Framework (TUF) to distribute this key material, as is done by the public good instance. This supports features like:
 
-Threshold signing by root-of-trust keys (the root of trust can comprise 5 keys, and signatures from 3 of 5 are needed to add new top-level key material).
-Root and target keys are offline.
-Rotation of both the root keys and other key material.
-Revocation: compromised material can be marked as such, with an indication of the compromise time to allow continued verification of legitimate signatures from before the compromise.
-Freshness: if an attacker tries to use an old key by preventing the victim from getting updates to key material (or serving old key material), the victim will detect this.
+* Threshold signing by root-of-trust keys (the root of trust can comprise 5 keys, and signatures from 3 of 5 are needed to add new top-level key material).
+* Root and target keys are offline.
+* Rotation of both the root keys and other key material.
+* Revocation: compromised material can be marked as such, with an indication of the compromise time to allow continued verification of legitimate signatures from before the compromise.
+* Freshness: if an attacker tries to use an old key by preventing the victim from getting updates to key material (or serving old key material), the victim will detect this.
 
 The Sigstore public good instance has a root of trust based on TUF that can be publicly audited, with geographically- and organizationally-distributed root key holders.
 
-### Having good policy (which keys you trust, revocation, namespace, which OIDC servers you use, etc)
+### Policy considerations
 The security guarantees that Sigstore provides are useful but relatively minimal: it can show you that a signature came from someone controlling a specific digital identity, but not whether you should trust that identity. Critically, not everything that’s signed is secure: when verifying software, you need a policy for knowing whom to trust.
 
 That policy should cover:
