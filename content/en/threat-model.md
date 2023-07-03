@@ -18,6 +18,15 @@ Provided that both Sigstore and its identity providers (like Google or GitHub) a
 **Which areas might be more vulnerable in case of compromise?**
 In the event of compromise of an identity provider (like Google or GitHub) or individual identity (an account with such a provider), Sigstore will issue certificates to those identities. These certificates will be logged and therefore such compromise can be detected, but this detection relies on monitoring.
 
+**What does a signature guarantee?**
+
+Under normal operation (no Sigstore compromise), verifying a "keyless" signature from `user@example.com` using the `ExampleIdP` identity provider at a given timestamp guarantees that the signature was created by a signer who successfully authenticated to Sigstore using that identity at that time.
+
+It does not guarantee that the signer *should* be able to authenticate (for instance, in the event of a compromised account, or compromised identity provider), that the signer *should* have signed the given message, or that the software artifact in question is "good" (see the section on "Policy" below).
+
+Further, if Sigstore itself is compromised this property may not hold; see our analysis below.
+
+
 **What should I do or keep in mind to mitigate these threats when using Sigstore?**
 First, users of Sigstore should ensure that they have tooling to audit Sigstore’s transparency logs for consistency and to monitor the use of their identities in Sigstore. Sistore operators provide [some tooling](https://github.com/sigstore/rekor-monitor) for these efforts. Second, all OIDC accounts used to create Sigstore signatures should have 2FA enabled to reduce the likelihood of a compromise.
 
