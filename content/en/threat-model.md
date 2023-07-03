@@ -5,7 +5,21 @@ category: 'About sigstore'
 position: 3
 ---
 
-We provide a threat model that details the impact of a compromise in any piece of the Sigstore ecosystem. Based on this assessment, we discuss existing mitigations and provide recommendations about the secure configuration of Sigstore. We find that the TUF root of trust provides strong revocation abilities for all Sigstore services in the event of a compromise, but OIDC accounts and issuers used with Sigstore do not have the same revocation abilities. Further, identity and consistency monitoring are critical to many of the security claims of Sigstore, but they are not yet widely applied in practice. We recommend an increased focus on monitoring and 2FA for all OIDC accounts used with Sigstore.
+## Introduction
+
+**What types of security analysis have you done on Sigstore?**
+This page contains the results of a threat modeling exercise on Sigstore. First, we enumerate the components of Sigstore along with third parties and infrastructure that it uses during the [“keyless” signing](https://docs.sigstore.dev/cosign/sign#keyless-signing) and verification flows. Second, we postulate an attacker that can compromise various subsets of these parties. Finally, we analyze the impact of such an attacker on these security properties. The results of a similar exercise are included in the peer-reviewed paper [Sigstore: Software Signing for Everybody](https://dl.acm.org/doi/pdf/10.1145/3548606.3560596).
+
+This will be most useful to those building secure systems on top of Sigstore, rather than end users. The security guarantees of such systems depends on the details of integration; an example analysis can be found in [TAP-18](https://github.com/theupdateframework/taps/blob/master/tap18.md), which proposes using Sigstore identities with a [TUF](https://theupdateframework.com/) repository used to securely distribute software artifacts.
+
+**Which areas should I be confident in trusting?**
+Provided that both Sigstore and its identity providers (like Google or GitHub) are not compromised, you can trust Sigstore signatures correspond to the purported identities. Even in the event of compromise, “auditors” and “monitors” will be able to detect misbehavior; you can run an auditor or monitor yourself! Further, the TUF root of trust provides strong revocation abilities that allow for recovery in the event of a compromise of any Sigstore service.
+
+**Which areas might be more vulnerable in case of compromise?**
+In the event of compromise of an identity provider (like Google or GitHub) or individual identity (an account with such a provider), Sigstore will issue certificates to those identities. These certificates will be logged and therefore such compromise can be detected, but this detection relies on monitoring.
+
+**What should I do or keep in mind to mitigate these threats when using Sigstore?**
+First, users of Sigstore should ensure that they have tooling to audit Sigstore’s transparency logs for consistency and to monitor the use of their identities in Sigstore. Sistore operators provide [some tooling](https://github.com/sigstore/rekor-monitor) for these efforts. Second, all OIDC accounts used to create Sigstore signatures should have 2FA enabled to reduce the likelihood of a compromise.
 
 In this threat model, we consider the compromise of any of the following:
 * Fulcio CA server
