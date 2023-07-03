@@ -99,7 +99,7 @@ OIDC does not provide a mechanism for checking if accounts have 2FA enabled, and
 ### Identity monitors
 All certificates that are issued by Fulcio are written to a Certificate Transparency log, accessible at ctfe.sigstore.dev. For each artifact, Sigstore clients publish the artifact's hash, signature, and certificate. A signature verifier must check that an artifact has been uploaded to Rekor and the certificate has been published to Fulcio's log before trusting the artifact. This ensures that the artifact and certificate are publicly auditable, so that the identity owner can monitor the log to find unexpected occurrences of their identity.
 
-Sigstore provides an easy-to-use GitHub Actions-based log monitor, rekor-monitor. Currently, it supports monitoring identities only for the hashedrekord Rekor type, which is the default uploaded type for Cosign and other Sigstore clients. See the README for information on setting up the reusable workflow with identity monitoring.
+Sigstore provides an easy-to-use GitHub Actions-based log monitor, [rekor-monitor](https://github.com/sigstore/rekor-monitor). Currently, it supports monitoring identities only for the hashedrekord Rekor type, which is the default uploaded type for Cosign and other Sigstore clients. See the README for information on setting up the reusable workflow with identity monitoring.
 
 Identities can include email or machine identity, for example for CI workflows such as GitHub Actions or GKE. rekor-monitor currently supports matching on exact string matches, which works well for email or specific CI workflows. We plan to add support for matching on regular expressions so that repository owners can monitor across repositories in an organization.
 
@@ -117,10 +117,10 @@ To deal with this, we recommend the use of a strong root of trust for distributi
 * Revocation: compromised material can be marked as such, with an indication of the compromise time to allow continued verification of legitimate signatures from before the compromise.
 * Freshness: if an attacker tries to use an old key by preventing the victim from getting updates to key material (or serving old key material), the victim will detect this.
 
-The Sigstore public good instance has a root of trust based on TUF that can be publicly audited, with geographically- and organizationally-distributed root key holders.
+The Sigstore public good instance has a [root of trust](https://github.com/sigstore/root-signing) based on TUF that can be publicly audited, with geographically- and organizationally-distributed root key holders.
 
 ### Policy considerations
-The security guarantees that Sigstore provides are useful but relatively minimal: it can show you that a signature came from someone controlling a specific digital identity, but not whether you should trust that identity. Critically, not everything that’s signed is secure: when verifying software, you need a policy for knowing whom to trust.
+The security guarantees that Sigstore provides are useful but relatively minimal: it can show you that a signature came from someone controlling a specific digital identity, but not whether you should trust that identity. Critically, [not everything that’s signed is secure](https://blog.sigstore.dev/signatus-ergo-securus-who-can-sign-what-with-tuf-and-sigstore-ea4d3d84b8b6): when verifying software, you need a policy for knowing whom to trust.
 
 That policy should cover:
 
