@@ -1,7 +1,7 @@
 ---
 title: "OpenID Connect signing"
-category: "Cosign"
-position: 115
+category: "Signing"
+position: 110
 ---
 
 This document explains how identity-based, or "keyless" signing works in Sigstore.
