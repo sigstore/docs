@@ -2,7 +2,7 @@
 title: "Cosign"
 menuTitle: "Overview"
 description: ""
-category: "Cosign"
+category: "Signing"
 position: 100
 features:
   - Hardware and KMS signing
