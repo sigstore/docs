@@ -1,8 +1,8 @@
 ---
 title: "Frequently asked questions"
-category: "Help"
+category: "About sigstore"
 menuTitle: "FAQs"
-position: 900
+position: 35
 ---
 
 This FAQ is intended to go as in depth as possible for anyone using sigstore. 
