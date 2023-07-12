@@ -1,7 +1,7 @@
 ---
 title: "Git Support"
-category: "Cosign"
-position: 113
+category: "Signing"
+position: 130
 ---
 
 This page contains detailed instructions on how to configure Cosign to work with hosted Git providers. Right
