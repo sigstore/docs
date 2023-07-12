@@ -1,7 +1,7 @@
 ---
 title: "Signing Containers"
-category: "Cosign"
-position: 105
+category: "Signing"
+position: 125
 ---
 
 You can use Cosign to sign containers with ephemeral keys by authenticating with an OIDC (OpenID Connect) protocol supported by Sigstore. Currently, you can authenticate with Google, GitHub, or Microsoft. For more information, read [Keyless Signatures](/cosign/keyless/). 
