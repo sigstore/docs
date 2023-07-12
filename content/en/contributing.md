@@ -1,8 +1,8 @@
 ---
 title: "Contributing"
 description: "Intro text"
-category: "Get involved"
-position: 800
+category: "About sigstore"
+position: 20
 ---
 
 ## Creating new resources
