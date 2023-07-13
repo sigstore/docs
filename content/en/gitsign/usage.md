@@ -2,7 +2,7 @@
 title: "Detailed Gitsign Usage"
 menuTitle: "Detailed Usage"
 category: "Gitsign"
-position: 153
+position: 160
 ---
 
 ## Configuration
