@@ -1,7 +1,7 @@
 ---
 title: "In-Toto Attestations"
-category: "Cosign"
-position: 112
+category: "verifying"
+position: 210
 ---
 
 Cosign also has built-in support for [in-toto](https://in-toto.io) attestations. The specification for these is
