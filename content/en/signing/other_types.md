@@ -1,7 +1,7 @@
 ---
 title: "Signing Other Types"
 category: "Signing"
-position: 127
+position: 135
 ---
 
 Cosign can sign anything in a registry. Most of our examples show signing a single image, but you could also sign a multi-platform `Index`, or any other type of artifact. This includes Helm Charts, Tekton Pipelines, and anything else currently using OCI registries for distribution. This also means new artifact types can be uploaded to a registry and signed.
