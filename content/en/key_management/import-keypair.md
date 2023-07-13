@@ -1,7 +1,7 @@
 ---
 title: "Importing Key Pairs"
-category: "Cosign"
-position: 104
+category: "Key management"
+position: 260
 ---
 
 > Currently only supports RSA and ECDSA private keys
