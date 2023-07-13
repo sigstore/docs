@@ -1,6 +1,6 @@
 ---
 title: "Signing Blobs"
-category: "signing"
+category: "Signing"
 position: 130
 ---
 
