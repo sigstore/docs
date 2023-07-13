@@ -1,7 +1,7 @@
 ---
 title: "Verifying"
-category: "Cosign"
-position: 106
+category: "verifying"
+position: 200
 ---
 
 > **Note**: To verify a signed artifact or blob, first [install Cosign](/cosign/installation/), then follow the instructions below.
