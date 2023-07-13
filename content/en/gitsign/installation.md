@@ -2,7 +2,7 @@
 title: "Gitsign Installation"
 menuTitle: "Installation"
 category: "Gitsign"
-position: 152
+position: 155
 ---
 
 ## Installing Gitsign
