@@ -1,7 +1,7 @@
 ---
 title: "Signing Blobs"
-category: "Cosign"
-position: 125
+category: "signing"
+position: 130
 ---
 
 You can use Cosign for signing and verifying standard files and blobs (or binary large objects), in addition to containers. This topic discusses signing blobs/files. For information on verifying, see [Verifying](/cosign/verify).
