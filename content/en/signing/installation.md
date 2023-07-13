@@ -1,6 +1,6 @@
 ---
 title: "Installation"
-category: "signing"
+category: "Signing"
 position: 105
 ---
 
