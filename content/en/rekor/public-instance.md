@@ -1,7 +1,7 @@
 ---
 title: Public instance
-category: "Rekor"
-position: 302
+category: "Logging"
+position: 815
 ---
 
 A public instance of Rekor can be found at [rekor.sigstore.dev](https://rekor.sigstore.dev). The public instance offers an SLO
