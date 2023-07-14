@@ -1,6 +1,6 @@
 ---
 title: "OIDC Usage in Fulcio"
-menuTitle: "OIDC Usage"
+menuTitle: "Using OIDC tokens"
 category: "Certificate authority"
 position: 410
 ---
