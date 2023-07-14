@@ -1,6 +1,6 @@
 ---
 title: "Certificate specification"
-category: "Fulcio"
+category: "Certificate authority"
 position: 420
 ---
 
