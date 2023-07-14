@@ -1,7 +1,7 @@
 ---
 title: "Timestamps"
 category: "verifying"
-position: 205
+position: 305
 ---
 
 Time is a critical component of Sigstore. It's used to verify that a short-lived certificate issued by Fulcio was valid at a previous point, when the artifact was signed.
