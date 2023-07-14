@@ -1,7 +1,7 @@
 ---
 title: "Importing Key Pairs"
 category: "Key management"
-position: 260
+position: 510
 ---
 
 > Currently only supports RSA and ECDSA private keys
