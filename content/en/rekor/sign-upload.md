@@ -1,7 +1,7 @@
 ---
 title: Signing and Uploading Other Types
 category: "Logging"
-position: 330
+position: 835
 ---
 
 This documentation contains information on how to sign and upload data in different [pluggable types](/rekor/pluggable-types/).
