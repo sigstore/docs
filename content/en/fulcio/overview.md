@@ -1,7 +1,7 @@
 ---
 title: "Fulcio"
 menuTitle: "Overview"
-category: "Certificate Authority"
+category: "Certificate authority"
 position: 400
 ---
 
