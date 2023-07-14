@@ -1,7 +1,7 @@
 ---
 title: "Installation"
-category: "Signing"
-position: 105
+category: "Cosign"
+position: 300
 ---
 
 ## With Go 1.19+
