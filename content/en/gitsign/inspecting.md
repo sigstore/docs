@@ -2,7 +2,7 @@
 title: "Inspecting Commit Signatures"
 menuTitle: "Inspecting Signatures"
 category: "Gitsign"
-position: 165
+position: 415
 ---
 
 Git commit signatures use [CMS/PKCS7 signatures](https://datatracker.ietf.org/doc/html/rfc5652). You can inspect the underlying data and certificate associated with a project's HEAD commit by running:
