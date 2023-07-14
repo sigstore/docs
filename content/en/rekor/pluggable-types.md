@@ -1,7 +1,7 @@
 ---
 title: "Pluggable types"
 category: "Logging"
-position: 330
+position: 830
 ---
 
 Rekor supports pluggable types (aka different schemas) for entries stored in the transparency log. This will allow you to develop your own manifest type in your preferred formatting style (json|yaml|xml).
