@@ -1,7 +1,7 @@
 ---
 title: "Public Deployment"
 category: "Cosign"
-position: 122
+position: 310
 ---
 
 There is a public staging environment, or deployment, that is running Fulcio, Rekor and OIDC issuer.
