@@ -1,7 +1,7 @@
 ---
 title: "CLI"
 category: "Cosign"
-position: 330
+position: 630
 ---
 
 Review Cosign's [command line interface](https://github.com/sigstore/cosign/tree/main/doc) on GitHub.
