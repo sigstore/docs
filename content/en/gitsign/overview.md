@@ -2,7 +2,7 @@
 title: "Gitsign Overview"
 menuTitle: "Overview"
 category: "Gitsign"
-position: 150
+position: 400
 ---
 
 ![Gitsign Overview](/sigstore_gitsign-horizontal-color.svg)
