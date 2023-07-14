@@ -1,7 +1,7 @@
 ---
 title: "Verifying binaries"
 category: "Logging"
-position: 335
+position: 840
 ---
 
 > 📓 We will refine this process over time to be more streamlined with a higher consensus threshold
