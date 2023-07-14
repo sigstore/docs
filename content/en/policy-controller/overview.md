@@ -1,8 +1,8 @@
 ---
-title: "Policy Controller"
-category: "Policy Controller"
+title: "Kubernetes Policy Controller"
+category: "Kubernetes Policy Controller"
 menuTitle: "Overview"
-position: 140
+position: 900
 ---
 
 # Admission Controller
