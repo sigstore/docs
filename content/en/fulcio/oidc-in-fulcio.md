@@ -1,8 +1,8 @@
 ---
 title: "OIDC Usage in Fulcio"
 menuTitle: "OIDC Usage"
-category: "Fulcio"
-position: 202
+category: "Certificate authority"
+position: 410
 ---
 
 ## Summary
