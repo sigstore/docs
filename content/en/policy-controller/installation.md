@@ -1,8 +1,8 @@
 ---
 title: "Installation"
-category: "Policy Controller"
+category: "Kubernetes Policy Controller"
 menuTitle: "Installation"
-position: 142
+position: 905
 ---
 
 The
