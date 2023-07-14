@@ -1,7 +1,7 @@
 ---
 title: "KMS Support"
 category: "Key management"
-position: 250
+position: 500
 ---
 
 This page contains detailed instructions on how to configure `cosign` to work with KMS providers.
