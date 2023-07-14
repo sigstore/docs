@@ -1,8 +1,8 @@
 ---
 title: "Fulcio"
 menuTitle: "Overview"
-category: "Fulcio"
-position: 201
+category: "Certificate Authority"
+position: 400
 ---
 
 ![Fulcio Overview](/sigstore_fulcio-horizontal-color.svg)
