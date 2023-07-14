@@ -1,6 +1,6 @@
 ---
 title: "Release log"
-category: "Fulcio"
+category: "Certificate authority"
 position: 415
 ---
 
