@@ -20,5 +20,5 @@ use the [provided reusable workflow](https://github.com/sigstore/rekor-monitor/b
 to audit the log. You can also monitor the log for specified identities, though
 this feature is a work in progress and supports a limited set of identities and entry types.
 
-You can also run [omniwitness](https://github.com/google/trillian-examples/tree/master/witness/golang/omniwitness) to
+You can also run [omniwitness](https://github.com/transparency-dev/witness/tree/main/cmd/omniwitness) to
 audit the log, built by the team who created Trillian, which provides Rekor's verifiable log.
