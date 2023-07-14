@@ -4,4 +4,4 @@ category: "Cosign"
 position: 330
 ---
 
-Review Fulcio's [certificate specification](https://github.com/sigstore/fulcio/blob/main/docs/certificate-specification.md) on GitHub.
+Review Cosign's [command line interface](https://github.com/sigstore/cosign/tree/main/doc) on GitHub.
