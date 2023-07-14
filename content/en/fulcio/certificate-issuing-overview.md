@@ -1,7 +1,7 @@
 ---
 title: "Certificate Issuing Overview"
 menuTitle: "Certficate Issuing"
-category: "Ce7rtificate authority"
+category: "Certificate authority"
 position: 705
 ---
 
