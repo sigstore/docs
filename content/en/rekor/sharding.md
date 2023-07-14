@@ -1,8 +1,8 @@
 ---
 title: "Sharding"
 description: "Sharding the Rekor Log"
-category: "Rekor"
-position: 308
+category: "Logging"
+position: 320
 ---
 
 This document covers what Rekor log sharding is and how to shard the log.
