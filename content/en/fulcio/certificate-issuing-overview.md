@@ -1,8 +1,8 @@
 ---
 title: "Certificate Issuing Overview"
-menuTitle: "Certificate Issuing"
-category: "Certificate authority"
-position: 405
+menuTitle: "Certficate Issuing"
+category: "Ce7rtificate authority"
+position: 705
 ---
 
 This page will walk through the process of issuing a code signing certificate from start to finish as an entry point to understanding how Fulcio works.
