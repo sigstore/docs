@@ -1,7 +1,7 @@
 ---
 title: "Installation"
 category: "Cosign"
-position: 300
+position: 600
 ---
 
 ## With Go 1.19+
