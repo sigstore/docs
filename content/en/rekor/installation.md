@@ -1,7 +1,7 @@
 ---
 title: "Installation"
-category: "Rekor"
-position: 303
+category: "Logging"
+position: 805
 ---
 
 There are several ways to install both the `rekor-cli` and `rekor-server`.
