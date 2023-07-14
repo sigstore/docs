@@ -1,7 +1,7 @@
 ---
 title: "Hardware tokens"
 category: "Key management"
-position: 265
+position: 515
 ---
 
 The `cosign` command line tool optionally supports hardware tokens for signing and key management.
