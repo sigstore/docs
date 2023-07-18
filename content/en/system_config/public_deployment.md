@@ -1,6 +1,6 @@
 ---
 title: "Public Deployment"
-category: "Cosign"
+category: "System configuration"
 position: 610
 ---
 
