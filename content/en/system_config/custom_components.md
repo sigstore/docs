@@ -1,6 +1,6 @@
 ---
 title: "Configuring Cosign with Custom Components"
-category: "Cosign"
+category: "System configuration"
 position: 605
 ---
 
