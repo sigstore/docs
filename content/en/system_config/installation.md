@@ -1,6 +1,6 @@
 ---
 title: "Installation"
-category: "Cosign"
+category: "System configuration"
 position: 600
 ---
 
