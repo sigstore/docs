@@ -1,6 +1,6 @@
 ---
 title: "Registry Support"
-category: "Cosign"
+category: "System configuration"
 position: 615
 ---
 
