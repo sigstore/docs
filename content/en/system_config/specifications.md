@@ -1,6 +1,6 @@
 ---
 title: "Specifications"
-category: "Cosign"
+category: "System configuration"
 position: 620
 ---
 
