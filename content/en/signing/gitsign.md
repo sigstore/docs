@@ -1,6 +1,6 @@
 ---
 title: "Gitsign"
-menuTitle: "Gitsign"
+menuTitle: "Signing Git commits"
 category: "Signing"
 position: 134
 ---
