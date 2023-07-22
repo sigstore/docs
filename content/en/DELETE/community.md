@@ -1,8 +1,4 @@
----
-title: "Community"
-category: "About sigstore"
-position: 25
----
+
 
 ## Community
 The [sigstore/community](https://github.com/sigstore/community/) repository contains the most up-to-date information about how to get involved with the Sigstore project and its community.
