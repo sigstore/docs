@@ -54,3 +54,17 @@ As website content grows, matures and adapts, it can be tricky to keep the conte
 The Nuxt documentation is a great first stop for anyone new to writing technical documentation, or anyone interested in what Nuxt supports. All their guidance for writing, fetching and displaying content can be found here. It’s quick to pick up, and essential for transforming markdown files and raw text into well designed, readable guides and resources anyone can pick up.
 
 Resource: https://content.nuxtjs.org/
+
+## Community
+The [sigstore/community](https://github.com/sigstore/community/) repository contains the most up-to-date information about how to get involved with the Sigstore project and its community.
+In this repository you can find our [code of conduct](https://github.com/sigstore/community/blob/main/CODE_OF_CONDUCT.md) and our [contributing guidelines](https://github.com/sigstore/community/blob/main/CONTRIBUTING.md).
+
+### Mailing list
+
+We use a [public mailing list group](https://groups.google.com/g/sigstore-dev) for communications. Anyone interested in contributing, discussing, or meeting the Sigstore community is invited to join the group.
+
+Docs and other calendar invites may be shared directly with this group, so please join this before requesting access to anything that appears private.
+
+### Slack
+
+You can also keep in touch by joining our [Slack channel](https://sigstore.slack.com). Use [this invite link](https://links.sigstore.dev/slack-invite) to join.
