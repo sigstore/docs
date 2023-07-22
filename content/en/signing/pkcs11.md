@@ -1,7 +1,7 @@
 ---
 title: "PKCS11 Tokens"
 category: "Signing"
-position: 120
+position: 136
 ---
 
 The `cosign` command line tool optionally supports PKCS11 tokens for signing.
