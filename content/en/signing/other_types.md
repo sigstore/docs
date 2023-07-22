@@ -4,7 +4,15 @@ category: "Signing"
 position: 140
 ---
 
-Cosign can sign anything in a registry. Most of our examples show signing a single image, but you could also sign a multi-platform `Index`, or any other type of artifact. This includes Helm Charts, Tekton Pipelines, and anything else currently using OCI registries for distribution. This also means new artifact types can be uploaded to a registry and signed.
+Cosign can sign anything in a registry. Most of our examples show signing a single image, but you could also sign a multi-platform `Index`, or any other type of artifact. This includes Helm Charts, Tekton Pipelines, and anything else currently using OCI registries for distribution. This also means new artifact types can be uploaded to a registry and signed. This section discusses signing the following items:
+
+- SBOMs
+- Tekton Bundles
+- WASM
+- OCI Artifacts
+- Tag signing
+- Base Image and Layer Signing
+- Countersigning
 
 ## SBOMs (Software Bill Of Materials)
 
