@@ -1,10 +1,10 @@
 ---
-title: "KMS Support"
+title: "Overview"
 category: "Key management"
 position: 500
 ---
 
-This page contains detailed instructions on how to configure `cosign` to work with KMS providers.
+Sigstore handles keys and key management internally by default.  However, you configure sigstore, through cosign, to work with KMS providers. This page contains detailed instructions on how to configure `cosign` to work with KMS providers.
 Right now `cosign` supports [AWS KMS](https://aws.amazon.com/kms/), [GCP KMS](https://cloud.google.com/security-key-management), [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault), [Hashicorp Vault](https://www.vaultproject.io/) and [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with the hope to support more in the future!
 
 ## Basic Usage
