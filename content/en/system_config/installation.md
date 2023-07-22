@@ -1,7 +1,7 @@
 ---
 title: "Installation"
 category: "System configuration"
-position: 600
+position: 950
 ---
 
 ## With Go 1.19+
