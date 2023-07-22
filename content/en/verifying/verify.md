@@ -1,5 +1,5 @@
 ---
-title: "Verifying"
+title: "Verifying Signatures"
 category: "verifying"
 position: 300
 ---
