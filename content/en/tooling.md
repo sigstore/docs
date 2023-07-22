@@ -1,5 +1,5 @@
 ---
-title: "Main Concepts"
+title: "Tooling"
 description: ""
 position: 2
 category: "About sigstore"
