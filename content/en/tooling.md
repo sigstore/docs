@@ -17,7 +17,7 @@ Sigstore combines several different technologies that focus on automatic key man
 
 ### Cosign
 
-Tool for signing/verifying containers (and other artifacts) that ties the rest of Sigstore together, making signatures invisible infrastructure. Includes storage in an Open Container Initiative (OCI) registry. 
+Tool for signing/verifying containers (and other artifacts) that ties the rest of Sigstore together, making signatures invisible infrastructure. Includes storage in an Open Container Initiative (OCI) registry. Review Cosign's [command line interface](https://github.com/sigstore/cosign/tree/main/doc) on GitHub.
 
 ### Fulcio
 
