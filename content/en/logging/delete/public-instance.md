@@ -1,8 +1,4 @@
----
-title: Public instance
-category: "Logging"
-position: 815
----
+
 
 A public instance of Rekor can be found at [rekor.sigstore.dev](https://rekor.sigstore.dev). The public instance offers an SLO
 of 99.5% availability and is monitored by an oncall team.
