@@ -31,17 +31,3 @@ Academic and industry research related to software supply chain security, transp
     * [sigstore/sigstore-maven](https://github.com/sigstore/sigstore-maven)
     * [Sigstore Java meeting notes](https://docs.google.com/document/d/1R7mL-IUrc2Z_LuOIvwDWshVuPQS_2VNE_cIQx4Oy5zw/edit)
 * Rust: [sigstore/sigstore-rs](https://github.com/sigstore/sigstore-rs)
-
-## Resources for Learning More
-
-As a living open source project with an engaged community, there are a number of sites and platforms you can navigate to for updated information on Sigstore:
-
-* [Sigstore GitHub organization](https://github.com/sigstore/)
-    * [Cosign repository](https://github.com/sigstore/cosign)
-    * [Fulcio repository](https://github.com/sigstore/fulcio)
-    * [Rekor repository](https://github.com/sigstore/rekor)
-    * [Gitsign repository](https://github.com/sigstore/gitsign)
-    * [Policy Controller repository](https://github.com/sigstore/policy-controller)
-* [Sigstore YouTube Channel](https://www.youtube.com/@projectsigstore)
-* [Sigstore Blog](https://blog.sigstore.dev/) 
-* [Sigstore Slack](https://links.sigstore.dev/slack-invite)
