@@ -1,5 +1,5 @@
 ---
-title: 'History and Research'
+title: 'Research'
 description: ''
 category: 'About sigstore'
 position: 40
