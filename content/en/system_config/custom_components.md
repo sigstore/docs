@@ -1,7 +1,7 @@
 ---
 title: "Configuring Cosign with Custom Components"
 category: "System configuration"
-position: 605
+position: 955
 ---
 
 This page contains instructions on how to configure Cosign to work with alternative components for Rekor, Fulcio, or the CT Log. 
