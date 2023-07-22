@@ -1,7 +1,7 @@
 ---
 title: "Public Deployment"
 category: "System configuration"
-position: 610
+position: 960
 ---
 
 There is a public staging environment, or deployment, that is running Fulcio, Rekor and OIDC issuer.
