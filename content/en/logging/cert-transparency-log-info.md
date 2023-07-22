@@ -1,6 +1,6 @@
 ---
 title: "Certificate transparency log information"
-category: "Logging"
+category: "Transparency Log"
 position: 810
 ---
 
