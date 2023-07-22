@@ -1,6 +1,6 @@
 ---
 title: 'CLI'
-category: 'Logging'
+category: 'Transparency Log'
 position: 825
 ---
 
