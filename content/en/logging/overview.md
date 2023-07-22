@@ -1,7 +1,7 @@
 ---
 title: "Rekor"
 description: "The Rekor overview"
-category: "Logging"
+category: "Transparency Log"
 menuTitle: "Overview"
 position: 800
 ---
