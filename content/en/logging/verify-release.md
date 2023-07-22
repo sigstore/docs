@@ -1,6 +1,6 @@
 ---
 title: "Verifying binaries"
-category: "Logging"
+category: "Transparency Log"
 position: 840
 ---
 
