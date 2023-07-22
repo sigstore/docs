@@ -1,16 +1,9 @@
 ---
 title: "Cosign"
-menuTitle: "Overview"
+menuTitle: "Quick Start"
 description: ""
 category: "Signing"
 position: 100
-features:
-  - Hardware and KMS signing
-  - Bring-your-own PKI
-  - Our free OIDC PKI (Fulcio)
-  - Built-in binary transparency and timestamping service (Rekor)
-  - Kubernetes policy enforcement
-  - Rego and Cuelang integrations for policy definition
 ---
 
 ![Cosign Overview](/sigstore_cosign-horizontal-color.svg)
