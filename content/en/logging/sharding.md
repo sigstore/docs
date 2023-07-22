@@ -1,7 +1,7 @@
 ---
 title: "Sharding"
 description: "Sharding the Rekor Log"
-category: "Logging"
+category: "Transparency Log"
 position: 820
 ---
 
