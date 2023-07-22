@@ -1,6 +1,6 @@
 ---
 title: Signing and Uploading Other Types
-category: "Logging"
+category: "Transparency Log"
 position: 835
 ---
 
