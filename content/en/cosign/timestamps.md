@@ -49,6 +49,28 @@ To verify, retrieve the TSA's certificate chain, which must contain the root CA 
 cosign verify --timestamp-certificate-chain ts_chain.pem <artifact>
 ```
 
+### mTLS connection to the TSA server
+
+`cosign sign` accepts several additional optional parameters to pass the CA certificate of
+the TSA server in cases where it uses a custom CA, or to establish a mutual TLS connection to the TSA server:
+```
+    --timestamp-client-cacert='':
+	path to the X.509 CA certificate file in PEM format to be used for the connection to the
+	TSA Server
+
+    --timestamp-client-cert='':
+	path to the X.509 certificate file in PEM format to be used for the connection to the TSA
+	Server
+
+    --timestamp-client-key='':
+	path to the X.509 private key file in PEM format to be used, together with the
+	'timestamp-client-cert' value, for the connection to the TSA Server
+
+    --timestamp-server-name='':
+	SAN name to use as the 'ServerName' tls.Config field to verify the mTLS connection to the
+	TSA Server
+```
+
 ## Future goals
 
 We would like to make timestamps immutable in Rekor. While the clock would not be verifiable and trust isn't distributed, it would make mutations to the timestamps detectable. We would like to include a signed timestamp, which could come from a 3rd party TSA or from a TSA operated by the Sigstore community, in the Rekor entry so that it is a part of the Merkle leaf hash computation and therefore becomes immutable. 
