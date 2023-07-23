@@ -70,7 +70,7 @@ reasons:
    [GitHub’s trust root](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#smime-commit-signature-verification).
 2. Gitsign’s ephemeral keys are only valid for a short time, so using standard
    x509 verification would consider the certificate invalid after expiration.
-   Verification needs to include validation via [Rekor](/rekor/overview/) to
+   Verification needs to include validation via the [transparency log](/logging/overview/) to
    verify that the certificate was valid at the time it was used.
 
 We hope to work closely with GitHub to get these types of signatures recognized
