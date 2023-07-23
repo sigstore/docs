@@ -90,7 +90,7 @@ The commit itself contains a signed digest of the user commit content (that is,
 the author, committer, message, etc.) along with the code signing certificate.
 This data is stored within the commit itself as part of your repository. Review
 guidance on
-[inspecting the Git commit signature](/gitsign/inspecting/) for
+[inspecting the Git commit signature](/verifying/inspecting/) for
 more details.
 
 #### 2. Within the Rekor transparency log
