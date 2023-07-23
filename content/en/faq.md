@@ -97,15 +97,15 @@ more details.
 
 To be able to verify signatures for ephemeral certs past their `Not After` time,
 Gitsign records commits and the code signing certificates to
-[Rekor](/rekor/overview/). This data is a
+[Rekor](/logging/overview/). This data is a
 [HashedRekord](https://github.com/sigstore/rekor/blob/e375eb461cae524270889b57a249ff086bea6c05/types.md#hashed-rekord)
 containing a SHA256 hash of the commit SHA, as well as the code signing
 certificate. Review guidance on
-[Verifying the Transparency Log](/rekor/public-instance/#auditing-the-public-instance) for more
+[Verifying the Transparency Log](/logging/overview/#auditing-the-public-instance) for more
 details.
 
 By default, data is written to the
-[public Rekor instance](/rekor/public-instance/). In
+[public Rekor instance](/logging/overview/#auditing-the-public-instance/). In
 particular, users and organizations may be sensitive to the data contained
 within code signing certificates returned by Fulcio, which may include user
 emails or repository identifiers. Review
