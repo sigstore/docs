@@ -109,9 +109,9 @@ By default, data is written to the
 particular, users and organizations may be sensitive to the data contained
 within code signing certificates returned by Fulcio, which may include user
 emails or repository identifiers. Review
-[OIDC Usage in Fulcio](/fulcio/oidc-in-fulcio/) for more details regarding what
+[OIDC Usage in Fulcio](/certificate authority/oidc-in-fulcio/) for more details regarding what
 data is contained in the code signing certs. Alternately, you can learn how to
-[Deploy a Rekor Server Manually](/rekor/installation/#deploy-a-rekor-server-manually),
+[Deploy a Rekor Server Manually](/transparency log/installation/#deploy-a-rekor-server-manually),
 which would set up your own Rekor instance.
 
 ### Why does a browser window open for each commit in a rebase?
@@ -120,7 +120,7 @@ For Git, each commit in a rebase is considered a distinct signing operation so
 by default an ephemeral key is generated for each commit. There are a
 few options to help automating the authentication process:
 
-- Setting the [`connectorID`](/gitsign/usage/#configuration) value can be set to
+- Setting the [`connectorID`](/signing/gitsign/#configuration) value can be set to
   automatically select the desired provider for Dex-backed OIDC providers
   (including the public Sigstore instance at `oauth.sigstore.dev`). While this
   still requires a browser window to open, this does not require an extra click
@@ -157,4 +157,4 @@ Public blockchains often end up using a centralized entry point for canonicaliza
 
 ### Can I get Rekor to work with my X format, framework standard?
 
-- Yes. Using pluggable types you can create your own manifest layout and send it to Rekor. Head over to [pluggable types](/rekor/pluggable-types/)
+- Yes. Using pluggable types you can create your own manifest layout and send it to Rekor. Head over to [pluggable types](/transparency log/pluggable-types/)
