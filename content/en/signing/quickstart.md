@@ -118,7 +118,7 @@ Cosign integrates natively with source code management (SCM) systems like GitHub
 
 In addition to signatures, Cosign can be used with [In-Toto Attestations](https://github.com/in-toto/attestation).
 
-Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems. Learn more in the [Attestations](/verifying/attestation) documentation.
+Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems. Learn more in the [Attestations](/verifying/attestation/) documentation.
 
 ## Other Formats
 
