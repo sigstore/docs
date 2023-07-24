@@ -15,7 +15,7 @@ Join us on our [Slack channel](https://sigstore.slack.com/). (Need an [invite](h
 
 ### Installation
 
-To sign software artifacts and verify signatures using Sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page](/cosign/installation/). This will allow you to sign and verify both blobs and containers.
+To sign software artifacts and verify signatures using Sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page](/system_config/installation/). This will allow you to sign and verify both blobs and containers.
 
 ### Signing a blob
 
