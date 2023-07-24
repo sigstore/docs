@@ -6,7 +6,7 @@ position: 110
 
 This document explains how identity-based, or "keyless" signing works in Sigstore.
 
-To learn more about OIDC, please review [OIDC Usage in Fulcio](/fulcio/oidc-in-fulcio/).
+To learn more about OIDC, please review [OIDC Usage in Fulcio](/certificate_authority/oidc-in-fulcio/).
 
 Keyless signing associates identities, rather than keys, with an artifact signature. Fulcio issues short-lived certificates binding an ephemeral key to an OpenID Connect identity. Signing events are logged in Rekor, a signature transparency log, providing an auditable record of when a signature was created.
 
@@ -99,6 +99,6 @@ If you're running your own sigtore services flags are available to set your own 
 
 ### Custom roots of trust
 
-For information on custom roots of trust, see [Configuring Cosign with Custom Components](/cosign/custom_components/).
+For information on custom roots of trust, see [Configuring Cosign with Custom Components](/system_config/custom_components/).
 
 
