@@ -105,13 +105,13 @@ certificate. Review guidance on
 details.
 
 By default, data is written to the
-[public Rekor instance](/logging/overview/#auditing-the-public-instance/). In
+[public Rekor instance](/logging/overview/#auditing-the-public-instance). In
 particular, users and organizations may be sensitive to the data contained
 within code signing certificates returned by Fulcio, which may include user
 emails or repository identifiers. Review
-[OIDC Usage in Fulcio](/certificate authority/oidc-in-fulcio/) for more details regarding what
+[OIDC Usage in Fulcio](/certificate_authority/oidc-in-fulcio/) for more details regarding what
 data is contained in the code signing certs. Alternately, you can learn how to
-[Deploy a Rekor Server Manually](/transparency log/installation/#deploy-a-rekor-server-manually),
+[Deploy a Rekor Server Manually](/logging/installation/#deploy-a-rekor-server-manually),
 which would set up your own Rekor instance.
 
 ### Why does a browser window open for each commit in a rebase?
@@ -157,4 +157,4 @@ Public blockchains often end up using a centralized entry point for canonicaliza
 
 ### Can I get Rekor to work with my X format, framework standard?
 
-- Yes. Using pluggable types you can create your own manifest layout and send it to Rekor. Head over to [pluggable types](/transparency log/pluggable-types/)
+- Yes. Using pluggable types you can create your own manifest layout and send it to Rekor. Head over to [pluggable types](/logging/pluggable-types/)
