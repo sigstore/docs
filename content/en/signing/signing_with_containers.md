@@ -4,7 +4,7 @@ category: "Signing"
 position: 125
 ---
 
-You can use Cosign to sign containers with ephemeral keys by authenticating with an OIDC (OpenID Connect) protocol supported by Sigstore. Currently, you can authenticate with Google, GitHub, or Microsoft. For more information, read [Keyless Signatures](/cosign/keyless/). 
+You can use Cosign to sign containers with ephemeral keys by authenticating with an OIDC (OpenID Connect) protocol supported by Sigstore. Currently, you can authenticate with Google, GitHub, or Microsoft. For more information, read the [Key management overview](/key_management/overview/). 
 
 The format for keyless signing of a container is as follows.
 
@@ -38,7 +38,7 @@ This usage is a common use case that uses traditional key signing from a key pai
 $ cosign sign --key cosign.key $IMAGE
 ```
 
-If you need to generate local keys, you can do so by running `cosign generate-key-pair`. See [Signing with Self-Managed Keys](/cosign/signing_with_self-managed_keys/) for more information.
+If you need to generate local keys, you can do so by running `cosign generate-key-pair`. See [Signing with Self-Managed Keys](/key_management/signing_with_self-managed_keys/) for more information.
 
 ## Sign a container multiple times
 
@@ -85,7 +85,7 @@ When referring to a key managed by a KMS provider, `cosign` takes a [go-cloud](h
 $ cosign sign --key <some provider>://<some key> $IMAGE
 ```
 
-Read more about this in our [KMS Support page](/cosign/kms_support/).
+Read more about this in our [key management overview](/key_management/overview/).
 
 ### Key stored in an environment variable
 
