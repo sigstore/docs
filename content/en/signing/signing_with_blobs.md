@@ -4,7 +4,7 @@ category: "Signing"
 position: 130
 ---
 
-You can use Cosign for signing and verifying standard files and blobs (or binary large objects), in addition to containers. This topic discusses signing blobs/files. For information on verifying, see [Verifying](/cosign/verify).
+You can use Cosign for signing and verifying standard files and blobs (or binary large objects), in addition to containers. This topic discusses signing blobs/files. For information on verifying, see [Verifying Signatures](/verifying/verify/).
 
 ## Keyless signing of blobs and files
 
@@ -61,7 +61,7 @@ Enter password for private key:
 MEQCIAU4wPBpl/U5Vtdx/eJFgR0nICiiNCgyWPWarupH0onwAiAv5ycIKgztxHNVG7bzUjqHuvK2gsc4MWxwDgtDh0JINw==
 ```
 
-This supports all the same flags and features as `cosign sign`, including KMS support, hardware tokens, and keyless signatures. See [Signing with Self-Managed Keys](/cosign/signing_with_self-managed_keys/) for more information.
+This supports all the same flags and features as `cosign sign`, including KMS support, hardware tokens, and keyless signatures. See [Signing with Self-Managed Keys](/key_management/signing_with_self-managed_keys/) for more information.
 
 ## Blobs in OCI Registries
 
