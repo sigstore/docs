@@ -4,7 +4,7 @@ category: "Transparency Log"
 position: 835
 ---
 
-This documentation contains information on how to sign and upload data in different [pluggable types](/rekor/pluggable-types/).
+This documentation contains information on how to sign and upload data in different [pluggable types](/logging/pluggable-types/).
 
 The following are covered:
 - [Minisign](#minisign)
