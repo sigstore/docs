@@ -4,7 +4,7 @@ category: "Cosign"
 position: 105
 ---
 
-You can use Cosign to sign containers with ephemeral keys by authenticating with an OIDC (OpenID Connect) protocol supported by Sigstore. Currently, you can authenticate with Google, GitHub, or Microsoft. For more information, read [Keyless Signatures](/cosign/keyless/). 
+You can use Cosign to sign containers with ephemeral keys by authenticating with an OIDC (OpenID Connect) protocol supported by Sigstore. Currently, you can authenticate with Google, GitHub, or Microsoft. For more information, read [Keyless Signatures](/cosign/openid_signing).
 
 The format for keyless signing of a container is as follows.
 
@@ -32,7 +32,7 @@ $ cosign sign [--key <key path>|<kms uri>] [--payload <path>] [-a key=value] [--
 
 ## Sign with a local key pair
 
-This usage is a common use case that uses traditional key signing from a key pair. 
+This usage is a common use case that uses traditional key signing from a key pair.
 
 ```shell
 $ cosign sign --key cosign.key $IMAGE
@@ -70,7 +70,7 @@ They can be verified with the `-a` flag as part of the `cosign verify` command.
 
 ## Sign and attach a certificate and certificate chain
 
-You can sign a container and attach an existing certificate and certificate chain to an image. Note that you cannot currently generate a certificate chain but can use an existing chain. 
+You can sign a container and attach an existing certificate and certificate chain to an image. Note that you cannot currently generate a certificate chain but can use an existing chain.
 
 ```shell
 $ cosign sign --certificate cosign.crt --certificate-chain chain.crt $IMAGE
@@ -183,13 +183,13 @@ Sign the payload with `gcloud kms`:
 
 ```shell
 $ gcloud kms asymmetric-sign \
-      --digest-algorithm=sha256 \
-      --input-file=payload.json \
-      --signature-file=gcpkms.sig \
-      --key=foo \
-      --keyring=foo \
-      --version=1 \
-      --location=us-central
+	  --digest-algorithm=sha256 \
+	  --input-file=payload.json \
+	  --signature-file=gcpkms.sig \
+	  --key=foo \
+	  --keyring=foo \
+	  --version=1 \
+	  --location=us-central
 ```
 
 Base64 encode the signature into a temporary variable and use it to upload with `cosign`:
@@ -230,9 +230,9 @@ To use a AWS KMS CMK (Custom Master Key) for signing and verification, first cre
 
 ```shell
 $ export AWS_CMK_ID=$(aws kms create-key --customer-master-key-spec RSA_4096 \
-                                   --key-usage SIGN_VERIFY \
-                                   --description "Cosign Signature Key Pair" \
-                                   --query KeyMetadata.KeyId --output text)
+								   --key-usage SIGN_VERIFY \
+								   --description "Cosign Signature Key Pair" \
+								   --query KeyMetadata.KeyId --output text)
 ```
 
 Use `cosign` to generate the payload:
@@ -245,11 +245,11 @@ Sign the payload with the AWS KMS CMK we created above:
 
 ```shell
 $ aws kms sign --key-id $AWS_CMK_ID \
-              --message file://payload.json \
-              --message-type RAW \
-              --signing-algorithm RSASSA_PKCS1_V1_5_SHA_256 \
-              --output text \
-              --query Signature > payload.sig
+			  --message file://payload.json \
+			  --message-type RAW \
+			  --signing-algorithm RSASSA_PKCS1_V1_5_SHA_256 \
+			  --output text \
+			  --query Signature > payload.sig
 ```
 
 Upload the signature with `cosign`:
@@ -275,12 +275,12 @@ Verify with AWS KMS using the CMK key we created in the first step:
 
 ```shell
 $ aws kms verify --key-id $AWS_CMK_ID \
-               --message file://remote_payload.json \
-               --message-type RAW \
-               --signing-algorithm RSASSA_PKCS1_V1_5_SHA_256 \
-               --signature fileb://remote_payload.sig \
-               --output text \
-               --query SignatureValid
+			   --message file://remote_payload.json \
+			   --message-type RAW \
+			   --signing-algorithm RSASSA_PKCS1_V1_5_SHA_256 \
+			   --signature fileb://remote_payload.sig \
+			   --output text \
+			   --query SignatureValid
 ```
 
 ## Upload a generated signature
@@ -316,27 +316,27 @@ $ crane manifest $(cosign triangulate $IMAGE) | jq .
   "schemaVersion": 2,
   "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
   "config": {
-    "mediaType": "application/vnd.docker.container.image.v1+json",
-    "size": 342,
-    "digest": "sha256:f5de0db6e714055d48b4bb3a374e9630c4923fa704d9311da6a2740cf625aaba"
+	"mediaType": "application/vnd.docker.container.image.v1+json",
+	"size": 342,
+	"digest": "sha256:f5de0db6e714055d48b4bb3a374e9630c4923fa704d9311da6a2740cf625aaba"
   },
   "layers": [
-    {
-      "mediaType": "application/vnd.dev.cosign.simplesigning.v1+json",
-      "size": 210,
-      "digest": "sha256:1119abab63e605dcc281019bad0424744178b6f61ba57378701fe7391994c999",
-      "annotations": {
-        "dev.cosignproject.cosign/signature": "MEUCIG0ZmgqE3qTrHWp+HF9CrxsNH57Cck3cQI+zNNrUwSHfAiEAm+2eY/Z6ixQwjLbTraDN5ZB/P1Z5k/KwIoblry65r+s="
-      }
-    },
-    {
-      "mediaType": "application/vnd.dev.cosign.simplesigning.v1+json",
-      "size": 219,
-      "digest": "sha256:583246418c2afd5bfe29694793d07da37ffd552aadf8879b1d98047178b80398",
-      "annotations": {
-        "dev.cosignproject.cosign/signature": "MEUCIF/+szLKKA2q2+c86AXeWR7UeD5yYpW7p0waHordxNjhAiEAm5e+Hm7Jhv9JpSwHpTc6aGLSkL6/Acm/z+b8mhfGXqY="
-      }
-    }
+	{
+	  "mediaType": "application/vnd.dev.cosign.simplesigning.v1+json",
+	  "size": 210,
+	  "digest": "sha256:1119abab63e605dcc281019bad0424744178b6f61ba57378701fe7391994c999",
+	  "annotations": {
+		"dev.cosignproject.cosign/signature": "MEUCIG0ZmgqE3qTrHWp+HF9CrxsNH57Cck3cQI+zNNrUwSHfAiEAm+2eY/Z6ixQwjLbTraDN5ZB/P1Z5k/KwIoblry65r+s="
+	  }
+	},
+	{
+	  "mediaType": "application/vnd.dev.cosign.simplesigning.v1+json",
+	  "size": 219,
+	  "digest": "sha256:583246418c2afd5bfe29694793d07da37ffd552aadf8879b1d98047178b80398",
+	  "annotations": {
+		"dev.cosignproject.cosign/signature": "MEUCIF/+szLKKA2q2+c86AXeWR7UeD5yYpW7p0waHordxNjhAiEAm5e+Hm7Jhv9JpSwHpTc6aGLSkL6/Acm/z+b8mhfGXqY="
+	  }
+	}
   ]
 }
 ```
