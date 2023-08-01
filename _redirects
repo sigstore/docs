@@ -1,2 +1,11 @@
 #redirect file for moved web pages.
-/main-concepts/       /tooling/
+/main-concepts                              /tooling
+/history                                    /research
+/cosign/overview                            /signing/quickstart    
+/cosign/installation                        /system_config/installation
+/cosign/signing_with_self-managed_keys      /key_management/signing_with_self-managed_keys
+/cosign/import-keypair                      /key_management/import-keypair
+/cosign/signing_with_containers             /signing/signing_with_containers
+/cosign/verify                              /verifying/verify
+/cosign/signing_with_blobs                  /signing/signing_with_blobs
+/cosign/other_types                         /signing/other_types
