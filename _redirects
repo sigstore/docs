@@ -9,3 +9,14 @@
 /cosign/verify                              /verifying/verify
 /cosign/signing_with_blobs                  /signing/signing_with_blobs
 /cosign/other_types                         /signing/other_types
+/cosign/attestation                         /verifying/attestation
+/cosign/git_support                         /signing/git_support
+/cosign/timestamps                          /verifying/timestamps
+/cosign/hardware-based-tokens               /key_management/hardware-based-tokens
+/cosign/openid_signing                      /signing/overview
+/cosign/registry_support                    /system_config/registry_support
+/cosign/kms_support                         /key_management/overview
+/cosign/specifications                      /system_config/specifications
+/cosign/custom_components                   /system_config/custom_components
+/cosign/public_deployment                   /system_config/public_deployment
+/cosign/pkcs11/                             /signing/pkcs11
