@@ -19,4 +19,16 @@
 /cosign/specifications                      /system_config/specifications
 /cosign/custom_components                   /system_config/custom_components
 /cosign/public_deployment                   /system_config/public_deployment
-/cosign/pkcs11/                             /signing/pkcs11
+/cosign/pkcs11                              /signing/pkcs11
+/gitsign/overview                           /signing/gitsign
+/gitsign/installation                       /signing/gitsign
+/gitsign/usage                              /signing/gitsign
+/gitsign/inspecting                         /verifying/inspecting
+/fulcio/overview                            /certificate_authority/overview
+/fulcio/oidc-in-fulcio                      /certificate_authority/oidc-in-fulcio
+/fulcio/certificate-issuing-overview        /certificate_authority/certificate-issuing-overview
+/fulcio/release-log                         /certificate_authority/release-log/
+/rekor/overview                             /logging/overview
+/rekor/public-instance                      /logging/overview
+/rekor/installation                         /logging/installation
+/rekor/CLI                                  /logging/CLI
