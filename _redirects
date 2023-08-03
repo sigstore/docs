@@ -32,3 +32,9 @@
 /rekor/public-instance                      /logging/overview
 /rekor/installation                         /logging/installation
 /rekor/CLI                                  /logging/CLI
+/rekor/sign-upload                          /logging/sign-upload
+/rekor/pluggable-types                      /logging/pluggable-types
+/rekor/verify-release                       /logging/verify-release
+/rekor/sharding                             /logging/sharding
+/community                                  /contributing
+
