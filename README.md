@@ -6,7 +6,7 @@ If you are looking for the frontend development of the [Sigstore website](https:
 
 ## Contributing
 
-We welcome contributions on the docs site.
+We welcome contributions on the docs site!
 
 ### Pull Request Process
 
