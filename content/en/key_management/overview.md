@@ -152,6 +152,26 @@ The URI format for Hashicorp Vault KMS is: `hashivault://$keyname`
 This provider requires that the standard Vault environment variables (`$VAULT_ADDR`, `$VAULT_TOKEN`) are set correctly.
 This provider also requires that the `transit` secret engine is enabled.
 
+The token needs (at least) the following permissions, that will be defined as an ACL policy in the next example. Suppose that the `transit` secret engine is mounted at the path `/transit`, and the `$keyname` is `cosign`, the policy would look like this:
+
+```hcl
+path "transit/keys/cosign" {
+  capabilities = ["read"]
+}
+
+path "transit/hmac/cosign/*" {
+  capabilities = ["update"]
+}
+
+path "transit/sign/cosign/*" {
+  capabilities = ["update"]
+}
+
+path "transit/verify/cosign" {
+  capabilities = ["create"]
+}
+```
+
 ### Kubernetes Secret
 
 Cosign can use keys stored in Kubernetes Secrets to so sign and verify signatures. In order to generate a secret you have to pass `cosign generate-key-pair` a `k8s://[NAMESPACE]/[NAME]` URI specifying the namespace and secret name:
