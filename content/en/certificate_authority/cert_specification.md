@@ -1,5 +1,5 @@
 ---
-title: "Certificate specification"
+title: "Certificate Specification"
 category: "Certificate authority"
 position: 725
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Inspecting Gitsign Commit Signatures"
-menuTitle: "Inspecting Gitsign signatures"
+menuTitle: "Inspecting Gitsign Signatures"
 category: "verifying"
 position: 315
 ---

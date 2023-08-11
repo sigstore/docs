@@ -1,5 +1,5 @@
 ---
-title: "Pluggable types"
+title: "Pluggable Types"
 category: "Transparency Log"
 position: 830
 ---

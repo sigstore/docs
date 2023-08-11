@@ -1,5 +1,5 @@
 ---
-title: "HSM support"
+title: "HSM Support"
 category: "Certificate authority"
 position: 720
 ---

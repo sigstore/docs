@@ -1,5 +1,5 @@
 ---
-title: "Certificate transparency log information"
+title: "Transparency Log Info"
 category: "Transparency Log"
 position: 810
 ---

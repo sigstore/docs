@@ -1,5 +1,5 @@
 ---
-title: "Hardware tokens"
+title: "Hardware Tokens"
 category: "Key management"
 position: 515
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Release log"
+title: "Release Log"
 category: "Certificate authority"
 position: 715
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Verifying binaries"
+title: "Verifying Binaries"
 category: "Transparency Log"
 position: 840
 ---
