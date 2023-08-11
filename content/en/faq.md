@@ -1,8 +1,8 @@
 ---
 title: "Frequently asked questions"
-category: "Help"
+category: "About sigstore"
 menuTitle: "FAQs"
-position: 900
+position: 35
 ---
 
 This FAQ is intended to go as in depth as possible for anyone using sigstore. 
@@ -70,7 +70,7 @@ reasons:
    [GitHub’s trust root](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#smime-commit-signature-verification).
 2. Gitsign’s ephemeral keys are only valid for a short time, so using standard
    x509 verification would consider the certificate invalid after expiration.
-   Verification needs to include validation via [Rekor](/rekor/overview/) to
+   Verification needs to include validation via the [transparency log](/logging/overview/) to
    verify that the certificate was valid at the time it was used.
 
 We hope to work closely with GitHub to get these types of signatures recognized
@@ -90,28 +90,28 @@ The commit itself contains a signed digest of the user commit content (that is,
 the author, committer, message, etc.) along with the code signing certificate.
 This data is stored within the commit itself as part of your repository. Review
 guidance on
-[inspecting the Git commit signature](/gitsign/inspecting/) for
+[inspecting the Git commit signature](/verifying/inspecting/) for
 more details.
 
 #### 2. Within the Rekor transparency log
 
 To be able to verify signatures for ephemeral certs past their `Not After` time,
 Gitsign records commits and the code signing certificates to
-[Rekor](/rekor/overview/). This data is a
+[Rekor](/logging/overview/). This data is a
 [HashedRekord](https://github.com/sigstore/rekor/blob/e375eb461cae524270889b57a249ff086bea6c05/types.md#hashed-rekord)
 containing a SHA256 hash of the commit SHA, as well as the code signing
 certificate. Review guidance on
-[Verifying the Transparency Log](/rekor/public-instance/#auditing-the-public-instance) for more
+[Verifying the Transparency Log](/logging/overview/#auditing-the-public-instance) for more
 details.
 
 By default, data is written to the
-[public Rekor instance](/rekor/public-instance/). In
+[public Rekor instance](/logging/overview/#auditing-the-public-instance). In
 particular, users and organizations may be sensitive to the data contained
 within code signing certificates returned by Fulcio, which may include user
 emails or repository identifiers. Review
-[OIDC Usage in Fulcio](/fulcio/oidc-in-fulcio/) for more details regarding what
+[OIDC Usage in Fulcio](/certificate_authority/oidc-in-fulcio/) for more details regarding what
 data is contained in the code signing certs. Alternately, you can learn how to
-[Deploy a Rekor Server Manually](/rekor/installation/#deploy-a-rekor-server-manually),
+[Deploy a Rekor Server Manually](/logging/installation/#deploy-a-rekor-server-manually),
 which would set up your own Rekor instance.
 
 ### Why does a browser window open for each commit in a rebase?
@@ -120,7 +120,7 @@ For Git, each commit in a rebase is considered a distinct signing operation so
 by default an ephemeral key is generated for each commit. There are a
 few options to help automating the authentication process:
 
-- Setting the [`connectorID`](/gitsign/usage/#configuration) value can be set to
+- Setting the [`connectorID`](/signing/gitsign/#configuration) value can be set to
   automatically select the desired provider for Dex-backed OIDC providers
   (including the public Sigstore instance at `oauth.sigstore.dev`). While this
   still requires a browser window to open, this does not require an extra click
@@ -157,4 +157,4 @@ Public blockchains often end up using a centralized entry point for canonicaliza
 
 ### Can I get Rekor to work with my X format, framework standard?
 
-- Yes. Using pluggable types you can create your own manifest layout and send it to Rekor. Head over to [pluggable types](/rekor/pluggable-types/)
+- Yes. Using pluggable types you can create your own manifest layout and send it to Rekor. Head over to [pluggable types](/logging/pluggable-types/)

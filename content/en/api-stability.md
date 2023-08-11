@@ -1,8 +1,8 @@
 ---
 title: "API Stability and Deprecation Policy"
 description: "API stability levels and deprecation policy"
-category: "Help"
-position: 1000
+category: "About sigstore"
+position: 5
 ---
 
 This document covers API stability and the deprecation policy for Sigstore APIs and client libraries.

@@ -1,8 +1,8 @@
 ---
 title: "Sample Policies"
-category: "Policy Controller"
+category: "Kubernetes Policy Controller"
 menuTitle: "Sample Policies"
-position: 143
+position: 910
 ---
 
 Sample policies for use with policy-controller live in the [examples directory](https://github.com/sigstore/policy-controller/tree/main/examples) of the project. 

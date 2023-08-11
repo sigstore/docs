@@ -6,7 +6,7 @@ menuTitle: "Overview"
 position: 1
 ---
 
-![Sigstore](/sigstore-logo_horizontal-color.svg)
+![Sigstore](/Sigstore-logo_horizontal-color.svg)
 
 **Sigstore empowers software developers to securely sign software artifacts such as release files, container images, binaries, bill of material manifests and more. Signing materials are then stored in a tamper-resistant public log.**
 
@@ -14,11 +14,11 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 
 ## How to use Sigstore
 
-* I want to [install and Quick Start](/cosign/overview/#quick-start)
-* I want to [sign a blob](cosign/signing_with_blobs/)
-* I want to [sign a container](cosign/signing_with_containers/)
-* I want to [Sign Git commits with Gitsign](/gitsign/overview/) - [Quick Start](/gitsign/overview/#quick-start)
-* I want to [verify entries with Cosign](/cosign/verify/)
+* I want to [Quick Start](/signing/quickstart/)
+* I want to [sign a blob](signing/signing_with_blobs/)
+* I want to [sign a container](signing/signing_with_containers/)
+* I want to [Sign Git commits with Gitsign](/signing/gitsign/)
+* I want to [verify entries with Cosign](/verifying/verify/)
 
 ## How Sigstore works
 

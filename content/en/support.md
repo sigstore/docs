@@ -1,11 +1,11 @@
 ---
 title: 'Get Help'
 description: ''
-category: 'Help'
-position: 902
+category: 'About sigstore'
+position: 30
 ---
 
-If you were not able to find the relevant information to solve your issue, you can still get help from the `sigstore` community!
+If you are not able to find the relevant information to solve your issue, you can still get help from the `sigstore` community!
 
 This page describe how you could get in touch with us to get support.
 
