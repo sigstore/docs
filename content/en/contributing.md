@@ -4,16 +4,17 @@ description: "Intro text"
 category: "About sigstore"
 position: 20
 ---
+## Contributing to docs
 
-## Creating new resources
+### Creating new resources
 
 This covers a few basics to get you started. It covers pointers for writing clear, consistent technical documentation, some tips and tricks you can use in Nuxt, to sigstore community policies on changing and reviewing content.
 
-## Technical writing
+### Technical writing
 
 There’s plenty of good style guides for writing technical documentation. [Microsoft’s Style Guide](https://docs.microsoft.com/en-us/style-guide/welcome/) or [Google's developer documentation](https://developers.google.com/style) are two of the most mature and well established guides, and these are especially useful to turn to when you’ve got a decision to make that might become convention. The most important thing though, especially as your documentation resources grow, is to follow your nose, discuss any decisions that might create consistency rules and keep track of the results, and do a little contextual review of what’s already been published to check for consistency.
 
-## Tips
+### Tips
 
 - Always write like you’re onboarding a new colleague. You want to help them get up to speed. Prioritise your points and be action-focused, cut anything that’s not really necessary, and provide as much cross-linking as you can - this’ll help keep your reader knowing what to pay attention to, and provides just enough information at the right time without robbing them of the chance to learn more.
 
@@ -25,9 +26,9 @@ There’s plenty of good style guides for writing technical documentation. [Micr
 
 - Always check your assumptions. It’s easy to assume your reader knows exactly what you do. But that’s not always the case. Be careful writing about anything that might require more context, embed links in passing if it’ll help. If you’re introducing something difficult for the first time, state it, explain it as simply as you can, and then move to its application using consistent language - don’t be tempted to start using variations or introducing more tangents than is absolutely critical.
 
-## Website content
+### Website content
 
-### Overview
+#### Overview
 
 As website content grows, matures and adapts, it can be tricky to keep the content’s style and tone of voice consistent. This is crucial in making things feel they’ve been written by one single author, which helps create trust and authority, and keeps the user experience streamlined. Here’s a few pointers to help guide your changes:
 
@@ -49,22 +50,30 @@ As website content grows, matures and adapts, it can be tricky to keep the conte
 
 - And above all, be consistent. This applies both to the words you use, and the way you use them - so things like grammar and formatting, whether you capitalise a word or not, etc.
 
-## Working with Nuxt
+### Working with Nuxt
 
 The Nuxt documentation is a great first stop for anyone new to writing technical documentation, or anyone interested in what Nuxt supports. All their guidance for writing, fetching and displaying content can be found here. It’s quick to pick up, and essential for transforming markdown files and raw text into well designed, readable guides and resources anyone can pick up.
 
 Resource: https://content.nuxtjs.org/
 
+## Contributing as a developer
+
+In addition to contributing to the documentation, you can also contribute as a developer. Check out the following repositories for information on the various Sigstore projects:
+
+- [Cosign](https://github.com/sigstore/cosign)
+- [Rekor](https://github.com/sigstore/rekor)
+- [Fulcio](https://github.com/sigstore/fulcio)
+
 ## Community
 The [sigstore/community](https://github.com/sigstore/community/) repository contains the most up-to-date information about how to get involved with the Sigstore project and its community.
 In this repository you can find our [code of conduct](https://github.com/sigstore/community/blob/main/CODE_OF_CONDUCT.md) and our [contributing guidelines](https://github.com/sigstore/community/blob/main/CONTRIBUTING.md).
 
-### Mailing list
+## Mailing list
 
 We use a [public mailing list group](https://groups.google.com/g/sigstore-dev) for communications. Anyone interested in contributing, discussing, or meeting the Sigstore community is invited to join the group.
 
 Docs and other calendar invites may be shared directly with this group, so please join this before requesting access to anything that appears private.
 
-### Slack
+## Slack
 
 You can also keep in touch by joining our [Slack channel](https://sigstore.slack.com). Use [this invite link](https://links.sigstore.dev/slack-invite) to join.
