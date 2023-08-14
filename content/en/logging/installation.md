@@ -1,7 +1,7 @@
 ---
 title: "Installation"
 category: "Transparency Log"
-position: 805
+position: 1805
 ---
 
 There are several ways to install both the `rekor-cli` and `rekor-server`.
