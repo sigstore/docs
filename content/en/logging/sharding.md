@@ -2,7 +2,7 @@
 title: "Sharding"
 description: "Sharding the Rekor Log"
 category: "Transparency Log"
-position: 820
+position: 1820
 ---
 
 This document covers what Rekor log sharding is and how to shard the log.
