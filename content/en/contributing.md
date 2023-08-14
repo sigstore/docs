@@ -6,8 +6,6 @@ position: 20
 ---
 ## Contributing to docs
 
-### Creating new resources
-
 This covers a few basics to get you started. It covers pointers for writing clear, consistent technical documentation, some tips and tricks you can use in Nuxt, to sigstore community policies on changing and reviewing content.
 
 ### Technical writing
