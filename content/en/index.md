@@ -48,5 +48,5 @@ Ready to jump in? Check the [contributing guidelines](/contributing/).
 
 ## Learn more
 
-[Sigstore YouTube Channel](https://www.youtube.com/@projectsigstore)
-[Sigstore Blog](https://blog.sigstore.dev/) 
+- [Sigstore YouTube Channel](https://www.youtube.com/@projectsigstore)
+- [Sigstore Blog](https://blog.sigstore.dev/) 
