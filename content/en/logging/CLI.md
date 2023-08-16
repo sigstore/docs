@@ -1,7 +1,7 @@
 ---
 title: 'CLI'
 category: 'Transparency Log'
-position: 825
+position: 1825
 ---
 
 The following guide is targeted towards developers / software maintainers who would like to make a provenance entry into the rekor transparency log.

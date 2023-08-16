@@ -3,7 +3,7 @@ title: "Rekor"
 description: "The Rekor overview"
 category: "Transparency Log"
 menuTitle: "Overview"
-position: 800
+position: 1800
 ---
 
 ![Rekor Overview](/sigstore_rekor-horizontal-color.svg)

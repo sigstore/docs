@@ -1,7 +1,7 @@
 ---
 title: Signing and Uploading Other Types
 category: "Transparency Log"
-position: 835
+position: 1835
 ---
 
 This documentation contains information on how to sign and upload data in different [pluggable types](/logging/pluggable-types/).

@@ -1,7 +1,7 @@
 ---
 title: "Verifying Binaries"
 category: "Transparency Log"
-position: 840
+position: 1840
 ---
 
 > 📓 We will refine this process over time to be more streamlined with a higher consensus threshold
