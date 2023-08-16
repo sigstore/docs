@@ -7,7 +7,7 @@ position: 20
 
 ## Contributing as a developer
 
-You can contribute the documentation and you can also contribute as a developer. Check out the following repositories for developer information on the various Sigstore projects:
+To contribute to Sigstore as a developer, check out the following repositories for developer information on the various Sigstore projects:
 
 - [Cosign](https://github.com/sigstore/cosign)
 - [Rekor](https://github.com/sigstore/rekor)
