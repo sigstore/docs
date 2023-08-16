@@ -4,7 +4,9 @@ description: "Intro text"
 category: "About sigstore"
 position: 20
 ---
-## Contributing to docs
+## Contributing to the project
+
+The Nuxt documentation is a great first stop for anyone new to writing technical documentation, or anyone interested in what Nuxt supports. All their guidance for writing, fetching and displaying content can be found here. It’s quick to pick up, and essential for transforming markdown files and raw text into well designed, readable guides and resources anyone can pick up.
 
 This covers a few basics to get you started. It covers pointers for writing clear, consistent technical documentation, some tips and tricks you can use in Nuxt, to sigstore community policies on changing and reviewing content.
 
@@ -47,10 +49,6 @@ As website content grows, matures and adapts, it can be tricky to keep the conte
 - Always check your assumptions. It’s easy to assume your reader knows exactly what you do. If you’re introducing something difficult for the first time, state it, explain it as simply as you can, and then move to its application using consistent language.
 
 - And above all, be consistent. This applies both to the words you use, and the way you use them - so things like grammar and formatting, whether you capitalise a word or not, etc.
-
-### Working with Nuxt
-
-The Nuxt documentation is a great first stop for anyone new to writing technical documentation, or anyone interested in what Nuxt supports. All their guidance for writing, fetching and displaying content can be found here. It’s quick to pick up, and essential for transforming markdown files and raw text into well designed, readable guides and resources anyone can pick up.
 
 Resource: https://content.nuxtjs.org/
 
