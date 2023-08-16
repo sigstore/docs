@@ -4,9 +4,16 @@ description: "Intro text"
 category: "About sigstore"
 position: 20
 ---
-## Contributing to the project
 
-The Nuxt documentation is a great first stop for anyone new to writing technical documentation, or anyone interested in what Nuxt supports. All their guidance for writing, fetching and displaying content can be found here. It’s quick to pick up, and essential for transforming markdown files and raw text into well designed, readable guides and resources anyone can pick up.
+## Contributing as a developer
+
+You can contribute the documentation and you can also contribute as a developer. Check out the following repositories for developer information on the various Sigstore projects:
+
+- [Cosign](https://github.com/sigstore/cosign)
+- [Rekor](https://github.com/sigstore/rekor)
+- [Fulcio](https://github.com/sigstore/fulcio)
+
+## Contributing to the documentation
 
 This covers a few basics to get you started. It covers pointers for writing clear, consistent technical documentation, some tips and tricks you can use in Nuxt, to sigstore community policies on changing and reviewing content.
 
@@ -50,15 +57,11 @@ As website content grows, matures and adapts, it can be tricky to keep the conte
 
 - And above all, be consistent. This applies both to the words you use, and the way you use them - so things like grammar and formatting, whether you capitalise a word or not, etc.
 
+### Working with Nuxt
+
+The Nuxt documentation is a great first stop for anyone new to writing technical documentation, or anyone interested in what Nuxt supports. All their guidance for writing, fetching and displaying content can be found here. It’s quick to pick up, and essential for transforming markdown files and raw text into well designed, readable guides and resources anyone can pick up.
+
 Resource: https://content.nuxtjs.org/
-
-## Contributing as a developer
-
-In addition to contributing to the documentation, you can also contribute as a developer. Check out the following repositories for information on the various Sigstore projects:
-
-- [Cosign](https://github.com/sigstore/cosign)
-- [Rekor](https://github.com/sigstore/rekor)
-- [Fulcio](https://github.com/sigstore/fulcio)
 
 ## Community
 The [sigstore/community](https://github.com/sigstore/community/) repository contains the most up-to-date information about how to get involved with the Sigstore project and its community.
