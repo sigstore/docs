@@ -10,8 +10,8 @@ This support is enabled through the [crypto11](https://github.com/ThalesIgnite/c
 For the following examples, we have:
 
 ```shell
-$ IMAGE=gcr.io/vmtest2/demo
-$ IMAGE_DIGEST=$IMAGE@sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd
+IMAGE=gcr.io/vmtest2/demo
+IMAGE_DIGEST=$IMAGE@sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd
 ```
 
 ## Quick Start

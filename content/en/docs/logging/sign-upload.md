@@ -7,11 +7,14 @@ weight: 1835
 This documentation contains information on how to sign and upload data in different [pluggable types](/logging/pluggable-types/).
 
 The following are covered:
+
 - [Minisign](#minisign)
 - [SSH](#ssh)
 - [PKIX/X509](#pkixx509)
-- RPM (TODO)
-- TSR (TODO)
+- [RPM](#rpm)
+- [Alpine](#alpine)
+- [RPM](#rpm-1)
+- [TSR](#tsr)
 - [TUF](#tuf)
 
 ## Minisign
@@ -160,7 +163,7 @@ writing EC key
 Sign the file with:
 
 ```console
-$ openssl dgst -sha256 -sign ec_private.pem -out README.md.sig README.md
+openssl dgst -sha256 -sign ec_private.pem -out README.md.sig README.md
 ```
 
 Upload it to rekor with:
@@ -220,15 +223,15 @@ Generate a TUF repository (for example, with the [Python reference implementatio
 With go-tuf:
 
 ```console
-$ tuf init
-$ tuf gen-key root
-$ tuf gen-key targets
-$ tuf gen-key snapshot
-$ tuf gen-key timestamp
-$ tuf add path/to/some/target.txt
-$ tuf snapshot
-$ tuf timestamp
-$ tuf commit
+tuf init
+tuf gen-key root
+tuf gen-key targets
+tuf gen-key snapshot
+tuf gen-key timestamp
+tuf add path/to/some/target.txt
+tuf snapshot
+tuf timestamp
+tuf commit
 ```
 
 You will find the signed metadata in your TUF `repository/` directory:
@@ -285,5 +288,4 @@ Body: {
     }
   }
 }
-
 ```

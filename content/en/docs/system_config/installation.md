@@ -134,7 +134,7 @@ Before using Cosign, you will need to download and also initialize the TUF envir
 To do this, install and use [go-tuf](https://github.com/theupdateframework/go-tuf)'s CLI tools:
 
 ```console
-$ go install github.com/theupdateframework/go-tuf/cmd/tuf-client@latest
+go install github.com/theupdateframework/go-tuf/cmd/tuf-client@latest
 ```
 
 Then, obtain trusted root keys for Sigstore. You will use the 5th iteration of Sigstore's TUF root to start the root of trust, due to a backward incompatible change. The TUF client uses this root to start a chain of roots, and will download the latest, unexpired root as part of [its workflow](https://theupdateframework.github.io/specification/latest/#update-root).
