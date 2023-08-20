@@ -4,7 +4,7 @@ title: Signing with Self-Managed Keys
 weight: 505
 ---
 
-To generate a key pair in Cosign, run `cosign generate-key-pair`. You'll be interactively prompted to provide a password. 
+To generate a key pair in Cosign, run `cosign generate-key-pair`. You'll be interactively prompted to provide a password.
 
 ```shell
 $ cosign generate-key-pair
@@ -23,7 +23,7 @@ Alternatively, you can use the `COSIGN_PASSWORD` environment variable to provide
 To generate keys using a KMS provider, you can use the `cosign generate-key-pair` command with the `--kms` flag.
 
 ```shell
-$ cosign generate-key-pair --kms <some provider>://<some key>
+cosign generate-key-pair --kms <some provider>://<some key>
 ```
 
 Read more about this in the [key management overview](/key_management/overview/).

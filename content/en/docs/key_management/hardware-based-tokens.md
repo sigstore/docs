@@ -21,8 +21,8 @@ We recommend using an application provided by your hardware vendor to manage key
 The following exmamples use this image:
 
 ```shell
-$ IMAGE=gcr.io/user-vmtest2/demo
-$ IMAGE_DIGEST=$IMAGE@sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd
+IMAGE=gcr.io/user-vmtest2/demo
+IMAGE_DIGEST=$IMAGE@sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd
 ```
 
 ## Quick Start
@@ -175,7 +175,7 @@ Tests can be run against a device with the following command.
 **WARNING**: These tests will destroy any keys on your device.
 
 ```shell
-$ go test ./test -tags=resetyubikey,e2e -count=1
+go test ./test -tags=resetyubikey,e2e -count=1
 ```
 
 **WARNING**: These tests will destroy any keys on your device.
