@@ -16,7 +16,7 @@ The resulting binary will be placed at `$GOPATH/bin/cosign` (or `$GOBIN/cosign`,
 
 ## With the Cosign binary or rpm/dpkg package
 
-Download the binary for your platform at https://github.com/sigstore/cosign/releases/latest.
+Download the binary for your platform from the [Cosign releases page](https://github.com/sigstore/cosign/releases/latest).
 
 ```console
 # binary
