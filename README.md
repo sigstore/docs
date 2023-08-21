@@ -1,8 +1,8 @@
-# Sigstore docs
+# Sigstore Docs
 
 This repo contains the Sigstore documentation, which is hosted at [docs.sigstore.dev](https://docs.sigstore.dev/).
 
-If you are looking for the frontend development of the [Sigstore website](https://www.sigstore.dev/), please visit the [sigstore-wesbite](https://github.com/sigstore/sigstore-website) repo. 
+If you are looking for the frontend development of the [Sigstore website](https://www.sigstore.dev/), please visit the [sigstore-website](https://github.com/sigstore/sigstore-website) repo. 
 
 ## Contributing
 
@@ -19,33 +19,49 @@ We welcome contributions on the docs site!
 
 ## Setup
 
+First, [install Hugo](https://gohugo.io/installation/) following the instructions for your platform.
+
+Clone this repository and navigate to its directory.
+
 Install dependencies:
 
 ```bash
-yarn install
+npm install
 ```
 
-## Development
+## Development Server
+
+You can run the development server with:
 
 ```bash
-yarn dev
+npm run start
 ```
-**Note:** If the error "digital envelope routines::unsupported" appears and the build fails, correct this by enabling the legacy OpenSSL provider.
 
-On Unix-like, enter the command:
+If needed, you can also build the site locally:
 
 ```bash
-export NODE_OPTIONS=--openssl-legacy-provider
+npm run build
 ```
 
-## Static Generation
+## Site Information
 
-This will create the `dist/` directory for publishing to static hosting:
+This site is built using the [Hugo static site generator](https://gohugo.io/) and the [Doks theme](https://getdoks.org/).
 
-```bash
-yarn generate
-```
+Modifications have been made to the theme templates to change the landing page from the Doks default, to make section bundles more useful to visitors, and to give an option to display simplified titles in the sidebar.
 
-To preview the static generated app, run `yarn start`
+Full text search is provided by [FlexSearch](https://github.com/nextapps-de/flexsearch).
 
-For detailed explanation on how things work, checkout [nuxt/content](https://content.nuxtjs.org) and their official [GitHub repo](https://github.com/nuxt/content).
+## Common Tasks
+
+To change the order of pages on the site, edit the `weight` variable in the front matter of individual pages. A smaller number means the page will appear first in the sidebar and in section bundles. 
+
+To change the order of sections of content, refer to the `weight` variable in the `_index.html` file within the folder for that section. These `_index.html` files also enable you to change the names of sections.
+
+Both a `title` and `menuTitle` variable can be set in front matter. If a `menuTitle` variable is set, that text will be used in the left sidebar and on section bundles. If only a `title` is set, that text will be used for both the on-page title and in menus. The `menuTitle` variable should be used to shorten long page titles.
+
+The Doks theme provides additional functionality for linting and checking scripts that may be useful:
+
+[Doks Commands](https://getdoks.org/docs/overview/commands/)
+
+
+

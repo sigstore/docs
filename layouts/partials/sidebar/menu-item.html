@@ -1,0 +1,6 @@
+<!-- If menutitle is present, use that, else use title in menu items-->
+{{ if .Page.Params.menuTitle }}
+  {{ .Page.Params.menuTitle }}
+{{ else }}
+  {{ .Title }}
+{{ end }}
