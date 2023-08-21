@@ -1,4 +1,4 @@
-baseurl = "//main--leafy-rugelach-7a2f99.netlify.app/"
+baseurl = "https://docs.sigstore.dev/"
 canonifyURLs = false
 disableAliases = true
 disableHugoGeneratorInject = true

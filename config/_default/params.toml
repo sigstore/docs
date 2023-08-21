@@ -11,7 +11,7 @@ description = "Sigstore empowers software developers to securely sign software a
 ## Open Graph
 images = ["preview.png"]
 ogLocale = "en_US"
-domainTLD = "main--leafy-rugelach-7a2f99.netlify.app"
+domainTLD = "docs.sigstore.dev"
 titleHome = "Sigstore Docs"
 
 ## Twitter Cards
