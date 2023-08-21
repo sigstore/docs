@@ -6,7 +6,7 @@ weight: 1830
 
 Rekor supports pluggable types (aka different schemas) for entries stored in the transparency log. This will allow you to develop your own manifest type in your preferred formatting style (json|yaml|xml).
 
-### Currently supported types
+## Currently supported types
 
 The list of currently supported types and their schema is [maintained in the repository](https://github.com/sigstore/rekor/tree/main/pkg/types#currently-supported-types).
 
