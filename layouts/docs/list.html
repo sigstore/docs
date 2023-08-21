@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div style="margin-left:5em" class="row justify-content-left">
+  <div class="col-md-12 col-lg-10 col-xl-8">
+    <article>
+      <h1 class="text-left">{{ if eq .CurrentSection .FirstSection }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
+      <div class="text-center">{{ .Content }}</div>
+      <div class="card-list">
+	{{ $currentSection := .CurrentSection }}
+
+	{{ if .Sections }}
+	{{- $.Scratch.Set "toDisplay" .Sections -}}
+	{{ else }}
+	{{- $.Scratch.Set "toDisplay" (where .Site.RegularPages "Section" .Section) -}}
+	{{ end }}
+
+	{{- range $.Scratch.Get "toDisplay" -}}
+
+	{{ if in (.RelPermalink | string) $currentSection.RelPermalink }}
+	<div class="card my-3">
+	  <div class="card-body">
+	    <a class="stretched-link" href="{{ .RelPermalink }}">
+	      {{ if .Params.menuTitle }}
+	      {{ .Params.menuTitle | title }}
+	      {{ else }}
+	      {{ .Params.title | title }}
+	      {{ end }} </a>
+	  </div>
+	</div>
+	{{ end }}
+	{{ end }}
+      </div>
+    </article>
+  </div>
+</div>
+{{ end }}

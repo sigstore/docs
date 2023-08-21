@@ -1,0 +1,5 @@
+{{ range .Site.Pages }}
+  {{ if .Params.home }}
+    {{.Render}}
+  {{ end }}
+{{ end }}
