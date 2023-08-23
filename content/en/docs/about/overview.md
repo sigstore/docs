@@ -74,7 +74,7 @@ To use Sigstore, you must first install the product. See the [Installation](docs
 
 * To get a quick view of how to use the program see [Quick Start](/docs/signing/quickstart/)
 * To learn how to work with blobs, see [sign a blob](docs/signing/signing_with_blobs/)
-* I learn how to work with containers, see [sign a container](docs/signing/signing_with_containers/)
+* To learn how to work with containers, see [sign a container](docs/signing/signing_with_containers/)
 * To use Gitsign, see [Sign Git commits with Gitsign](/docs/signing/gitsign/)
 * To learn about verification, see [verify entries with Cosign](/docs/verifying/verify/)
 
