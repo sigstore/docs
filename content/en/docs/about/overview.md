@@ -50,15 +50,6 @@ The signer can even forgo using long-lived keypairs. With “keyless” or “ep
 
 It’s free to use for all developers and software providers, with Sigstore’s code and operational tooling being 100% open source, and everything maintained and developed by the Sigstore community.
 
-## How to use Sigstore
-
-To use Sigstore, you must first install the product. See the [Installation](docs/system_config/installation/)  
-* I want to [Quick Start](/signing/quickstart/)
-* I want to [sign a blob](signing/signing_with_blobs/)
-* I want to [sign a container](signing/signing_with_containers/)
-* I want to [Sign Git commits with Gitsign](/signing/gitsign/)
-* I want to [verify entries with Cosign](/verifying/verify/)
-
 ## How Sigstore works
 
 A Sigstore client, such as Cosign, requests a certificate from Fulcio, a code-signing certificate authority. A verifiable OpenID Connect identity token, which contains a user's email address or service account, is provided in the request. Fulcio verifies this token and issues a short-lived certificate bound to the provided identity. 
@@ -69,11 +60,23 @@ After the client signs the artifact, the artifact's digest, signature and certif
 
 For verifying an artifact, a Sigstore client will verify the signature on the artifact using the public key from the certificate, verify the identity in the certificate matches an expected identity, verify the certificate's signature using Sigstore's root of trust, and verify proof of inclusion in Rekor.
 
+For more information on the modules that make up Sigstore, see [Toolling](/docs/about/tooling/)
+
 ## Software supply chain security
 
 Software supply chains are exposed to multiple risks. Users are susceptible to various targeted attacks, along with account and cryptographic key compromise. Keys in particular are a challenge for software maintainers to manage. Projects often have to maintain a list of current keys in use, and manage the keys of individuals who no longer contribute to a project. Projects all too often store public keys and digests on git repo readme files or websites, two forms of storage susceptible to tampering and less than ideal means of securely communicating trust.
 
 The tool sets we’ve historically relied on were not built for the present circumstance of remote teams either. This can be seen by the need to create a web of trust, with teams having to meet in person and sign each others’ keys. The current tooling (outside of controlled environments) all too often feel inappropriate to even technical users.
+
+## How to use Sigstore
+
+To use Sigstore, you must first install the product. See the [Installation](docs/system_config/installation/)  instructions. You can then pick the subject matter you wish to learn about from the menu items on the left. For a quick introduction, you can try using one of the links below:
+
+* To get a quick view of how to use the program see [Quick Start](/docs/signing/quickstart/)
+* To learn how to work with blobs, see [sign a blob](docs/signing/signing_with_blobs/)
+* I learn how to work with containers, see [sign a container](docs/signing/signing_with_containers/)
+* To use Gitsign, see [Sign Git commits with Gitsign](/docs/signing/gitsign/)
+* To learn about verification, see [verify entries with Cosign](/docs/verifying/verify/)
 
 ## About the project
 
