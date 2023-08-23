@@ -9,7 +9,44 @@ weight: 1
 
 ![Sigstore](sigstore-logo_horizontal-color.svg)
 
-**Sigstore empowers software developers to securely sign software artifacts such as release files, container images, binaries, bill of material manifests and more. Signing materials are then stored in a tamper-resistant public log.**
+**Sigstore empowers software developers and consumers to securely sign and verify software artifacts such as release files, container images, binaries, software bills of materials (SBOMs), and more. The signing materials are stored in a tamper-resistant public log so there’s no need to manage or store keys.**
+
+sigstore is a Linux Foundation project backed by Google, Red Hat, and Purdue University. It is 100% open source and free to use for all developers and software providers. The sigstore community develops and maintains the source code and tooling as a public good, non-profit service to improve the open source software supply chain.  
+
+## Why cryptographic signing?
+
+Digital signatures are a way to verify the authenticity of a software artifact. Software consumers can trace software back to the source to know who created the artifact and that it has not been altered or tampered with after it was signed. 
+
+In a landscape of growing software supply chain attacks, unsigned software is at risk for several attack vectors:
+
+- Typosquatting
+- Package with similar name
+- Compromised site where package is hosted
+- Tampering after being published
+
+  And so on.
+  
+## Why sigstore?
+
+Traditional artifact signing relies on exchanging cryptographic keypairs for signature verification. The software creator keeps one key secret (the private “signing” key) and publishes the other (the public “verification” key). When a software consumer wants to verify an artifact’s signature, the veriication keys are exchanged to prove that the holder of the private key created the signature. 
+
+This traditional approach has several weaknesses: 
+
+- Identity. How do you know the person signing the artifact is who they say they are?
+- Key management. How do you keep the private key secure so it can’t be lost or stolen? How do you make the public key easily accessible for users, but also protect it from tampering by a malicious attacker?
+- Key revocation. If the keypair is compromised, how do you distribute new keys in a way that convinces users of your legitimacy and that you’re not an attacker? 
+
+Sigstore addresses these problems by helping users move away from a key-based signing approach to an identity-based one. When using sigstore’s full capabilities, your artifact is:
+
+- Signed. With easy-to-use tooling (called Cosign)
+- Verified. By checking your identity with our certificate authority (called Fulcio)
+- Witnessed. By recording the signing information in a permanent transparency log (called Rekor)
+
+The signer can even forgo using long-lived keypairs. With “keyless” or “ephemeral key” signing, users verify the artifact using the transparency log for signature verification rather than keys. Sigstore improves on traditional methods of signing to be more convenient and secure:
+
+- Convenience. Users can take advantage of convenient tooling, easy container signing, and can even bypass the difficult problem of key management and rotation. 
+- Security. With sigstore, the artifact is not just signed; it’s signed, verified, and witnessed. 
+
 
 It’s free to use for all developers and software providers, with Sigstore’s code and operational tooling being 100% open source, and everything maintained and developed by the Sigstore community.
 
