@@ -17,10 +17,10 @@ Sigstore is a Linux Foundation project backed by Google, Red Hat, and Purdue Uni
 
 Digital signatures are a way to verify the authenticity of a software artifact. Software consumers can trace software back to the source to know who created the artifact and that it has not been altered or tampered with after it was signed. 
 
-In a landscape of growing software supply chain attacks, unsigned software is at risk for several attack vectors:v
+In a landscape of growing software supply chain attacks, unsigned software is at risk for several attack vectors:
 
 - Typosquatting
-- Package with similar name
+- Packages with similar names
 - Compromised site where package is hosted
 - Tampering after being published
 
@@ -57,11 +57,11 @@ After the client signs the artifact, the artifact's digest, signature and certif
 
 For verifying an artifact, a sigstore client will verify the signature on the artifact using the public key from the certificate, verify the identity in the certificate matches an expected identity, verify the certificate's signature using Sigstore's root of trust, and verify proof of inclusion in Rekor.
 
-For more information on the modules that make up Sigstore, see [Toolling](/docs/about/tooling/
+For more information on the modules that make up Sigstore, see [Toolling](/docs/about/tooling/)
 
 ## How to use Sigstore
 
-To use Sigstore, you must first install the product. See the [Installation](docs/system_config/installation/)  instructions. You can then pick the subject matter you wish to learn about from the menu items on the left. For a quick introduction, you can try using one of the links below:
+To use sigstore, you must first install the product. See the [Installation](docs/system_config/installation/)  instructions. You can then pick the subject matter you wish to learn about from the menu items on the left. For a quick introduction, you can try using one of the links below:
 
 * To get a quick view of how to use the program see [Quick Start](/docs/signing/quickstart/)
 * To learn how to work with blobs, see [sign a blob](docs/signing/signing_with_blobs/)
@@ -69,13 +69,9 @@ To use Sigstore, you must first install the product. See the [Installation](docs
 * To use Gitsign, see [Sign Git commits with Gitsign](/docs/signing/gitsign/)
 * To learn about verification, see [verify entries with Cosign](/docs/verifying/verify/)
 
-## About the project
-
-Sigstore is a Linux Foundation project backed by Google, Red Hat and Purdue University. We provide a public good, non-profit service to improve the open source software supply chain by easing the adoption of cryptographic software signing.
-
 ## Contributing
 
-Up to date documentation, best practices and detailed scenarios for sigstore live here. These pages are maintained by the community and intended to help anyone get set up easily with any of the technologies, to find what you’re looking for fast. It’s also where we keep all the relevant pages for the Sigstore trust root, from ceremonies to security practices.
+Up to date documentation, best practices and detailed scenarios for sigstore live here. These pages are maintained by the community and intended to help anyone get set up easily with any of the technologies, to find what you’re looking for fast. It’s also where we keep all the relevant pages for the sigstore trust root, from ceremonies to security practices.
 
 Ready to jump in? Check the [contributing guidelines](/docs/contributing/).
 
