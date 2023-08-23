@@ -17,7 +17,7 @@ Sigstore is a Linux Foundation project backed by Google, Red Hat, and Purdue Uni
 
 Digital signatures are a way to verify the authenticity of a software artifact. Software consumers can trace software back to the source to know who created the artifact and that it has not been altered or tampered with after it was signed. 
 
-In a landscape of growing software supply chain attacks, unsigned software is at risk for several attack vectors:
+In a landscape of growing software supply chain attacks, unsigned software is at risk for several attack vectors:v
 
 - Typosquatting
 - Package with similar name
