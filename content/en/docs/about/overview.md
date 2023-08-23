@@ -48,7 +48,7 @@ The signer can even forgo using long-lived keypairs. With “keyless” or “ep
 - Security. With sigstore, the artifact is not just signed; it’s signed, verified, and witnessed. 
 
 
-It’s free to use for all developers and software providers, with Sigstore’s code and operational tooling being 100% open source, and everything maintained and developed by the Sigstore community.
+Sigstore is free to use for all developers and software providers, with Sigstore’s code and operational tooling being 100% open source, with everything maintained and developed by the Sigstore community.
 
 ## How Sigstore works
 
