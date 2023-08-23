@@ -11,7 +11,7 @@ weight: 1
 
 **Sigstore empowers software developers and consumers to securely sign and verify software artifacts such as release files, container images, binaries, software bills of materials (SBOMs), and more. The signing materials are stored in a tamper-resistant public log so there’s no need to manage or store keys.**
 
-sigstore is a Linux Foundation project backed by Google, Red Hat, and Purdue University. It is 100% open source and free to use for all developers and software providers. The sigstore community develops and maintains the source code and tooling as a public good, non-profit service to improve the open source software supply chain.  
+Sigstore is a Linux Foundation project backed by Google, Red Hat, and Purdue University. It is 100% open source and free to use for all developers and software providers. The sigstore community develops and maintains the source code and tooling as a public good, non-profit service to improve the open source software supply chain.  
 
 ## Why cryptographic signing?
 
@@ -47,26 +47,17 @@ The signer can even forgo using long-lived keypairs. With “keyless” or “ep
 - Convenience. Users can take advantage of convenient tooling, easy container signing, and can even bypass the difficult problem of key management and rotation. 
 - Security. With sigstore, the artifact is not just signed; it’s signed, verified, and witnessed. 
 
+## How sigstore works
 
-Sigstore is free to use for all developers and software providers, with Sigstore’s code and operational tooling being 100% open source, with everything maintained and developed by the Sigstore community.
+A sigstore client, such as Cosign, requests a certificate from Fulcio, a code-signing certificate authority. A verifiable OpenID Connect identity token, which contains a user's email address or service account, is provided in the request. Fulcio verifies this token and issues a short-lived certificate bound to the provided identity. 
 
-## How Sigstore works
-
-A Sigstore client, such as Cosign, requests a certificate from Fulcio, a code-signing certificate authority. A verifiable OpenID Connect identity token, which contains a user's email address or service account, is provided in the request. Fulcio verifies this token and issues a short-lived certificate bound to the provided identity. 
-
-You don’t have to manage signing keys, and Sigstore services never obtain your private key. The public key that a Sigstore client creates gets bound to the issued certificate, and the private key is discarded after a single signing.
+You don’t have to manage signing keys, and sigstore services never obtain your private key. The public key that a sigstore client creates gets bound to the issued certificate, and the private key is discarded after a single signing.
 
 After the client signs the artifact, the artifact's digest, signature and certificate are persisted in Rekor, an immutable, append-only transparency ledger, so that signing events can be publicly audited. Identity owners can monitor the log to verify that their identity is being properly used. This also timestamps the signing event, so that the short-lived certificate can be later verified. 
 
-For verifying an artifact, a Sigstore client will verify the signature on the artifact using the public key from the certificate, verify the identity in the certificate matches an expected identity, verify the certificate's signature using Sigstore's root of trust, and verify proof of inclusion in Rekor.
+For verifying an artifact, a sigstore client will verify the signature on the artifact using the public key from the certificate, verify the identity in the certificate matches an expected identity, verify the certificate's signature using Sigstore's root of trust, and verify proof of inclusion in Rekor.
 
-For more information on the modules that make up Sigstore, see [Toolling](/docs/about/tooling/)
-
-## Software supply chain security
-
-Software supply chains are exposed to multiple risks. Users are susceptible to various targeted attacks, along with account and cryptographic key compromise. Keys in particular are a challenge for software maintainers to manage. Projects often have to maintain a list of current keys in use, and manage the keys of individuals who no longer contribute to a project. Projects all too often store public keys and digests on git repo readme files or websites, two forms of storage susceptible to tampering and less than ideal means of securely communicating trust.
-
-The tool sets we’ve historically relied on were not built for the present circumstance of remote teams either. This can be seen by the need to create a web of trust, with teams having to meet in person and sign each others’ keys. The current tooling (outside of controlled environments) all too often feel inappropriate to even technical users.
+For more information on the modules that make up Sigstore, see [Toolling](/docs/about/tooling/
 
 ## How to use Sigstore
 
@@ -84,9 +75,9 @@ Sigstore is a Linux Foundation project backed by Google, Red Hat and Purdue Univ
 
 ## Contributing
 
-Up to date documentation, best practices and detailed scenarios for Sigstore live here. These pages are maintained by the community and intended to help anyone get set up easily with any of the technologies, to find what you’re looking for fast. It’s also where we keep all the relevant pages for the Sigstore trust root, from ceremonies to security practices.
+Up to date documentation, best practices and detailed scenarios for sigstore live here. These pages are maintained by the community and intended to help anyone get set up easily with any of the technologies, to find what you’re looking for fast. It’s also where we keep all the relevant pages for the Sigstore trust root, from ceremonies to security practices.
 
-Ready to jump in? Check the [contributing guidelines](/contributing/).
+Ready to jump in? Check the [contributing guidelines](/docs/contributing/).
 
 ## Learn more
 
