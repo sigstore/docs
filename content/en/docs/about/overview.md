@@ -52,6 +52,7 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 
 ## How to use Sigstore
 
+To use Sigstore, you must first install the product. See the [Installation](docs/system_config/installation/)  
 * I want to [Quick Start](/signing/quickstart/)
 * I want to [sign a blob](signing/signing_with_blobs/)
 * I want to [sign a container](signing/signing_with_containers/)
