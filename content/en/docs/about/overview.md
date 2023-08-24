@@ -15,16 +15,14 @@ Sigstore is a project backed by the Open Source Security Foundation (OpenSSF) un
 
 ## Why cryptographic signing?
 
+In a landscape of growing software supply chain attacks, unsigned software is at risk for several attack vectors, such as:
+
+- **Typosquatting**
+- **Packages with similar names**
+- **Compromised site where package is hosted**
+- **Tampering after being published**
+  
 Digital signatures are a way to verify the authenticity of a software artifact. Software consumers can trace software back to the source to know who created the artifact and that it has not been altered or tampered with after it was signed. 
-
-In a landscape of growing software supply chain attacks, unsigned software is at risk for several attack vectors:
-
-- Typosquatting
-- Packages with similar names
-- Compromised site where package is hosted
-- Tampering after being published
-
-  And so on.
   
 ## Why Sigstore?
 
@@ -32,20 +30,20 @@ Traditional artifact signing relies on exchanging cryptographic keypairs for sig
 
 This traditional approach has several weaknesses: 
 
-- Identity. How do you know the person signing the artifact is who they say they are?
-- Key management. How do you keep the private key secure so it can’t be lost or stolen? How do you make the public key easily accessible for users, but also protect it from tampering by a malicious attacker?
-- Key revocation. If the keypair is compromised, how do you distribute new keys in a way that convinces users of your legitimacy and that you’re not an attacker? 
+- **Identity**: How do you know the person signing the artifact is who they say they are?
+- **Key management**: How do you keep the private key secure so it can’t be lost or stolen? How do you make the public key easily accessible for users, but also protect it from tampering by a malicious attacker?
+- **Key revocation**: If the keypair is compromised, how do you distribute new keys in a way that convinces users of your legitimacy and that you’re not an attacker? 
 
 Sigstore addresses these problems by helping users move away from a key-based signing approach to an identity-based one. When using Sigstore’s full capabilities, your artifact is:
 
-- Signed. With easy-to-use tooling (called Cosign)
-- Verified. By checking your identity with our certificate authority (called Fulcio)
-- Witnessed. By recording the signing information in a permanent transparency log (called Rekor)
+- **Signed**: By using a Sigstore client (Cosign).
+- **Verified**: By checking your identity with our certificate authority (Fulcio).
+- **Witnessed**: By recording the signing information in a permanent transparency log (Rekor).
 
 The signer can even forgo using long-lived keypairs. With “keyless” or “ephemeral key” signing, users verify the artifact using the transparency log for signature verification rather than keys. Sigstore improves on traditional methods of signing to be more convenient and secure:
 
-- Convenience. Users can take advantage of convenient tooling, easy container signing, and can even bypass the difficult problem of key management and rotation. 
-- Security. With Sigstore, the artifact is not just signed; it’s signed, verified, and witnessed. 
+- **Convenience**: Users can take advantage of convenient tooling, easy container signing, and can even bypass the difficult problem of key management and rotation. 
+- **Security**: With Sigstore, the artifact is not just signed; it’s signed, verified, and witnessed. 
 
 ## How Sigstore works
 
@@ -61,7 +59,7 @@ For more information on the modules that make up Sigstore, see [Toolling](/docs/
 
 ## How to use Sigstore
 
-To use Sigstore, you must first install the product. See the [Installation](docs/system_config/installation/)  instructions. You can then pick the subject matter you wish to learn about from the menu items on the left. For a quick introduction, you can try using one of the links below:
+To use Sigstore, you must first install the client. See the [Installation](docs/system_config/installation/)  instructions. You can then pick the subject matter you wish to learn about from the menu items on the left. For a quick introduction, you can try using one of the links below:
 
 * To get a quick view of how to use the program see [Quick Start](/docs/signing/quickstart/)
 * To learn how to work with blobs, see [sign a blob](docs/signing/signing_with_blobs/)
