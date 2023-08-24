@@ -52,7 +52,7 @@ cosign verify --timestamp-certificate-chain ts_chain.pem <artifact>
 
 ### mTLS connection to the TSA server
 
-`cosign sign` accepts several additional optional parameters to pass the CA certificate of
+`cosign sign` and `cosign sign-blob` accept several additional optional parameters to pass the CA certificate of
 the TSA server in cases where it uses a custom CA, or to establish a mutual TLS connection to the TSA server:
 ```
     --timestamp-client-cacert='':
