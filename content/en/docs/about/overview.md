@@ -9,13 +9,13 @@ weight: 1
 
 ![Sigstore](sigstore-logo_horizontal-color.svg)
 
-**Sigstore empowers software developers and consumers to securely sign and verify software artifacts such as release files, container images, binaries, software bills of materials (SBOMs), and more. The signing Signatures are generated with ephemeral signing keys so there's no need to manage keys. Signing events are recorded in a tamper-resistant public log so software developers can audit signing events.**
+**Sigstore is an open source project for improving software supply chain security. The Sigstore framework and tooling empowers software developers and consumers to securely sign and verify software artifacts such as release files, container images, binaries, software bills of materials (SBOMs), and more. The signing materials are stored in a tamper-resistant public log so there’s no need to manage or store keys.**
 
-Sigstore is a project backed by the Open Source Security Foundation (OpenSSF) under the Linux Foundation, with contributions from Google, Red Hat, Chainguard, GitHub and Purdue University. It is 100% open source and free to use for all developers and software providers. The Sigstore community develops and maintains the source code and tooling as a public good, non-profit service to improve the open source software supply chain.  
+The project is backed by the Open Source Security Foundation (OpenSSF) under the Linux Foundation, with contributions from Google, Red Hat, Chainguard, GitHub and Purdue University. It is 100% open source and free to use for all developers and software providers. The Sigstore community develops and maintains the source code and tooling as a public good, non-profit service to improve the open source software supply chain.  
 
 ## Why cryptographic signing?
 
-In a landscape of growing software supply chain attacks, unsigned software is at risk for several attack vectors, such as:
+In a landscape of growing software supply chain vulnerability, unsigned software is at risk for several attack vectors, such as:
 
 - **Typosquatting**
 - **Packages with similar names**
@@ -26,7 +26,7 @@ Digital signatures are a way to verify the authenticity of a software artifact. 
   
 ## Why Sigstore?
 
-Traditional artifact signing relies on exchanging cryptographic keypairs for signature verification. The software creator keeps one key secret (the private “signing” key) and publishes the other (the public “verification” key). When a software consumer wants to verify an artifact’s signature, the veriication keys are exchanged to prove that the holder of the private key created the signature. 
+Traditional artifact signing relies on exchanging cryptographic keypairs for signature verification. The software creator keeps one key secret (the private “signing” key) and publishes the other (the public “verification” key). When a software consumer wants to verify an artifact’s signature, the verification keys are exchanged to prove that the holder of the private key created the signature. 
 
 This traditional approach has several weaknesses: 
 
@@ -53,7 +53,7 @@ You don’t have to manage signing keys, and Sigstore services never obtain your
 
 After the client signs the artifact, the artifact's digest, signature and certificate are persisted in a transparency log: an immutable, append-only ledger known as Rekor. With this log, signing events can be publicly audited. Identity owners can monitor the log to verify that their identity is being properly used, and someone who downloads and artifact can confirm that the certificate was valid at the time of signing.
 
-For verifying an artifact, a Sigstore client will verify the signature on the artifact using the public key from the certificate, verify the identity in the certificate matches an expected identity, verify the certificate's signature using Sigstore's root of trust, and verify proof of inclusion in Rekor.
+For verifying an artifact, a Sigstore client will verify the signature on the artifact using the public key from the certificate, verify the identity in the certificate matches an expected identity, verify the certificate's signature using Sigstore's root of trust, and verify proof of inclusion in Rekor. Together, verification of this information tells the user that the artifact comes from its expected source and has not been tampered with after its creation.
 
 For more information on the modules that make up Sigstore, see [Toolling](/docs/about/tooling/)
 
@@ -69,7 +69,7 @@ To use Sigstore, you must first install the client. See the [Installation](docs/
 
 ## Contributing
 
-Up to date documentation, best practices and detailed scenarios for Sigstore live here. These pages are maintained by the community and intended to help anyone get set up easily with any of the technologies, to find what you’re looking for fast. It’s also where we keep all the relevant pages for the Sigstore trust root, from ceremonies to security practices.
+Up to date documentation, best practices, and detailed scenarios for Sigstore live here. These pages are maintained by the community and intended to help anyone get set up easily with any of the technologies, to find what you’re looking for fast. It’s also where we keep all the relevant pages for the Sigstore trust root, from signing ceremonies to security practices.
 
 Ready to jump in? Check the [contributing guidelines](/docs/contributing/).
 
