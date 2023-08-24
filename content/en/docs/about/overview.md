@@ -9,7 +9,7 @@ weight: 1
 
 ![Sigstore](sigstore-logo_horizontal-color.svg)
 
-**Sigstore empowers software developers and consumers to securely sign and verify software artifacts such as release files, container images, binaries, software bills of materials (SBOMs), and more. The signing materials are stored in a tamper-resistant public log so there’s no need to manage or store keys.**
+**Sigstore empowers software developers and consumers to securely sign and verify software artifacts such as release files, container images, binaries, software bills of materials (SBOMs), and more. The signing Signatures are generated with ephemeral signing keys so there's no need to manage keys. Signing events are recorded in a tamper-resistant public log so software developers can audit signing events.**
 
 Sigstore is a project backed by the Open Source Security Foundation (OpenSSF) under the Linux Foundation, with contributions from Google, Red Hat, Chainguard, GitHub and Purdue University. It is 100% open source and free to use for all developers and software providers. The Sigstore community develops and maintains the source code and tooling as a public good, non-profit service to improve the open source software supply chain.  
 
