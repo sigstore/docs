@@ -9,7 +9,7 @@ weight: 950
 
 If you have Go 1.19+, you can directly install Cosign by downloading the Cosign binary and running:
 
-```console
+```bash
 go install github.com/sigstore/cosign/v2/cmd/cosign@latest
 ```
 
@@ -19,7 +19,7 @@ The resulting binary will be placed at `$GOPATH/bin/cosign` (or `$GOBIN/cosign`,
 
 Download the binary for your platform from the [Cosign releases page](https://github.com/sigstore/cosign/releases/latest).
 
-```console
+```bash
 # binary
 curl -O -L "https://github.com/sigstore/cosign/releases/latest/download/cosign-linux-amd64"
 mv cosign-linux-amd64 /usr/local/bin/cosign
@@ -40,7 +40,7 @@ dpkg -i cosign_${LATEST_VERSION}_amd64.deb
 
 If you are using Homebrew (or Linuxbrew), you can install Cosign by running:
 
-```console
+```bash
 brew install cosign
 ```
 
@@ -48,7 +48,7 @@ brew install cosign
 
 If you are using Arch Linux, you can install Cosign by running:
 
-```console
+```bash
 pacman -S cosign
 ```
 
@@ -57,7 +57,7 @@ pacman -S cosign
 If you are using Alpine Linux edge, with the [community repository enabled](https://wiki.alpinelinux.org/w/index.php?title=Enable_Community_Repository),
 you can install `cosign` by running:
 
-```console
+```bash
 apk add cosign
 ```
 
@@ -65,7 +65,7 @@ apk add cosign
 
 If you are using Nix, you can install Cosign by running:
 
-```console
+```bash
 nix-env -iA nixpkgs.cosign
 ```
 
@@ -73,7 +73,7 @@ nix-env -iA nixpkgs.cosign
 
 If you are on NixOS, you can install Cosign by running:
 
-```console
+```bash
 nix-env -iA nixos.cosign
 ```
 
@@ -100,7 +100,7 @@ They are tagged with the release name (for example, `gcr.io/projectsigstore/cosi
 
 You can get the latest release with `crane ls gcr.io/projectsigstore/cosign | tail -1`. To list all versions, signatures and SBOMs:
 
-```console
+```bash
 $ crane ls gcr.io/projectsigstore/cosign
 ...
 sha256-a95d7c4ab27e48aaf89253e0703014709129f010578be809b6c95ccee908fa1b.sbom
@@ -114,7 +114,7 @@ CI Built containers are published for every commit at `gcr.io/projectsigstore/co
 They are tagged with the commit.
 They can be found with `crane ls`:
 
-```console
+```bash
 $ crane ls gcr.io/projectsigstore/cosign/ci/cosign
 749f896
 749f896bb378aca5cb45c5154fc0cb43f6728d48
@@ -134,13 +134,13 @@ Before using Cosign, you will need to download and also initialize the TUF envir
 
 To do this, install and use [go-tuf](https://github.com/theupdateframework/go-tuf)'s CLI tools:
 
-```console
+```bash
 go install github.com/theupdateframework/go-tuf/cmd/tuf-client@latest
 ```
 
 Then, obtain trusted root keys for Sigstore. You will use the 5th iteration of Sigstore's TUF root to start the root of trust, due to a backward incompatible change. The TUF client uses this root to start a chain of roots, and will download the latest, unexpired root as part of [its workflow](https://theupdateframework.github.io/specification/latest/#update-root).
 
-```console
+```bash
 curl -o sigstore-root.json https://raw.githubusercontent.com/sigstore/root-signing/main/ceremony/2022-10-18/repository/5.root.json
 ```
 
@@ -150,15 +150,15 @@ Note that you can verify the 5th TUF root against the 1st TUF root, which was si
 
 Then initialize the tuf client with the previously obtained root key and the remote repository;
 
-```console
-$ tuf-client init https://tuf-repo-cdn.sigstore.dev sigstore-root.json
+```bash
+tuf-client init https://tuf-repo-cdn.sigstore.dev sigstore-root.json
 ```
 
 #### Verifying with key
 
 You will retrieve the artifact verification key from the trusted TUF repository and use it to verify the Cosign release.
 
-```console
+```bash
 tuf-client get https://tuf-repo-cdn.sigstore.dev artifact.pub > artifact.pub
 
 curl -o cosign-release.sig -L https://github.com/sigstore/cosign/releases/download/<version>/cosign-<os>.sig
@@ -173,13 +173,13 @@ The `<version>`and `<os>` placeholders in the URLs should be replaced with the s
 
 ### Verifying Cosign with identity-based verification
 
-Once you have verified Cosign with an artifact key, you can use Cosign to verify future releases of Cosign using identity-based verification. 
+Once you have verified Cosign with an artifact key, you can use Cosign to verify future releases of Cosign using identity-based verification.
 
 #### Verifying Cosign binary
 
 To verify a Cosign binary, you will need to fetch the signature and certificate from GitHub.
 
-```console
+```bash
 curl -o cosign-release.sig -L https://github.com/sigstore/cosign/releases/download/<version>/cosign-<os>-keyless.sig
 base64 -d cosign-release.sig > cosign-release.sig.decoded
 
@@ -196,7 +196,7 @@ cosign verify-blob new-cosign --certificate cosign-release.pem.decoded --signatu
 
 You can also verify a container image of Cosign. You can use [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md) to get the latest version of Cosign. You can skip the first two steps if you already have the container image.
 
-```console
+```bash
 COSIGN_VERSION=$(crane ls gcr.io/projectsigstore/cosign | tail -1)
 COSIGN_DIGEST=$(crane digest gcr.io/projectsigstore/cosign:$COSIGN_VERSION)
 
