@@ -46,7 +46,7 @@ Sigstore is a Linux Foundation project backed by Google, Red Hat and Purdue Univ
 
 Up to date documentation, best practices and detailed scenarios for Sigstore live here. These pages are maintained by the community and intended to help anyone get set up easily with any of the technologies, to find what you’re looking for fast. It’s also where we keep all the relevant pages for the Sigstore trust root, from ceremonies to security practices.
 
-Ready to jump in? Check the [contributing guidelines](/contributing/).
+Ready to jump in? Check the [contributing guidelines](/about/contributing/).
 
 ## Learn more
 

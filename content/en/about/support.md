@@ -12,7 +12,7 @@ This page describe how you could get in touch with us to get support.
 
 # Help from the community
 
-Sigstore has a [Slack community](/community/#slack). Please post any support request in `#general` channel.
+Sigstore has a [Slack community](https://sigstore.slack.com/), and you can [request an invite at this link](https://join.slack.com/t/sigstore/shared_invite/zt-1z7jzpemb-xEKSUtpgDFXpIEMwMYZQKQ). Please post any support requests in the `#general` channel.
 
 # Help from project maintainers
 
