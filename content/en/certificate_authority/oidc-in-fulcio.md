@@ -30,6 +30,18 @@ GitHub supports OIDC tokens for its workflows initiated from GitHub Actions. Thi
 
 * GitHub Actions (`token.actions.githubusercontent.com`)
 
+GitLab supports OIDC tokens for its workflows initiated from GitLab CI/CD pipelines. This removes the need for persisting authentication credentials. OIDC tokens include information about the workflow and source repository.
+
+In GitLab, you can generate the necessary tokens by simply adding the following to your CI/CD job:
+
+```yaml
+id_tokens:
+    SIGSTORE_ID_TOKEN:
+      aud: sigstore
+```
+
+See the [GitLab documentation](https://docs.gitlab.com/ee/ci/yaml/signing_examples.html) for full examples on signing through GitLab.
+
 ### SPIFFE
 
 SPIFFE-based OIDC providers use a SPIFFE ID as the URI subject alternative name of the certificate, scoped to a domain.
@@ -99,6 +111,33 @@ The token must include the following claims:
 `job_workflow_ref` is included as a SAN URI: `https://github.com/{job_workflow_ref}`
 
 All other required claims are extracted and included in custom OID fields, as documented in [OID Information](https://github.com/sigstore/fulcio/blob/main/docs/oid-info.md).
+
+### GitLab
+
+The token must include the following claims:
+
+```json
+{
+    "namespace_id": "72",
+    "namespace_path": "my-group",
+    "project_id": "20",
+    "project_path": "my-group/my-project",
+    "pipeline_id": "574",
+    "pipeline_source": "push",
+    "job_id": "302",
+    "ref": "main",
+    "ref_type": "branch",
+    "runner_id": 1,
+    "runner_environment": "gitlab-hosted",
+    "sha": "714a629c0b401fdce83e847fc9589983fc6f46bc",
+    "project_visibility": "public",
+    "ci_config_ref_uri": "gitlab.com/my-group/my-project//.gitlab-ci.yml@refs/heads/main"
+}
+```
+
+`ci_config_ref_uri` is included as a SAN URI: `https://{ci_config_ref_uri}`
+
+All other required claims are extracted and included in custom OID fields, as documented in [OID Information](https://github.com/sigstore/fulcio/blob/main/docs/oid-info.md#mapping-oidc-token-claims-to-fulcio-oids).
 
 ### SPIFFE
 
