@@ -27,11 +27,11 @@ It does not guarantee that the signer *should* be able to authenticate (for inst
 
 Further, if Sigstore itself is compromised, this property may not hold; see our analysis below.
 
-
 **What should I do or keep in mind to mitigate these threats when using Sigstore?**
 First, users of Sigstore should ensure that they have tooling to audit Sigstore’s transparency logs for consistency and to monitor the use of their identities in Sigstore. Sistore operators provide [some tooling](https://github.com/sigstore/rekor-monitor) for these efforts. Second, all OIDC accounts used to create Sigstore signatures should have 2FA enabled to reduce the likelihood of a compromise.
 
 In this threat model, we consider the compromise of any of the following:
+
 * Fulcio CA server
 * Fulcio CT Log
 * Rekor server
@@ -45,29 +45,34 @@ Here’s a high-level diagram of the Sigstore signing flow, with the components 
 
 ![Sigstore signing flow](/sigstore-threat-model-signing.svg)
 
-
 ## Main takeaways
+
 * Identity and consistency monitoring is critical to mitigate risks of compromise to both the Fulcio CT log and Rekor. All signers should monitor the Fulcio CT log for unauthorized use of their identity, and all verifiers should look for alerts from consistency monitors.
 * The Fulcio CA is a particularly important source of trust and must be hardened.
 * OIDC issuers are highly trusted in Sigstore, and only properly hardened OIDC issuers should be used.
-* OIDC account compromise is not handled by Sigstore, but we recommend that OIDC issuers provide revocation in the case of a compromised OIDC account. In addition, we recommend the use of 2FA on all OIDC accounts used with Sigstore in order to reduce the likelihood of a compromise. 
+* OIDC account compromise is not handled by Sigstore, but we recommend that OIDC issuers provide revocation in the case of a compromised OIDC account. In addition, we recommend the use of 2FA on all OIDC accounts used with Sigstore in order to reduce the likelihood of a compromise.
 * TUF root of trust provides strong revocation abilities for all services managed by Sigstore.
 
 ## Sigstore threat model
 
 ### Scenario for Table 1
+
 This table analyzes the attacker capabilities when the attacker compromises different Sigstore components. This table assumes that Fulcio is used to sign any software artifacts. The storage mechanism (repository, etc.) for artifacts and metadata are out of scope for this model. The table description assumes TUF is not in play, except in the root of trust defined by Sigstore. We assume that there are multiple monitors of Rekor and the Fulcio CT log that communicate with a gossip protocol. Each monitor ensures that the log remains append only by reviewing the full state of the log. A compromise would mean all monitors are compromised. The table is sorted by the impact of the attacker’s capabilities. Compromises which have different capabilities with the same impact are grouped together. The actors in this table are described below:
 
 ### Action: Alice signs an artifact with Sigstore
+
 Alice authenticates herself against the OIDC identity provider to get an OIDC ID token. She then sends a certificate request to the Fulcio CA with a generated public key and the OIDC ID token. The Fulcio CA verifies the authenticity of the OIDC ID token with the OIDC identity provider, then extracts the subject from the token to use as the SAN in the certificate. The Fulcio CA generates and signs a precertificate, which is uploaded to the Fulcio CT log. The Fulcio CT log generates and signs a SCT (signed certificate timestamp), which is sent back to the Fulcio CA. The Fulcio CA combines the SCT with the precertificate to get the final certificate which is sent to Alice. Alice uses the key associated with the certificate to sign the artifact. She uploads the certificate and signature to Rekor, which stores them in the logs and returns an SET (signed entry timestamp) that promises inclusion in the log at a particular time. The verifier can use this time to ensure the certificate was used while it was valid.
 
 ### Action: Bob verifies an artifact with Sigstore
+
 Bob has an artifact, signature, and Fulcio certificate. He knows that Alice is trusted to sign this artifact due to either a TUF delegation that lists her as the identity, or some other namespacing mechanism such as a policy configuration. Bob gets trusted keys for Sigstore services using the TUF root of trust. He then checks that the certificate was signed by the Fulcio CA and that Alice is the subject. He verifies that the certificate is present in the Fulcio CT log. He checks the signature on the artifact using the key in the certificate. He then checks the Rekor SET embedded in the signature to ensure the signature was made during the validity window of the certificate. Next, he queries Rekor for the proof of inclusion to perform online verification and ensure that the signature is included in the Rekor TL.
 
 ### Action: Charlie monitors the Rekor CT log
+
 Charlie queries Rekor periodically and ensures that the log is append-only by ensuring that all entries that were in the log are still present. Charlie also talks to other Rekor monitors to ensure that the tree head is consistent for all users. If he notices an issue, he reports it to Sigstore admins, who verify the report before working toward recovery. Charlie may do additional checks for entry validity.
 
 ### Action: Deborah monitors the Fulcio CT log
+
 Deborah queries the Fulcio CT log periodically to ensure that all entries that were in the log are still present. She also talks to other Fulcio monitors to ensure that the tree head is consistent for all users. If she notices an issue, she reports it to Sigstore admins,  who verify the report before working toward recovery.
 
 | **Compromise**          | **Attacker capabilities**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Other security impacts** |
@@ -87,25 +92,26 @@ Deborah queries the Fulcio CT log periodically to ensure that all entries that w
 |  OIDC server | Arbitrary software attack for anything that OIDC domain covers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  Fulcio CA server AND OIDC server | Same as OIDC server + Fulcio.  OIDC cannot recover, Fulcio is not domain limited                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Sigstore root of trust | Can become the Fulcio CA, Rekor, the Fulcio CA log, etc. Arbitrary software attack is trivial from there with MITM. | Monitors may detect the attack, but Sigstore admins can’t recover without control of the root of trust.                                                                                                                                                                                                                                                                                                                              |
 
-
 ## Mitigations and recommendations
 
 Here, we describe recommendations for using Sigstore in such a way that the likelihood and impact of a compromise are both mitigated.
 
 ### 2FA on OIDC accounts
-As shown in the table above, compromise of an OIDC account is sufficient for an arbitrary software attack for any packages that account is trusted to sign. To mitigate this risk, we recommend reducing the likelihood of account compromise through the use of 2FA on all accounts that will be used with Sigstore. 2FA requires that not just a password, but a second factor like a YubiKey or authenticator app is also compromised. For maximum security, users should avoid less secure forms of 2FA such as text messages and phone calls. 
+
+As shown in the table above, compromise of an OIDC account is sufficient for an arbitrary software attack for any packages that account is trusted to sign. To mitigate this risk, we recommend reducing the likelihood of account compromise through the use of 2FA on all accounts that will be used with Sigstore. 2FA requires that not just a password, but a second factor like a YubiKey or authenticator app is also compromised. For maximum security, users should avoid less secure forms of 2FA such as text messages and phone calls.
 
 OIDC does not provide a mechanism for checking if accounts have 2FA enabled, and so enforcement of this recommendation is up to individual signers in the ecosystem.
 
 ### Identity monitors
+
 All certificates that are issued by Fulcio are written to a Certificate Transparency log, accessible at ctfe.sigstore.dev. For each artifact, Sigstore clients publish the artifact's hash, signature, and certificate to this transparency log. A signature verifier must check that an artifact has been uploaded to Rekor and the certificate has been published to Fulcio's log before trusting the artifact. This ensures that the artifact and certificate are publicly auditable, so that the identity owner can monitor the log to find unexpected occurrences of their identity.
 
 Sigstore provides an easy-to-use GitHub Actions-based log monitor, [rekor-monitor](https://github.com/sigstore/rekor-monitor). Currently, it supports monitoring identities only for the hashedrekord Rekor type, which is the default uploaded type for Cosign and other Sigstore clients. See the [README](https://github.com/sigstore/rekor-monitor#readme) for information on setting up the reusable workflow with identity monitoring.
 
 Identities can include email or machine identity, for example for CI workflows such as GitHub Actions or GKE. rekor-monitor currently supports matching on exact string matches, which works well for email or specific CI workflows. We plan to add support for matching on regular expressions so that repository owners can monitor across repositories in an organization.
 
-
 ### Secure distribution (and revocation) of Sigstore key material
+
 The above compromise scenarios for Fulcio, Rekor, and other parties describe either a compromise of the infrastructure itself or a compromise of the signing material used by those parties to make claims. That is, if you had Fulcio’s signing key, you wouldn’t need to additionally hack Fulcio to make false claims.
 
 This means that secure distribution of Sigstore key material is paramount for security—if that process can be intercepted, we can consider all of the infrastructure effectively compromised.
@@ -121,6 +127,7 @@ To deal with this, we recommend the use of a strong root of trust for distributi
 The Sigstore public good instance has a [root of trust](https://github.com/sigstore/root-signing) based on TUF that can be publicly audited, with geographically- and organizationally-distributed root key holders.
 
 ### Policy considerations
+
 The security guarantees that Sigstore provides are useful but relatively minimal: it can show you that a signature came from someone controlling a specific digital identity, but not whether you should trust that identity. Critically, [not everything that’s signed is secure](https://blog.sigstore.dev/signatus-ergo-securus-who-can-sign-what-with-tuf-and-sigstore-ea4d3d84b8b6): when verifying software, you need a policy for knowing whom to trust.
 
 That policy should cover:
@@ -128,8 +135,8 @@ That policy should cover:
 * How do you identify software artifacts (e.g., by their name)?
 * Which identities are permitted to sign a given software artifact?
 * Which identity providers can those identities come from?
-    * Do the identity providers perform identity verification like “know-your-customer?”
-    * Do they handle account compromise and recovery?
+  * Do the identity providers perform identity verification like “know-your-customer?”
+  * Do they handle account compromise and recovery?
 * Do you permit the use of public verification keys for identities, or must identities have an associated identity provider?
 * Which Sigstore instance(s) do you trust, and how do you retrieve the key material for those instances?
 * How do you handle revocation?

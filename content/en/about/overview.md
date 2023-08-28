@@ -16,19 +16,19 @@ It’s free to use for all developers and software providers, with Sigstore’s 
 
 ## How to use Sigstore
 
-* I want to [Quick Start](/signing/quickstart/)
-* I want to [sign a blob](signing/signing_with_blobs/)
-* I want to [sign a container](signing/signing_with_containers/)
-* I want to [Sign Git commits with Gitsign](/signing/gitsign/)
-* I want to [verify entries with Cosign](/verifying/verify/)
+- I want to [Quick Start](/signing/quickstart/)
+- I want to [sign a blob](signing/signing_with_blobs/)
+- I want to [sign a container](signing/signing_with_containers/)
+- I want to [Sign Git commits with Gitsign](/signing/gitsign/)
+- I want to [verify entries with Cosign](/verifying/verify/)
 
 ## How Sigstore works
 
-A Sigstore client, such as Cosign, requests a certificate from Fulcio, a code-signing certificate authority. A verifiable OpenID Connect identity token, which contains a user's email address or service account, is provided in the request. Fulcio verifies this token and issues a short-lived certificate bound to the provided identity. 
+A Sigstore client, such as Cosign, requests a certificate from Fulcio, a code-signing certificate authority. A verifiable OpenID Connect identity token, which contains a user's email address or service account, is provided in the request. Fulcio verifies this token and issues a short-lived certificate bound to the provided identity.
 
 You don’t have to manage signing keys, and Sigstore services never obtain your private key. The public key that a Sigstore client creates gets bound to the issued certificate, and the private key is discarded after a single signing.
 
-After the client signs the artifact, the artifact's digest, signature and certificate are persisted in Rekor, an immutable, append-only transparency ledger, so that signing events can be publicly audited. Identity owners can monitor the log to verify that their identity is being properly used. This also timestamps the signing event, so that the short-lived certificate can be later verified. 
+After the client signs the artifact, the artifact's digest, signature and certificate are persisted in Rekor, an immutable, append-only transparency ledger, so that signing events can be publicly audited. Identity owners can monitor the log to verify that their identity is being properly used. This also timestamps the signing event, so that the short-lived certificate can be later verified.
 
 For verifying an artifact, a Sigstore client will verify the signature on the artifact using the public key from the certificate, verify the identity in the certificate matches an expected identity, verify the certificate's signature using Sigstore's root of trust, and verify proof of inclusion in Rekor.
 
@@ -51,4 +51,4 @@ Ready to jump in? Check the [contributing guidelines](/about/contributing/).
 ## Learn more
 
 - [Sigstore YouTube Channel](https://www.youtube.com/@projectsigstore)
-- [Sigstore Blog](https://blog.sigstore.dev/) 
+- [Sigstore Blog](https://blog.sigstore.dev/)
