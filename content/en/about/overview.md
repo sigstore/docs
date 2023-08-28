@@ -1,7 +1,7 @@
 ---
 type: docs
-category: About sigstore
-description: Documentation for sigstore
+category: About Sigstore
+description: Documentation for Sigstore
 home: true
 menuTitle: Overview
 title: Sigstore
@@ -10,45 +10,71 @@ weight: 1
 
 ![Sigstore](sigstore-logo_horizontal-color.svg)
 
-**Sigstore empowers software developers to securely sign software artifacts such as release files, container images, binaries, bill of material manifests and more. Signing materials are then stored in a tamper-resistant public log.**
+**Sigstore is an open source project for improving software supply chain security. The Sigstore framework and tooling empowers software developers and consumers to securely sign and verify software artifacts such as release files, container images, binaries, software bills of materials (SBOMs), and more. Signatures are generated with ephemeral signing keys so there's no need to manage keys. Signing events are recorded in a tamper-resistant public log so software developers can audit signing events.**
 
-It’s free to use for all developers and software providers, with Sigstore’s code and operational tooling being 100% open source, and everything maintained and developed by the Sigstore community.
+The project is backed by the Open Source Security Foundation (OpenSSF) under the Linux Foundation, with contributions from Google, Red Hat, Chainguard, GitHub and Purdue University. It is 100% open source and free to use for all developers and software providers. The Sigstore community develops and maintains tools to simplify code signing and verification, and also operates a public-good, non-profit service to improve the open source software supply chain.
 
-## How to use Sigstore
+## Why cryptographic signing?
 
-* I want to [Quick Start](/signing/quickstart/)
-* I want to [sign a blob](signing/signing_with_blobs/)
-* I want to [sign a container](signing/signing_with_containers/)
-* I want to [Sign Git commits with Gitsign](/signing/gitsign/)
-* I want to [verify entries with Cosign](/verifying/verify/)
+In a landscape of growing software supply chain vulnerability, unsigned software is at risk for several attack vectors, such as:
+
+- **Typosquatting**
+- **Packages with similar names**
+- **Compromised site where package is hosted**
+- **Tampering after being published**
+
+Digital signatures are a way to verify the authenticity of a software artifact. Software consumers can trace software back to the source to know who created the artifact and that it has not been altered or tampered with after it was signed.
+
+## Why Sigstore?
+
+Traditional artifact signing relies on exchanging cryptographic keypairs for signature verification. The software creator keeps one key secret (the private “signing” key) and publishes the other (the public “verification” key). When a software consumer wants to verify an artifact’s signature, the verification keys are exchanged to prove that the holder of the private key created the signature.
+
+This traditional approach has several weaknesses:
+
+- **Identity**: How do you know the person signing the artifact is who they say they are?
+- **Key management**: How do you keep the private key secure so it can’t be lost or stolen? How do you make the public key easily accessible for users, but also protect it from tampering by a malicious attacker?
+- **Key revocation**: If the keypair is compromised, how do you distribute new keys in a way that convinces users of your legitimacy and that you’re not an attacker?
+
+Sigstore addresses these problems by helping users move away from a key-based signing approach to an identity-based one. When using Sigstore’s full capabilities, your artifact is:
+
+- **Signed**: By using a Sigstore client (Cosign).
+- **Verified**: By checking your identity with our certificate authority (Fulcio).
+- **Witnessed**: By recording the signing information in a permanent transparency log (Rekor).
+
+The signer ideally forgoes using long-lived keypairs. With “keyless” or “ephemeral key” signing, users verify the artifact using the transparency log for signature verification rather than keys. Sigstore improves on traditional methods of signing to be more convenient and secure:
+
+- **Convenience**: Users can take advantage of convenient tooling, easy container signing, and can even bypass the difficult problem of key management and rotation.
+- **Security**: With Sigstore, the artifact is not just signed; it’s signed, verified, and witnessed.
 
 ## How Sigstore works
 
-A Sigstore client, such as Cosign, requests a certificate from Fulcio, a code-signing certificate authority. A verifiable OpenID Connect identity token, which contains a user's email address or service account, is provided in the request. Fulcio verifies this token and issues a short-lived certificate bound to the provided identity. 
+A Sigstore client, such as Cosign, requests a certificate from our a code-signing certificate authority (called Fulcio). A verifiable OpenID Connect identity token, which contains a user's email address or service account, is provided in the request. The certificate authority verifies this token and issues a short-lived certificate bound to the provided identity.
 
 You don’t have to manage signing keys, and Sigstore services never obtain your private key. The public key that a Sigstore client creates gets bound to the issued certificate, and the private key is discarded after a single signing.
 
-After the client signs the artifact, the artifact's digest, signature and certificate are persisted in Rekor, an immutable, append-only transparency ledger, so that signing events can be publicly audited. Identity owners can monitor the log to verify that their identity is being properly used. This also timestamps the signing event, so that the short-lived certificate can be later verified. 
+After the client signs the artifact, the artifact's digest, signature and certificate are persisted in a transparency log: an immutable, append-only ledger known as Rekor. With this log, signing events can be publicly audited. Identity owners can monitor the log to verify that their identity is being properly used, and someone who downloads and artifact can confirm that the certificate was valid at the time of signing.
 
-For verifying an artifact, a Sigstore client will verify the signature on the artifact using the public key from the certificate, verify the identity in the certificate matches an expected identity, verify the certificate's signature using Sigstore's root of trust, and verify proof of inclusion in Rekor.
+For verifying an artifact, a Sigstore client will verify the signature on the artifact using the public key from the certificate, verify the identity in the certificate matches an expected identity, verify the certificate's signature using Sigstore's root of trust, and verify proof of inclusion in Rekor. Together, verification of this information tells the user that the artifact comes from its expected source and has not been tampered with after its creation.
 
-## Software supply chain security
+For more information on the modules that make up Sigstore, see [Toolling](/docs/about/tooling/)
 
-Software supply chains are exposed to multiple risks. Users are susceptible to various targeted attacks, along with account and cryptographic key compromise. Keys in particular are a challenge for software maintainers to manage. Projects often have to maintain a list of current keys in use, and manage the keys of individuals who no longer contribute to a project. Projects all too often store public keys and digests on git repo readme files or websites, two forms of storage susceptible to tampering and less than ideal means of securely communicating trust.
+## How to use Sigstore
 
-The tool sets we’ve historically relied on were not built for the present circumstance of remote teams either. This can be seen by the need to create a web of trust, with teams having to meet in person and sign each others’ keys. The current tooling (outside of controlled environments) all too often feel inappropriate to even technical users.
+To use Sigstore, you must first install the client. See the [Installation](docs/system_config/installation/)  instructions. You can then pick the subject matter you wish to learn about from the menu items on the left. For a quick introduction, you can try using one of the links below:
 
-## About the project
-
-Sigstore is a Linux Foundation project backed by Google, Red Hat and Purdue University. We provide a public good, non-profit service to improve the open source software supply chain by easing the adoption of cryptographic software signing.
+* To get a quick view of how to use the program see [Quick Start](/docs/signing/quickstart/)
+* To learn how to work with blobs, see [sign a blob](docs/signing/signing_with_blobs/)
+* To learn how to work with containers, see [sign a container](docs/signing/signing_with_containers/)
+* To use Gitsign, see [Sign Git commits with Gitsign](/docs/signing/gitsign/)
+* To learn about verification, see [verify entries with Cosign](/docs/verifying/verify/)
 
 ## Contributing
 
-Up to date documentation, best practices and detailed scenarios for Sigstore live here. These pages are maintained by the community and intended to help anyone get set up easily with any of the technologies, to find what you’re looking for fast. It’s also where we keep all the relevant pages for the Sigstore trust root, from ceremonies to security practices.
+Up to date documentation, best practices, and detailed scenarios for Sigstore live here. These pages are maintained by the community and intended to help anyone get set up easily with any of the technologies, to find what you’re looking for fast. It’s also where we keep all the relevant pages for the Sigstore trust root, from signing ceremonies to security practices.
 
-Ready to jump in? Check the [contributing guidelines](/contributing/).
+Ready to jump in? Check the [contributing guidelines](/docs/contributing/).
 
 ## Learn more
 
 - [Sigstore YouTube Channel](https://www.youtube.com/@projectsigstore)
-- [Sigstore Blog](https://blog.sigstore.dev/) 
+- [Sigstore Blog](https://blog.sigstore.dev/)
