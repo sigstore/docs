@@ -20,7 +20,7 @@ To generate keys using a KMS provider, you can use the `cosign generate-key-pair
 For example:
 
 ```shell
-$ cosign generate-key-pair --kms <some provider>://<some key>
+cosign generate-key-pair --kms <some provider>://<some key>
 ```
 
 The public key can be retrieved with:
@@ -38,8 +38,8 @@ jnVtSyKZxNzBfNMLLtVxdu8q+AigrGCS2KPmejda9bICTcHQCRUrD5OLGQ==
 For the following examples, we have:
 
 ```shell
-$ IMAGE=gcr.io/user/demo
-$ IMAGE_DIGEST=$IMAGE@sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd
+IMAGE=gcr.io/user/demo
+IMAGE_DIGEST=$IMAGE@sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd
 ```
 
 To sign and verify using a key managed by a KMS provider, you can pass a provider-specific URI to the `--key` command:
@@ -62,8 +62,8 @@ The following checks were performed on each of these signatures:
 You can also export the public key and verify against that file:
 
 ```shell
-$ cosign public-key --key <some provider>://<some key> > kms.pub
-$ cosign verify --key kms.pub $IMAGE_DIGEST
+cosign public-key --key <some provider>://<some key> > kms.pub
+cosign verify --key kms.pub $IMAGE_DIGEST
 ```
 
 ## Providers
@@ -211,13 +211,13 @@ For a local setup, you can run Vault yourself or use the `docker-compose` file f
 After running it:
 
 ```shell
-$ export VAULT_ADDR=http://localhost:8200
-$ export VAULT_TOKEN=testtoken
-$ vault secrets enable transit
+export VAULT_ADDR=http://localhost:8200
+export VAULT_TOKEN=testtoken
+vault secrets enable transit
 ```
 
 If you enabled `transit` secret engine at different path with the use of `-path` flag (i.e., `$ vault secrets enable -path="someotherpath" transit`), you can use `TRANSIT_SECRET_ENGINE_PATH` environment variable to specify this path while generating a key pair like the following:
 
 ```shell
-$ TRANSIT_SECRET_ENGINE_PATH="someotherpath" cosign generate-key-pair --kms hashivault://testkey
+TRANSIT_SECRET_ENGINE_PATH="someotherpath" cosign generate-key-pair --kms hashivault://testkey
 ```
