@@ -10,7 +10,7 @@ The Sigstore security model has a few key components, each aimed at establishing
 
 ## Proving Identity in Sigstore
 
-Sigstore relies on the widely used OpenID Connect (OIDC) protocol to prove identity. When running something like `cosign sign`, users will complete an OIDC flow and authenticate via an identity provider (GitHub, Google, etc.) to prove they are the owner of their account. Similarly, automated systems (like GitHub Actions) can use Workload Identity or [SPIFFE](https://spiffe.io/) Verifiable Identity Documents (SVIDs) to authenticate themselves via OIDC. The identity and issuer associated with the OIDC token is embedded in the short-lived certificate issued by Sigstore’s Certificate Authority, Fulcio. 
+Sigstore relies on the widely used OpenID Connect (OIDC) protocol to prove identity. When running something like `cosign sign`, users will complete an OIDC flow and authenticate via an identity provider (GitHub, GitLab, Google, etc.) to prove they are the owner of their account. Similarly, automated systems (like GitHub Actions) can use Workload Identity or [SPIFFE](https://spiffe.io/) Verifiable Identity Documents (SVIDs) to authenticate themselves via OIDC. The identity and issuer associated with the OIDC token is embedded in the short-lived certificate issued by Sigstore’s Certificate Authority, Fulcio. 
 
 ## Sigstore’s Trust Model
 
