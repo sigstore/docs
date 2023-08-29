@@ -65,7 +65,7 @@ To use Sigstore, you must first install the client. See the [Installation](/syst
 - To learn how to work with blobs, see [sign a blob](signing/signing_with_blobs/)
 - To learn how to work with containers, see [sign a container](/signing/signing_with_containers/)
 - To use Gitsign, see [Sign Git commits with Gitsign](/signing/gitsign/)
-- To learn about verification, see [verify entries with Cosign](/verifying/verify/) 
+- To learn about verification, see [verify entries with Cosign](/verifying/verify/)
 
 ## Contributing
 
