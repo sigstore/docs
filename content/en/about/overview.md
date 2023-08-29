@@ -37,7 +37,7 @@ This traditional approach has several weaknesses:
 Sigstore addresses these problems by helping users move away from a key-based signing approach to an identity-based one. When using Sigstore’s full capabilities, your artifact is:
 
 - **Signed**: By using a Sigstore client (Cosign).
-- **Verified**: By checking your identity with our certificate authority (Fulcio).
+- **Associated**: The identity is associated with an ephemeral key.
 - **Witnessed**: By recording the signing information in a permanent transparency log (Rekor).
 
 The signer ideally forgoes using long-lived keypairs. With “keyless” or “ephemeral key” signing, users verify the artifact using the transparency log for signature verification rather than keys. Sigstore improves on traditional methods of signing to be more convenient and secure:
