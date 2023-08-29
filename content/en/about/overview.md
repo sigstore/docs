@@ -10,7 +10,7 @@ weight: 1
 
 ![Sigstore](sigstore-logo_horizontal-color.svg)
 
-**Sigstore is an open source project for improving software supply chain security. The Sigstore framework and tooling empowers software developers and consumers to securely sign and verify software artifacts such as release files, container images, binaries, software bills of materials (SBOMs), and more. Signatures are generated with ephemeral signing keys so there's no need to manage keys. Signing events are recorded in a tamper-resistant public log so software developers can audit signing events.**
+**Sigstore is an open source project for improving software supply chain security. The Sigstore services and tooling empowers software developers and consumers to securely sign and verify software artifacts such as release files, container images, binaries, software bills of materials (SBOMs), and more. Signatures are generated with ephemeral signing keys so there's no need to manage keys. Signing events are recorded in a tamper-resistant public log so software developers can audit signing events.**
 
 The project is backed by the Open Source Security Foundation (OpenSSF) under the Linux Foundation, with contributions from Google, Red Hat, Chainguard, GitHub and Purdue University. It is 100% open source and free to use for all developers and software providers. The Sigstore community develops and maintains tools to simplify code signing and verification, and also operates a public-good, non-profit service to improve the open source software supply chain.
 
@@ -18,12 +18,11 @@ The project is backed by the Open Source Security Foundation (OpenSSF) under the
 
 In a landscape of growing software supply chain vulnerability, unsigned software is at risk for several attack vectors, such as:
 
-- **Typosquatting**
-- **Packages with similar names**
+- **Typosquatting packages with similar names**
 - **Compromised site where package is hosted**
 - **Tampering after being published**
 
-Digital signatures are a way to verify the authenticity of a software artifact. Software consumers can trace software back to the source to know who created the artifact and that it has not been altered or tampered with after it was signed.
+Digital signatures are a way to verify the authenticity and integrityof a software artifact. Software consumers can trace software back to the source to know who created the artifact and that it has not been altered or tampered with after it was signed.
 
 ## Why Sigstore?
 
