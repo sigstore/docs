@@ -26,7 +26,7 @@ Digital signatures are a way to verify the authenticity and integrityof a softwa
 
 ## Why Sigstore?
 
-Traditional artifact signing relies on exchanging cryptographic keypairs for signature verification. The software creator keeps one key secret (the private “signing” key) and publishes the other (the public “verification” key). When a software consumer wants to verify an artifact’s signature, the verification keys are exchanged to prove that the holder of the private key created the signature.
+Traditional artifact signing relies on exchanging cryptographic keypairs for signature verification. The software creator keeps one key secret (the private “signing” key) and publishes the other (the public “verification” key). When a software consumer wants to verify an artifact’s signature, the verification key is exchanged to prove that the holder of the private key created the signature.
 
 This traditional approach has several weaknesses:
 
