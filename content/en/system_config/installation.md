@@ -93,6 +93,15 @@ with:
   cosign-release: "v2.0.2" # optional
 ```
 
+## GitLab
+
+Cosign can be installed in your CI/CD pipeline by using a before script in your job:
+
+```yaml
+before_script:
+  - apk add --update cosign
+```
+
 ## Container Images
 
 Signed release images are available at [`gcr.io/projectsigstore/cosign`](http://gcr.io/projectsigstore/cosign).
