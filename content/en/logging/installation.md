@@ -45,7 +45,7 @@ There are a few ways you can deploy a Rekor Server:
 1. We have a [docker-compose](https://github.com/sigstore/rekor/blob/main/docker-compose.yml) file available.
 2. Alternatively, you can build a Rekor server yourself.
 
-Note: The Rekor server manually creates a new Merkle tree (or shard) in the Trillian backend every time it starts up, unless an existing one is specified in via the `--trillian_log_server.tlog_id` flag. If you are building the server yourself and do not need [sharding](/rekor/sharding/) functionality, you can find the existing tree's TreeID by issuing this client command while the server is running:
+Note: The Rekor server manually creates a new Merkle tree (or shard) in the Trillian backend every time it starts up, unless an existing one is specified in via the `--trillian_log_server.tlog_id` flag. If you are building the server yourself and do not need [sharding](/logging/sharding/) functionality, you can find the existing tree's TreeID by issuing this client command while the server is running:
 
 `CURRENT_TREE_ID=$(rekor-cli loginfo --format json | jq -r .TreeID)`
 
@@ -150,4 +150,4 @@ rekor-server serve --enable_retrieve_api=false
 
 #### Next Steps
 
-Congratulations! Your local Rekor server is now running. You can interact with it using the [Rekor CLI](/rekor/CLI/).
+Congratulations! Your local Rekor server is now running. You can interact with it using the [Rekor CLI](/logging/cli/).

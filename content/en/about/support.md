@@ -10,11 +10,11 @@ If you are not able to find the relevant information to solve your issue, you ca
 
 This page describe how you could get in touch with us to get support.
 
-# Help from the community
+## Help from the community
 
-Sigstore has a [Slack community](/community/#slack). Please post any support request in `#general` channel.
+Sigstore has a [Slack community](https://sigstore.slack.com/), and you can [request an invite at this link](https://join.slack.com/t/sigstore/shared_invite/zt-1z7jzpemb-xEKSUtpgDFXpIEMwMYZQKQ). Please post any support requests in the `#general` channel.
 
-# Help from project maintainers
+## Help from project maintainers
 
 Each repository has a `CODEOWNERS` file describing current maintainers. Join our Slack channel and get in touch with them.
 
@@ -28,6 +28,6 @@ Each repository has a `CODEOWNERS` file describing current maintainers. Join our
 [rekor]: https://github.com/sigstore/rekor/blob/main/CODEOWNERS
 [sigstore]: https://github.com/sigstore/sigstore/blob/main/CODEOWNERS
 
-# Asking questions
+## Asking questions
 
-We welcome questions! You can either join the [Slack community][sc] and post them on `#general` channel or open a GitHub issue in the relevant repository.
+We welcome questions! You can either join the [Slack community](https://sigstore.slack.com/) and post them on `#general` channel or open a GitHub issue in the relevant repository.
