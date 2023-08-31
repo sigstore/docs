@@ -18,8 +18,7 @@ The project is backed by the Open Source Security Foundation (OpenSSF) under the
 
 In a landscape of growing software supply chain vulnerability, unsigned software is at risk for several attack vectors, such as:
 
-- **Typosquatting**
-- **Packages with similar names**
+- **Typosquatting packages with similar names**
 - **Compromised site where package is hosted**
 - **Tampering after being published**
 
@@ -38,7 +37,7 @@ This traditional approach has several weaknesses:
 Sigstore addresses these problems by helping users move away from a key-based signing approach to an identity-based one. When using Sigstore’s full capabilities, your artifact is:
 
 - **Signed**: By using a Sigstore client (Cosign).
-- **Verified**: By checking your identity with our certificate authority (Fulcio).
+- **Associated**: With an identity through our certificate authority (Fulcio).
 - **Witnessed**: By recording the signing information in a permanent transparency log (Rekor).
 
 The signer ideally forgoes using long-lived keypairs. With “keyless” or “ephemeral key” signing, users verify the artifact using the transparency log for signature verification rather than keys. Sigstore improves on traditional methods of signing to be more convenient and secure:
@@ -56,11 +55,11 @@ After the client signs the artifact, the artifact's digest, signature and certif
 
 For verifying an artifact, a Sigstore client will verify the signature on the artifact using the public key from the certificate, verify the identity in the certificate matches an expected identity, verify the certificate's signature using Sigstore's root of trust, and verify proof of inclusion in Rekor. Together, verification of this information tells the user that the artifact comes from its expected source and has not been tampered with after its creation.
 
-For more information on the modules that make up Sigstore, see [Toolling](/docs/about/tooling/)
+For more information on the modules that make up Sigstore, see [Toolling](/about/tooling/).
 
 ## How to use Sigstore
 
-To use Sigstore, you must first install the client. See the [Installation](docs/system_config/installation/)  instructions. You can then pick the subject matter you wish to learn about from the menu items on the left. For a quick introduction, you can try using one of the links below:
+To use Sigstore, you must first install the client. See the [Installation](docs/system_config/installation/) instructions. You can then pick the subject matter you wish to learn about from the menu items on the left. For a quick introduction, you can try using one of the links below:
 
 - To get a quick view of how to use the program see [Quick Start](/signing/quickstart/)
 - To learn how to work with blobs, see [sign a blob](/signing/signing_with_blobs/)
