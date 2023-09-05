@@ -59,7 +59,7 @@ For more information on the modules that make up Sigstore, review [Toolling](/ab
 
 ## How to use Sigstore
 
-To use Sigstore, you must first install the client. See the [Installation](docs/system_config/installation/) instructions. You can then pick the subject matter you wish to learn about from the menu items on the left. For a quick introduction, you can try using one of the links below:
+To use Sigstore, you must first install the client. Review the [Installation](docs/system_config/installation/) instructions. You can then pick the subject matter you wish to learn about from the menu items on the left. For a quick introduction, you can try using one of the links below:
 
 - To get a quick view of how to use the program see [Quick Start](/signing/quickstart/)
 - To learn how to work with blobs, see [sign a blob](/signing/signing_with_blobs/)
