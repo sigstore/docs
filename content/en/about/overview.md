@@ -71,7 +71,7 @@ To use Sigstore, you must first install the client. Review the [Installation](do
 
 Up to date documentation, best practices, and detailed scenarios for Sigstore live here. These pages are maintained by the community and intended to help anyone get set up with any of the technologies, to find what you’re looking for fast. It’s also where we keep all the relevant pages for the Sigstore trust root, from signing ceremonies to security practices.
 
-Ready to jump in? Check the [contributing guidelines](/contributing/).
+Ready to jump in? Check the [contributing guidelines](/about/contributing/).
 
 ## Learn more
 
