@@ -55,7 +55,7 @@ After the client signs the artifact, the artifact's digest, signature and certif
 
 For verifying an artifact, a Sigstore client will verify the signature on the artifact using the public key from the certificate, verify the identity in the certificate matches an expected identity, verify the certificate's signature using Sigstore's root of trust, and verify proof of inclusion in Rekor. Together, verification of this information tells the user that the artifact comes from its expected source and has not been tampered with after its creation.
 
-For more information on the modules that make up Sigstore, see [Toolling](/about/tooling/).
+For more information on the modules that make up Sigstore, review [Toolling](/about/tooling/).
 
 ## How to use Sigstore
 
