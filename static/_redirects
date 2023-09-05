@@ -1,6 +1,6 @@
 #redirect file for moved web pages.
 /main-concepts                              /about/tooling
-/security                                  /about/security
+/security                                   /about/security
 /threat-model                               /about/threat-model/
 /history                                    /about/research
 /cosign/overview                            /signing/quickstart
