@@ -1,12 +1,12 @@
 ---
 type: docs
-category: About sigstore
+category: About Sigstore
 menuTitle: Documentation Locations
 title: Documentation Locations
 weight: 33
 ---
 
-This document describes where to house new sigstore documentation based on topic and intended audience.  
+This document describes where to house new Sigstore documentation based on topic and intended audience.  
 
 The location for Sigstore repositories and associated documentation is at [http://github.com/sigstore](http://github.com/sigstore).  Documentation for Sigstore falls under two main categories:
 
