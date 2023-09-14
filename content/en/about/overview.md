@@ -3,8 +3,7 @@ type: docs
 category: About Sigstore
 description: Documentation for Sigstore
 home: true
-menuTitle: Overview
-title: Sigstore
+title: Overview
 weight: 1
 ---
 
