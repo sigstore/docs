@@ -7,6 +7,9 @@
 - id: search-text
   translation: "Search"
 
+- id: search-aria-label
+  translation: "Search this site. After typing, navigate to results with the tab key and select your result with the Enter key."
+
 - id: 404-title
   translation: "404 — Page not found."
 
