@@ -9,7 +9,7 @@
 <div class="header-bar"></div>
 
 <header class="navbar navbar-expand-lg navbar-light doks-navbar">
-  <nav class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }} flex-wrap flex-lg-nowrap" aria-label="Main">
+  <nav class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }} flex-wrap flex-lg-nowrap" aria-label="Primary">
 
     <img alt="Sigstore logo" class="nav-image" src="{{ .Site.BaseURL }}/sigstore-logo.png" style="margin-right: 0.25em;height: 2em;">
     <a class="navbar-brand order-0" href="{{ .Site.BaseURL | relLangURL }}" aria-label="{{ .Site.Params.Title }}">
@@ -179,7 +179,7 @@
 
 {{ else if ne .CurrentSection .FirstSection -}}
 <!--
-<nav class="doks-subnavbar py-2 sticky-lg-top d-lg-none" aria-label="Secondary navigation">
+<nav class="doks-subnavbar py-2 sticky-lg-top d-lg-none" aria-label="Secondary">
   <div class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }} d-flex align-items-lg-center">
     <span class="navbar-text ms-0">{{ .Section | humanize }}</span>
     <button class="btn doks-sidebar-toggle d-lg-none ms-auto order-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#doks-docs-nav" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle documentation navigation">
