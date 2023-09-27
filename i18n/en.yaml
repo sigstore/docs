@@ -8,7 +8,7 @@
   translation: "Search"
 
 - id: search-aria-label
-  translation: "Press tab to navigate to search results"
+  translation: "Search. Press tab to navigate to search results"
 
 - id: 404-title
   translation: "404 — Page not found."
