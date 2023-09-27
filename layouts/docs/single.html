@@ -6,7 +6,7 @@
 			</nav>
 		</div>
 		{{ if ne .Params.toc false -}}
-		<nav class="docs-toc{{ if ne .Site.Params.options.navbarSticky true }} docs-toc-top{{ end }} d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+		<nav class="docs-toc{{ if ne .Site.Params.options.navbarSticky true }} docs-toc-top{{ end }} d-none d-xl-block col-xl-3" aria-label="Secondary">
 			{{ partial "sidebar/docs-toc.html" . }}
 		</nav>
 		{{ end -}}
