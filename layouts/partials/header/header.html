@@ -28,7 +28,7 @@
       </div>
       <div class="offcanvas-body">
         <aside class="doks-sidebar mt-n3">
-          <nav id="doks-docs-nav" aria-label="Tertiary navigation">
+          <nav id="doks-docs-nav" aria-label="Tertiary">
             {{ partial "sidebar/docs-menu.html" . }}
           </nav>
         </aside>
@@ -171,7 +171,7 @@
 {{ if eq .Section "docs" -}}
 <div class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }}">
   <aside class="doks-sidebar">
-    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary">
       {{ partial "sidebar/docs-menu.html" . }}
     </nav>
   </aside>
@@ -192,7 +192,7 @@
 
 <div class="container-{{ if .Site.Params.options.fullWidth }}fluid{{ else }}xxl{{ end }}">
   <aside class="doks-sidebar">
-    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary navigation">
+    <nav id="doks-docs-nav" class="collapse d-lg-none" aria-label="Tertiary">
       {{ partial "sidebar/docs-menu.html" . }}
     </nav>
   </aside>
