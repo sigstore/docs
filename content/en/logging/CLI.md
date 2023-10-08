@@ -7,11 +7,11 @@ weight: 1825
 
 The following guide is targeted towards developers / software maintainers who would like to make a provenance entry into the rekor transparency log.
 
-The steps outlined below will show how to sign your software and use the Rekor CLI to make and verify an entry. It uses GPG to demonstrate, but other types are outlined in the [Signing and Uploading Other Types](/logging/sign-upload/) page.
+The steps outlined below will show how to sign your software and use the Rekor CLI to make and verify an entry. It uses GPG to demonstrate, but other types are outlined in the [Signing and Uploading Other Types]({{< relref "logging/sign-upload">}}) page.
 
 ## Prerequisites
 
-You need to have Rekor CLI installed. See the [Installation](/logging/installation/) page for instructions.
+You need to have Rekor CLI installed. See the [Installation]({{< relref "logging/installation">}}) page for instructions.
 
 ## Sign your release
 

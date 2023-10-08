@@ -9,7 +9,7 @@ weight: 3
 ## Introduction
 
 **What types of security analysis have you done on Sigstore?**
-This page contains the results of a threat modeling exercise on Sigstore. First, we enumerate the components of Sigstore along with third parties and infrastructure that it uses during the [“keyless” signing](/signing/overview/) and verification flows. Second, we postulate an attacker that can compromise various subsets of these parties. Finally, we analyze the impact of such an attacker on these security properties. The results of a similar exercise are included in the peer-reviewed paper [Sigstore: Software Signing for Everybody](https://dl.acm.org/doi/pdf/10.1145/3548606.3560596).
+This page contains the results of a threat modeling exercise on Sigstore. First, we enumerate the components of Sigstore along with third parties and infrastructure that it uses during the [“keyless” signing]({{< relref "signing/overview">}}) and verification flows. Second, we postulate an attacker that can compromise various subsets of these parties. Finally, we analyze the impact of such an attacker on these security properties. The results of a similar exercise are included in the peer-reviewed paper [Sigstore: Software Signing for Everybody](https://dl.acm.org/doi/pdf/10.1145/3548606.3560596).
 
 This will be most useful to those building secure systems on top of Sigstore, rather than end users. The security guarantees of such systems depends on the details of integration; an example analysis can be found in [TAP-18](https://github.com/theupdateframework/taps/blob/master/tap18.md), which proposes using Sigstore identities with a [TUF](https://theupdateframework.com/) repository used to securely distribute software artifacts.
 

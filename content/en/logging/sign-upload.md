@@ -5,7 +5,7 @@ title: Signing and Uploading Other Types
 weight: 1835
 ---
 
-This documentation contains information on how to sign and upload data in different [pluggable types](/logging/pluggable-types/).
+This documentation contains information on how to sign and upload data in different [pluggable types]({{< relref "logging/pluggable-types">}}).
 
 The following are covered:
 
