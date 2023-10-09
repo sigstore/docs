@@ -1,4 +1,4 @@
----
+rer---
 type: docs
 category: About Sigstore
 description: Documentation for Sigstore
@@ -42,7 +42,7 @@ Sigstore addresses these problems by helping users move away from a key-based si
 The signer ideally forgoes using long-lived keypairs. With “keyless” or “ephemeral key” signing, users verify the artifact using the transparency log for signature verification rather than keys. Sigstore improves on traditional methods of signing to be more convenient and secure:
 
 - **Convenience**: Users can take advantage of convenient tooling, easy container signing, and can even bypass the difficult problem of key management and rotation.
-- **Security**: With Sigstore, the artifact is not just signed; it’s signed, verified, and witnessed.
+- **Security**: With Sigstore, the artifact is not just signed; it’s signed, associated, and witnessed.
 
 ## How Sigstore works
 
