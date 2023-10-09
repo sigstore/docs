@@ -27,7 +27,7 @@ To generate keys using a KMS provider, you can use the `cosign generate-key-pair
 cosign generate-key-pair --kms <some provider>://<some key>
 ```
 
-Read more about this in the [key management overview](/key_management/overview/).
+Read more about this in the [key management overview]({{< relref "key_management/overview">}}).
 
 The public key can be retrieved with:
 

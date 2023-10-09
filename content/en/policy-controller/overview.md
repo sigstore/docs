@@ -12,7 +12,7 @@ The `policy-controller` admission controller can be used to enforce policy on a 
 
 `policy-controller` also resolves the image tags to ensure the image being ran is not different from when it was admitted.
 
-See the [installation instructions](/policy-controller/installation/) for more information.
+See the [installation instructions]({{< relref "policy-controller/installation">}}) for more information.
 
 **This component is still actively under development!**
 

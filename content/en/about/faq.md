@@ -71,7 +71,7 @@ reasons:
    [GitHub’s trust root](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#smime-commit-signature-verification).
 2. Gitsign’s ephemeral keys are only valid for a short time, so using standard
    x509 verification would consider the certificate invalid after expiration.
-   Verification needs to include validation via the [transparency log](/logging/overview/) to
+   Verification needs to include validation via the [transparency log]({{< relref "logging/overview">}}) to
    verify that the certificate was valid at the time it was used.
 
 We hope to work closely with GitHub to get these types of signatures recognized
@@ -91,14 +91,14 @@ The commit itself contains a signed digest of the user commit content (that is,
 the author, committer, message, etc.) along with the code signing certificate.
 This data is stored within the commit itself as part of your repository. Review
 guidance on
-[inspecting the Git commit signature](/verifying/inspecting/) for
+[inspecting the Git commit signature]({{< relref "verifying/inspecting">}}) for
 more details.
 
 #### 2. Within the Rekor transparency log
 
 To be able to verify signatures for ephemeral certs past their `Not After` time,
 Gitsign records commits and the code signing certificates to
-[Rekor](/logging/overview/). This data is a
+[Rekor]({{< relref "logging/overview">}}). This data is a
 [HashedRekord](https://github.com/sigstore/rekor/blob/e375eb461cae524270889b57a249ff086bea6c05/types.md#hashed-rekord)
 containing a SHA256 hash of the commit SHA, as well as the code signing
 certificate. Review guidance on
@@ -110,7 +110,7 @@ By default, data is written to the
 particular, users and organizations may be sensitive to the data contained
 within code signing certificates returned by Fulcio, which may include user
 emails or repository identifiers. Review
-[OIDC Usage in Fulcio](/certificate_authority/oidc-in-fulcio/) for more details regarding what
+[OIDC Usage in Fulcio]({{< relref "certificate_authority/oidc-in-fulcio">}}) for more details regarding what
 data is contained in the code signing certs. Alternately, you can learn how to
 [Deploy a Rekor Server Manually](/logging/installation/#deploy-a-rekor-server-manually),
 which would set up your own Rekor instance.
@@ -158,4 +158,4 @@ Public blockchains often end up using a centralized entry point for canonicaliza
 
 ### Can I get Rekor to work with my X format, framework standard?
 
-- Yes. Using pluggable types you can create your own manifest layout and send it to Rekor. Head over to [pluggable types](/logging/pluggable-types/)
+- Yes. Using pluggable types you can create your own manifest layout and send it to Rekor. Head over to [pluggable types]({{< relref "logging/pluggable-types">}})

@@ -14,7 +14,7 @@ you won’t need GPG keys and a complicated setup in order to sign your Git
 commits. After installing and configuring Gitsign within your project and
 signing your commits, you will be redirected to a browser window to authenticate
 with a supported OpenID provider, such as GitHub or Google. Signing details will
-then be stored in the transparency log [Rekor](/logging/overview/) for subsequent verification.
+then be stored in the transparency log [Rekor]({{< relref "logging/overview">}}) for subsequent verification.
 
 Gitsign is part of the Sigstore project. Join us on our
 [Slack channel](https://sigstore.slack.com/) if you want to learn more or get
@@ -40,7 +40,7 @@ https://oauth2.sigstore.dev/auth/auth?access_type=online&client_id=sigstore&...
 [main 040b9af] Signed commit
 ```
 
-This will redirect you through the [Sigstore Keyless](/signing/overview/)
+This will redirect you through the [Sigstore Keyless]({{< relref "signing/overview">}})
 flow to authenticate and sign the commit.
 
 Commits can then be verified using `git verify-commit`:

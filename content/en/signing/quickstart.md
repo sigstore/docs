@@ -16,7 +16,7 @@ Join us on our [Slack channel](https://sigstore.slack.com/). (Need an [invite](h
 
 ### Installation
 
-To sign software artifacts and verify signatures using Sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page](/system_config/installation/). This will allow you to sign and verify both blobs and containers.
+To sign software artifacts and verify signatures using Sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page]({{< relref "system_config/installation">}}). This will allow you to sign and verify both blobs and containers.
 
 ### Signing a blob
 
@@ -113,16 +113,16 @@ Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79be4def8.si
 ```
 ## SCM Integration
 
-Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use Cosign to generate and work safely with [SCM secrets](/signing/git_support/) with native API integration.
+Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use Cosign to generate and work safely with [SCM secrets]({{< relref "signing/git_support">}}) with native API integration.
 
 ## Attestations
 
 In addition to signatures, Cosign can be used with [In-Toto Attestations](https://github.com/in-toto/attestation).
 
-Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems. Learn more in the [Attestations](/verifying/attestation/) documentation.
+Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems. Learn more in the [Attestations]({{< relref "verifying/attestation">}}) documentation.
 
 ## Other Formats
 
 Cosign is useful not only for blobs, containers, and container-related artifacts; it can also be used for other file types.
 
-To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types](/signing/other_types/). For more information about blobs, review [Signing Blobs](/signing/signing_with_blobs/). For containers, see [Signing Containers](/signing/signing_with_containers/).
+To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types]({{< relref "signing/other_types" >}}). For more information about blobs, review [Signing Blobs]({{< relref "signing/signing_with_blobs" >}}). For containers, see [Signing Containers]({{< relref "signing/signing_with_containers" >}}).

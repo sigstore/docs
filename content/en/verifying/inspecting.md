@@ -200,7 +200,7 @@ nPkp+Sy1EwIwdOulWop3oJV/Qo7fau0mlsy0MCm3lBgyxo2lpAaI4gFRxGE2GhpV
 
 ### Verifying the Transparency Log
 
-As part of signature verification, Gitsign not only checks that the given signature matches the commit, but also that the commit exists within the [Rekor](/logging/overview/) transparency log.
+As part of signature verification, Gitsign not only checks that the given signature matches the commit, but also that the commit exists within the [Rekor]({{< relref "logging/overview">}}) transparency log.
 
 To manually validate that the commit exists in the transparency log, first you should obtain the relevant UUID from your Git history and then use `rekor-cli` to query for this entry. You can do this with the following commands:
 
