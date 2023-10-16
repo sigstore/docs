@@ -1,4 +1,4 @@
-rer---
+---
 type: docs
 category: About Sigstore
 description: Documentation for Sigstore
