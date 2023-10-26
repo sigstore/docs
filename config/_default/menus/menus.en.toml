@@ -1,8 +1,26 @@
 [[external]]
   name = "Cosign"
-  weight = 20
+  weight = 10
   identifier = "cosign"
   url = "https://github.com/sigstore/cosign/tree/main/doc"
+
+[[external]]
+  name = "Fulcio"
+  weight = 20
+  identifier = "fulcio"
+  url = "https://github.com/sigstore/fulcio/tree/main/docs"
+
+[[external]]
+  name = "Gitsign"
+  weight = 30
+  identifier = "gitsign"
+  url = "https://github.com/sigstore/gitsign/tree/main/docs"
+
+[[external]]
+  name = "Policy Controller"
+  weight = 40
+  identifier = "policy-controller"
+  url = "https://github.com/sigstore/policy-controller/blob/main/docs/api-types/index.md"
 
 # [[main]]
 #   name = "Docs"
