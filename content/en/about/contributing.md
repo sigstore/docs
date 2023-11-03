@@ -16,20 +16,20 @@ To contribute to Sigstore as a developer, check out the following repositories f
 
 ### Sigstore clients
 
-* Go:
-    * [sigstore/sigstore-go](https://github.com/sigstore/sigstore-go)
-    * [sigstore/sigstore](https://github.com/sigstore/sigstore)
-    * [Sigstore Go meeting notes](https://docs.google.com/document/d/1EcJIhqSS9E86cHAQXaXiu2_r1s0kNbHz4uLLwwGo-vw/edit)
-* Python: 
-    * [sigstore/sigstore-python](https://github.com/sigstore/sigstore-python)
-* Java and Maven:
-    * [sigstore/java](https://github.com/sigstore/sigstore-java)
-    * [sigstore/sigstore-maven](https://github.com/sigstore/sigstore-maven)
-    * [sigstore/sigstore-maven-plugin](https://github.com/sigstore/sigstore-maven-plugin)
-    * [Sigstore Java meeting notes](https://docs.google.com/document/d/1R7mL-IUrc2Z_LuOIvwDWshVuPQS_2VNE_cIQx4Oy5zw/edit)
-* JavaScript: [sigstore/sigstore-js](https://github.com/sigstore/sigstore-js)
-* Rust: [sigstore/sigstore-rs](https://github.com/sigstore/sigstore-rs)
-* Ruby: [sigstore/ruby-sigstore](https://github.com/sigstore/ruby-sigstore)
+- Go:
+  - [sigstore/sigstore-go](https://github.com/sigstore/sigstore-go)
+  - [sigstore/sigstore](https://github.com/sigstore/sigstore)
+  - [Sigstore Go meeting notes](https://docs.google.com/document/d/1EcJIhqSS9E86cHAQXaXiu2_r1s0kNbHz4uLLwwGo-vw/edit)
+- Python: 
+  - [sigstore/sigstore-python](https://github.com/sigstore/sigstore-python)
+- Java and Maven:
+  - [sigstore/java](https://github.com/sigstore/sigstore-java)
+  - [sigstore/sigstore-maven](https://github.com/sigstore/sigstore-maven)
+  - [sigstore/sigstore-maven-plugin](https://github.com/sigstore/sigstore-maven-plugin)
+  - [Sigstore Java meeting notes](https://docs.google.com/document/d/1R7mL-IUrc2Z_LuOIvwDWshVuPQS_2VNE_cIQx4Oy5zw/edit)
+- JavaScript: [sigstore/sigstore-js](https://github.com/sigstore/sigstore-js)
+- Rust: [sigstore/sigstore-rs](https://github.com/sigstore/sigstore-rs)
+- Ruby: [sigstore/ruby-sigstore](https://github.com/sigstore/ruby-sigstore)
 
 ## Contributing to the documentation
 
