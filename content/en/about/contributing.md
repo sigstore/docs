@@ -14,6 +14,23 @@ To contribute to Sigstore as a developer, check out the following repositories f
 - [Rekor](https://github.com/sigstore/rekor)
 - [Fulcio](https://github.com/sigstore/fulcio)
 
+### Sigstore clients
+
+* Go:
+    * [sigstore/sigstore-go](https://github.com/sigstore/sigstore-go)
+    * [sigstore/sigstore](https://github.com/sigstore/sigstore)
+    * [Sigstore Go meeting notes](https://docs.google.com/document/d/1EcJIhqSS9E86cHAQXaXiu2_r1s0kNbHz4uLLwwGo-vw/edit)
+* Python: 
+    * [sigstore/sigstore-python](https://github.com/sigstore/sigstore-python)
+* Java and Maven:
+    * [sigstore/java](https://github.com/sigstore/sigstore-java)
+    * [sigstore/sigstore-maven](https://github.com/sigstore/sigstore-maven)
+    * [sigstore/sigstore-maven-plugin](https://github.com/sigstore/sigstore-maven-plugin)
+    * [Sigstore Java meeting notes](https://docs.google.com/document/d/1R7mL-IUrc2Z_LuOIvwDWshVuPQS_2VNE_cIQx4Oy5zw/edit)
+* JavaScript: [sigstore/sigstore-js](https://github.com/sigstore/sigstore-js)
+* Rust: [sigstore/sigstore-rs](https://github.com/sigstore/sigstore-rs)
+* Ruby: [sigstore/ruby-sigstore](https://github.com/sigstore/ruby-sigstore)
+
 ## Contributing to the documentation
 
 This covers a few basics to get you started. It covers pointers for writing clear, consistent technical documentation, some tips and tricks you can use in Nuxt, to sigstore community policies on changing and reviewing content.
