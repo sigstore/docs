@@ -20,7 +20,7 @@ To contribute to Sigstore as a developer, check out the following repositories f
   - [sigstore/sigstore-go](https://github.com/sigstore/sigstore-go)
   - [sigstore/sigstore](https://github.com/sigstore/sigstore)
   - [Sigstore Go meeting notes](https://docs.google.com/document/d/1EcJIhqSS9E86cHAQXaXiu2_r1s0kNbHz4uLLwwGo-vw/edit)
-- Python: 
+- Python:
   - [sigstore/sigstore-python](https://github.com/sigstore/sigstore-python)
 - Java and Maven:
   - [sigstore/java](https://github.com/sigstore/sigstore-java)
@@ -82,6 +82,7 @@ The Nuxt documentation is a great first stop for anyone new to writing technical
 Resource: https://content.nuxtjs.org/
 
 ## Community
+
 The [sigstore/community](https://github.com/sigstore/community/) repository contains the most up-to-date information about how to get involved with the Sigstore project and its community.
 In this repository you can find our [code of conduct](https://github.com/sigstore/community/blob/main/CODE_OF_CONDUCT.md) and our [contributing guidelines](https://github.com/sigstore/community/blob/main/CONTRIBUTING.md).
 
