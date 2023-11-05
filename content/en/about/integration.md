@@ -10,20 +10,27 @@ weight: 1
 ![Sigstore](sigstore-logo_horizontal-color.svg)
 
 ## Integration
+Many of the recent high-profile software attacks that have alarmed open-source users globally were consequences of supply chain integrity vulnerabilities: attackers gained control of a build server to use malicious source files, inject malicious artifacts into a compromised build platform, and bypass trusted builders to upload malicious artifacts. Sigstore provides a way to sign, verify, and log artifacts to ensure that they are from who they say they are and to shore up supply chain vulnerabilities.  
 
-Integrating Sigstore into your own software allows you the ability to control how Sigstre is used, and to create your own user interfaces.  You can do this while using the underlying Sigstore software that already exists. 
-Many of the recent high-profile software attacks that have alarmed open-source users globally were consequences of supply chain integrity vulnerabilities: attackers gained control of a build server to use malicious source files, inject malicious artifacts into a compromised build platform, and bypass trusted builders to upload malicious artifacts. Sigstore provides a way to sign, verify, and log artifacts to ensure that they are from who they say they are and to shore up supply chain vulnerabilities.  Integrating Sigstore with your own applications provides an effective way to enhance security.
+Integrating Sigstore with your own applications provides an effective way to enhance security:
+
+- The ability to control how Sigstre is used.
+- The creation of your own user interfaces.
+
+You can do this while using the underlying Sigstore software that already exists. 
 
 There are several  libraries available for developers who want to integrate Sigstore signing and/or verification into their project:   
 
- - Cosign, is a legacy system that still should be used for signing, and Sigstore-go, which is recommended for use in verification. Cosign was developed with a focus on container image signing/verification and has a rich CLI and a long legacy of features and development. 
- - Sigstore-go is a more minimal and friendly API for integrating Go code with Sigstore, with a focus on a unified format for Sigstore verification metadata.
- - Sigstore-python is a python language based API.
- - Sigstore-JS for code signing  NPM packages
- - Sigstore-java for Java based applications (upcoming).
- - Sigstore-rs for Rust applications (upcoming).
+- Cosign, is a legacy system that still should be used for signing, and Sigstore-go, which is recommended for use in verification. Cosign was developed with a focus on container image signing/verification and has a rich CLI and a long legacy of features and development. 
+- Sigstore-go is a more minimal and friendly API for integrating Go code with Sigstore, with a focus on a unified format for Sigstore verification metadata.
+- Sigstore-python is a python language based API.
+- Sigstore-JS for code signing  NPM packages
+- Sigstore-java for Java based applications (upcoming).
+- Sigstore-rs for Rust applications (upcoming).
 
-**NOTE:** Each of the above libraries have their own entry points.  Refer to the specific documentation of watch library for details. A work-in-progress client specification describes the expected signer and verifier flows.   You can find it at https://docs.google.com/document/d/1kbhK2qyPPk8SLavHzYSDM8-Ueul9_oxIMVFuWMWKz0E/edit#heading=h.xib7qycxsp4i
+**NOTE:** Each of the above libraries has their own entry points.  Refer to the specific documentation of each library for details. 
+
+In additin to the individual libraries, a work-in-progress client specification describes the expected signer and verifier flows.   You can find it at https://docs.google.com/document/d/1kbhK2qyPPk8SLavHzYSDM8-Ueul9_oxIMVFuWMWKz0E/edit#heading=h.xib7qycxsp4i
 
 ### Cosign
 
