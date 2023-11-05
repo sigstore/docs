@@ -4,7 +4,7 @@ category: About Sigstore
 description: Integration
 home: true
 title: Integration
-weight: 1
+weight: 3
 ---
 
 ![Sigstore](sigstore-logo_horizontal-color.svg)
