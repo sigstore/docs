@@ -6,7 +6,7 @@
 
   {{- range site.Menus.external }}
 
-  {{ $NewPage := dict "Title" .Name "Permalink" .ConfiguredURL }}
+  {{ $NewPage := dict "TargetBlank" true "Title" .Name "Permalink" .ConfiguredURL }}
     {{ $ExternalDocsPages = $ExternalDocsPages | append $NewPage }}
   
 {{ end }}
@@ -60,8 +60,7 @@
                 </li>
               {{ else }}
                 {{ $active := in $currentPage.RelPermalink .RelPermalink }}
-                <li><a class="docs-link rounded{{ if $active }} active{{ end }}" href="{{ .Permalink }}">
-
+               <li><a class="docs-link rounded{{ if $active }} active{{ end }}" href="{{ .Permalink }}" {{ if isset . "TargetBlank" }}target="_blank"{{ end }}>
 		  {{ partial "partials/sidebar/menu-item.html" . }}
 
 		</a></li>
