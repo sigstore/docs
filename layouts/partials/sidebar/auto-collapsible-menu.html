@@ -2,8 +2,22 @@
 <ul class="list-unstyled collapsible-sidebar">
   {{ $currentPage := . -}}
 
+  {{ $ExternalDocsPages := slice }}
+
+  {{- range site.Menus.external }}
+
+  {{ $NewPage := dict "TargetBlank" true "Title" .Name "Permalink" .ConfiguredURL }}
+    {{ $ExternalDocsPages = $ExternalDocsPages | append $NewPage }}
+  
+{{ end }}
+
+  {{ $ExternalSiteSection := dict "Title" "Project Documentation" "Pages" $ExternalDocsPages }}
+  
+  {{ $Sections := site.Sections | append $ExternalSiteSection }}
+
+
   <!-- This changed from Doks default to reflect no "docs" section folder -->
-    {{ range site.Sections }}
+    {{ range $Sections }}
       {{ $active := in $currentPage.RelPermalink .RelPermalink }}
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 .Title }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
@@ -46,8 +60,7 @@
                 </li>
               {{ else }}
                 {{ $active := in $currentPage.RelPermalink .RelPermalink }}
-                <li><a class="docs-link rounded{{ if $active }} active{{ end }}" href="{{ .Permalink }}">
-
+               <li><a class="docs-link rounded{{ if $active }} active{{ end }}" href="{{ .Permalink }}" {{ if isset . "TargetBlank" }}target="_blank"{{ end }}>
 		  {{ partial "partials/sidebar/menu-item.html" . }}
 
 		</a></li>
