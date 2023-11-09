@@ -1,46 +1,26 @@
-[[docs]]
+[[external]]
   name = "Cosign"
-  weight = 20
-  identifier = "cosign"
-  url = "/docs/cosign/"
-
-[[docs]]
-  name = "About"
   weight = 10
-  identifier = "about"
-  url = "/docs/about/"
+  identifier = "cosign"
+  url = "https://github.com/sigstore/cosign/tree/main/doc"
 
-[[docs]]
-  name = "Policy Controller"
-  weight = 30
-  identifier = "policy-controller"
-  url = "/docs/policy-controller/"
+[[external]]
+  name = "Fulcio"
+  weight = 20
+  identifier = "fulcio"
+  url = "https://github.com/sigstore/fulcio/tree/main/docs"
 
-[[docs]]
+[[external]]
   name = "Gitsign"
-  weight = 40
+  weight = 30
   identifier = "gitsign"
-  url = "/docs/gitsign/"
+  url = "https://github.com/sigstore/gitsign/tree/main/docs"
 
-[[docs]]
-  name = "Rekor"
-  weight = 50
-  identifier = "rekor"
-  url = "/docs/rekor/"
-
-[[docs]]
-  name = "Get Involved"
-  weight = 60
-  identifier = "get_involved"
-  url = "/docs/get_involved/"
-
-[[docs]]
-  name = "Help"
-  weight = 70
-  identifier = "help"
-  url = "/docs/help/"
-
-
+[[external]]
+  name = "Policy Controller"
+  weight = 40
+  identifier = "policy-controller"
+  url = "https://github.com/sigstore/policy-controller/blob/main/docs/api-types/index.md"
 
 # [[main]]
 #   name = "Docs"

@@ -98,3 +98,10 @@ The following checks were performed on each of these signatures:
 
 [{"critical":{"identity":{"docker-reference":"gcr.io/dlorenc-vmtest2/demo"},"image":{"docker-manifest-digest":"sha256:410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd"},"type":"cosign container image signature"},"optional":null}]
 ```
+
+If your PKCS11 key has an associated x509 certificate, `cosign` will attach the certificate to your signature by default. If you would like `cosign` to ignore these certificates and not attach them, you can set the `COSIGN_PKCS11_IGNORE_CERTIFICATE` environment variable to `1`:
+
+```shell
+$ COSIGN_PKCS11_IGNORE_CERTIFICATE=1 cosign sign --key "<PKCS11_URI>" $IMAGE_DIGEST
+Pushing signature to: gcr.io/vmtest2/demo:sha256-410a07f17151ffffb513f942a01748dfdb921de915ea6427d61d60b0357c1dcd.sig
+```
