@@ -30,13 +30,13 @@ There are several  libraries available for developers who want to integrate Sigs
 
 **NOTE:** Each of the above libraries has their own entry points.  Refer to the specific documentation of each library for details. 
 
-In addition to the individual libraries, a work-in-progress client specification describes the expected signer and verifier flows.   You can find it [here](https://docs.google.com/document/d/1kbhK2qyPPk8SLavHzYSDM8-Ueul9_oxIMVFuWMWKz0E/edit#heading=h.xib7qycxsp4i)
+In addition to the individual libraries, a work-in-progress client specification describes the expected signer and verifier flows.   You can find it [here](https://docs.google.com/document/d/1kbhK2qyPPk8SLavHzYSDM8-Ueul9_oxIMVFuWMWKz0E/edit#heading=h.xib7qycxsp4i).
 
 ### Cosign
 
 [Cosign documentation and examples](https://github.com/sigstore/cosign/blob/main/doc/cosign.md) are available.  A few relevant functions:
 
-- For [verifying containers](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L479) [or](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L818).
+- For [verifying containers](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L479) [or here](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L818).
 - For [verifying blobs](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L812). Note that it's up to the caller to construct the function input structure. 
 - For [signing blobs](https://github.com/sigstore/cosign/blob/main/cmd/cosign/cli/sign/sign_blob.go#L40). 
 - For [signing containers](https://github.com/sigstore/cosign/blob/main/cmd/cosign/cli/sign/sign.go#L133).
