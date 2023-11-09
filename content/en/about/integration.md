@@ -30,16 +30,16 @@ There are several  libraries available for developers who want to integrate Sigs
 
 **NOTE:** Each of the above libraries has their own entry points.  Refer to the specific documentation of each library for details. 
 
-In additin to the individual libraries, a work-in-progress client specification describes the expected signer and verifier flows.   You can find it at https://docs.google.com/document/d/1kbhK2qyPPk8SLavHzYSDM8-Ueul9_oxIMVFuWMWKz0E/edit#heading=h.xib7qycxsp4i
+In addition to the individual libraries, a work-in-progress client specification describes the expected signer and verifier flows.   You can find it [here](https://docs.google.com/document/d/1kbhK2qyPPk8SLavHzYSDM8-Ueul9_oxIMVFuWMWKz0E/edit#heading=h.xib7qycxsp4i)
 
 ### Cosign
 
-Cosign documentation can be found at  https://github.com/sigstore/cosign/blob/main/doc/cosign.md.  A few relevant functions:
+[Cosign documentation and examples](https://github.com/sigstore/cosign/blob/main/doc/cosign.md) are available.  A few relevant functions:
 
-- For verifying containers, https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L479 or https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L818 
-- For verifying blobs, https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L812 (though it's up to the caller to construct the function input structure) 
-- For signing blobs, https://github.com/sigstore/cosign/blob/main/cmd/cosign/cli/sign/sign_blob.go#L40 
-- For signing containers, https://github.com/sigstore/cosign/blob/main/cmd/cosign/cli/sign/sign.go#L133
+- For [verifying containers](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L479) [or](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L818).
+- For [verifying blobs](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L812). Note that it's up to the caller to construct the function input structure. 
+- For [signing blobs](https://github.com/sigstore/cosign/blob/main/cmd/cosign/cli/sign/sign_blob.go#L40). 
+- For [signing containers](https://github.com/sigstore/cosign/blob/main/cmd/cosign/cli/sign/sign.go#L133).
 
 These functions were designed to be used within Cosign as a command line utility and not as an API. There are no API stability guarantees for Cosign, we do not follow semantic versioning (semver).
 
@@ -48,9 +48,10 @@ Also note that Cosign lacks support for the Protobufs-based bundle format.
 ### Sigstore-Go     
 The Sigstore-go library represents the future of Sigstore’s support for the Go programming language. It supports the Protobufs-based bundle format, and is a lightweight software package that is much simpler than Cosign.  Cosign is focused on OCI use cases, which makes it difficult for library integrators who want to limit their implementations to core sign/verify flows. It can be used today as a smaller alternative than depending on Cosign’s internal libraries (which can come with lots of potentially unnecessary transitive dependencies), and provides the basis for Sigstore bundle support in the policy controller.  Cosign was designed as a CLI for signing containers, and Sigstore-go is designed as an API.
 
-Sigstore-go is located at https://github.com/sigstore/sigstore-go examples can be found at https://github.com/sigstore/sigstore-go#examples.
-Sigstore-python
-The Sigstore-python library is an interface for the Python programming language.  You can find the repository for it at https://github.com/sigstore/sigstore-python.
+Sigstore-go can be found [here](https://github.com/sigstore/sigstore-go). [Examples](https://github.com/sigstore/sigstore-go#examples) are also available.
+
+### Sigstore-python
+The Sigstore-python library is an interface for the Python programming language. Examine the [repository](https://github.com/sigstore/sigstore-python) for more information.
 
 ### Sigstore-JS
-The Sigstore-JS library is designed for code signing NPM packages.   It can be found at https://github.com/sigstore/sigstore-js  .
+The Sigstore-JS library is designed for code signing NPM packages.   See the [repository](https://github.com/sigstore/sigstore-js) for more information.
