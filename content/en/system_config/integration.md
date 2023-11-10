@@ -1,7 +1,6 @@
 ---
 type: docs
 category: System configuration
-description: Integration
 title: Integration
 weight: 952
 ---
