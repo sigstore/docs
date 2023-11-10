@@ -27,6 +27,9 @@ Integrating Sigstore with your own applications provides an effective way to enh
 
 - The ability to control how Sigstore is used.
 - The creation of your own user interfaces.
+- Package integrity.
+- Key management unecessary.
+- Transparency.
 
 You can do this while using the underlying Sigstore software that already exists.
 
@@ -39,20 +42,20 @@ There are several libraries available for developers who want to integrate Sigst
 - Sigstore-java for Java based applications (pre-release).
 - Sigstore-rs for Rust applications (pre-release).
 
-**NOTE:** Each of the above libraries has their own entry points.  Refer to the specific documentation of each library for details.
+**NOTE:** Each of the above libraries has their own entry points.  Refer to the specific documentation of each library for details. You can also get support on Slack at the "#clients" chnnel.
 
-In addition to the individual libraries, a work-in-progress client specification describes the expected signer and verifier flows.   You can find it [here](https://docs.google.com/document/d/1kbhK2qyPPk8SLavHzYSDM8-Ueul9_oxIMVFuWMWKz0E/edit#heading=h.xib7qycxsp4i).
+In addition to the individual libraries, a work-in-progress client specification describes the expected signer and verifier flows.   You can find it [here](https://docs.google.com/document/d/1kbhK2qyPPk8SLavHzYSDM8-Ueul9_oxIMVFuWMWKz0E/edit#heading=h.xib7qycxsp4i). Join https://groups.google.com/g/sigstore-dev to get access.
 
 ### Cosign
 
 [Cosign documentation and examples](https://github.com/sigstore/cosign/blob/main/doc/cosign.md) are available.  A few relevant functions:
 
-- For [verifying containers](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L479) [or here](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L818).
-- For [verifying blobs](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L812). Note that it's up to the caller to construct the function input structure.
-- For [signing blobs](https://github.com/sigstore/cosign/blob/main/cmd/cosign/cli/sign/sign_blob.go#L40).
-- For [signing containers](https://github.com/sigstore/cosign/blob/main/cmd/cosign/cli/sign/sign.go#L133).
+- For [verifying containers](https://github.com/sigstore/cosign/blob/b309a0f048462b3fcecb1ac721db537a9cc90372/pkg/cosign/verify.go#L479) [or here](https://github.com/sigstore/cosign/blob/b309a0f048462b3fcecb1ac721db537a9cc90372/pkg/cosign/verify.go#L818).
+- For [verifying blobs](https://github.com/sigstore/cosign/blob/b309a0f048462b3fcecb1ac721db537a9cc90372/pkg/cosign/verify.go#L812). Note that it's up to the caller to construct the function input structure.
+- For [signing blobs](https://github.com/sigstore/cosign/blob/b309a0f048462b3fcecb1ac721db537a9cc90372/cmd/cosign/cli/sign/sign_blob.go#L40).
+- For [signing containers](https://github.com/sigstore/cosign/blob/b309a0f048462b3fcecb1ac721db537a9cc90372/cmd/cosign/cli/sign/sign.go#L133).
 
-These functions were designed to be used within Cosign as a command line utility and not as an API. There are no API stability guarantees for Cosign, and we do not follow semantic versioning (semver).
+These functions were designed to be used within Cosign as a command line utility and not as an API. There are no API stability guarantees for Cosign, and we do not follow semantic versioning (semver). Note that we do not recommend Cosign for integration, as it will pull in a lot of dependencies that will cause your application to increase in size.
 
 Also note that Cosign lacks support for the Protobufs-based bundle format.
 
