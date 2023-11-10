@@ -4,7 +4,7 @@ category: System configuration
 description: Integration
 home: true
 title: Integration
-weight: 3
+weight: 952
 ---
 
 ![Sigstore](sigstore-logo_horizontal-color.svg)
