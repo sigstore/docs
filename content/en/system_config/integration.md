@@ -14,7 +14,7 @@ Many of the recent high-profile software attacks that have alarmed open-source u
 
 Integrating Sigstore with your own applications provides an effective way to enhance security:
 
-- The ability to control how Sigstre is used.
+- The ability to control how Sigstore is used.
 - The creation of your own user interfaces.
 
 You can do this while using the underlying Sigstore software that already exists.
