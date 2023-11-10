@@ -10,6 +10,7 @@ weight: 952
 ![Sigstore](sigstore-logo_horizontal-color.svg)
 
 ## Integration
+
 Many of the recent high-profile software attacks that have alarmed open-source users globally were consequences of supply chain integrity vulnerabilities: attackers gained control of a build server to use malicious source files, inject malicious artifacts into a compromised build platform, and bypass trusted builders to upload malicious artifacts. Sigstore provides a way to sign, verify, and log artifacts to ensure that they are from who they say they are and to shore up supply chain vulnerabilities.  
 
 Integrating Sigstore with your own applications provides an effective way to enhance security:
@@ -45,13 +46,16 @@ These functions were designed to be used within Cosign as a command line utility
 
 Also note that Cosign lacks support for the Protobufs-based bundle format.
 
-### Sigstore-Go     
+### Sigstore-Go  
+
 The Sigstore-go library represents the future of Sigstore’s support for the Go programming language. It supports the Protobufs-based bundle format, and is a lightweight software package that is much simpler than Cosign.  Cosign is focused on OCI use cases, which makes it difficult for library integrators who want to limit their implementations to core sign/verify flows. It can be used today as a smaller alternative than depending on Cosign’s internal libraries (which can come with lots of potentially unnecessary transitive dependencies), and provides the basis for Sigstore bundle support in the policy controller.  Cosign was designed as a CLI for signing containers, and Sigstore-go is designed as an API.
 
 Sigstore-go can be found [here](https://github.com/sigstore/sigstore-go). [Examples](https://github.com/sigstore/sigstore-go#examples) are also available.
 
 ### Sigstore-python
+
 The Sigstore-python library is an interface for the Python programming language. Examine the [repository](https://github.com/sigstore/sigstore-python) for more information.
 
 ### Sigstore-JS
+
 The Sigstore-JS library is designed for code signing NPM packages.   See the [repository](https://github.com/sigstore/sigstore-js) for more information.
