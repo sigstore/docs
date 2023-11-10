@@ -42,7 +42,7 @@ There are several libraries available for developers who want to integrate Sigst
 - Sigstore-java for Java based applications (pre-release).
 - Sigstore-rs for Rust applications (pre-release).
 
-**NOTE:** Each of the above libraries has their own entry points.  Refer to the specific documentation of each library for details. You can also get support on Slack at the "#clients" chnnel.
+**NOTE:** Each of the above libraries has their own entry points.  Refer to the specific documentation of each library for details. You can also get support on Slack at the "#clients" channel.
 
 In addition to the individual libraries, a work-in-progress client specification describes the expected signer and verifier flows.   You can find it [here](https://docs.google.com/document/d/1kbhK2qyPPk8SLavHzYSDM8-Ueul9_oxIMVFuWMWKz0E/edit#heading=h.xib7qycxsp4i). Join https://groups.google.com/g/sigstore-dev to get access.
 
