@@ -9,7 +9,19 @@ weight: 952
 
 ## Integration
 
-Many of the recent high-profile software attacks that have alarmed open-source users globally were consequences of supply chain integrity vulnerabilities: attackers gained control of a build server to use malicious source files, inject malicious artifacts into a compromised build platform, and bypass trusted builders to upload malicious artifacts. Sigstore provides a way to sign, verify, and log artifacts to ensure that they are from who they say they are and to shore up supply chain vulnerabilities.  
+One of the key tenets of the Sigstore community’s strategy has been to focus on open source package managers as our primary stakeholders. OSS package managers serve as a critical link in the overall software supply chain, both in the distribution of artifacts & metadata but also often as an implicitly trusted actor that is expected to curate content based on static and transient information. Package managers also typically create command line tools used to download, install and manage packages on systems in a variety of environments.
+
+A package manager looking to adopt Sigstore as part of its artifact signing and verification workflows will generally follow these steps, adjusted appropriately to the nuances of the specific programming language and/or ecosystem:
+
+1. Develop language-specific implementation of Sigstore’s signing and verification workflows (if one does not already exist)
+2. Integrate language-specific Sigstore signing and verification functionality into package management tooling
+3. Add support for storing Sigstore signatures & attestations in the package registry for consumers to access
+4. Publish community RFC proposal describing end-to-end workflows, ecosystem-specific threat model, and roadmap for adoption
+5. Once RFC proposal is approved per community norms, drive implementation plan
+6. Work to drive initial package adoption strategy; this often involves highly visible or valuable packages that can serve as references for other package maintainers within the ecosystem
+7. Work with popular build & packaging extensions (e.g. GoReleaser, JReleaser) and builder templates (Jenkins plugins, GitHub Actions, 
+8. Release all code & service extensions required for Sigstore support in a fully-supported mode
+9. Presuming success to this point, set date for mandating Sigstore signing and verification for all packages in ecosystem   
 
 Integrating Sigstore with your own applications provides an effective way to enhance security:
 
