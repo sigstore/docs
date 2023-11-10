@@ -1,6 +1,6 @@
 ---
 type: docs
-category: About Sigstore
+category: S
 description: Integration
 home: true
 title: Integration
