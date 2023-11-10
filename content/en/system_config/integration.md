@@ -2,7 +2,6 @@
 type: docs
 category: System configuration
 description: Integration
-home: true
 title: Integration
 weight: 952
 ---
