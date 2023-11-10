@@ -1,6 +1,6 @@
 ---
 type: docs
-category: S
+category: System configuration
 description: Integration
 home: true
 title: Integration
