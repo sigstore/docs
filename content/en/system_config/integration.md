@@ -18,18 +18,18 @@ Integrating Sigstore with your own applications provides an effective way to enh
 - The ability to control how Sigstre is used.
 - The creation of your own user interfaces.
 
-You can do this while using the underlying Sigstore software that already exists. 
+You can do this while using the underlying Sigstore software that already exists.
 
-There are several  libraries available for developers who want to integrate Sigstore signing and/or verification into their project:   
+There are several libraries available for developers who want to integrate Sigstore signing and/or verification into their project:
 
-- Cosign, is a legacy system that still should be used for signing, and Sigstore-go, which is recommended for use in verification. Cosign was developed with a focus on container image signing/verification and has a rich CLI and a long legacy of features and development. 
+- Cosign, is a legacy system that still should be used for signing, and Sigstore-go, which is recommended for use in verification. Cosign was developed with a focus on container image signing/verification and has a rich CLI and a long legacy of features and development.
 - Sigstore-go is a more minimal and friendly API for integrating Go code with Sigstore, with a focus on a unified format for Sigstore verification metadata.
 - Sigstore-python is a python language based API.
 - Sigstore-JS for code signing  NPM packages
 - Sigstore-java for Java based applications (upcoming).
 - Sigstore-rs for Rust applications (upcoming).
 
-**NOTE:** Each of the above libraries has their own entry points.  Refer to the specific documentation of each library for details. 
+**NOTE:** Each of the above libraries has their own entry points.  Refer to the specific documentation of each library for details.
 
 In addition to the individual libraries, a work-in-progress client specification describes the expected signer and verifier flows.   You can find it [here](https://docs.google.com/document/d/1kbhK2qyPPk8SLavHzYSDM8-Ueul9_oxIMVFuWMWKz0E/edit#heading=h.xib7qycxsp4i).
 
