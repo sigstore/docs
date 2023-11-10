@@ -38,15 +38,15 @@ In addition to the individual libraries, a work-in-progress client specification
 [Cosign documentation and examples](https://github.com/sigstore/cosign/blob/main/doc/cosign.md) are available.  A few relevant functions:
 
 - For [verifying containers](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L479) [or here](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L818).
-- For [verifying blobs](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L812). Note that it's up to the caller to construct the function input structure. 
-- For [signing blobs](https://github.com/sigstore/cosign/blob/main/cmd/cosign/cli/sign/sign_blob.go#L40). 
+- For [verifying blobs](https://github.com/sigstore/cosign/blob/main/pkg/cosign/verify.go#L812). Note that it's up to the caller to construct the function input structure.
+- For [signing blobs](https://github.com/sigstore/cosign/blob/main/cmd/cosign/cli/sign/sign_blob.go#L40).
 - For [signing containers](https://github.com/sigstore/cosign/blob/main/cmd/cosign/cli/sign/sign.go#L133).
 
-These functions were designed to be used within Cosign as a command line utility and not as an API. There are no API stability guarantees for Cosign, we do not follow semantic versioning (semver).
+These functions were designed to be used within Cosign as a command line utility and not as an API. There are no API stability guarantees for Cosign, and we do not follow semantic versioning (semver).
 
 Also note that Cosign lacks support for the Protobufs-based bundle format.
 
-### Sigstore-Go  
+### Sigstore-Go
 
 The Sigstore-go library represents the future of Sigstore’s support for the Go programming language. It supports the Protobufs-based bundle format, and is a lightweight software package that is much simpler than Cosign.  Cosign is focused on OCI use cases, which makes it difficult for library integrators who want to limit their implementations to core sign/verify flows. It can be used today as a smaller alternative than depending on Cosign’s internal libraries (which can come with lots of potentially unnecessary transitive dependencies), and provides the basis for Sigstore bundle support in the policy controller.  Cosign was designed as a CLI for signing containers, and Sigstore-go is designed as an API.
 
