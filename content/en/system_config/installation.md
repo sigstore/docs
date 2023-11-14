@@ -5,9 +5,9 @@ title: Installation
 weight: 950
 ---
 
-## With Go 1.19+
+## With Go 1.20+
 
-If you have Go 1.19+, you can directly install Cosign by downloading the Cosign binary and running:
+If you have Go 1.20+, you can directly install Cosign by running:
 
 ```bash
 go install github.com/sigstore/cosign/v2/cmd/cosign@latest
