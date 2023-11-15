@@ -20,7 +20,7 @@ A package manager looking to adopt Sigstore as part of its artifact signing and 
 5. Once RFC proposal is approved per community norms, drive implementation plan
 6. Work to drive initial package adoption strategy; this often involves highly visible or valuable packages that can serve as references for other package maintainers within the ecosystem
 7. Work with popular build and packaging extensions (like GoReleaser, JReleaser) and builder templates (Jenkins plugins, GitHub Actions)
-8. Release all code & service extensions required for Sigstore support in a fully-supported mode
+8. Release all code and service extensions required for Sigstore support in a fully-supported mode
 9. Presuming success to this point, set date for mandating Sigstore signing and verification for all packages in ecosystem   
 
 Integrating Sigstore with your own applications provides an effective way to enhance security:
