@@ -31,7 +31,7 @@ Integrating Sigstore with your own applications provides an effective way to enh
 - Key management unnecessary.
 - Transparency.
 
-You can do this while using the underlying Sigstore software that already exists.
+You can achieve these enhancements in your application while using the underlying Sigstore software that already exists.
 
 There are several libraries available for developers who want to integrate Sigstore signing and/or verification into their project:
 
