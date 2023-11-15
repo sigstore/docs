@@ -15,7 +15,7 @@ A package manager looking to adopt Sigstore as part of its artifact signing and 
 
 1. Develop language-specific implementation of Sigstore’s signing and verification workflows (if one does not already exist)
 2. Integrate language-specific Sigstore signing and verification functionality into package management tooling
-3. Add support for storing Sigstore signatures & attestations in the package registry for consumers to access
+3. Add support for storing Sigstore signatures and attestations in the package registry for consumers to access
 4. Publish community RFC proposal describing end-to-end workflows, ecosystem-specific threat model, and roadmap for adoption
 5. Once RFC proposal is approved per community norms, drive implementation plan
 6. Work to drive initial package adoption strategy; this often involves highly visible or valuable packages that can serve as references for other package maintainers within the ecosystem
