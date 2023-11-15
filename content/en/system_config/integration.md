@@ -9,7 +9,7 @@ weight: 952
 
 ## Integration
 
-One of the key tenets of the Sigstore community’s strategy has been to focus on open source package managers as our primary stakeholders. OSS package managers serve as a critical link in the overall software supply chain, both in the distribution of artifacts & metadata but also often as an implicitly trusted actor that is expected to curate content based on static and transient information. Package managers also typically create command line tools used to download, install and manage packages on systems in a variety of environments.
+One of the key tenets of the Sigstore community’s strategy has been to focus on open source package managers as our primary stakeholders. OSS package managers serve as a critical link in the overall software supply chain, both in the distribution of artifacts and metadata, but also often as an implicitly trusted actor that is expected to curate content based on static and transient information. Package managers also typically create command line tools used to download, install and manage packages on systems in a variety of environments.
 
 A package manager looking to adopt Sigstore as part of its artifact signing and verification workflows will generally follow these steps, adjusted appropriately to the nuances of the specific programming language and/or ecosystem:
 
