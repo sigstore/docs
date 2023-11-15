@@ -35,12 +35,12 @@ You can achieve these enhancements in your application while using the underlyin
 
 There are several libraries available for developers who want to integrate Sigstore signing and/or verification into their project:
 
-- Cosign is a legacy system that still should be used for signing, and Sigstore-go, which is recommended for use in verification. Cosign was developed with a focus on container image signing and verification, and has a rich CLI and a long legacy of features and development.
-- Sigstore-go is a more minimal and friendly API for integrating Go code with Sigstore, with a focus on a unified format for Sigstore verification metadata.
-- Sigstore-python is a python language based API.
-- Sigstore-JS is for code signing  NPM packages
-- Sigstore-java is for Java based applications (pre-release).
-- Sigstore-rs is for Rust applications (pre-release).
+- [Cosign](https://github.com/sigstore/cosign) is a legacy system that still should be used for signing, and Sigstore-go, which is recommended for use in verification. Cosign was developed with a focus on container image signing and verification, and has a rich CLI and a long legacy of features and development.
+- [Sigstore-go](https://github.com/sigstore/sigstore-go) is a more minimal and friendly API for integrating Go code with Sigstore, with a focus on a unified format for Sigstore verification metadata.
+- [Sigstore-python](https://github.com/sigstore/sigstore-python) is a python language based API.
+- [Sigstore-JS](https://github.com/sigstore/sigstore-js) is for code signing  NPM packages
+- [Sigstore-java](https://github.com/sigstore/sigstore-java) is for Java based applications (pre-release).
+- [Sigstore-rs](https://github.com/sigstore/sigstore-rs) is for Rust applications (pre-release).
 
 **NOTE:** Each of the above libraries has their own entry points.  Refer to the specific documentation of each library for details. You can also get support on Slack at the "#clients" channel.
 
