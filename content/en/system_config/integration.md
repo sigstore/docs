@@ -61,7 +61,7 @@ Also note that Cosign lacks support for the Protobufs-based bundle format.
 
 ### Sigstore-go
 
-The Sigstore-go library represents the future of Sigstore’s support for the Go programming language. It supports the Protobufs-based bundle format, and is a lightweight software package that is much simpler than Cosign.  Cosign is focused on OCI use cases, which makes it difficult for library integrators who want to limit their implementations to core sign/verify flows. It can be used today as a smaller alternative than depending on Cosign’s internal libraries (which can come with lots of potentially unnecessary transitive dependencies), and provides the basis for Sigstore bundle support in the policy controller.  Cosign was designed as a CLI for signing containers, and Sigstore-go is designed as an API.
+The Sigstore-go library represents the future of Sigstore’s support for the Go programming language. It supports the Protobufs-based bundle format, and is a lightweight software package that is much simpler than Cosign.  Cosign is focused on OCI use cases, which makes it difficult for library integrators who want to limit their implementations to core sign/verify flows. It can be used today as a smaller alternative than depending on Cosign’s internal libraries (which can come with potentially unnecessary transitive dependencies), and provides the basis for Sigstore bundle support in the policy controller.  Cosign was designed as a CLI for signing containers, and Sigstore-go is designed as an API.
 
 Sigstore-go can be found [here](https://github.com/sigstore/sigstore-go). [Examples](https://github.com/sigstore/sigstore-go#examples) are also available.
 
