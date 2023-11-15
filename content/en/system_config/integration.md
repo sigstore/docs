@@ -28,7 +28,7 @@ Integrating Sigstore with your own applications provides an effective way to enh
 - The ability to control how Sigstore is used.
 - The creation of your own user interfaces.
 - Package integrity.
-- Key management unecessary.
+- Key management unnecessary.
 - Transparency.
 
 You can do this while using the underlying Sigstore software that already exists.
