@@ -101,5 +101,5 @@ $ cosign sign gcr.io/user/demo/artifact
 In situations where automated signing is required, such as within CI/CD pipelines, the --yes flag becomes essential. This flag, when used with signing commands, bypasses any confirmation prompts, enabling a smooth, uninterrupted signing process. This is particularly crucial in automated environments where manual input isn't feasible. The --yes flag ensures that your signing operations can proceed without manual intervention, maintaining the efficiency and speed of your automated workflows.
 
 ```
-cosign sign --yes -key cosign.key myregistry/myimage:latest
+cosign sign-blob --yes -key cosign.key myregistry/myimage:latest
 ```
