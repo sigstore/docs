@@ -5,7 +5,13 @@ title: Public Deployment
 weight: 960
 ---
 
-There is a public staging environment, or deployment, that is running Fulcio, Rekor and OIDC issuer.
+## Public-Good Instance
+
+<iframe src="https://status.sigstore.dev/badge?theme=light" width="250" height="30" frameborder="0" scrolling="no"></iframe>
+
+## Staging Instance
+
+There is a public staging environment with staging versions of Fulcio, Rekor and an OIDC issuer, with its own roots of trust.
 
 **NOTE** The staging environment provides neither SLO guarantees nor the same protection of the root key material for TUF. This environment is meant for development and testing only. It is not appropriate to use for production purposes.
 
