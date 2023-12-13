@@ -50,11 +50,11 @@ A Sigstore client, such as Cosign, requests a certificate from our code-signing 
 
 You don’t have to manage signing keys, and Sigstore services never obtain your private key. The public key that a Sigstore client creates gets bound to the issued certificate, and the private key is discarded after a single signing.
 
-After the client signs the artifact, the artifact's digest, signature and certificate are persisted in a transparency log: an immutable, append-only ledger known as Rekor. With this log, signing events can be publicly audited. Identity owners can monitor the log to verify that their identity is being properly used, and someone who downloads and artifact can confirm that the certificate was valid at the time of signing.
+After the client signs the artifact, the artifact's digest, signature and certificate are persisted in a transparency log: an immutable, append-only ledger known as Rekor. With this log, signing events can be publicly audited. Identity owners can monitor the log to verify that their identity is being properly used, and someone who downloads an artifact can confirm that the certificate was valid at the time of signing.
 
 For verifying an artifact, a Sigstore client will verify the signature on the artifact using the public key from the certificate, verify the identity in the certificate matches an expected identity, verify the certificate's signature using Sigstore's root of trust, and verify proof of inclusion in Rekor. Together, verification of this information tells the user that the artifact comes from its expected source and has not been tampered with after its creation.
 
-For more information on the modules that make up Sigstore, review [Toolling]({{< relref "about/tooling">}}).
+For more information on the modules that make up Sigstore, review [Tooling]({{< relref "about/tooling">}}).
 
 ## How to use Sigstore
 
