@@ -113,4 +113,6 @@ See [Certificate Transparency Log Information](https://github.com/sigstore/fulci
 
 ## 7 — Return certificate to client
 
+Finally, the certificate and SCT are both returned to the client.
+
 ![Fulcio return the certificate to the client](/fulcio-7-return-to-client.png)
