@@ -62,7 +62,7 @@ with one of the available downloadable packages. Releases are published in
 
 ### Installing Gitsign with Go 1.17+
 
-If you have Go 1.17+, you can install Gitsign with:
+If you have [Go 1.17+](https://go.dev/doc/install), you can install Gitsign with:
 
 ```console
 go install github.com/sigstore/gitsign@latest
