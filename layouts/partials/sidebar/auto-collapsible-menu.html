@@ -15,6 +15,15 @@
   
   {{ $Sections := site.Sections | append $ExternalSiteSection }}
 
+  {{ $SwaggerDocsPages := slice }}
+  {{- range site.Menus.swagger }}
+  {{ $NewPage := dict "TargetBlank" true "Title" .Name "Permalink" .ConfiguredURL }}
+    {{ $SwaggerDocsPages = $SwaggerDocsPages | append $NewPage }}
+  {{ end }}
+  {{ $SwaggerSection := dict "Title" "API Reference" "Pages" $SwaggerDocsPages }}
+
+  {{ $Sections = $Sections | append $SwaggerSection }}
+
 
   <!-- This changed from Doks default to reflect no "docs" section folder -->
     {{ range $Sections }}
