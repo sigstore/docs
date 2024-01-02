@@ -18,7 +18,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: tj-actions/changed-files@v37
+      - uses: tj-actions/changed-files@v41
         id: changed-files
         with:
           files: '**/*.md'
