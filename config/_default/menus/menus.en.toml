@@ -22,6 +22,12 @@
   identifier = "policy-controller"
   url = "https://github.com/sigstore/policy-controller/blob/main/docs/api-types/index.md"
 
+[[swagger]]
+  name = "OpenAPI Specification"
+  weight = 50
+  identifier = "swagger"
+  url = "https://www.sigstore.dev/swagger/"
+
 # [[main]]
 #   name = "Docs"
 #   url = "/docs/about/overview/"
