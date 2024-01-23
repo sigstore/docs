@@ -7,9 +7,9 @@ weight: 1805
 
 There are several ways to install both the `rekor-cli` and `rekor-server`.
 
-## Using go install
+## Using Go install
 
-If you have Go installed, you can use go to retreive the `rekor-cli` binaries
+If you have [Go](https://go.dev/doc/install) installed, you can use Go to retrieve the `rekor-cli` binaries
 
 ```bash
 go install -v github.com/sigstore/rekor/cmd/rekor-cli@latest

@@ -7,7 +7,7 @@ weight: 950
 
 ## With Go 1.20+
 
-If you have Go 1.20+, you can directly install Cosign by running:
+If you have [Go 1.20+](https://go.dev/doc/install), you can directly install Cosign by running:
 
 ```bash
 go install github.com/sigstore/cosign/v2/cmd/cosign@latest
