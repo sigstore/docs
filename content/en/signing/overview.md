@@ -31,7 +31,7 @@ To log in and set up your OIDC Identity, follow these steps:
 
 1. Follow the link that Cosign provides to the Issuer login page.
 2. Log in to one of the supported systems that is shown:
-![Identity Sign-in](/cosign_identity_login.png)
+![Identity Sign-in]( ../../../static/cosign_identity_login.png)
 3. Go back to your terminal or other application. Redirection back to Cosign is seamless.
 
 Currently, Sigstore supports Microsoft, Google, and GitHub. As an alternative, you can also use the environment variable `SIGSTORE_ID_TOKEN` to identify yourself by setting its value to that of the identity token. Cosign also has support for detecting some of these automated environments and producing an identity token. Currently this supports Google and GitHub, in addition to other environments. See [Cosign's providers](https://github.com/sigstore/cosign/tree/main/pkg/providers) for a complete list.
@@ -42,9 +42,9 @@ Identity-based signing is the default because managing and distributing keys can
 
 #### Verifying identity and signing the artifact
 
-1) An in-memory public/private keypair is created. 
+1) An in-memory public/private keypair is created.
 2) The identity token is retrieved.
-3) Sigstore's certificate authority verifies the identity token of the user signing the artifact and issues a certificate attesting to their identity. The identity is bound to the public key. Decrypting with the public key will prove the identity of the private keyholder. 
+3) Sigstore's certificate authority verifies the identity token of the user signing the artifact and issues a certificate attesting to their identity. The identity is bound to the public key. Decrypting with the public key will prove the identity of the private keyholder.
 4) For security, the private key is destroyed shortly after and the short-lived identity certificate expires. Users who wish to verify the software will use the transparency log entry, rather than relying on the signer to safely store and manage the private key.
 
 #### Recording signing event
@@ -53,7 +53,7 @@ To create the transparency log entry, a Sigstore client creates an object contai
 
 #### Verifying the signed artifact
 
-When a software consumer wants to verify the software’s signature, Sigstore compares a tuple of signature, key/certificate, and artifact from the timestamped object against the timestamped Rekor entry. If they match, it confirms that the signature is valid because the user knows that the expected software creator, whose identity was certified at the moment of signing, published the software artifact in their possession. The entry in Rekor’s immutable transparency log means that the signer will be monitoring the log for occurrences of their identity and will know if there is an unexpected signing event. 
+When a software consumer wants to verify the software’s signature, Sigstore compares a tuple of signature, key/certificate, and artifact from the timestamped object against the timestamped Rekor entry. If they match, it confirms that the signature is valid because the user knows that the expected software creator, whose identity was certified at the moment of signing, published the software artifact in their possession. The entry in Rekor’s immutable transparency log means that the signer will be monitoring the log for occurrences of their identity and will know if there is an unexpected signing event.
 
 ### On Google Cloud Platform
 

@@ -10,7 +10,7 @@ This page will walk through the process of issuing a code signing certificate fr
 
 ## 1 — Certificate request input
 
-![Fulcio certificate request input](/fulcio-1-certificate-request-input.png)
+![Fulcio certificate request input](../../../static/fulcio-1-certificate-request-input.png)
 
 As a first step, the client submits a certificate request to Fulcio. This certificate request contains the following:
 
@@ -30,7 +30,7 @@ See the [service definition](https://github.com/sigstore/fulcio/blob/main/fulcio
 
 ## 2 — Authentication
 
-![Fulcio authentication](/fulcio-2-authentication.png)
+![Fulcio authentication](../../../static/fulcio-2-authentication.png)
 
 Authenticating the OIDC ID token begins the processing of the certificate request.
 
@@ -42,7 +42,7 @@ To authenticate the token, Fulcio must:
 
 ## 3 — Verifying the challenge
 
-![Fulcio verifying the challenge](/fulcio-3-verify-the-challenge.png)
+![Fulcio verifying the challenge](../../../static/fulcio-3-verify-the-challenge.png)
 
 Once the client has been authenticated, the next step is to verify the client
 is in possession of the private key of the public key they’ve submitted. To do
@@ -51,7 +51,7 @@ a signature of the `sub` claim. For challenge and CSR are verified using the pro
 
 ## 4 — Constructing a certificate
 
-![Fulcio constructs the certificate](/fulcio-4-construct-certificate.png)
+![Fulcio constructs the certificate](../../../static/fulcio-4-construct-certificate.png)
 
 The client is now authenticated and has proved possession of the private key. Fulcio now
 can issue a code signing certificate for the identity from the ID token.
@@ -67,7 +67,7 @@ At a high level, this process involves:
 
 ## 5 — Signing the certificate
 
-![Fulcio signing the certificate](/fulcio-5-signing-certificate.png)
+![Fulcio signing the certificate](../../../static/fulcio-5-signing-certificate.png)
 
 The code signing certificate is now populated, but needs to be signed
 by the certificate authority. This will form a chain of trust from the issued
@@ -82,7 +82,7 @@ Fulcio supports several signing backends to sign certificates:
   [softHSM](https://www.opendnssec.org/softhsm/) and others
 - [Google CA Service](https://cloud.google.com/certificate-authority-service/docs): A GCP-hosted certificate authority
 - Files: An on-disk password-protected private key
-- Ephemeral (for testing): An in-memory key pair generated on start up 
+- Ephemeral (for testing): An in-memory key pair generated on start up
 
 See [Setting up a Fulcio instance](https://github.com/sigstore/fulcio/blob/main/docs/setup.md) for more details.
 
@@ -95,7 +95,7 @@ publicly auditable.
 A special X.509 extension, called a poison extension, is included in the certificate before it
 is appended to the log. This certificate is called a precertificate, and is not yet usable by clients.
 
-![Fulcio uploads the certificate to the transparency log](/fulcio-6-transparency-log-inclusion.png)
+![Fulcio uploads the certificate to the transparency log](../../../static/fulcio-6-transparency-log-inclusion.png)
 
 The certificate transparency log returns a _Signed Certificate Timestamp_
 (SCT). The SCT is a promise of inclusion in the log, signed by the CT log. It can be
@@ -104,7 +104,7 @@ of inclusion directly from the log.
 
 The SCT is embedded within the certificate, and signed again.
 
-![Fulcio signs a certificate with the embedded SCT](/fulcio-6-sign-again.png)
+![Fulcio signs a certificate with the embedded SCT](../../../static/fulcio-6-sign-again.png)
 
 Note that the Certificate Transparency (CT) log is separate from the [Rekor](https://github.com/sigstore/rekor)
 transparency log. Fulcio's CT Log only stores issued certificates, while Rekor stores artifact signatures and attestations.
@@ -115,4 +115,4 @@ See [Certificate Transparency Log Information](https://github.com/sigstore/fulci
 
 Finally, the certificate and SCT are both returned to the client.
 
-![Fulcio return the certificate to the client](/fulcio-7-return-to-client.png)
+![Fulcio return the certificate to the client](../../../static/fulcio-7-return-to-client.png)
