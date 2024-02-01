@@ -87,18 +87,15 @@ certificates followed by the root CA certificate - use the `--certificate-chain`
 ```shell
 $ cosign verify --certificate-chain chain.crt --certificate-oidc-issuer https://issuer.example.com --certificate-identity foo@example.com user/demo
 ```
-* with a certificate bundle PEM file containing several CA roots (but without
-intermediate certificate), use the `--ca-roots` parameter:
+* with a certificate bundle PEM file containing several CA roots and (optionally)
+intermediate certificates, use the `--ca-roots` parameter together with `--ca-intermediates`:
 ```shell
-$ cosign verify --ca-roots ca-roots.pem --certificate-oidc-issuer https://issuer.example.com --certificate-identity foo@example.com user/demo
+$ cosign verify --ca-roots ca-roots.pem --ca-intermediates ca-intermediates \
+  --certificate-oidc-issuer https://issuer.example.com \
+  --certificate-identity foo@example.com user/demo
 ```
 
-The `--ca-roots` and `--certificate-chain` flags are mutually exclusive.
-
-Note that the hypothetical use case of "multiple chains with multiple CA roots and intermediate
-certificates" is not yet supported.  There are plans to add the `--ca-intermediates` parameter
-(see [issue #3462](https://github.com/sigstore/cosign/issues/3462)).  If you need this,
-please open an issue and mention it on the Sigstore #cosign Slack.
+The `--ca-roots` and `--ca-intermediates` flags are mutually exclusive with `--certificate-chain`.
 
 ## Verify an image on the transparency log
 
