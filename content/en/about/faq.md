@@ -146,10 +146,6 @@ We would love that. The more people monitoring the logs and providing useful ser
 
 There's no need for a distributed source of transparency as there can be multiple points of transparency which only adds more sources of security guarantee, not fewer. An entity can post to as many Rekor logs as they want and inform users of where they post. We do encourage folks to use common public instances, but we don't seek to enforce this. We do plan to look to produce a gossip protocol, for those that desire a more decentralised model (if there's demand).
 
-### Why not use a blockchain?
-
-Public blockchains often end up using a centralized entry point for canonicalization and authentication. Consensus algorithms can be susceptible to majority attacks, and transparency logs are more mature and capable for what we aim to build with sigstore.
-
 ### Why use a Merkle Tree/Transparency log?
 
 - Rekor's back end is [Trillian](https://github.com/google/trillian)
