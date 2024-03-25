@@ -88,7 +88,7 @@ In order to impersonate an IAM service account, your account must have the `role
 
 ## Custom infrastructure
 
-If you're running your own sigtore services flags are available to set your own endpoint's, e.g
+If you're running your own sigstore services flags are available to set your own endpoint's, e.g
 
 ```
  cosign sign --oidc-issuer "https://oauth2.example.com/auth" \
