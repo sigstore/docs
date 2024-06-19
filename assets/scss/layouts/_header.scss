@@ -491,3 +491,10 @@ button#doks-versions {
     padding-left: 0.5rem;
   }
 }
+
+// Hide sidebar appearing inside hamburger menu
+// on mobile devices
+@include media-breakpoint-up(lg) {
+    .sidebar-mobile {
+        display: none;
+    }}
