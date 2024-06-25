@@ -153,7 +153,7 @@ Certificate:
                 Public-Key: (256 bit)
                 pub:
                     04:ec:60:4b:67:aa:28:d9:34:f3:83:9c:17:a5:c8:
-                    a5:87:5e:de:db:c2:65:c8:8b:e6:dc:c4:6f:9c:87:
+                    a5:87:5e:​de:db:c2:65:c8:8b:e6:dc:c4:6f:9c:87:
                     60:05:42:18:f7:b7:0d:8f:06:f1:62:ce:9a:59:9d:
                     71:12:55:1b:c3:d4:c7:90:a5:f6:0a:b4:1a:b3:0e:
                     a7:3d:4e:12:38
@@ -282,7 +282,7 @@ Certificate:
                 Public-Key: (256 bit)
                 pub:
                     04:ec:60:4b:67:aa:28:d9:34:f3:83:9c:17:a5:c8:
-                    a5:87:5e:de:db:c2:65:c8:8b:e6:dc:c4:6f:9c:87:
+                    a5:87:5e:​de:db:c2:65:c8:8b:e6:dc:c4:6f:9c:87:
                     60:05:42:18:f7:b7:0d:8f:06:f1:62:ce:9a:59:9d:
                     71:12:55:1b:c3:d4:c7:90:a5:f6:0a:b4:1a:b3:0e:
                     a7:3d:4e:12:38
