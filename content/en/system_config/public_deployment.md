@@ -31,7 +31,7 @@ To use this instance, follow the steps below:
 1. `curl -O https://raw.githubusercontent.com/sigstore/root-signing-staging/main/metadata/root_history/1.root.json`
 1. `cosign initialize --mirror=https://tuf-repo-cdn.sigstage.dev --root=1.root.json`
 1. `cosign sign --oidc-issuer "https://oauth2.sigstage.dev/auth" --fulcio-url "https://fulcio.sigstage.dev" --rekor-url "https://rekor.sigstage.dev" ${IMAGE_DIGEST}`
-1. `cosign verify --rekor-url "https://rekor.sigstage.dev" ${IMAGE} --certificate-identity=name@example.com --certificate-oidc-issuer=https://accounts.example.com
+1. `cosign verify --rekor-url "https://rekor.sigstage.dev" ${IMAGE} --certificate-identity=name@example.com --certificate-oidc-issuer=https://accounts.example.com`
 
 * Steps 1-3 configure your local environment to use the staging keys and certificates.
 * Step 4 specifies the staging environment with flags needed for signing.
