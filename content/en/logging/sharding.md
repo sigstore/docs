@@ -47,7 +47,7 @@ Follow these steps to shard the log:
 
     ```bash
     CURRENT_TREE_ID=$(rekor-cli loginfo --format json | jq -r .TreeID)
-    CURRENT_SHARD_LENGTH=$(rekor-cli loginfo --format json | jq -r .TreeSize)
+    CURRENT_SHARD_LENGTH=$(rekor-cli loginfo --format json | jq -r .ActiveTreeSize)
     ```
 
 3. Connect to the production cluster. Port-forward the running `trillian_logserver` container and run the [createtree](https://github.com/google/trillian/blob/master/cmd/createtree/main.go) script.
@@ -58,6 +58,7 @@ This will create a new Merkle Tree which will become the new active shard.
     # This is the Tree ID of the new active shard
     NEW_TREE_ID=$(createtree --admin_server localhost:8090)
     ```
+    > **Note:** sigstore helm charts use port 8091 for gRPC
 
 4. Update the Rekor `sharding-config` ConfigMap with details of the inactive shard:
 
