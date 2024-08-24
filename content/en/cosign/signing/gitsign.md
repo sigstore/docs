@@ -40,7 +40,7 @@ https://oauth2.sigstore.dev/auth/auth?access_type=online&client_id=sigstore&...
 [main 040b9af] Signed commit
 ```
 
-This will redirect you through the [Sigstore Keyless]({{< relref "signing/overview">}})
+This will redirect you through the [Sigstore Keyless]({{< relref "cosign/signing/overview">}})
 flow to authenticate and sign the commit.
 
 Commits can then be verified using `git verify-commit`:
@@ -53,6 +53,7 @@ gitsign: Good signature from [billy@chainguard.dev]
 Validated Git signature: true
 Validated Rekor entry: true
 ```
+
 ## Installing Gitsign
 
 You can install Gitsign on your system with the Go installer, via Homebrew, or
@@ -146,6 +147,7 @@ git config --global tag.gpgsign true  # Sign all tags
 git config --global gpg.x509.program gitsign  # Use Gitsign for signing
 git config --global gpg.format x509  # Gitsign expects x509 args
 ```
+
 ## Configuration
 
 ### File config
@@ -193,7 +195,7 @@ are set, `GITSIGN_` prefix takes priority.
 
 ## Signing a Commit
 
-After installing Gitsign and configuring Git to use it as a signer application 
+After installing Gitsign and configuring Git to use it as a signer application
 for your project (or globally), you can sign commits as usual with
 `git commit -S` (or `git config --global commit.gpgsign true` to enable signing
 for all commits).

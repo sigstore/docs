@@ -1,22 +1,26 @@
 ---
 type: docs
-category: Signing
-description: ''
-menuTitle: Quick Start
-title: Cosign
-weight: 100
+category: Quickstart
+description: Sign and Verify with Cosign
+title: Sigstore Quickstart with Cosign
+weight: 5
 ---
 
 ![Cosign Overview](/sigstore_cosign-horizontal-color.svg)
 
-## Getting Started (Quick Start)
-
-Cosign is a command line utility that can sign and verify software artifact, such as container images and blobs.
 Join us on our [Slack channel](https://sigstore.slack.com/). (Need an [invite](https://links.sigstore.dev/slack-invite)?)
+
+## Quickstart signing and verifying with Cosign
+
+Cosign is a command line utility that is used to sign software artifacts and verify signatures using Sigstore.
+
+Language specific clients (like [sigstore-python](https://github.com/sigstore/sigstore-python)) are other options for signing and verifying, but Cosign is a great, language agnostic place to start. 
+
+This quickstart will walk you through how to sign and verify a blob and a container. Although keyless signing is recommended, this quickstart will also show you how to sign using a generated key. 
 
 ### Installation
 
-To sign software artifacts and verify signatures using Sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page]({{< relref "system_config/installation">}}). This will allow you to sign and verify both blobs and containers.
+To sign software artifacts and verify signatures using Sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page]({{< relref "cosign/system_config/installation">}}). This will allow you to sign and verify both blobs and containers.
 
 ### Signing a blob
 
@@ -113,16 +117,16 @@ Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79be4def8.si
 ```
 ## SCM Integration
 
-Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use Cosign to generate and work safely with [SCM secrets]({{< relref "signing/git_support">}}) with native API integration.
+Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use Cosign to generate and work safely with [SCM secrets]({{< relref "cosign/signing/git_support">}}) with native API integration.
 
 ## Attestations
 
 In addition to signatures, Cosign can be used with [In-Toto Attestations](https://github.com/in-toto/attestation).
 
-Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems. Learn more in the [Attestations]({{< relref "verifying/attestation">}}) documentation.
+Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems. Learn more in the [Attestations]({{< relref "cosign/verifying/attestation">}}) documentation.
 
 ## Other Formats
 
 Cosign is useful not only for blobs, containers, and container-related artifacts; it can also be used for other file types.
 
-To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types]({{< relref "signing/other_types" >}}). For more information about blobs, review [Signing Blobs]({{< relref "signing/signing_with_blobs" >}}). For containers, see [Signing Containers]({{< relref "signing/signing_with_containers" >}}).
+To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types]({{< relref "cosign/signing/other_types" >}}). For more information about blobs, review [Signing Blobs]({{< relref "cosign/signing/signing_with_blobs" >}}). For containers, see [Signing Containers]({{< relref "cosign/signing/signing_with_containers" >}}).

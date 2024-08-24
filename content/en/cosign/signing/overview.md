@@ -100,4 +100,4 @@ If you're running your own sigstore services flags are available to set your own
 
 ### Custom roots of trust
 
-For information on custom roots of trust, see [Configuring Cosign with Custom Components]({{< relref "system_config/custom_components">}}).
+For information on custom roots of trust, see [Configuring Cosign with Custom Components]({{< relref "cosign/system_config/custom_components">}}).

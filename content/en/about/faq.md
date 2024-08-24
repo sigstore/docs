@@ -6,12 +6,12 @@ title: Frequently asked questions
 weight: 35
 ---
 
-This FAQ is intended to go as in depth as possible for anyone using sigstore. 
+This FAQ is intended to go as in depth as possible for anyone using sigstore.
 
 ## General
 
 ### What security checks do you use internally?
- 
+
 We’ve adopted a security disclosures and response policy to make sure we can responsibly handle critical issues. We have an initial Security Response Committee, who for each vulnerability reported will coordinate to create the fix and release, and communicate the process. You can read the [full policy on GitHub](https://github.com/sigstore/.github/blob/main/SECURITY.md).
 
 ### How does Sigstore integrate in-toto?
@@ -91,7 +91,7 @@ The commit itself contains a signed digest of the user commit content (that is,
 the author, committer, message, etc.) along with the code signing certificate.
 This data is stored within the commit itself as part of your repository. Review
 guidance on
-[inspecting the Git commit signature]({{< relref "verifying/inspecting">}}) for
+[inspecting the Git commit signature]({{< relref "cosign/verifying/inspecting">}}) for
 more details.
 
 #### 2. Within the Rekor transparency log
@@ -121,16 +121,15 @@ For Git, each commit in a rebase is considered a distinct signing operation so
 by default an ephemeral key is generated for each commit. There are a
 few options to help automating the authentication process:
 
-- Setting the [`connectorID`](/signing/gitsign/#configuration) value can be set to
+* Setting the [`connectorID`](cosign/signing/gitsign/#configuration) value can be set to
   automatically select the desired provider for Dex-backed OIDC providers
   (including the public Sigstore instance at `oauth.sigstore.dev`). While this
   still requires a browser window to open, this does not require an extra click
   to select the provider.
-- Starting in v0.2.0, Gitsign has experimental support for key caching to allow
+* Starting in v0.2.0, Gitsign has experimental support for key caching to allow
   users to reuse ephemeral keys for the lifetime of the Fulcio certificate. If
   you are interested in learning more, check out the
   [`gitsign-credential-cache` README](https://github.com/sigstore/gitsign/tree/main/cmd/gitsign-credential-cache).
-
 
 ## Rekor
 
@@ -148,10 +147,10 @@ There's no need for a distributed source of transparency as there can be multipl
 
 ### Why use a Merkle Tree/Transparency log?
 
-- Rekor's back end is [Trillian](https://github.com/google/trillian)
-- Trillian is an open source community under active development
-- Trilian is deployed by Google, CloudFlare (nimbus), Let's Encrypt for certificate transparency, so it already is considered production grade
+* Rekor's back end is [Trillian](https://github.com/google/trillian)
+* Trillian is an open source community under active development
+* Trilian is deployed by Google, CloudFlare (nimbus), Let's Encrypt for certificate transparency, so it already is considered production grade
 
 ### Can I get Rekor to work with my X format, framework standard?
 
-- Yes. Using pluggable types you can create your own manifest layout and send it to Rekor. Head over to [pluggable types]({{< relref "logging/pluggable-types">}})
+* Yes. Using pluggable types you can create your own manifest layout and send it to Rekor. Head over to [pluggable types]({{< relref "logging/pluggable-types">}})

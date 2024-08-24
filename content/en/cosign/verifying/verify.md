@@ -5,7 +5,7 @@ title: Verifying Signatures
 weight: 300
 ---
 
-> **Note**: To verify a signed artifact or blob, first [install Cosign]({{< relref "system_config/installation">}}), then follow the instructions below.
+> **Note**: To verify a signed artifact or blob, first [install Cosign]({{< relref "cosign/system_config/installation">}}), then follow the instructions below.
 
 The general verification format with the `cosign verify` command is as follows.
 
@@ -238,7 +238,7 @@ AcxvLtLEgRjRI4TKnMAXtIGp8K4X4CTWPEXMqSYZZUa2I1YvHyLLY2bEzA==
 ```
 ## Custom Components
 
-For configuring Cosign to work with custom components, checkout the [Configuring Cosign with Custom Components]({{< relref "system_config/custom_components">}}) docs to find out how to achieve this.
+For configuring Cosign to work with custom components, checkout the [Configuring Cosign with Custom Components]({{< relref "cosign/system_config/custom_components">}}) docs to find out how to achieve this.
 
 ### Custom Root Cert
 
