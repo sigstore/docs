@@ -16,7 +16,7 @@ Cosign is a command line utility that is used to sign software artifacts and ver
 
 Language specific clients (like [sigstore-python](https://github.com/sigstore/sigstore-python)) are other options for signing and verifying, but Cosign is a great, language agnostic place to start. 
 
-This quickstart will walk you through how to sign and verify a blob and a container. Although keyless signing is recommended, this quickstart will also show you how to sign using a generated key. 
+This quickstart will walk you through how to sign and verify a blob and a container.
 
 ### Installation
 
@@ -98,23 +98,6 @@ $ cosign verify <image URI> --certificate-identity=name@example.com
 cosign verify $IMAGE_URI_DIGEST --certificate-identity-regexp=.* --certificate-oidc-issuer-regexp=.*
 ```
 
-## Signing with a generated key
-
-It is recommended that you use keyless signing, as a main feature of Sigstore is to make signatures invisible infrastructure that do not require key management. However, Sigstore allows you to use an existing key or generate a key if you prefer.
-
-To generate keys using Cosign, use the `cosign generate-key-pair` command.
-
-```
-$ cosign generate-key-pair
-```
-
-The following example shows the process of signing with an existing key. You must enter the password of the private key to sign.
-
-```
-$ cosign sign --key cosign.key user/demo
-Enter password for private key:
-Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79be4def8.sig
-```
 ## SCM Integration
 
 Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use Cosign to generate and work safely with [SCM secrets]({{< relref "cosign/signing/git_support">}}) with native API integration.
