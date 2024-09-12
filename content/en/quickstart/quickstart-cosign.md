@@ -1,22 +1,26 @@
 ---
 type: docs
-category: Signing
-description: ''
-menuTitle: Quick Start
-title: Cosign
-weight: 100
+category: Quickstart
+description: Sign and Verify with Cosign
+title: Sigstore Quickstart with Cosign
+weight: 5
 ---
 
 ![Cosign Overview](/sigstore_cosign-horizontal-color.svg)
 
-## Getting Started (Quick Start)
-
-Cosign is a command line utility that can sign and verify software artifact, such as container images and blobs.
 Join us on our [Slack channel](https://sigstore.slack.com/). (Need an [invite](https://links.sigstore.dev/slack-invite)?)
+
+## Quickstart signing and verifying with Cosign
+
+Cosign is a command line utility that is used to sign software artifacts and verify signatures using Sigstore.
+
+Sigstore has a number of language specific clients (like [sigstore-python](https://github.com/sigstore/sigstore-python)). These clients are SDKs that you can use to build custom tooling. Although a number of the clients include a basic CLI, Cosign is the recommended tool for signing and verifying.  
+
+This quickstart will walk you through how to sign and verify a blob and a container.
 
 ### Installation
 
-To sign software artifacts and verify signatures using Sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page]({{< relref "system_config/installation">}}). This will allow you to sign and verify both blobs and containers.
+To sign software artifacts and verify signatures using Sigstore, you need to install Cosign. Instructions to install Cosign can be found on the [Cosign Installation page]({{< relref "cosign/system_config/installation">}}). This will allow you to sign and verify both blobs and containers.
 
 ### Signing a blob
 
@@ -94,35 +98,18 @@ $ cosign verify <image URI> --certificate-identity=name@example.com
 cosign verify $IMAGE_URI_DIGEST --certificate-identity-regexp=.* --certificate-oidc-issuer-regexp=.*
 ```
 
-## Signing with a generated key
-
-It is recommended that you use keyless signing, as a main feature of Sigstore is to make signatures invisible infrastructure that do not require key management. However, Sigstore allows you to use an existing key or generate a key if you prefer.
-
-To generate keys using Cosign, use the `cosign generate-key-pair` command.
-
-```
-$ cosign generate-key-pair
-```
-
-The following example shows the process of signing with an existing key. You must enter the password of the private key to sign.
-
-```
-$ cosign sign --key cosign.key user/demo
-Enter password for private key:
-Pushing signature to: index.docker.io/user/demo:sha256-87ef60f558bad79be4def8.sig
-```
 ## SCM Integration
 
-Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use Cosign to generate and work safely with [SCM secrets]({{< relref "signing/git_support">}}) with native API integration.
+Cosign integrates natively with source code management (SCM) systems like GitHub and GitLab. You can use the official [GitHub Actions Cosign installer](https://github.com/marketplace/actions/cosign-installer) or use Cosign to generate and work safely with [SCM secrets]({{< relref "cosign/signing/git_support">}}) with native API integration.
 
 ## Attestations
 
 In addition to signatures, Cosign can be used with [In-Toto Attestations](https://github.com/in-toto/attestation).
 
-Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems. Learn more in the [Attestations]({{< relref "verifying/attestation">}}) documentation.
+Attestations provide an additional semantic-layer on top of plain cryptographic signatures that can be used in policy systems. Learn more in the [Attestations]({{< relref "cosign/verifying/attestation">}}) documentation.
 
 ## Other Formats
 
 Cosign is useful not only for blobs, containers, and container-related artifacts; it can also be used for other file types.
 
-To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types]({{< relref "signing/other_types" >}}). For more information about blobs, review [Signing Blobs]({{< relref "signing/signing_with_blobs" >}}). For containers, see [Signing Containers]({{< relref "signing/signing_with_containers" >}}).
+To learn how to sign SBOMs, WASM modules, Tekton bundles and more, review [Signing Other Types]({{< relref "cosign/signing/other_types" >}}). For more information about blobs, review [Signing Blobs]({{< relref "cosign/signing/signing_with_blobs" >}}). For containers, see [Signing Containers]({{< relref "cosign/signing/signing_with_containers" >}}).

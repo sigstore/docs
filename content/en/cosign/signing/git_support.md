@@ -23,7 +23,7 @@ To generate keys using a Git provider, you can use the `cosign generate-key-pair
 argument `github://` or `gitlab://`. For example:
 
 ```shell
-$ cosign generate-key-pair <some provider>://<owner>/<project>
+cosign generate-key-pair <some provider>://<owner>/<project>
 ```
 
 One little note here, if you prefer to use GitLab as a provider, you can specify the `ID` of the project instead of
@@ -78,6 +78,6 @@ feature is only available to GitLab. GitHub does not support it to fetch the sec
 You can also export the public key and verify it against that file:
 
 ```shell
-$ cosign public-key --key gitlab://<owner>/<project> > gitlab.pub
-$ cosign verify --key gitlab.pub gcr.io/user-vmtest2/demo
+cosign public-key --key gitlab://<owner>/<project> > gitlab.pub
+cosign verify --key gitlab.pub gcr.io/user-vmtest2/demo
 ```

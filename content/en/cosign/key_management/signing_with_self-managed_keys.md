@@ -15,7 +15,7 @@ Private key written to cosign.key
 Public key written to cosign.pub
 ```
 
-Alternatively, you can use the `COSIGN_PASSWORD` environment variable to provide one. 
+Alternatively, you can use the `COSIGN_PASSWORD` environment variable to provide one.
 
 *Note:* Cosign supports RSA, ECDSA, and ED25519 keys. For RSA, Cosign only supports RSA PKCS#1.5 padded keys.
 
@@ -27,7 +27,7 @@ To generate keys using a KMS provider, you can use the `cosign generate-key-pair
 cosign generate-key-pair --kms <some provider>://<some key>
 ```
 
-Read more about this in the [key management overview]({{< relref "key_management/overview">}}).
+Read more about this in the [key management overview]({{< relref "cosign/key_management/overview">}}).
 
 The public key can be retrieved with:
 

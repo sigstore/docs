@@ -115,7 +115,7 @@ $ cosign verify --key awskms:///${AWS_CMK_ID} $IMAGE_DIGEST | jq .
 
 GCP KMS keys can be used in `cosign` for signing and verification.
 
-The URI format for GCP KMS is: 
+The URI format for GCP KMS is:
 
 ```shell
 gcpkms://projects/$PROJECT/locations/$LOCATION/keyRings/$KEYRING/cryptoKeys/$KEY/versions/$KEY_VERSION
