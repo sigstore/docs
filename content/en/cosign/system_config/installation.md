@@ -104,13 +104,13 @@ before_script:
 
 ## Container Images
 
-Signed release images are available at [`gcr.io/projectsigstore/cosign`](http://gcr.io/projectsigstore/cosign).
-They are tagged with the release name (for example, `gcr.io/projectsigstore/cosign:v2.0.2`).
+Signed release images are available at [`ghcr.io/sigstore/cosign/cosign`](https://ghcr.io/sigstore/cosign/cosign).
+They are tagged with the release name (for example, `ghcr.io/sigstore/cosign/cosign:v2.0.2`).
 
-You can get the latest release with `crane ls gcr.io/projectsigstore/cosign | tail -1`. To list all versions, signatures and SBOMs:
+You can get the latest release with `crane ls ghcr.io/sigstore/cosign/cosign | tail -1`. To list all versions, signatures and SBOMs:
 
 ```bash
-$ crane ls gcr.io/projectsigstore/cosign
+$ crane ls ghcr.io/sigstore/cosign/cosign
 ...
 sha256-a95d7c4ab27e48aaf89253e0703014709129f010578be809b6c95ccee908fa1b.sbom
 sha256-a95d7c4ab27e48aaf89253e0703014709129f010578be809b6c95ccee908fa1b.sig
@@ -119,12 +119,12 @@ v2.0.2
 ...
 ```
 
-CI Built containers are published for every commit at `gcr.io/projectsigstore/cosign/ci/cosign`.
+CI Built containers are published for every commit at `ghcr.io/sigstore/cosign/cosign/ci/cosign`.
 They are tagged with the commit.
 They can be found with `crane ls`:
 
 ```bash
-$ crane ls gcr.io/projectsigstore/cosign/ci/cosign
+$ crane ls ghcr.io/sigstore/cosign/cosign/ci/cosign
 749f896
 749f896bb378aca5cb45c5154fc0cb43f6728d48
 ```
@@ -206,9 +206,9 @@ cosign verify-blob new-cosign --certificate cosign-release.pem.decoded --signatu
 You can also verify a container image of Cosign. You can use [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md) to get the latest version of Cosign. You can skip the first two steps if you already have the container image.
 
 ```bash
-COSIGN_VERSION=$(crane ls gcr.io/projectsigstore/cosign | tail -1)
-COSIGN_DIGEST=$(crane digest gcr.io/projectsigstore/cosign:$COSIGN_VERSION)
+COSIGN_VERSION=$(crane ls ghcr.io/sigstore/cosign/cosign | tail -1)
+COSIGN_DIGEST=$(crane digest ghcr.io/sigstore/cosign/cosign:$COSIGN_VERSION)
 
-cosign verify gcr.io/projectsigstore/cosign@$COSIGN_DIGEST \
+cosign verify ghcr.io/sigstore/cosign/cosign@$COSIGN_DIGEST \
   --certificate-identity keyless@projectsigstore.iam.gserviceaccount.com --certificate-oidc-issuer https://accounts.google.com
 ```
