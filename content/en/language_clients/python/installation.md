@@ -6,8 +6,6 @@ title: Installation
 weight: 5
 ---
 
-## Installation
-
 `sigstore` requires Python 3.8 or newer, and can be installed directly via `pip`:
 
 ```console
@@ -20,4 +18,4 @@ Optionally, to install `sigstore` and all its dependencies with [hash-checking m
 python -m pip install -r https://raw.githubusercontent.com/sigstore/sigstore-python/main/install/requirements.txt
 ```
 
-This installs the requirements file located [here](https://github.com/sigstore/sigstore-python/blob/main/install/requirements.txt), which is kept up-to-date.
+This installs the up-to-date [requirements file](https://github.com/sigstore/sigstore-python/blob/main/install/requirements.txt).

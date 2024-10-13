@@ -5,7 +5,6 @@ menuTitle: Signing
 title: Signing
 weight: 10
 ---
-## Signing
 
 <!-- @begin-sigstore-sign-help@ -->
 ```

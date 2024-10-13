@@ -10,13 +10,14 @@ weight: 1
 
 ## Features
 
-* Support for keyless signature generation and verification with [Sigstore](https://www.sigstore.dev/)
-* Support for signing with ["ambient" OpenID Connect identities ](https://github.com/sigstore/sigstore-python#signing-with-ambient-credentials)
-* A comprehensive [CLI](https://github.com/sigstore/sigstore-python#usage) and corresponding [importable Python API](https://sigstore.github.io/sigstore-python)
+* Supports keyless signature generation and verification
+* Supports signing with ["ambient" OpenID Connect identities ](../signing#signing-with-ambient-credentials)
+* A comprehensive [CLI](#usage) and corresponding [importable Python API](https://sigstore.github.io/sigstore-python)
+* An official [GitHub Action](../github_action)
 
 ## Usage 
 
-For Python API usage, see our [documentation](https://sigstore.github.io/sigstore-python/).
+For Python API usage, see our [API documentation](https://sigstore.github.io/sigstore-python/).
 
 You can run `sigstore` as a standalone program, or via `python -m`:
 
@@ -52,28 +53,6 @@ optional arguments:
   --trust-config FILE  The client trust configuration to use (default: None)
 ```
 <!-- @end-sigstore-help@ -->
-
-## Licensing
-
-`sigstore` is licensed under the Apache 2.0 License.
-
-## Community
-
-`sigstore-python` is developed as part of the [Sigstore](https://sigstore.dev) project.
-
-We also use a [Slack channel](https://sigstore.slack.com)! Click [here](https://join.slack.com/t/sigstore/shared_invite/zt-mhs55zh0-XmY3bcfWn4XEyMqUUutbUQ) for the invite link.
-
-## Contributing
-
-See [the contributing docs](https://github.com/sigstore/.github/blob/main/CONTRIBUTING.md) for details.
-
-## Code of Conduct
-
-Everyone interacting with this project is expected to follow the [sigstore Code of Conduct](https://github.com/sigstore/.github/blob/main/CODE_OF_CONDUCT.md).
-
-## Security
-
-Should you discover any security issues, please refer to sigstore's [security process](https://github.com/sigstore/.github/blob/main/SECURITY.md).
 
 ### SLSA Provenance
 This project emits a SLSA provenance on its release! This enables you to verify the integrity of the downloaded artifacts and ensured that the binary's code really comes from this source code.

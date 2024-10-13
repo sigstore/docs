@@ -5,8 +5,6 @@ menuTitle: Verifying
 title: Verifying
 weight: 20
 ---
-## Verifying
-
 ### Generic identities
 
 This is the most common verification done with `sigstore`, and therefore
