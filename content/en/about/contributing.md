@@ -29,7 +29,7 @@ To contribute to Sigstore as a developer, check out the following repositories f
   - [Sigstore Java meeting notes](https://docs.google.com/document/d/1R7mL-IUrc2Z_LuOIvwDWshVuPQS_2VNE_cIQx4Oy5zw/edit)
 - JavaScript: [sigstore/sigstore-js](https://github.com/sigstore/sigstore-js)
 - Rust: [sigstore/sigstore-rs](https://github.com/sigstore/sigstore-rs)
-- Ruby: [sigstore/ruby-sigstore](https://github.com/sigstore/ruby-sigstore)
+- Ruby: [sigstore/sigstore-ruby](https://github.com/sigstore/sigstore-ruby)
 
 ## Contributing to the documentation
 
