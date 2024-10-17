@@ -14,7 +14,7 @@ Join us on our [Slack channel](https://sigstore.slack.com/). (Need an [invite](h
 
 Cosign is a command line utility that is used to sign software artifacts and verify signatures using Sigstore.
 
-Sigstore has a number of language specific clients (like [sigstore-python](https://github.com/sigstore/sigstore-python)). These clients are SDKs that you can use to build custom tooling. Although a number of the clients include a basic CLI, Cosign is the recommended tool for signing and verifying.  
+Sigstore has a number of [language specific clients](../../language_clients/language_client_overview) that you can use to build custom tooling. Although a number of the clients include a basic CLI, Cosign is the recommended tool for signing and verifying.
 
 This quickstart will walk you through how to sign and verify a blob and a container.
 
