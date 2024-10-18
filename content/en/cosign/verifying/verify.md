@@ -248,6 +248,12 @@ You can override the public good instance CA using the environment variable `SIG
 export SIGSTORE_ROOT_FILE="/home/jdoe/myrootCA.pem"
 ```
 
+## New bundle format coming soon
+
+There's a new bundle format using [bundle protobuf-specs](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) that has a number of advantages over the previous bundle format: it supports offline verification, and includes additional information (like signed timestamps and attestations) in a single file.
+
+You can take existing signed material and make a new protobuf bundle with `cosign bundle create ...`.
+
 ## Experimental Features
 
 ### Verify a signature was added to the transparency log
