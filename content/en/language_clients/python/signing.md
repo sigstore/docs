@@ -7,7 +7,7 @@ weight: 10
 ---
 
 <!-- @begin-sigstore-sign-help@ -->
-```
+```console
 usage: sigstore sign [-h] [-v] [--identity-token TOKEN] [--oidc-client-id ID]
                      [--oidc-client-secret SECRET]
                      [--oidc-disable-ambient-providers] [--oidc-issuer URL]
@@ -73,7 +73,7 @@ Sign a single file (`foo.txt`) using an ambient OpenID Connect credential,
 saving the bundle to `foo.txt.sigstore`:
 
 ```console
-$ python -m sigstore sign foo.txt
+python -m sigstore sign foo.txt
 ```
 
 ### Signing with an email identity
@@ -86,7 +86,7 @@ Sign a single file (`foo.txt`) using the OAuth2 flow, saving the
 bundle to `foo.txt.sigstore`:
 
 ```console
-$ python -m sigstore sign foo.txt
+python -m sigstore sign foo.txt
 ```
 
 By default, `sigstore` attempts to do
@@ -94,7 +94,7 @@ By default, `sigstore` attempts to do
 the OAuth2 flow. To force the OAuth2 flow, you can explicitly disable ambient detection:
 
 ```console
-$ python -m sigstore sign --oidc-disable-ambient-providers foo.txt
+python -m sigstore sign --oidc-disable-ambient-providers foo.txt
 ```
 
 ### Signing with an explicit identity token
@@ -103,7 +103,7 @@ If you can't use an ambient credential or the OAuth2 flow, you can pass a pre-cr
 identity token directly into `sigstore sign`:
 
 ```console
-$ python -m sigstore sign --identity-token YOUR-LONG-JWT-HERE foo.txt
+python -m sigstore sign --identity-token YOUR-LONG-JWT-HERE foo.txt
 ```
 
 Note that passing a custom identity token does not circumvent Fulcio's requirements,

@@ -13,7 +13,7 @@ produced by a particular identity (like `hamilcar@example.com`), as attested
 to by a particular OIDC provider (like `https://github.com/login/oauth`).
 
 <!-- @begin-sigstore-verify-identity-help@ -->
-```
+```console
 usage: sigstore verify identity [-h] [-v] [--certificate FILE]
                                 [--signature FILE] [--bundle FILE] [--offline]
                                 --cert-identity IDENTITY --cert-oidc-issuer
@@ -50,12 +50,12 @@ Verification options:
 ### Signatures from GitHub Actions
 
 If your signatures are coming from GitHub Actions (e.g., a workflow
-that uses its [ambient credentials](#signing-with-ambient-credentials)),
+that uses its [ambient credentials](../signing#signing-with-ambient-credentials)),
 then you can use the `sigstore verify github` subcommand to verify
 claims more precisely than `sigstore verify identity` allows:
 
 <!-- @begin-sigstore-verify-github-help@ -->
-```
+```console
 usage: sigstore verify github [-h] [-v] [--certificate FILE]
                               [--signature FILE] [--bundle FILE] [--offline]
                               [--cert-identity IDENTITY] [--trigger EVENT]
@@ -106,7 +106,7 @@ same directory as the file being verified:
 
 ```console
 # looks for foo.txt.sigstore
-$ python -m sigstore verify identity foo.txt \
+python -m sigstore verify identity foo.txt \
     --cert-identity 'hamilcar@example.com' \
     --cert-oidc-issuer 'https://github.com/login/oauth'
 ```
@@ -115,7 +115,7 @@ Multiple files can be verified at once:
 
 ```console
 # looks for {foo,bar}.txt.sigstore
-$ python -m sigstore verify identity foo.txt bar.txt \
+python -m sigstore verify identity foo.txt bar.txt \
     --cert-identity 'hamilcar@example.com' \
     --cert-oidc-issuer 'https://github.com/login/oauth'
 ```
@@ -133,7 +133,7 @@ inferred to be GitHub Actions).
 Verifying with `--cert-identity`:
 
 ```console
-$ python -m sigstore verify github sigstore-0.10.0-py3-none-any.whl \
+python -m sigstore verify github sigstore-0.10.0-py3-none-any.whl \
     --bundle sigstore-0.10.0-py3-none-any.whl.bundle \
     --cert-identity https://github.com/sigstore/sigstore-python/.github/workflows/release.yml@refs/tags/v0.10.0
 ```
@@ -141,7 +141,7 @@ $ python -m sigstore verify github sigstore-0.10.0-py3-none-any.whl \
 Verifying with `--repository`:
 
 ```console
-$ python -m sigstore verify github sigstore-0.10.0-py3-none-any.whl \
+python -m sigstore verify github sigstore-0.10.0-py3-none-any.whl \
     --bundle sigstore-0.10.0-py3-none-any.whl.bundle \
     --repository sigstore/sigstore-python
 ```
@@ -149,7 +149,7 @@ $ python -m sigstore verify github sigstore-0.10.0-py3-none-any.whl \
 Additional GitHub Actions specific claims can be verified like so:
 
 ```console
-$ python -m sigstore verify github sigstore-0.10.0-py3-none-any.whl \
+python -m sigstore verify github sigstore-0.10.0-py3-none-any.whl \
     --bundle sigstore-0.10.0-py3-none-any.whl.bundle \
     --cert-identity https://github.com/sigstore/sigstore-python/.github/workflows/release.yml@refs/tags/v0.10.0 \
     --trigger release \

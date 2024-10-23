@@ -11,7 +11,7 @@ weight: 1
 ## Features
 
 * Supports keyless signature generation and verification
-* Supports signing with ["ambient" OpenID Connect identities ](../signing#signing-with-ambient-credentials)
+* Supports signing with ["ambient" OpenID Connect identities](../signing#signing-with-ambient-credentials)
 * A comprehensive [CLI](#usage) and corresponding [importable Python API](https://sigstore.github.io/sigstore-python)
 * An official [GitHub Action](../github_action)
 
