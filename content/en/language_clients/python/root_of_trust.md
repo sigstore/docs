@@ -14,6 +14,6 @@ These are supported via the `--trust-config` flag, which accepts a JSON-formatte
 To use a custom client config, prepend `--trust-config` to any `sigstore` command:
 
 ```console
-$ sigstore --trust-config custom.trustconfig.json sign foo.txt
-$ sigstore --trust-config custom.trustconfig.json verify identity foo.txt ...
+sigstore --trust-config custom.trustconfig.json sign foo.txt
+sigstore --trust-config custom.trustconfig.json verify identity foo.txt ...
 ```

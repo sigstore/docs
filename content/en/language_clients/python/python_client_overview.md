@@ -15,7 +15,7 @@ weight: 1
 * A comprehensive [CLI](#usage) and corresponding [importable Python API](https://sigstore.github.io/sigstore-python)
 * An official [GitHub Action](../github_action)
 
-## Usage 
+## Usage
 
 For Python API usage, see our [API documentation](https://sigstore.github.io/sigstore-python/).
 
@@ -29,7 +29,7 @@ python -m sigstore --help
 Top-level:
 
 <!-- @begin-sigstore-help@ -->
-```
+```console
 usage: sigstore [-h] [-v] [-V] [--staging | --trust-config FILE] COMMAND ...
 
 a tool for signing and verifying Python package distributions
@@ -55,6 +55,7 @@ optional arguments:
 <!-- @end-sigstore-help@ -->
 
 ### SLSA Provenance
+
 This project emits a SLSA provenance on its release! This enables you to verify the integrity of the downloaded artifacts and ensured that the binary's code really comes from this source code.
 
 To do so, please follow the instructions [here](https://github.com/slsa-framework/slsa-github-generator#verification-of-provenance).
