@@ -50,7 +50,7 @@ Developer documentation is with the repositories for the software. This document
 - **Cosign**: Signing and verifying software. 
 - **Sigstore**: Common go library shared across Sigstore services and clients.
 - **Sigstore-python**: A code signing tool for Python packages.  
-- **Sigstore-maven-plugin**: A Maven plugin that can be used to use the “keyless” signing paradigm supported by Sigstore.  In early stages at this time.
+- **Sigstore-java**: A code signing library for Java. Also includes Gradle and Maven plugins for build tool integration.
 - **Community**: A general Sigstore community repository.
 - **Sigstore-website**: The codebase for sigstore.dev.
 - **Cosign-installer**: Cosign Github action.
