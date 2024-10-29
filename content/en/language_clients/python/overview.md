@@ -7,7 +7,7 @@ weight: 5
 
 [`sigstore`](https://pypi.org/project/sigstore/) is a Python tool for generating and verifying Sigstore signatures. You can use it to sign and verify Python package distributions, or anything else!
 
-Full project documentation can be found in the [sigstore-python](https://github.com/sigstore/sigstore-python#sigstore-python) project README and our [API documentation](https://sigstore.github.io/sigstore-python). 
+Full project documentation can be found in the [sigstore-python](https://github.com/sigstore/sigstore-python#sigstore-python) project README and our [API documentation](https://sigstore.github.io/sigstore-python).
 
 ## Features
 
@@ -31,7 +31,7 @@ Optionally, you can install `sigstore` and all its dependencies with [hash-check
 ### GitHub Action Installation
 
 You can install the official sigstore-python [GitHub Action](https://github.com/sigstore/gh-action-sigstore-python) from the
-[GitHub Marketplace](https://github.com/marketplace/actions/gh-action-sigstore-python). 
+[GitHub Marketplace](https://github.com/marketplace/actions/gh-action-sigstore-python).
 
 You can also manually add the sigstore-python action to your CI:
 
@@ -48,7 +48,7 @@ jobs:
 
 ### Signing example
 
-For this example, we will sign a a file named `foo.txt`. [`sigstore`](https://pypi.org/project/sigstore/) will use OpenID Connect (OIDC) to veryify your email address. 
+For this example, we will sign a a file named `foo.txt`. [`sigstore`](https://pypi.org/project/sigstore/) will use OpenID Connect (OIDC) to veryify your email address.
 
 Use the following command to sign `foo.txt`:
 
@@ -68,4 +68,4 @@ sigstore verify identity foo.txt \
 
 ### Additional use cases
 
-Additional use cases can be found in the [sigstore-python](https://github.com/sigstore/sigstore-python#usage) project README. 
+Additional use cases can be found in the [sigstore-python](https://github.com/sigstore/sigstore-python#usage) project README.

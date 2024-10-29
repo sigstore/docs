@@ -16,4 +16,4 @@ Sigstore has clients for the following language ecosystems:
 - [Java](https://github.com/sigstore/sigstore-java#sigstore-java)
 - [Go](https://github.com/sigstore/sigstore-go#sigstore-go)
 
-Language client documentation is hosted in the individual project repositories. Project summaries are currently being added to the main Sigstore documentation. 
+Language client documentation is hosted in the individual project repositories. Project summaries are currently being added to the main Sigstore documentation.
