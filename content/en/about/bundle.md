@@ -51,8 +51,10 @@ the format of the hint must be agreed upon out of band by the signer and the ver
 
 #### Transparency Log Entries
 
-One or more transparency logs entries to provide proof of inclusion in a public log and optionally a timestamp to
-validate signing occurred during ceritificate validity.
+Transparency Log entries can provide proof that a signing event was written to a public log. They are not required
+by the spec but inclusion of one or more transparency log entries is highly encouraged for bundles subject to
+public consumption. The embedded signed entry timestamp may be used to validate signing occurred during ceritificate
+validity.
 
 ```json
 "verificationMaterial": {
