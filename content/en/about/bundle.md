@@ -100,7 +100,7 @@ Zero or more [RFC3161](https://www.ietf.org/rfc/rfc3161.txt) timestamps to valid
   "timestampVerificationData": {
     "rfc3161Timestamps": [
       {
-        "signedTimestamp": "Base64(RFC3161 TIMESTAMP)"
+        "signedTimestamp": "<Base64(RFC3161 TIMESTAMP)>"
       },
     ]
   }
