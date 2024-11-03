@@ -28,7 +28,7 @@ npm install sigstore
 ```
 
 ## Example
- 
+
  To use `sigstore`, import the following into your project using the following:
 
  ```console
