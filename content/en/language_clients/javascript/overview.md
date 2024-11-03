@@ -39,7 +39,7 @@ npm install sigstore
  import { sign, verify } from 'sigstore';
  ```
 
-### Sign
+### Signing example
 
  The following function will sign the file `foo.txt`:
 
@@ -51,7 +51,7 @@ npm install sigstore
 
  The sign function will return a Sigstore bundle (`foo.txt.sigstore.json`) which includes the signature and the necessary verification material.
 
-### Verify
+### Verifying example
 
 The following function will verify the file `foo.txt`:
 
