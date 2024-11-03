@@ -11,7 +11,7 @@ Sigstore has clients for the following language ecosystems:
 
 - [Python](../python/overview)
 - [Rust](https://github.com/sigstore/sigstore-rs#features)
-- [Ruby](https://github.com/sigstore/sigstore-ruby#sigstore)
+- [Ruby](../ruby/overview)
 - [JavaScript](https://github.com/sigstore/sigstore-js#sigstore-js---)
 - [Java](https://github.com/sigstore/sigstore-java#sigstore-java)
 - [Go](https://github.com/sigstore/sigstore-go#sigstore-go)
