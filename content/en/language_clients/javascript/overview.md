@@ -59,6 +59,8 @@ The following function will verify the file `foo.txt`:
 verify('foo.txt.sigstore.json', payload='foo.txt', certificateIssuer='odicIssuerURL', certificateIdentityEmail='myEmail@example.com' )
 ```
 
+More information on optional arguments can be found in the [project documentation](https://github.com/sigstore/sigstore-js/tree/main/packages/client#verifybundle-payload-options)
+
 ## Additional Packages
 
 The [sigstore-js](https://github.com/sigstore/sigstore-js) project includes additional functionality through its scoped packages.
