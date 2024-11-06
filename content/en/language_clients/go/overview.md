@@ -38,12 +38,36 @@ To compile/install the CLI, clone [`sigstore-go`](https://github.com/sigstore/si
 ```console
 make install
 ```
-Alternatively, you can use `go run cmd/sigstore-go/main.go` to access the CLI. 
-
-### 
+Alternatively, you can use `go run cmd/sigstore-go/main.go` to access the CLI, as show in the [example](#cli-example). 
 
 ## Example
 
-### Signing example
+### CLI example
 
-### Verifying example
+The following is an example of using the sigstore-go CLI to verify a signature. 
+
+```console
+go run cmd/sigstore-go/main.go \
+  -artifact-digest 76176ffa33808b54602c7c35de5c6e9a4deb96066dba6533f50ac234f4f1f4c6b3527515dc17c06fbe2860030f410eee69ea20079bd3a2c6f3dcf3b329b10751 \
+  -artifact-digest-algorithm sha512 \
+  -expectedIssuer https://token.actions.githubusercontent.com \
+  -expectedSAN https://github.com/sigstore/sigstore-js/.github/workflows/release.yml@refs/heads/main \
+  examples/bundle-provenance.json
+Verification successful!
+{
+   "version": 20230823,
+   "statement": {
+      "_type": "https://in-toto.io/Statement/v0.1",
+      "predicateType": "https://slsa.dev/provenance/v0.2",
+      "subject": ...
+    },
+    ...
+}
+```
+### Additional examples
+
+Additional examples are available in the [project documentation](https://github.com/sigstore/sigstore-go#sigstore-go). 
+
+- [Signing example](https://github.com/sigstore/sigstore-go/blob/main/docs/signing.md#examples)
+- [Verifying example](https://github.com/sigstore/sigstore-go/blob/main/docs/verification.md#verification-using-sigstore-go)
+- [OCI image verifying example](https://github.com/sigstore/sigstore-go/blob/main/docs/oci-image-verification.md#example-of-oci-image-verification-using-sigstore-go)
