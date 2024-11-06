@@ -13,7 +13,7 @@ Sigstore has clients for the following language ecosystems:
 - [Rust](https://github.com/sigstore/sigstore-rs#features)
 - [Ruby](https://github.com/sigstore/sigstore-ruby#sigstore)
 - [JavaScript](https://github.com/sigstore/sigstore-js#sigstore-js---)
-- [Java](https://github.com/sigstore/sigstore-java#sigstore-java)
+- [Java](../java/overview)
 - [Go](https://github.com/sigstore/sigstore-go#sigstore-go)
 
 Language client documentation is hosted in the individual project repositories. Project summaries are currently being added to the main Sigstore documentation.
