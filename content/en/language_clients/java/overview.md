@@ -102,4 +102,4 @@ try {
 
 ### Additional examples
 
-[Additional](https://github.com/sigstore/sigstore-java/tree/main/examples/hello-world#sigstore-examples) [examples](https://github.com/sigstore/sigstore-java/tree/main/examples/pgp#pgp-test-keys-for-examples) are available in the project repository. 
+[Additional](https://github.com/sigstore/sigstore-java/tree/main/examples/hello-world#sigstore-examples) [examples](https://github.com/sigstore/sigstore-java/tree/main/examples/pgp#pgp-test-keys-for-examples) are available in the project repository.
