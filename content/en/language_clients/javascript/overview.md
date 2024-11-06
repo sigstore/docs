@@ -41,22 +41,20 @@ npm install sigstore
 
 ### Signing example
 
- The following function will sign the file `foo.txt`:
-
  ```console
- sign('foo.txt');
- ```
+ const bundle = await sign(Buffer.from('hello world'));
+```
 
  There are a number of optional arguments that can be used with the sign function. Additional information is available in the [project repository](https://github.com/sigstore/sigstore-js/tree/main/packages/client#signpayload-options).
 
- The sign function will return a Sigstore bundle (`foo.txt.sigstore.json`) which includes the signature and the necessary verification material.
+ The sign function will return a JSON-encoded Sigstore bundle which includes the signature and the necessary verification material.
 
 ### Verifying example
 
-The following function will verify the file `foo.txt`:
+The following function will verify the previously signed message:
 
 ```console
-verify('foo.txt.sigstore.json', payload='foo.txt', certificateIssuer='odicIssuerURL', certificateIdentityEmail='myEmail@example.com' )
+verify(bundle, Buffer.from('hello world'), { certificateIssuer: 'https://token.actions.githubusercontent.com/' });
 ```
 
 More information on optional arguments can be found in the [project documentation](https://github.com/sigstore/sigstore-js/tree/main/packages/client#verifybundle-payload-options)
