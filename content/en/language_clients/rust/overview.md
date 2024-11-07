@@ -16,7 +16,6 @@ This crate is under active development, but will not be considered stable until 
 - All Rekor client APIs can be leveraged to interact with the transparency log
 - Cryptographic key management
 
-
 ## Installation
 
 Run the following command in your project directory:
