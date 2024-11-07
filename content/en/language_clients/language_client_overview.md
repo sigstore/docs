@@ -10,7 +10,7 @@ Sigstore uses [cosign](../../cosign/signing/overview) to sign and verify package
 Sigstore has clients for the following language ecosystems:
 
 - [Python](../python/overview)
-- [Rust](https://github.com/sigstore/sigstore-rs#features)
+- [Rust](../rust/overview)
 - [Ruby](https://github.com/sigstore/sigstore-ruby#sigstore)
 - [JavaScript](https://github.com/sigstore/sigstore-js#sigstore-js---)
 - [Java](https://github.com/sigstore/sigstore-java#sigstore-java)
