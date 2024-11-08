@@ -26,7 +26,7 @@ Full project documentation can be found in the [sigstore-python](https://github.
 python -m pip install sigstore
 ```
 
-Optionally, you can install `sigstore` and all its dependencies with [hash-checking mode](https://pip.pypa.io/en/stable/topics/secure-installs/#hash-checking-mode) enabled. Learn more about it in our [project documentation](https://github.com/sigstore/sigstore-python#installation)
+Optionally, you can install `sigstore` and all its dependencies with [hash-checking mode](https://pip.pypa.io/en/stable/topics/secure-installs/#hash-checking-mode) enabled. Learn more about it in the [project documentation](https://github.com/sigstore/sigstore-python#installation).
 
 ### GitHub Action Installation
 
@@ -48,13 +48,15 @@ jobs:
 
 ### Signing example
 
-For this example, we will sign a a file named `foo.txt`. [`sigstore`](https://pypi.org/project/sigstore/) will use OpenID Connect (OIDC) to veryify your email address.
+For this example, we will sign a a file named `foo.txt`. [`sigstore`](https://pypi.org/project/sigstore/) will use OpenID Connect (OIDC) to verify your email address.
 
 Use the following command to sign `foo.txt`:
 
 ```console
 sigstore sign foo.txt
 ```
+
+This will produce `foo.txt.sigstore.json` for subsequent verification.
 
 ### Verifying example
 
