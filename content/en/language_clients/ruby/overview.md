@@ -10,13 +10,17 @@ The project repository can be found [here](https://github.com/sigstore/sigstore-
 
 ## Features
 
-- Pure Ruby implementation of `sigstore verify` command from the [Cosign](../../cosign/verify) project
+- Pure Ruby implementation of `sigstore sign` and `sigstore verify` command from the [Cosign](../../cosign/verify) project
 - `gem` subcommand
 - TUF client implementation
 
 ## Installation
 
-`sigstore` requires Ruby version 3.1.0 or greater. 
+`sigstore` requires Ruby version 3.1.0 or greater.
+
+**This gem is under active development, and will not be considered stable until the 1.0 release.**
+
+Release information is available [here](https://github.com/sigstore/sigstore-ruby/releases).
 
 Add sigstore to your Gemfile:
 
