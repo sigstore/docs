@@ -15,6 +15,8 @@ weight: 5
 
 ## Installation
 
+Release information for the Java client is available [here](https://github.com/sigstore/sigstore-java/releases). We recommend using the latest version for your install. 
+
 ### Maven
 
 Requires Java 11
