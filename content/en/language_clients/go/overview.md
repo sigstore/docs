@@ -14,7 +14,7 @@ weight: 5
 - Focuses on newly specified data structures in [sigstore/protobuf-specs](https://github.com/sigstore/protobuf-specs)
 - Perfect for simple signing and verififcation tasks
 
-`sigstore-go` is currently in beta. 
+`sigstore-go` is currently in beta.
 
 ## Features
 
@@ -31,20 +31,21 @@ weight: 5
 
 ### Main CLI installation
 
-`sigstore-go` requires Go 1.21 or greater. The package is tested with Go 1.23. 
+`sigstore-go` requires Go 1.21 or greater. The package is tested with Go 1.23.
 
-To compile/install the CLI, clone [`sigstore-go`](https://github.com/sigstore/sigstore-go) and run.   
+To compile/install the CLI, clone [`sigstore-go`](https://github.com/sigstore/sigstore-go) and run.
 
 ```console
 make install
 ```
-Alternatively, you can use `go run cmd/sigstore-go/main.go` to access the CLI, as show in the [example](#cli-example). 
+
+Alternatively, you can use `go run cmd/sigstore-go/main.go` to access the CLI, as show in the [example](#cli-example).
 
 ## Example
 
 ### CLI example
 
-The following is an example of using the sigstore-go CLI to verify a signature. 
+The following is an example of using the sigstore-go CLI to verify a signature.
 
 ```console
 go run cmd/sigstore-go/main.go \
@@ -64,9 +65,10 @@ Verification successful!
     ...
 }
 ```
+
 ### Additional examples
 
-Additional examples are available in the [project documentation](https://github.com/sigstore/sigstore-go#sigstore-go). 
+Additional examples are available in the [project documentation](https://github.com/sigstore/sigstore-go#sigstore-go).
 
 - [Signing example](https://github.com/sigstore/sigstore-go/blob/main/docs/signing.md#examples)
 - [Verifying example](https://github.com/sigstore/sigstore-go/blob/main/docs/verification.md#verification-using-sigstore-go)
