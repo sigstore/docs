@@ -9,11 +9,11 @@ Sigstore uses [cosign](../../cosign/signing/overview) to sign and verify package
 
 Sigstore has clients for the following language ecosystems:
 
-- [Python](../python/overview)
-- [Rust](https://github.com/sigstore/sigstore-rs#features)
-- [Ruby](../ruby/overview)
-- [JavaScript](https://github.com/sigstore/sigstore-js#sigstore-js---)
+- [Go](../go/overview)
 - [Java](https://github.com/sigstore/sigstore-java#sigstore-java)
-- [Go](https://github.com/sigstore/sigstore-go#sigstore-go)
+- [JavaScript](../javascript/overview)
+- [Python](../python/overview)
+- [Rust](../rust/overview)
+- [Ruby](../ruby/overview)
 
 Language client documentation is hosted in the individual project repositories. Project summaries are currently being added to the main Sigstore documentation.
