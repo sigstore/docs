@@ -5,9 +5,9 @@ title: Go Client Overview
 weight: 5
 ---
 
-[`sigstore-go`](https://pkg.go.dev/github.com/sigstore/sigstore-go) is the Go language client for Sigstore.
+[`sigstore-go`](https://pkg.go.dev/github.com/sigstore/sigstore-go) is the Go language client library for Sigstore.
 
-[Cosign](../../cosign/signing/overview.md) is a command line utility that is used to sign software artifacts and verify signatures using Sigstore and is also written in Go. `sigstore-go` is a lighter weight tool and boasts the following benefits:
+`sigstore-go` is intended as a minimal dependency library for signing and verifying. It's not intended to replace [cosign](../../cosign/signing/overview.md), which provides a CLI with many features for interacting with Sigstore. Over time, `cosign` will use `sigstore-go` for verification.
 
 - Friendly API for integrating Go code with Sigstore
 - Smaller dependency tree
