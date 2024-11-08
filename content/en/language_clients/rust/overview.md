@@ -7,11 +7,11 @@ weight: 5
 
 [`sigstore`](https://crates.io/crates/sigstore) is a crate designed to interact with Sigstore architecture.
 
-This crate is under active development, but will not be considered stable until the 1.0 release.
+**This crate is under active development, and will not be considered stable until the [1.0 release](https://github.com/sigstore/sigstore-rs/issues/274).**
 
 ## Features
 
-- Cosign sign and verify
+- Container and binary signing and verification
 - Fulcio integration including an OpenID Connect API
 - All Rekor client APIs can be leveraged to interact with the transparency log
 - Cryptographic key management
@@ -27,6 +27,8 @@ cargo add sigstore
 Or add the following to your Cargo.toml:
 
 `sigstore = "0.10.0"`
+
+Current release information is available [here](https://github.com/sigstore/sigstore-rs/releases).
 
 ## Example
 
