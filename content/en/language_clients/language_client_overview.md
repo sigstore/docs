@@ -9,11 +9,11 @@ Sigstore uses [cosign](../../cosign/signing/overview) to sign and verify package
 
 Language client summaries are available in the main Sigstore documentation, but complete documentation is hosted in the individual project repositories.
 
-| Language Client Summary | Project Repository                                             |
-| ----------------------- | -------------------------------------------------------------- |
-| [Go](../go)                              | [sigstore-go](https://github.com/sigstore/sigstore-go)              |
-| Java (available soon)                    | [sigstore-java](https://github.com/sigstore/sigstore-java)            |
-| [Javascript](../javascript)              | [sigstore-js](https://github.com/sigstore/sigstore-js)              |
-| [Python](../python)                      | [sigstore-python](https://github.com/sigstore/sigstore-python)          |
-| Ruby (available soon)                    | [sigstore-ruby](https://github.com/sigstore/sigstore-ruby)            |
-| [Rust](../rust)                          | [sigstore-rs](https://github.com/sigstore/sigstore-rs)              |
+| Language Client Summary                  | Project Repository                                             |
+| ---------------------------------------- | -------------------------------------------------------------- |
+| [Go](../go)                              | [sigstore-go](https://github.com/sigstore/sigstore-go)         |
+| Java (available soon)                    | [sigstore-java](https://github.com/sigstore/sigstore-java)     |
+| [Javascript](../javascript)              | [sigstore-js](https://github.com/sigstore/sigstore-js)         |
+| [Python](../python)                      | [sigstore-python](https://github.com/sigstore/sigstore-python) |
+| Ruby (available soon)                    | [sigstore-ruby](https://github.com/sigstore/sigstore-ruby)     |
+| [Rust](../rust)                          | [sigstore-rs](https://github.com/sigstore/sigstore-rs)         |
