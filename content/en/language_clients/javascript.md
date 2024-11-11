@@ -1,8 +1,8 @@
 ---
 type: docs
-category: JavaScript
-title: JavaScript Client Overview
-weight: 5
+category: Language Clients
+title: JavaScript
+weight: 30
 ---
 
 [sigstore-js](https://github.com/sigstore/sigstore-js) is a collection of [javascript libraries](#additional-packages) for interacting with Sigstore.

@@ -1,8 +1,8 @@
 ---
 type: docs
-category: Rust
-title: Rust Client Overview
-weight: 5
+category: Language Clients
+title: Rust
+weight: 50
 ---
 
 [`sigstore`](https://crates.io/crates/sigstore) is a crate designed to interact with Sigstore architecture.
