@@ -1,8 +1,8 @@
 ---
 type: docs
-category: Python
-title: Python Client Overview
-weight: 5
+category: Language Clients
+title: Python
+weight: 40
 ---
 
 [`sigstore`](https://pypi.org/project/sigstore/) is a Python tool for generating and verifying Sigstore signatures. You can use it to sign and verify Python package distributions, or anything else!
