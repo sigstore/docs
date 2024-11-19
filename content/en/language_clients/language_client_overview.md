@@ -12,8 +12,9 @@ Language client summaries are available in the main Sigstore documentation, but 
 | Language Client Summary                  | Project Repository                                             |
 | ---------------------------------------- | -------------------------------------------------------------- |
 | [Go](../go)                              | [sigstore-go](https://github.com/sigstore/sigstore-go)         |
-| Java (available soon)                    | [sigstore-java](https://github.com/sigstore/sigstore-java)     |
+| [Java](../java)                          | [sigstore-java](https://github.com/sigstore/sigstore-java)     |
 | [Javascript](../javascript)              | [sigstore-js](https://github.com/sigstore/sigstore-js)         |
 | [Python](../python)                      | [sigstore-python](https://github.com/sigstore/sigstore-python) |
 | Ruby (available soon)                    | [sigstore-ruby](https://github.com/sigstore/sigstore-ruby)     |
 | [Rust](../rust)                          | [sigstore-rs](https://github.com/sigstore/sigstore-rs)         |
+
