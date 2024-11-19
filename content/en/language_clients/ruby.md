@@ -1,8 +1,8 @@
 ---
 type: docs
-category: Ruby
-title: Ruby Client Overview
-weight: 5
+category: Language Clients
+title: Ruby
+weight: 45
 ---
 [`sigstore`](https://rubygems.org/gems/sigstore) is a pure-ruby implementation of Sigstore signature verification.
 
@@ -10,7 +10,7 @@ The project repository can be found [here](https://github.com/sigstore/sigstore-
 
 ## Features
 
-- Pure Ruby implementation of `sigstore sign` and `sigstore verify` command from the [Cosign](../../cosign/verify) project
+- Pure Ruby implementation of `sigstore sign` and `sigstore verify` command from the [Cosign](../../cosign/verifying/verify) project
 - `gem` subcommand
 - TUF client implementation
 
