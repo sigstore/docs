@@ -7,13 +7,14 @@ weight: 5
 
 Sigstore uses [cosign](../../cosign/signing/overview) to sign and verify packages by default, but you can opt to use a language specific client instead.
 
-Sigstore has clients for the following language ecosystems:
+Language client summaries are available in the main Sigstore documentation, but complete documentation is hosted in the individual project repositories.
 
-- [Go](../go/overview)
-- [Java](../java/overview)
-- [JavaScript](../javascript/overview)
-- [Python](../python/overview)
-- [Rust](../rust/overview)
-- [Ruby](https://github.com/sigstore/sigstore-ruby#sigstore)
+| Language Client Summary                  | Project Repository                                             |
+| ---------------------------------------- | -------------------------------------------------------------- |
+| [Go](../go)                              | [sigstore-go](https://github.com/sigstore/sigstore-go)         |
+| [Java](../java)                          | [sigstore-java](https://github.com/sigstore/sigstore-java)     |
+| [Javascript](../javascript)              | [sigstore-js](https://github.com/sigstore/sigstore-js)         |
+| [Python](../python)                      | [sigstore-python](https://github.com/sigstore/sigstore-python) |
+| Ruby (available soon)                    | [sigstore-ruby](https://github.com/sigstore/sigstore-ruby)     |
+| [Rust](../rust)                          | [sigstore-rs](https://github.com/sigstore/sigstore-rs)         |
 
-Language client documentation is hosted in the individual project repositories. Project summaries are currently being added to the main Sigstore documentation.

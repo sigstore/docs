@@ -1,8 +1,8 @@
 ---
 type: docs
-category: Go
-title: Go Client Overview
-weight: 5
+category: Language Clients
+title: Go
+weight: 10
 ---
 
 [`sigstore-go`](https://pkg.go.dev/github.com/sigstore/sigstore-go) is the Go language client library for Sigstore.

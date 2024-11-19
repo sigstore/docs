@@ -1,17 +1,17 @@
 ---
 type: docs
-category: Java
-title: Java Client Overview
-weight: 5
+category: Language Clients
+title: Java
+weight: 20
 ---
 
 [`sigstore-java`](https://github.com/sigstore/sigstore-java#sigstore-java) is a java client for interacting with the Sigstore infrastructure.
 
 ## Features
 
-- Includes both [Maven](https://github.com/sigstore/sigstore-java/tree/main/sigstore-maven-plugin) and [Gradle](https://github.com/sigstore/sigstore-java/tree/main/sigstore-gradle) build plugins
+- [Maven](https://github.com/sigstore/sigstore-java/tree/main/sigstore-maven-plugin) and [Gradle](https://github.com/sigstore/sigstore-java/tree/main/sigstore-gradle) signing plugins
 - Keyless signing and verifying
-- [API](https://javadoc.io/doc/dev.sigstore/sigstore-java)
+- Java native signing and verifying [API](https://javadoc.io/doc/dev.sigstore/sigstore-java)
 
 ## Installation
 
@@ -51,9 +51,9 @@ plugins {
 
 More information on the Gradle build plugin is available in the [project repository](https://github.com/sigstore/sigstore-java/tree/main/sigstore-gradle#sigstore-gradle).
 
-## Example
+## API Usage Examples
 
-### Signing example
+### Signing
 
 ```java
 Path testArtifact = Paths.get("path/to/my/file.jar")
@@ -66,7 +66,7 @@ Bundle result = signer.signFile(testArtifact);
 String bundleJson = result.toJson();
 ```
 
-### Verifying example
+### Verifying
 
 #### Get artifact and bundle
 
