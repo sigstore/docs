@@ -147,13 +147,13 @@ To do this, install and use [go-tuf](https://github.com/theupdateframework/go-tu
 go install github.com/theupdateframework/go-tuf/cmd/tuf-client@latest
 ```
 
-Then, obtain trusted root keys for Sigstore. You will use the 5th iteration of Sigstore's TUF root to start the root of trust, due to a backward incompatible change. The TUF client uses this root to start a chain of roots, and will download the latest, unexpired root as part of [its workflow](https://theupdateframework.github.io/specification/latest/#update-root).
+Then, obtain trusted root keys for Sigstore. You will use the 10th iteration of Sigstore's TUF root to start the root of trust, due to a backward incompatible change. The TUF client uses this root to start a chain of roots, and will download the latest, unexpired root as part of [its workflow](https://theupdateframework.github.io/specification/latest/#update-root).
 
 ```bash
-curl -o sigstore-root.json https://raw.githubusercontent.com/sigstore/root-signing/main/ceremony/2022-10-18/repository/5.root.json
+curl -o sigstore-root.json https://raw.githubusercontent.com/sigstore/root-signing/refs/heads/main/metadata/root_history/10.root.json
 ```
 
-Note that you can verify the 5th TUF root against the 1st TUF root, which was signed in a publicly documented signing ceremony. However, due to the backward incompatible change, this requires manual verification steps. See the [Sigstore root repo](https://github.com/sigstore/root-signing) for more information.
+Note that you can verify the 10th TUF root against the 1st TUF root, which was signed in a publicly documented signing ceremony. However, due to the backward incompatible change, this requires manual verification steps. See the [Sigstore root repo](https://github.com/sigstore/root-signing) for more information.
 
 #### Initializing TUF Environment
 
