@@ -1,6 +1,12 @@
-# Sigstore Bundle
+---
+type: docs
+category: About sigstore
+description: Information about the Sigstore bundle format
+title: Sigstore Bundle Format
+weight: 4
+---
 
-October 31, 2024
+Last updated October 31, 2024
 
 Version 0.3.2
 
