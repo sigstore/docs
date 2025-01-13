@@ -27,7 +27,7 @@ Additional information and optional settings can be found in the [project's READ
 
 To following workflow will sign the file `to_be_signed.txt` in the project's root directory whenever a push is made to the main branch. To try it out, make sure to add the file `to_be_signed.txt` to your project, or substitute the file for one in your project.
 
-```
+```console
 name: signing_files
 # This will trigger the workflow to run when commits are pushed to the main branch. This is easy for testing purposes, but for your final workflow use whatever event or schedule makes sense for your project.
 on:
@@ -54,7 +54,7 @@ When run, this workflow returns the ephemeral certificate used to sign the file,
 
 The `gh-action-sigstore-python` GitHub Action includes an option to verify your generated signature. This is optional but a great way to understand the GitHub Action as you are integrating it into your CI for the first time. To verify the signature you just created, set the `verify` setting to true and include your expected `verify-cert-identity` and `verify-oidc-issuer` settings.
 
-```
+```console
         - uses: sigstore/gh-action-sigstore-python@v3.0.0
           with:
             inputs: to_be_signed.txt
@@ -66,6 +66,7 @@ The `gh-action-sigstore-python` GitHub Action includes an option to verify your 
 ## Using Cosign within your CI system
 
 If you need functionality beyond simple signing of files and blobs, you can use the [`consign-installer` GitHub Action](https://github.com/marketplace/actions/cosign-installer) to [integrate Sigstore into your CI system](#installing-cosign-on-your-ci). This quickstart covers:
+
 - How to [sign](#signing-a-blob) and [verify](#verifying-a-blob) a blob using `consign-installer`
 - How to [sign and verify a container image](#signing-and-verifying-a-container-image) using your CI system
 
@@ -73,7 +74,7 @@ If you need functionality beyond simple signing of files and blobs, you can use 
 
 The following workflow will install Cosign into your workflow environment.
 
-```
+```console
 name: install-cosign-and-use
 on:
   # This will trigger the workflow to run when commits are pushed to the main branch. This is easy for testing purposes, but for your final workflow use whatever event or schedule makes sense for your project.
@@ -98,7 +99,7 @@ jobs:
 
 Now that we've installed Cosign and checked the installation, let's use Cosign to sign a blob. Add these steps to your workflow:
 
-```
+```console
       # This step makes sure your project is available in the workflow environment.
       - name: Import project
         uses: actions/checkout@v3
@@ -111,7 +112,7 @@ Now that we've installed Cosign and checked the installation, let's use Cosign t
 
 To veryify the signature that you just created, add the following step to your workflow.
 
-```
+```console
 - name: Verify blob
         run: >
           cosign verify-blob README.md --bundle cosign.bundle
@@ -121,9 +122,9 @@ To veryify the signature that you just created, add the following step to your w
 
 ### Signing and verifying a container image
 
-In addition to signing and verifying blobs, you can sign and verify container images using the cosign-installer GitHub Action. The following is an example workflow that will build a container image with QEMU and Docker Buildx, push that image to the GitHub Container Registry, sign the image, and then verify it. 
+In addition to signing and verifying blobs, you can sign and verify container images using the cosign-installer GitHub Action. The following is an example workflow that will build a container image with QEMU and Docker Buildx, push that image to the GitHub Container Registry, sign the image, and then verify it.
 
-```
+```console
 name: container-signing-and-verifying
 on:
     push:
