@@ -6,7 +6,7 @@ title: Sigstore Bundle Format
 weight: 4
 ---
 
-Last updated October 31, 2024
+Last updated January 14, 2025
 
 Version 0.3.2
 
@@ -136,15 +136,13 @@ artifact at verification time.
 
 #### DSSE
 
-A DSSE envelope can contain arbitrary payloads. Currently Sigstore clients only process the
-payload type `"application/vnd.in-toto+json"`. Verifiers must verify that the payload type is a
-supported and expected type. DSSE envelopes contained in a Sigstore Bundle must only contain a
-single signature (the DSSE spec allows multiple).
+The DSSE envelope in a Sigstore Bundle must conform to the [in-toto Envelope layer specification](https://github.com/in-toto/attestation/blob/main/spec/v1/envelope.md) where 
+`payloadType` is `"application/vnd.in-toto+json"` and the payload is an [in-toto statement](https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md). DSSE envelopes in a Sigstore Bundle must also contain only a single signature (the DSSE spec allows multiple).
 
 ```json
 "dsseEnvelope": {
   {
-    "payload": "<Base64(JSON_PAYLOAD)>",
+    "payload": "<Base64(JSON_IN_TOTO_STATEMENT)>",
     "payloadType": "application/vnd.in-toto+json",
     "signatures": [{
       "keyid": "<KEY_ID>",
@@ -152,6 +150,10 @@ single signature (the DSSE spec allows multiple).
     }]
   }
 }
+```
+
+where `payload` should would decode to
+```json
 ```
 
 ### Examples
