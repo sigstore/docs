@@ -136,8 +136,7 @@ artifact at verification time.
 
 #### DSSE
 
-The DSSE envelope in a Sigstore Bundle must conform to the [in-toto Envelope layer specification](https://github.com/in-toto/attestation/blob/main/spec/v1/envelope.md) where 
-`payloadType` is `"application/vnd.in-toto+json"` and the payload is an [in-toto statement](https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md). DSSE envelopes in a Sigstore Bundle must also contain only a single signature (the DSSE spec allows multiple).
+The DSSE envelope in a Sigstore Bundle must conform to the [in-toto Envelope layer specification](https://github.com/in-toto/attestation/blob/main/spec/v1/envelope.md) where `payloadType` is `"application/vnd.in-toto+json"` and the payload is an [in-toto statement](https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md). DSSE envelopes in a Sigstore Bundle must also contain only a single signature (the DSSE spec allows multiple).
 
 ```json
 "dsseEnvelope": {
@@ -150,10 +149,6 @@ The DSSE envelope in a Sigstore Bundle must conform to the [in-toto Envelope lay
     }]
   }
 }
-```
-
-where `payload` should would decode to
-```json
 ```
 
 ### Examples
