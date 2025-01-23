@@ -46,7 +46,7 @@ The signer ideally forgoes using long-lived keypairs. With “keyless” or “e
 
 ## How Sigstore works
 
-A Sigstore client, such as Cosign, requests a certificate from our code-signing certificate authority (Fulcio). A verifiable OpenID Connect identity token, which contains a user's email address or service account, is provided in the request. The certificate authority verifies this token and issues a short-lived certificate bound to the provided identity.
+A Sigstore client, such as Cosign, creates a public/private key pair and makes a certificate signing request to our code-signing certificate authority (Fulcio) with the public key. A verifiable OpenID Connect identity token, which contains a user's email address or service account, is also provided in the request. The certificate authority verifies this token and issues a short-lived certificate bound to the provided identity and public key.
 
 You don’t have to manage signing keys, and Sigstore services never obtain your private key. The public key that a Sigstore client creates gets bound to the issued certificate, and the private key is discarded after a single signing.
 
