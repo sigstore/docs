@@ -97,7 +97,7 @@ jobs:
 
 ### Signing and verifying a container image
 
-The ability to sign and verify container images is the primary benefit of using the cosign-installer GitHub Action. The following is an example workflow that will build a container image with QEMU and Docker Buildx, push that image to the GitHub Container Registry, sign the image, and then verify it. Replace your username, repository name, and branch name where indicated. 
+The ability to sign and verify container images is the primary benefit of using the cosign-installer GitHub Action. The following is an example workflow that will build a container image with QEMU and Docker Buildx, push that image to the GitHub Container Registry, sign the image, and then verify it. Replace your username, repository name, and branch name where indicated.
 
 ```console
 name: container-signing-and-verifying
