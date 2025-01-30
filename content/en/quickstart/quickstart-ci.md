@@ -17,7 +17,7 @@ Sigstore provides two GitHub Actions that make it easy to integrate signing and 
 
 This quickstart will walk you through the use of the `gh-action-sigstore-python` to [sign](#signing-files-using-your-ci-system) files, which is the quickest way to integrate Sigstore into your CI system. This quickstart also includes a [walkthrough](#using-cosign-within-your-ci-system) of using basic Cosign features in your workflows.
 
-## Using `gh-action-sigstore-python` to sign files within your CI System
+## Using gh-action-sigstore-python to sign files within your CI System
 
 This quickstart will show you how to integrate the `gh-action-sigstore-python` GitHub Action into your workflow to generate Sigstore Signatures. The example workflow will sign the file `to_be_signed.txt` in the project's root directory whenever a push is made to the main branch.
 
@@ -29,7 +29,9 @@ To following workflow will sign the file `to_be_signed.txt` in the project's roo
 
 ```yaml
 name: signing_files
-# This will trigger the workflow to run when commits are pushed to the main branch. This is easy for testing purposes, but for your final workflow use whatever event or schedule makes sense for your project.
+# This will trigger the workflow to run when commits are pushed to the main branch. 
+# This is easy for testing purposes, but for your final workflow use whatever event or schedule 
+# makes sense for your project.
 on:
   push:
     branches: [ main ]
@@ -80,17 +82,19 @@ The following workflow will install Cosign into your workflow environment.
 ```yaml
 name: install-cosign-and-use
 on:
-  # This will trigger the workflow to run when commits are pushed to the main branch. This is easy for testing purposes, but for your final workflow use whatever event or schedule makes sense for your project.
+  # This will trigger the workflow to run when commits are pushed to the main branch.
+  # This is easy for testing purposes, but for your final workflow use whatever event 
+  # or schedule makes sense for your project.
    push:
     branches: [ main ]
-# No special permissions are required to install cosign, but `id-token: write` is needed to sign with your workflow identity.
-permissions:
-  id-token: write
 
 jobs:
   install-cosign-and-use:
     name: Install Cosign
     runs-on: ubuntu-latest
+    # 'id-token' needs write permission to retrieve the OIDC token, which is required for authentication.
+    permissions:
+      id-token: write
     steps:
       - name: Install Cosign
         uses: sigstore/cosign-installer@v3.7.0
@@ -100,17 +104,13 @@ jobs:
 
 ### Signing and verifying a container image
 
-The ability to sign and verify container images is the primary benefit of using the cosign-installer GitHub Action. The following is an example workflow that will build a container image with QEMU and Docker Buildx, push that image to the GitHub Container Registry, sign the image, and then verify it. Replace your username, repository name, and branch name where indicated.
+The ability to sign and verify container images is the primary benefit of using the cosign-installer GitHub Action. The following is an example workflow that will build a container image with QEMU and Docker Buildx, push that image to the GitHub Container Registry, sign the image, and then verify it. Replace your username, repository name, workflow name, and branch name where indicated.
 
 ```yaml
 name: container-signing-and-verifying
 on:
   push:
     branches: [ main ]
-permissions:
-    contents: read
-    packages: write
-    id-token: write # needed for signing the images with GitHub OIDC Token       
 
 jobs:
   build-image:
