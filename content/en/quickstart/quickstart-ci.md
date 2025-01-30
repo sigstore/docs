@@ -27,12 +27,12 @@ Additional information and optional settings can be found in the [project's READ
 
 To following workflow will sign the file `to_be_signed.txt` in the project's root directory whenever a push is made to the main branch. To try it out, make sure to add the file `to_be_signed.txt` to your project, or substitute the file for one in your project.
 
-```console
+```yaml
 name: signing_files
 # This will trigger the workflow to run when commits are pushed to the main branch. This is easy for testing purposes, but for your final workflow use whatever event or schedule makes sense for your project.
 on:
-    push:
-        branches: [ main ]
+  push:
+    branches: [ main ]
 jobs:
   signing_files:
     runs-on: ubuntu-latest
@@ -41,7 +41,10 @@ jobs:
       id-token: write
     steps:
         # This step ensures that your project is available in the workflow environment.
-        - uses: actions/checkout@v3
+        - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
         # This step uses 'gh-action-sigstore-python' to sign the file designated in the inputs field.
         - uses: sigstore/gh-action-sigstore-python@v3.0.0
           with:
@@ -54,13 +57,13 @@ When run, this workflow returns the ephemeral certificate used to sign the file,
 
 The `gh-action-sigstore-python` GitHub Action includes an option to verify your generated signature. This is optional but a great way to understand the GitHub Action as you are integrating it into your CI for the first time. To verify the signature you just created, set the `verify` setting to true and include your expected `verify-cert-identity` and `verify-oidc-issuer` settings.
 
-```console
-        - uses: sigstore/gh-action-sigstore-python@v3.0.0
-          with:
-            inputs: to_be_signed.txt
-            verify: true
-            verify-cert-identity: https://github.com/USERNAME/REPOSITORY_NAME/.github/workflows/WORKFLOW_NAME@refs/heads/BRANCH_NAME
-            verify-oidc-issuer: https://token.actions.githubusercontent.com
+```yaml
+- uses: sigstore/gh-action-sigstore-python@v3.0.0
+  with:
+    inputs: to_be_signed.txt
+    verify: true
+    verify-cert-identity: https://github.com/USERNAME/REPOSITORY_NAME/.github/workflows/WORKFLOW_NAME@refs/heads/BRANCH_NAME
+    verify-oidc-issuer: https://token.actions.githubusercontent.com
 ```
 
 ## Using Cosign within your CI system
@@ -74,7 +77,7 @@ If you need functionality beyond simple signing of files and blobs, you can use 
 
 The following workflow will install Cosign into your workflow environment.
 
-```console
+```yaml
 name: install-cosign-and-use
 on:
   # This will trigger the workflow to run when commits are pushed to the main branch. This is easy for testing purposes, but for your final workflow use whatever event or schedule makes sense for your project.
@@ -99,15 +102,15 @@ jobs:
 
 The ability to sign and verify container images is the primary benefit of using the cosign-installer GitHub Action. The following is an example workflow that will build a container image with QEMU and Docker Buildx, push that image to the GitHub Container Registry, sign the image, and then verify it. Replace your username, repository name, and branch name where indicated.
 
-```console
+```yaml
 name: container-signing-and-verifying
 on:
-    push:
-        branches: [ main ]
+  push:
+    branches: [ main ]
 permissions:
     contents: read
     packages: write
-    id-token: write # needed for signing the images with GitHub OIDC Token            
+    id-token: write # needed for signing the images with GitHub OIDC Token       
 
 jobs:
   build-image:
@@ -120,9 +123,10 @@ jobs:
 
     name: build-image
     steps:
-      - uses: actions/checkout@v3.5.2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          persist-credentials: false
 
       - name: Install Cosign
         uses: sigstore/cosign-installer@v3.7.0
@@ -173,23 +177,23 @@ jobs:
 
 The cosign-installer GitHub Action can also do simpler tasks, like signing a blob. To sign a blob, add these steps to your workflow:
 
-```console
-      # This step makes sure your project is available in the workflow environment.
-      - name: Import project
-        uses: actions/checkout@v3
-      # This step signs a blob (a text file in the root directory named to_be_signed.txt). The `--yes` flag agrees to Sigstore's terms of use.
-      - name: Sign Blob
-        run: cosign sign-blob to_be_signed.txt --bundle cosign.bundle --yes
+```yaml
+# This step makes sure your project is available in the workflow environment.
+- name: Import project
+  uses: actions/checkout@v4
+# This step signs a blob (a text file in the root directory named to_be_signed.txt). The `--yes` flag agrees to Sigstore's terms of use.
+- name: Sign Blob
+  run: cosign sign-blob to_be_signed.txt --bundle cosign.bundle --yes
 ```
 
 ### Verifying a blob
 
-To veryify the signature that you just created, add the following step to your workflow.
+To verify the signature that you just created, add the following step to your workflow.
 
-```console
+```yaml
 - name: Verify blob
-        run: >
-          cosign verify-blob README.md --bundle cosign.bundle
-          --certificate-identity=https://github.com/USERNAME/REPOSITORY_NAME/.github/workflows/WORKFLOW_NAME@refs/heads/BRANCH_NAME
-          --certificate-oidc-issuer=https://token.actions.githubusercontent.com
+  run: >
+    cosign verify-blob README.md --bundle cosign.bundle
+    --certificate-identity=https://github.com/USERNAME/REPOSITORY_NAME/.github/workflows/WORKFLOW_NAME@refs/heads/BRANCH_NAME
+    --certificate-oidc-issuer=https://token.actions.githubusercontent.com
 ```
