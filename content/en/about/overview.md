@@ -42,11 +42,12 @@ Sigstore addresses these problems by helping users move away from a key-based si
 The signer ideally forgoes using long-lived keypairs. With “keyless” or “ephemeral key” signing, users verify the artifact using the transparency log for signature verification rather than keys. Sigstore improves on traditional methods of signing to be more convenient and secure:
 
 - **Convenience**: Users can take advantage of convenient tooling, easy container signing, and can even bypass the difficult problem of key management and rotation.
+- **Automation**: Users can also automate signing using our [CI tooling](({{< relref "quickstart/quickstart-ci">}})).
 - **Security**: With Sigstore, the artifact is not just signed; it’s signed with an ephemeral key, associated with a known identity, and publicly auditable.
 
 ## How Sigstore works
 
-A Sigstore client, such as Cosign, creates a public/private key pair and makes a certificate signing request to our code-signing certificate authority (Fulcio) with the public key. A verifiable OpenID Connect identity token, which contains a user's email address or service account, is also provided in the request. The certificate authority verifies this token and issues a short-lived certificate bound to the provided identity and public key.
+A Sigstore client, such as Cosign, creates a public/private key pair and makes a certificate signing request to our code-signing certificate authority (Fulcio) with the public key. A verifiable OpenID Connect (OIDC) identity token is also provided in the request. The OIDC token contains a user's email address or service account, or workflow information in the case of CI signing. The certificate authority verifies this token and issues a short-lived certificate bound to the provided identity and public key.
 
 You don’t have to manage signing keys, and Sigstore services never obtain your private key. The public key that a Sigstore client creates gets bound to the issued certificate, and the private key is discarded after a single signing.
 
@@ -65,6 +66,7 @@ To use Sigstore, you must first install the client. Review the [Installation]({{
 - To learn how to work with containers, see [sign a container]({{< relref "cosign/signing/signing_with_containers">}})
 - To use Gitsign, see [Sign Git commits with Gitsign]({{< relref "cosign/signing/gitsign">}})
 - To learn about verification, see [verify entries with Cosign]({{< relref "cosign/verifying/verify">}})
+- To learn about incorporating Sigstore into your CI System, see [our CI Quickstart]({{< relref "quickstart/quickstart-ci">}})
 
 ## Contributing
 
