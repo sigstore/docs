@@ -48,6 +48,17 @@ We designed `cosign` to meet a few specific requirements.  The design requiremen
 * Signing an image does not mutate the image
 * Pure-go implementation
 
+## Sigstore and Continuous Integration
+
+### Are there tools available to integrate Sigstore into my CI System?
+
+Yes! Sigstore currently has two GitHub Actions that make it easy to use Sigstore in your workflows.
+
+1. The [`gh-action-sigstore-python`](https://github.com/sigstore/gh-action-sigstore-python) GitHub Action is the easiest way to generate Sigstore signatures for your project, regardless of language ecosystem.
+2. The [`cosign-installer`](https://github.com/sigstore/cosign-installer) GitHub Action installs Cosign into your workflow environment. You can use all the features of Cosign when writing your workflow. This GitHub Action allows for container signing.
+
+You can learn more about using these GitHub Actions in our [Sigstore CI Quickstart]({{< relref "quickstart/quickstart-ci">}})
+
 ## Gitsign
 
 ### Why use Gitsign instead of the usual commit signing workflow?
