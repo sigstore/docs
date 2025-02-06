@@ -39,8 +39,8 @@ permissions:
 
 When verifying a signature generated through a workflow on GitHub, you can expect the following values:
 
-- **certificate-oidc-issuer**: https://token.actions.githubusercontent.com
-- **certificate-identity**: https://github.com/USERNAME/REPOSITORY_NAME/.github/workflows/WORKFLOW_NAME@refs/heads/BRANCH_NAME
+* **certificate-oidc-issuer**: https://token.actions.githubusercontent.com
+* **certificate-identity**: https://github.com/USERNAME/REPOSITORY_NAME/.github/workflows/WORKFLOW_NAME@refs/heads/BRANCH_NAME
 
 Sigstore currently offers two different GitHub Actions ([`consign-installer`](https://github.com/marketplace/actions/cosign-installer) and [`gh-action-sigstore-installer`](https://github.com/sigstore/gh-action-sigstore-python)) to help you easily integrate Sigstore into your workflows. You can learn more about them in our [CI Quickstart]({{< relref "quickstart/quickstart-ci">}})
 
