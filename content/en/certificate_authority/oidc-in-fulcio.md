@@ -26,9 +26,25 @@ Email-based OIDC providers use the user's email as the subject of the certificat
 
 ### Source repository
 
+#### GitHub
+
 GitHub supports OIDC tokens for its workflows initiated from GitHub Actions. This removes the need for persisting authentication credentials. OIDC tokens include information about the workflow and source repository.
 
-* GitHub Actions (`token.actions.githubusercontent.com`)
+You must include the proper permissions in your workflow to use an OIDC token.
+
+```yaml
+permissions:
+    id-token: write
+```
+
+When verifying a signature generated through a workflow on GitHub, you can expect the following values:
+
+* **certificate-oidc-issuer**: https://token.actions.githubusercontent.com
+* **certificate-identity**: https://github.com/USERNAME/REPOSITORY_NAME/.github/workflows/WORKFLOW_NAME@refs/heads/BRANCH_NAME
+
+Sigstore currently offers two different GitHub Actions ([`cosign-installer`](https://github.com/marketplace/actions/cosign-installer) and [`gh-action-sigstore-installer`](https://github.com/sigstore/gh-action-sigstore-python)) to help you easily integrate Sigstore into your workflows. You can learn more about them in our [CI Quickstart]({{< relref "quickstart/quickstart-ci">}})
+
+#### GitLab
 
 GitLab supports OIDC tokens for its workflows initiated from GitLab CI/CD pipelines. This removes the need for persisting authentication credentials. OIDC tokens include information about the workflow and source repository.
 
