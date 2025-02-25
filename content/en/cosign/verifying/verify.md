@@ -5,6 +5,8 @@ title: Verifying Signatures
 weight: 300
 ---
 
+When an artifact, blob, or container image is verified, the [full potential of Sigstore]({{< relref "about/the-importance-of-verification">}}) to secure the software supply chain is achieved. 
+
 > **Note**: To verify a signed artifact or blob, first [install Cosign]({{< relref "cosign/system_config/installation">}}), then follow the instructions below.
 
 The general verification format with the `cosign verify` command is as follows.
@@ -12,6 +14,9 @@ The general verification format with the `cosign verify` command is as follows.
 ```shell
 $ cosign verify [--key <key path>|<key url>|<kms uri>] <image uri>
 ```
+Where
+
+
 ## Keyless verification using OpenID Connect
 
 We'll use `user/demo` as our example image in the following commands and keyless signing where appropriate.

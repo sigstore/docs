@@ -4,7 +4,7 @@ category: About Sigstore
 description: Documentation for Sigstore
 home: true
 title: Overview
-weight: 1
+weight: 10
 ---
 
 ![Sigstore](sigstore-logo_horizontal-color.svg)
@@ -65,7 +65,7 @@ To use Sigstore, you must first install the client. Review the [Installation]({{
 - To learn how to work with blobs, see [sign a blob]({{< relref "cosign/signing/signing_with_blobs">}})
 - To learn how to work with containers, see [sign a container]({{< relref "cosign/signing/signing_with_containers">}})
 - To use Gitsign, see [Sign Git commits with Gitsign]({{< relref "cosign/signing/gitsign">}})
-- To learn about verification, see [verify entries with Cosign]({{< relref "cosign/verifying/verify">}})
+- To learn about verification, see [the importance of verification]({{< relref "about/the-importance-of-verification">}}) and [verify entries with Cosign]({{< relref "cosign/verifying/verify">}})
 - To learn about incorporating Sigstore into your CI System, see [our CI Quickstart]({{< relref "quickstart/quickstart-ci">}})
 
 ## Contributing
