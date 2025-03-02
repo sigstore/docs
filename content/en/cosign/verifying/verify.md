@@ -5,17 +5,15 @@ title: Verifying Signatures
 weight: 300
 ---
 
-When an artifact, blob, or container image is verified, the [full potential of Sigstore]({{< relref "about/the-importance-of-verification">}}) to secure the software supply chain is achieved. 
+When an artifact, blob, or container image is verified, the [full potential of Sigstore]({{< relref "about/the-importance-of-verification">}}) to secure the software supply chain is achieved.
 
 > **Note**: To verify a signed artifact or blob, first [install Cosign]({{< relref "cosign/system_config/installation">}}), then follow the instructions below.
 
 The general verification format with the `cosign verify` command is as follows.
 
 ```shell
-$ cosign verify [--key <key path>|<key url>|<kms uri>] <image uri>
+cosign verify [--key <key path>|<key url>|<kms uri>] <image uri>
 ```
-Where
-
 
 ## Keyless verification using OpenID Connect
 
@@ -24,8 +22,8 @@ We'll use `user/demo` as our example image in the following commands and keyless
 For identity-based verification of a container image, use the following command:
 
 ```
-$ cosign verify <image URI> --certificate-identity=name@example.com
-                            --certificate-oidc-issuer=https://accounts.example.com
+cosign verify <image URI> --certificate-identity=name@example.com
+                          --certificate-oidc-issuer=https://accounts.example.com
 
 ```
 
@@ -34,8 +32,8 @@ The oidc-issuer for Google is https://accounts.google.com, Microsoft is https://
 The following example verifies the signature on file.txt from user name@example.com issued by accounts@example.com. It uses a provided bundle cosign.bundle that contains the certificate and signature.
 
 ```
-$ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@example.com
-                              --certificate-oidc-issuer=https://accounts.example.com
+cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@example.com
+                          --certificate-oidc-issuer=https://accounts.example.com
 ```
 
 With container images, the signature and certificate are attached to the container.  For blobs, the signature and certificate can be stored in a bundle file that is created at the time of signing.  Either the bundle must be specified, or the individual signature and certificate must be specified.
@@ -61,7 +59,7 @@ verify any claims in the payload.
 You can pass more than one image to `cosign verify`.
 
 ```shell
-$ cosign verify user-0/demo-0 user-1/demo-1
+cosign verify user-0/demo-0 user-1/demo-1
 ```
 
 ## Local verifications
@@ -69,19 +67,19 @@ $ cosign verify user-0/demo-0 user-1/demo-1
 Verify with an on-disk public key provided by the signer or other organization:
 
 ```shell
-$ cosign verify --key cosign.pub user/demo
+cosign verify --key cosign.pub user/demo
 ```
 
 Verify with an on-disk signed image from `cosign save`:
 
 ```shell
-$ cosign verify --key cosign.pub --local-image PATH/to/user/demo
+cosign verify --key cosign.pub --local-image PATH/to/user/demo
 ```
 
 Verify image with local certificate and local certificate chain:
 
 ```shell
-$ cosign verify --certificate cosign.crt --certificate-chain chain.crt --certificate-oidc-issuer https://issuer.example.com --certificate-identity foo@example.com user/demo
+cosign verify --certificate cosign.crt --certificate-chain chain.crt --certificate-oidc-issuer https://issuer.example.com --certificate-identity foo@example.com user/demo
 ```
 
 ## Verify image with user-provided trusted chain
@@ -93,14 +91,14 @@ Verify image with the provided certificate chain(s) and identity parameters (int
 certificates followed by the root CA certificate - use the `--certificate-chain` parameter:
 
 ```shell
-$ cosign verify --certificate-chain chain.crt --certificate-oidc-issuer https://issuer.example.com --certificate-identity foo@example.com user/demo
+cosign verify --certificate-chain chain.crt --certificate-oidc-issuer https://issuer.example.com --certificate-identity foo@example.com user/demo
 ```
 
 * with a certificate bundle PEM file containing several CA roots and (optionally)
 intermediate certificates, use the `--ca-roots` parameter together with `--ca-intermediates`:
 
 ```shell
-$ cosign verify --ca-roots ca-roots.pem --ca-intermediates ca-intermediates \
+cosign verify --ca-roots ca-roots.pem --ca-intermediates ca-intermediates \
   --certificate-oidc-issuer https://issuer.example.com \
   --certificate-identity foo@example.com user/demo
 ```
@@ -110,7 +108,7 @@ The `--ca-roots` and `--ca-intermediates` flags are mutually exclusive with `--c
 ## Verify an image on the transparency log
 
 ```shell
-$ cosign verify user/demo
+cosign verify user/demo
 ```
 
 ## Verify attestation
@@ -118,19 +116,19 @@ $ cosign verify user/demo
 You can verify attestations on an image with `verify-attestation`.
 
 ```shell
-$ cosign verify-attestation user/demo
+cosign verify-attestation user/demo
 ```
 
 This will work with other flags, for example public key.
 
 ```shell
-$ cosign verify-attestation --key cosign.pub user/demo
+cosign verify-attestation --key cosign.pub user/demo
 ```
 
 You can also verify an attestation with the transparency log.
 
 ```shell
-$ cosign verify-attestation user/demo
+cosign verify-attestation user/demo
 ```
 
 ## Verify annotations
@@ -178,7 +176,7 @@ invalid or missing annotation in claim: map[sig:original]
 
 Each signature is printed to `stdout` in a JSON format:
 
-```
+```shell
 $ cosign download signature us-central1-docker.pkg.dev/user-vmtest2/test/taskrun
 {"Base64Signature":"Ejy6ipGJjUzMDoQFePWixqPBYF0iSnIvpMWps3mlcYNSEcRRZelL7GzimKXaMjxfhy5bshNGvDT5QoUJ0tqUAg==","Payload":"eyJDcml0aWNhbCI6eyJJZGVudGl0eSI6eyJkb2NrZXItcmVmZXJlbmNlIjoiIn0sIkltYWdlIjp7IkRvY2tlci1tYW5pZmVzdC1kaWdlc3QiOiI4N2VmNjBmNTU4YmFkNzliZWVhNjQyNWEzYjI4OTg5ZjAxZGQ0MTcxNjQxNTBhYjNiYWFiOThkY2JmMDRkZWY4In0sIlR5cGUiOiIifSwiT3B0aW9uYWwiOm51bGx9"}
 ```
@@ -221,8 +219,8 @@ This may require special permissions, depending on the service.
 Another option is to use `cosign` to export the public key from the service, and you can use that to verify signatures:
 
 ```shell
-$ cosign public-key --key <some provider>://<some key> > kms.pub
-$ cosign verify --key kms.pub gcr.io/user-vmtest2/demo
+cosign public-key --key <some provider>://<some key> > kms.pub
+cosign verify --key kms.pub gcr.io/user-vmtest2/demo
 ```
 
 KMS:

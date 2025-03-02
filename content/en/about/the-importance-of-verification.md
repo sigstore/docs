@@ -18,7 +18,7 @@ So we would like to implore you to not only make use of our [signing tools](({{<
 
 Verfication requires the user of your software to have prior knowledge of the identity of the signer. To help users successfully verify your project we recommend that you publish the signature information in an easily discoverable place that can only be updated by trusted people. For example, the Python Software Foundation [publishes](https://www.python.org/downloads/metadata/sigstore/) a table that includes each signed CPython release, the release manager's email address, and the associated OIDC issuer.
 
-Your project README is an excellent place to let your users know that your project is signed with Sigstore and include a link to further signature information. 
+Your project README is an excellent place to let your users know that your project is signed with Sigstore and include a link to further signature information.
 
 ## Verification Information
 
