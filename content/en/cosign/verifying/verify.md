@@ -21,17 +21,16 @@ We'll use `user/demo` as our example image in the following commands and keyless
 
 For identity-based verification of a container image, use the following command:
 
-```
+```shell
 cosign verify <image URI> --certificate-identity=name@example.com
                           --certificate-oidc-issuer=https://accounts.example.com
-
 ```
 
 The oidc-issuer for Google is https://accounts.google.com, Microsoft is https://login.microsoftonline.com, GitHub is https://github.com/login/oauth, and GitLab is https://gitlab.com.
 
 The following example verifies the signature on file.txt from user name@example.com issued by accounts@example.com. It uses a provided bundle cosign.bundle that contains the certificate and signature.
 
-```
+```shell
 cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@example.com
                           --certificate-oidc-issuer=https://accounts.example.com
 ```
@@ -224,6 +223,7 @@ cosign verify --key kms.pub gcr.io/user-vmtest2/demo
 ```
 
 KMS:
+
 ```shell
 # Retrieve from Google Cloud KMS
 $ cosign public-key --key gcpkms://projects/someproject/locations/us-central1/keyRings/foo/cryptoKeys/bug/versions/1
@@ -239,6 +239,7 @@ MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgrKKtyws86/APoULh/zXk4LONqII
 AcxvLtLEgRjRI4TKnMAXtIGp8K4X4CTWPEXMqSYZZUa2I1YvHyLLY2bEzA==
 -----END PUBLIC KEY-----
 ```
+
 ## Custom Components
 
 For configuring Cosign to work with custom components, checkout the [Configuring Cosign with Custom Components]({{< relref "cosign/system_config/custom_components">}}) docs to find out how to achieve this.
@@ -247,7 +248,7 @@ For configuring Cosign to work with custom components, checkout the [Configuring
 
 You can override the public good instance CA using the environment variable `SIGSTORE_ROOT_FILE` by running the following.
 
-```
+```shell
 export SIGSTORE_ROOT_FILE="/home/jdoe/myrootCA.pem"
 ```
 
