@@ -263,6 +263,7 @@ You can take existing signed material and make a new protobuf bundle with `cosig
 ### Verify a signature was added to the transparency log
 
 There are two options for verifying a Cosign signature was added to a transparency log:
+
 1. Check the log to make sure the entry exists in the log
 2. Use the `bundle` annotation on a Cosign signature to verify an element was added to the log without hitting the log
 
@@ -273,6 +274,7 @@ The SET can be verified with the logs public key and used to prove that an eleme
 For more details on how the `bundle` annotation is formatted, review the Cosign [spec](https://github.com/sigstore/cosign/blob/main/specs/SIGNATURE_SPEC.md).
 
 To verify the `bundle` annotation, follow these steps:
+
 1. Marshal the `bundle` Payload into JSON
-1. Canonicalize the payload by following RFC 8785 rules
-1. Verify the canonicalized payload and signedEntryTimestamp against the transparency logs public key
+2. Canonicalize the payload by following RFC 8785 rules
+3. Verify the canonicalized payload and signedEntryTimestamp against the transparency logs public key
