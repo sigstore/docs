@@ -3,7 +3,7 @@ type: docs
 category: About sigstore
 description: ''
 title: Security Model
-weight: 3
+weight: 30
 ---
 
 The Sigstore security model has a few key components, each aimed at establishing trust or proving identity. For a quick overview of the key services mentioned in this document, see [Tooling]({{< relref "about/tooling">}}).

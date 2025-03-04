@@ -9,7 +9,7 @@ features:
 - OpenID Connect (means of authentication)
 - policy-controller (enforcing container orchestration policy)
 title: Tooling
-weight: 2
+weight: 20
 ---
 
 Sigstore combines several different technologies that focus on automatic key management and transparency logs. They can be used independently or as one single process, and together they create a safer chain of custody tracing software back to the source.

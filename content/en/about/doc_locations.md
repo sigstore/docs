@@ -3,7 +3,7 @@ type: docs
 category: About Sigstore
 menuTitle: Documentation Locations
 title: Documentation Locations
-weight: 33
+weight: 100
 ---
 
 This document describes where to house new Sigstore documentation based on topic and intended audience.

@@ -3,7 +3,7 @@ type: docs
 category: About sigstore
 description: ''
 title: Research
-weight: 40
+weight: 120
 ---
 
 ## Sigstore Research

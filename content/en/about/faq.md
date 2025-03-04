@@ -3,7 +3,7 @@ type: docs
 category: About sigstore
 menuTitle: FAQs
 title: Frequently asked questions
-weight: 35
+weight: 110
 ---
 
 This FAQ is intended to go as in depth as possible for anyone using sigstore.

@@ -3,7 +3,7 @@ type: docs
 category: About sigstore
 description: Information about the Sigstore bundle format
 title: Sigstore Bundle Format
-weight: 4
+weight: 50
 ---
 
 Last updated January 14, 2025

@@ -3,7 +3,7 @@ type: docs
 category: About sigstore
 description: ''
 title: Threat Model
-weight: 3
+weight: 40
 ---
 
 ## Introduction
