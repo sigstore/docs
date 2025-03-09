@@ -24,7 +24,7 @@ is satisfied by the **Verification Material** and signature **Content**.
 
 ### Verification Material
 
-This is key material used to verify signatures along with supporting metadata like transparency log entries and timestamps. When using short lived Fulcio certificates where verification may occur after the certificate has expired, bundles must include at least one transparency log's signed entry timestamp or an [RFC3161](https://www.ietf.org/rfc/rfc3161.txt) timestamp to provide proof that signing occured during the ceritificates validity window.
+This is key material used to verify signatures along with supporting metadata like transparency log entries and timestamps. When using short lived Fulcio certificates where verification may occur after the certificate has expired, bundles must include at least one transparency log's signed entry timestamp or an [RFC3161](https://www.ietf.org/rfc/rfc3161.txt) timestamp to provide proof that signing occurred during the certificates validity window.
 
 #### Key Material
 
