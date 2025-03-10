@@ -8,7 +8,7 @@ weight: 70
 
 ## A note on verification
 
-As we learned in the [Sigstore overview](({{< relref "about/overview">}})), the Sigstore framework and tooling empowers software developers and consumers to securely sign and verify software artifacts (release files, container images, SBOMs, etc).
+As we learned in the [Sigstore overview](({{< relref "about/overview">}})), the Sigstore framework and tooling empowers software developers and consumers to securely sign and verify software artifacts (release files, container images, attestations, SBOMs, etc).
 
 With so many tools, and the ability to sign so many types of software artifacts, it could be easy to focus on the details of how to use the project and miss the large picture of what Sigstore is trying to accomplish. Our end goal is a secure software supply chain, but if projects are only using Sigstore to sign their artifacts and no one is verifying those signatures, we are no closer to our goal. A signature becomes valuable when it is checked.
 
