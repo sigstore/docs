@@ -24,6 +24,6 @@ Your project README is an excellent place to let your users know that your proje
 
 Here are some quick links to further information on using Sigstore's verification tooling.
 
-* [Identity Verification Cheat Sheet](({{< relref "quickstart/verification-cheat-sheet">}}))
-* [Verifying with Cosign](({{< relref "cosign/verifying/verify">}}))
-* [Verifying using CI](({{< relref "quickstart/quickstart-ci">}}))
+* [Identity Verification Cheat Sheet]({{< relref "quickstart/verification-cheat-sheet">}})
+* [Verifying with Cosign]({{< relref "cosign/verifying/verify">}})
+* [Verifying using CI]({{< relref "quickstart/quickstart-ci">}})
