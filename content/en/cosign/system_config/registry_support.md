@@ -22,6 +22,7 @@ Today, Cosign has been tested and works against the following registries:
 * Digital Ocean Container Registry
 * Sonatype Nexus Container Registry
 * Alibaba Cloud Container Registry
+* Quay.io and Project Quay Container Registry
 
 We aim for wide registry support. To sign images in registries which do not yet fully support OCI media types, one may need to use `COSIGN_DOCKER_MEDIA_TYPES` to fall back to legacy equivalents. For example:
 
