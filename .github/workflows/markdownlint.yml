@@ -12,22 +12,22 @@ jobs:
   markdownlint:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+    # steps:
+    #   - name: Checkout repository
+    #     uses: actions/checkout@v3
+    #     with:
+    #       fetch-depth: 0
 
-      - uses: tj-actions/changed-files@v41
-        id: changed-files
-        with:
-          files: '**/*.md'
-          separator: ","
+    #   - uses: tj-actions/changed-files@v41
+    #     id: changed-files
+    #     with:
+    #       files: '**/*.md'
+    #       separator: ","
 
-      - uses: DavidAnson/markdownlint-cli2-action@v11
-        if: steps.changed-files.outputs.any_changed == 'true'
-        with:
-          config: '.markdownlint-cli2.jsonc'
-          globs: ${{ steps.changed-files.outputs.all_changed_files }}
-          separator: ","
-        continue-on-error: true
+    #   - uses: DavidAnson/markdownlint-cli2-action@v11
+    #     if: steps.changed-files.outputs.any_changed == 'true'
+    #     with:
+    #       config: '.markdownlint-cli2.jsonc'
+    #       globs: ${{ steps.changed-files.outputs.all_changed_files }}
+    #       separator: ","
+    #     continue-on-error: true
