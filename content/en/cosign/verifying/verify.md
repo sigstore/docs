@@ -265,7 +265,7 @@ You can take existing signed material and make a new protobuf bundle with `cosig
 There are two options for verifying a Cosign signature was added to a transparency log:
 
 1. Check the log to make sure the entry exists in the log
-2. Use the `bundle` annotation on a Cosign signature to verify an element was added to the log without hitting the log
+1. Use the `bundle` annotation on a Cosign signature to verify an element was added to the log without hitting the log
 
 The Cosign `bundle` annotation contains a Signed Entry Timestamp (SET), which is conceptually similar to an SCT in a Web PKI system.
 The SET is a signed inclusion promise provided by the transparency log, which acts as a guarantee by the log that an element has been included in it.
@@ -276,5 +276,5 @@ For more details on how the `bundle` annotation is formatted, review the Cosign 
 To verify the `bundle` annotation, follow these steps:
 
 1. Marshal the `bundle` Payload into JSON
-2. Canonicalize the payload by following RFC 8785 rules
-3. Verify the canonicalized payload and signedEntryTimestamp against the transparency logs public key
+1. Canonicalize the payload by following RFC 8785 rules
+1. Verify the canonicalized payload and signedEntryTimestamp against the transparency logs public key
