@@ -3,7 +3,7 @@ type: docs
 category: About sigstore
 description: ''
 title: Get Help
-weight: 30
+weight: 90
 ---
 
 If you are not able to find the relevant information to solve your issue, you can still get help from the `sigstore` community!

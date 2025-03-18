@@ -3,7 +3,7 @@ type: docs
 category: About sigstore
 description: Intro text
 title: Contributing
-weight: 20
+weight: 80
 ---
 
 ## Contributing as a developer
