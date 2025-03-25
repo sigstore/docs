@@ -87,7 +87,7 @@ brew install gitsign
 
 gitsign is now available in development releases of Debian and Ubuntu, and should be available to `apt install` starting with Ubuntu 25.04 ('plucky') and Debian ('trixie').
 
-Meanwhile, you can check the [releases page](https://github.com/sigstore/cosign/releases) for the
+Meanwhile, you can check the [releases page](https://github.com/sigstore/gitsign/releases) for the
 latest release, and download the appropriate `.deb` file.
 
 ```console
