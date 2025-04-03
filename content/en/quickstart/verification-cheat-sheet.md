@@ -8,7 +8,7 @@ weight: 20
 
 ## Identity Verification Cheat Sheet
 
-### Verying identity from OIDC issuers
+### Verifying identity from OIDC issuers
 
 To verify a signature created with an OIDC issuer, you need to know the following:
 
