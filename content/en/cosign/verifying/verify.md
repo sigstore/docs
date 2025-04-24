@@ -260,6 +260,8 @@ The new format is disabled by default in Cosign v2.x. As of Cosign v2.4.x, the n
 
 In order to use the new bundle format, you must set `--new-bundle-format=true` when signing or verifying. The new bundle format is coupled with an internal restructuring of the verification logic, including the switch to the Trusted Root file. For users operating a private Sigstore instance, this means that the `--trusted-root` flag is now required for verification.
 
+When using the new bundle format for signing container image attestations, Cosign now uses the OCI 1.1 Referrers API to store the attestation bundle in the registry as a referrer to the image. This is in contrast to the previous bundle format, which stored the individual signature, certificate, and other metadata as annotations on specially-tagged manifests. This makes image signatures more portable and easier to manage.
+
 You can take existing signed material and make a new protobuf bundle with `cosign bundle create ...`.
 
 ## Experimental Features
