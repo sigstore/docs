@@ -192,6 +192,32 @@ regular expressions.
   - `issuer`: specifies the issuer certificate was issued by. Regex patterns are supported through the `issuerRegExp` key.
   - `subject`: specifies the subject certificate was issued to. Regex patterns are supported through the `subjectRegExp` key.
 
+#### Sigstore bundle format
+
+Policy Controller v0.13.0 added support for the recently introduced [Sigstore bundle format]({{< relref "about/bundle" >}}), which changes the way signatures and attestations are serialized and stored. These changes were made [starting in Cosign v2.4.0]({{< relref "cosign/verifying/verify#new-bundle-format" >}}) to standardize the way Sigstore metadata is represented across multiple language clients and to align with the OCI 1.1 manifest referrers API.
+
+Currently only attestations, not plain signatures, are supported in the bundle format. If using Cosign to attest the image with `--new-bundle-format`, you'll need to enable the bundle signature format in your `ClusterImagePolicy` using the `signatureFormat` field. For example:
+
+```yaml
+apiVersion: policy.sigstore.dev/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: image-policy
+spec:
+  images:
+  - glob: "**"
+  authorities:
+  - keyless:
+      url: https://fulcio.example.com
+      identities:
+        - issuer: https://accounts.google.com
+          subject:
+  signatureFormat: bundle
+  attestations:
+  - name: require-attestation
+    predicateType: https://slsa.dev/provenance/v1
+```
+
 ### Configuring `static` authorities
 
 Authorities can be `static` specifications. These are used for example when

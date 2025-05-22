@@ -3,7 +3,7 @@ type: docs
 category: About sigstore
 description: ''
 title: Threat Model
-weight: 3
+weight: 40
 ---
 
 ## Introduction
@@ -28,7 +28,7 @@ It does not guarantee that the signer *should* be able to authenticate (for inst
 Further, if Sigstore itself is compromised, this property may not hold; see our analysis below.
 
 **What should I do or keep in mind to mitigate these threats when using Sigstore?**
-First, users of Sigstore should ensure that they have tooling to audit Sigstore’s transparency logs for consistency and to monitor the use of their identities in Sigstore. Sistore operators provide [some tooling](https://github.com/sigstore/rekor-monitor) for these efforts. Second, all OIDC accounts used to create Sigstore signatures should have 2FA enabled to reduce the likelihood of a compromise.
+First, users of Sigstore should ensure that they have tooling to audit Sigstore’s transparency logs for consistency and to monitor the use of their identities in Sigstore. Sigstore operators provide [some tooling](https://github.com/sigstore/rekor-monitor) for these efforts. Second, all OIDC accounts used to create Sigstore signatures should have 2FA enabled to reduce the likelihood of a compromise.
 
 In this threat model, we consider the compromise of any of the following:
 

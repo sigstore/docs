@@ -85,12 +85,14 @@ brew install gitsign
 
 ### Installing Gitsign with the `.deb` Package (Debian / Ubuntu Linux)
 
-Check the [releases page](https://github.com/sigstore/cosign/releases) for the
+gitsign is now available in development releases of Debian and Ubuntu, and should be available to `apt install` starting with Ubuntu 25.04 ('plucky') and Debian ('trixie').
+
+Meanwhile, you can check the [releases page](https://github.com/sigstore/gitsign/releases) for the
 latest release, and download the appropriate `.deb` file.
 
 ```console
-wget https://github.com/sigstore/gitsign/releases/download/v0.7.1/gitsign_0.7.1_linux_amd64.deb
-sudo dpkg -i gitsign_0.7.1_linux_amd64.deb
+wget https://github.com/sigstore/gitsign/releases/download/v<ver>/gitsign_<ver>_linux_amd64.deb
+sudo dpkg -i gitsign_<ver>_linux_amd64.deb
 ```
 
 ### Installing Gitsign with the `.rpm` Package (Fedora Linux)
@@ -99,8 +101,8 @@ Check the [releases page](https://github.com/sigstore/cosign/releases) for the
 latest release, and download the appropriate `.rpm` file.
 
 ```console
-wget https://github.com/sigstore/gitsign/releases/download/v0.7.1/gitsign_0.7.1_linux_amd64.rpm
-rpm -ivh gitsign_0.7.1_linux_amd64.rpm
+wget https://github.com/sigstore/gitsign/releases/download/v<ver>/gitsign_<ver>_linux_amd64.rpm
+rpm -ivh gitsign_<ver>_linux_amd64.rpm
 ```
 
 ## Checking your Installation

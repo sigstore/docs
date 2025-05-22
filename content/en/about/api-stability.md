@@ -3,7 +3,7 @@ type: docs
 category: About sigstore
 description: API stability levels and deprecation policy
 title: API Stability and Deprecation Policy
-weight: 5
+weight: 60
 ---
 
 This document covers API stability and the deprecation policy for Sigstore APIs and client libraries.

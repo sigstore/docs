@@ -1,6 +1,12 @@
-# Sigstore Bundle
+---
+type: docs
+category: About sigstore
+description: Information about the Sigstore bundle format
+title: Sigstore Bundle Format
+weight: 50
+---
 
-October 31, 2024
+Last updated January 14, 2025
 
 Version 0.3.2
 
@@ -18,7 +24,7 @@ is satisfied by the **Verification Material** and signature **Content**.
 
 ### Verification Material
 
-This is key material used to verify signatures along with supporting metadata like transparency log entries and timestamps. When using short lived Fulcio certificates where verification may occur after the certificate has expired, bundles must include at least one transparency log's signed entry timestamp or an [RFC3161](https://www.ietf.org/rfc/rfc3161.txt) timestamp to provide proof that signing occured during the ceritificates validity window.
+This is key material used to verify signatures along with supporting metadata like transparency log entries and timestamps. When using short lived Fulcio certificates where verification may occur after the certificate has expired, bundles must include at least one transparency log's signed entry timestamp or an [RFC3161](https://www.ietf.org/rfc/rfc3161.txt) timestamp to provide proof that signing occurred during the certificates validity window.
 
 #### Key Material
 
@@ -130,15 +136,12 @@ artifact at verification time.
 
 #### DSSE
 
-A DSSE envelope can contain arbitrary payloads. Currently Sigstore clients only process the
-payload type `"application/vnd.in-toto+json"`. Verifiers must verify that the payload type is a
-supported and expected type. DSSE envelopes contained in a Sigstore Bundle must only contain a
-single signature (the DSSE spec allows multiple).
+The DSSE envelope in a Sigstore Bundle must conform to the [in-toto Envelope layer specification](https://github.com/in-toto/attestation/blob/main/spec/v1/envelope.md) where `payloadType` is `"application/vnd.in-toto+json"` and the payload is an [in-toto statement](https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md). DSSE envelopes in a Sigstore Bundle must also contain only a single signature (the DSSE spec allows multiple).
 
 ```json
 "dsseEnvelope": {
   {
-    "payload": "<Base64(JSON_PAYLOAD)>",
+    "payload": "<Base64(JSON_IN_TOTO_STATEMENT)>",
     "payloadType": "application/vnd.in-toto+json",
     "signatures": [{
       "keyid": "<KEY_ID>",

@@ -3,7 +3,7 @@ type: docs
 category: About sigstore
 description: ''
 title: Get Help
-weight: 30
+weight: 90
 ---
 
 If you are not able to find the relevant information to solve your issue, you can still get help from the `sigstore` community!
@@ -12,7 +12,7 @@ This page describe how you could get in touch with us to get support.
 
 ## Help from the community
 
-Sigstore has a [Slack community](https://sigstore.slack.com/), and you can [request an invite at this link](https://join.slack.com/t/sigstore/shared_invite/zt-1z7jzpemb-xEKSUtpgDFXpIEMwMYZQKQ). Please post any support requests in the `#general` channel.
+Sigstore has a [Slack community](https://sigstore.slack.com/), and you can [request an invite at this link](https://join.slack.com/t/sigstore/shared_invite/zt-2ub0ztl5z-PkWb_Ldwef5d6nb~oryaTA). Please post any support requests in the `#general` channel.
 
 ## Help from project maintainers
 
