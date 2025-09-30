@@ -1,6 +1,6 @@
 ---
 type: docs
-category: About sigstore
+category: About Sigstore
 description: ''
 features:
 - Cosign (signing, verification and storage for containers and other artifacts)

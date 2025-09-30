@@ -13,7 +13,7 @@ The location for Sigstore repositories and associated documentation is at [http:
 - **Documentation for Sigstore users**: those who want to sign or verify artifacts or create integrations with using tooling.
 - **Documentation for Sigstore Developers**: those who are changing the modules (Cosign, Rekor, etc.) of Sigstore, adding support for new languages, or implementing new features for the Sigstore suite of tooling.
 
-Documentation for users is on the website [https://docs.sigstore.dev](https://docs.sigstore.dev) and the website [https://sigstore.dev](https://sigstore.dev). Sigstore.dev contains a marketing-type first look into what Sigstore is and how it works, while docs.sigstore.dev contains instructions on how to use the software.
+User documentation can be found at [https://docs.sigstore.dev](https://docs.sigstore.dev) and on the project's website [https://sigstore.dev](https://sigstore.dev). Sigstore.dev contains a marketing-type first look into what Sigstore is and how it works, while docs.sigstore.dev contains instructions on how to use the software.
 
 Documentation for developers is housed within the GitHub repository for each module and contains the information to help developers understand how the software itself works and what to do to add new features and build.
 

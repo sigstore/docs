@@ -1,12 +1,12 @@
 ---
 type: docs
-category: About sigstore
+category: About Sigstore
 description: ''
 title: Get Help
 weight: 90
 ---
 
-If you are not able to find the relevant information to solve your issue, you can still get help from the `sigstore` community!
+If you are not able to find the relevant information to solve your issue, you can still get help from the Sigstore community!
 
 This page describe how you could get in touch with us to get support.
 
@@ -18,10 +18,10 @@ Sigstore has a [Slack community](https://sigstore.slack.com/), and you can [requ
 
 Each repository has a `CODEOWNERS` file describing current maintainers. Join our Slack channel and get in touch with them.
 
-- [`cosign` maintainers][cosign]
-- [`fulcio` maintainers][fulcio]
-- [`rekor` maintainers][rekor]
-- [`sigstore` library maintainers][sigstore]
+- [Cosign maintainers][cosign]
+- [Fulcio maintainers][fulcio]
+- [Rekor maintainers][rekor]
+- [Sigstore library maintainers][sigstore]
 
 [cosign]: https://github.com/sigstore/cosign/blob/main/CODEOWNERS
 [fulcio]: https://github.com/sigstore/fulcio/blob/main/CODEOWNERS

@@ -1,6 +1,6 @@
 ---
 type: docs
-category: About sigstore
+category: About Sigstore
 description: ''
 title: Research
 weight: 120
