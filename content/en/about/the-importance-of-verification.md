@@ -1,6 +1,6 @@
 ---
 type: docs
-category: About sigstore
+category: About Sigstore
 menuTitle: The Importance of Verification
 title: The Importance of Verification
 weight: 70

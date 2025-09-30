@@ -1,6 +1,6 @@
 ---
 type: docs
-category: About sigstore
+category: About Sigstore
 description: Intro text
 title: Contributing
 weight: 80

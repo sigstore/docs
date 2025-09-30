@@ -58,7 +58,7 @@ This will create a new Merkle Tree which will become the new active shard.
     # This is the Tree ID of the new active shard
     NEW_TREE_ID=$(createtree --admin_server localhost:8090)
     ```
-    > **Note:** sigstore helm charts use port 8091 for gRPC
+    > **Note:** Sigstore Helm Charts use port 8091 for gRPC
 
 4. Update the Rekor `sharding-config` ConfigMap with details of the inactive shard:
 

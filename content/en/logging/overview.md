@@ -15,7 +15,7 @@ It enables software maintainers and build systems to record signed metadata to a
 
 The Rekor project provides a restful API-based server for validation, and a transparency log for storage. A CLI application is available to make and verify entries, query the log for inclusion proof, integrity verification of the log or retrieval of entries (either by a public key or an artifact).
 
-Rekor fulfils the signature transparency role of sigstore’s software signing infrastructure. It can also be run on its own, and it’s designed to be extendable to working with different manifest schemas and PKI tooling.
+Rekor fulfils the signature transparency role of Sigstore’s software signing infrastructure. It can also be run on its own, and it’s designed to be extendable to working with different manifest schemas and PKI tooling.
 
 ## Usage and installation
 

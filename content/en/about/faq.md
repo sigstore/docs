@@ -1,12 +1,12 @@
 ---
 type: docs
-category: About sigstore
+category: About Sigstore
 menuTitle: FAQs
 title: Frequently asked questions
 weight: 110
 ---
 
-This FAQ is intended to go as in depth as possible for anyone using sigstore.
+This FAQ is intended to go as in depth as possible for anyone using Sigstore.
 
 ## General
 

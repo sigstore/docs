@@ -1,6 +1,6 @@
 ---
 type: docs
-category: About sigstore
+category: About Sigstore
 description: Information about the Sigstore bundle format
 title: Sigstore Bundle Format
 weight: 50

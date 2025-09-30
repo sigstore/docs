@@ -22,13 +22,13 @@ The project repository can be found [here](https://github.com/sigstore/sigstore-
 
 Release information is available [here](https://github.com/sigstore/sigstore-ruby/releases).
 
-Add sigstore to your Gemfile:
+Add Sigstore to your Gemfile:
 
 ```console
 gem 'sigstore', '~> 0.1.1'
 ```
 
-Install sigstore:
+Install Sigstore:
 
 ```console
 gem install sigstore

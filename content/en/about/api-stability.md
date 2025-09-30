@@ -1,6 +1,6 @@
 ---
 type: docs
-category: About sigstore
+category: About Sigstore
 description: API stability levels and deprecation policy
 title: API Stability and Deprecation Policy
 weight: 60

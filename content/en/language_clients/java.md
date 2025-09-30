@@ -58,11 +58,11 @@ More information on the Gradle build plugin is available in the [project reposit
 ```java
 Path testArtifact = Paths.get("path/to/my/file.jar")
 
-// sign using the sigstore public instance
+// sign using the Sigstore public instance
 var signer = KeylessSigner.builder().sigstorePublicDefaults().build();
 Bundle result = signer.signFile(testArtifact);
 
-// sigstore bundle format (serialized as <artifact>.sigstore.json)
+// Sigstore bundle format (serialized as <artifact>.sigstore.json)
 String bundleJson = result.toJson();
 ```
 
@@ -73,7 +73,7 @@ String bundleJson = result.toJson();
 ```java
 Path artifact = Paths.get("path/to/my-artifact");
 
-// import a json formatted sigstore bundle
+// import a json formatted Sigstore bundle
 Path bundleFile = Paths.get("path/to/my-artifact.sigstore.json");
 Bundle bundle = Bundle.from(bundleFile, StandardCharsets.UTF_8);
 ```
@@ -93,7 +93,7 @@ VerificationOptions options = VerificationOptions.builder().addCertificateMatche
 
 ```java
 try {
-  // verify using the sigstore public instance
+  // verify using the Sigstore public instance
   var verifier = new KeylessVerifier.builder().sigstorePublicDefaults().build();
   verifier.verify(artifact, bundle, verificationOptions);
   // verification passed!
