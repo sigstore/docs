@@ -46,7 +46,7 @@ Password:
 Deriving a key from the password and decrypting the secret key... done
 ```
 
-Upload to rekor:
+Upload to Rekor:
 
 ```console
 $ rekor-cli upload --artifact README.md --signature README.md.minisig --pki-format=minisign --public-key=minisign.pub
@@ -116,7 +116,7 @@ Signing file README.md
 Write signature to README.md.sig
 ```
 
-Upload it to rekor with:
+Upload it to Rekor with:
 
 ```console
 $ rekor-cli upload --artifact README.md --signature README.md.sig --pki-format=ssh --public-key=id_ed25519.pub
@@ -167,7 +167,7 @@ Sign the file with:
 openssl dgst -sha256 -sign ec_private.pem -out README.md.sig README.md
 ```
 
-Upload it to rekor with:
+Upload it to Rekor with:
 
 ```console
 $ ./rekor-cli upload --artifact README.md --signature README.md.sig --pki-format=x509 --public-key=ec_public.pem
@@ -256,7 +256,7 @@ $ tree .
 └── staged
 ```
 
-Upload any TUF manifest to rekor by using the `root.json` as the public key:
+Upload any TUF manifest to Rekor by using the `root.json` as the public key:
 
 ```console
 $ ./rekor-cli upload --artifact repository/timestamp.json --type tuf --public-key repository/root.json

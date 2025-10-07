@@ -5,7 +5,7 @@ title: Overview
 weight: 500
 ---
 
-Sigstore handles keys and key management internally by default.  However, while the default makes it unnecessary, you can configure Sigstore, through cosign, to work with KMS providers. This page contains detailed instructions on how to configure `cosign` to work with KMS providers.
+Sigstore handles keys and key management internally by default.  However, while the default makes it unnecessary, you can configure Sigstore, through Cosign, to work with KMS providers. This page contains detailed instructions on how to configure `cosign` to work with KMS providers.
 Right now `cosign` supports [AWS KMS](https://aws.amazon.com/kms/), [GCP KMS](https://cloud.google.com/security-key-management), [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault), [Hashicorp Vault](https://www.vaultproject.io/) and [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with the hope to support more in the future!
 
 ## Basic Usage
@@ -84,7 +84,7 @@ AWS credentials are provided using standard configuration as [described in AWS d
 
 The `$KEYID` value must conform to any [AWS KMS key identifier](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) format as described in the linked document (Key ARN, Key ID, Alias ARN, or Alias ID).
 
-Note that key creation is not supported by cosign if using the Key ARN or Key ID formats, so it is recommended to use [Key Aliases](https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html) for most situations.
+Note that key creation is not supported by Cosign if using the Key ARN or Key ID formats, so it is recommended to use [Key Aliases](https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html) for most situations.
 
 The following URIs are valid:
 
@@ -135,7 +135,7 @@ The user must have the following IAM roles:
 Azure Key Vault keys can be used in `cosign` for signing and verification. The URI format for Azure Key Vault is:
 `azurekms://[VAULT_NAME][VAULT_URI]/[KEY]` where `$VAULT_NAME`, `$VAULT_URI`, and `$KEY` are replaced with the correct values.
 
-The following environment variables must be set to let cosign authenticate to Azure Key Vault. (see this [reference](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/#environment-variables) for more details about Azure SDK Authentication):
+The following environment variables must be set to let Cosign authenticate to Azure Key Vault. (see this [reference](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/#environment-variables) for more details about Azure SDK Authentication):
 
 - `AZURE_TENANT_ID`
 - `AZURE_CLIENT_ID`
@@ -185,7 +185,7 @@ Successfully created secret testsecret in namespace default
 Public key written to cosign.pub
 ```
 
-After generating the key pair, cosign will store it in a Kubernetes secret using your current context. The secret will contain the private and public keys, as well as the password to decrypt the private key.
+After generating the key pair, Cosign will store it in a Kubernetes secret using your current context. The secret will contain the private and public keys, as well as the password to decrypt the private key.
 
 The secret has the following structure:
 

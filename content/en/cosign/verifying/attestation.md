@@ -25,7 +25,7 @@ $ cosign verify-attestation --key cosign.pub <image>
 
 ## Validate In-Toto Attestations
 
-`cosign` has support of validating In-toto Attestations against `CUE` and `Rego` policies.
+Cosign has support of validating In-toto Attestations against `CUE` and `Rego` policies.
 
 Let's start with giving a brief introduction to `CUE` and `Rego` who might not be familiar with these.
 

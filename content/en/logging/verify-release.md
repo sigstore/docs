@@ -10,7 +10,7 @@ weight: 1840
 > multi step process. We will also deep dive a fair amount here, as its a good opporuntity to pull the covers aside
 > and see how this all works.
 
-Rekor releases are currently signed and verified using Fulcio OpenID connect based on short lived signing certificates.
+Rekor releases are currently signed and verified using Fulcio OpenID Connect based on short lived signing certificates.
 
 Rekor release signing artifacts are also stored within the public Rekor instance.
 
@@ -93,7 +93,7 @@ OK, so we can see that a Fulcio-generated certificate, with a chain to the root 
 
 ### Verify the entry is in the transparency log
 
-On the [release page](https://github.com/sigstore/rekor/releases) you will see some URLs, these are the rekor entries of the signing events.
+On the [release page](https://github.com/sigstore/rekor/releases) you will see some URLs, these are the Rekor entries of the signing events.
 
 This is the link for the binary and signing materials we have been working with throughout this guide
 

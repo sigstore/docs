@@ -13,7 +13,7 @@ Join us on our [Slack channel](https://sigstore.slack.com/). (Need an [invite](h
 Sigstore provides two GitHub Actions that make it easy to integrate signing and verifying into your CI system.
 
 - The [`gh-action-sigstore-python` GitHub Action](https://github.com/sigstore/gh-action-sigstore-python) provides the easiest way to generate Sigstore signatures within your CI system. It uses the Sigstore Python language client ([`sigstore-python`](https://github.com/sigstore/sigstore-python)), but can be used to generate Sigstore signatures regardless of your project's language.
-- The [`cosign-installer` GitHub Action](https://github.com/marketplace/actions/cosign-installer) installs cosign into your GitHub Action environment, making all features of Cosign available to be used within your CI System.
+- The [`cosign-installer` GitHub Action](https://github.com/marketplace/actions/cosign-installer) installs Cosign into your GitHub Action environment, making all features of Cosign available to be used within your CI System.
 
 This quickstart will walk you through the use of the `gh-action-sigstore-python` to [sign](#signing-files-using-your-ci-system) files, which is the quickest way to integrate Sigstore into your CI system. This quickstart also includes a [walkthrough](#using-cosign-within-your-ci-system) of using basic Cosign features in your workflows.
 
