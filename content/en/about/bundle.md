@@ -209,7 +209,7 @@ Bundle with DSSE Envelope over a provenance attestation. This example includes a
 
 ```json
 {
-  "mediaType": "application/vnd.dev.sigstore.bundle+json;version=0.2",
+  "mediaType": "application/vnd.dev.sigstore.bundle.v0.3+json",
   "verificationMaterial": {
     "x509CertificateChain": {
       "certificates": [
