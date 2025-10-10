@@ -44,8 +44,8 @@ COSIGN_EXPERIMENTAL=1 cosign sign --key cosign.key user/demo
 COSIGN_EXPERIMENTAL=1 cosign verify --key cosign.pub user/demo
 ```
 
-Cosign defaults to using the public instance of rekor at [rekor.sigstore.dev](https://rekor.sigstore.dev).
-To configure the rekor server, use the -`rekor-url` flag
+Cosign defaults to using the public instance of Rekor at [rekor.sigstore.dev](https://rekor.sigstore.dev).
+To configure the Rekor server, use the -`rekor-url` flag
 
 ## Registry details
 

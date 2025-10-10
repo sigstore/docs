@@ -5,7 +5,7 @@ title: Language Client Overview
 weight: 5
 ---
 
-Sigstore uses [cosign](../../cosign/signing/overview) to sign and verify packages by default, but you can opt to use a language specific client instead.
+Sigstore uses [Cosign](../../cosign/signing/overview) to sign and verify packages by default, but you can opt to use a language specific client instead.
 
 Language client summaries are available in the main Sigstore documentation, but complete documentation is hosted in the individual project repositories.
 

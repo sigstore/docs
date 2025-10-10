@@ -13,7 +13,7 @@ The format for keyless signing of a container is as follows.
 $ cosign sign $IMAGE
 ```
 
-> NOTE: You will need access to a container registry for cosign to work with. [ttl.sh](https://ttl.sh/) offers free, short-lived (ie: hours), anonymous container image hosting if you just want to try these commands out.
+> NOTE: You will need access to a container registry for Cosign to work with. [ttl.sh](https://ttl.sh/) offers free, short-lived (ie: hours), anonymous container image hosting if you just want to try these commands out.
 
 To create a test image to sign using [ttl.sh](https://ttl.sh), run the following commands:
 

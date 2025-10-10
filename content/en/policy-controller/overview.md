@@ -78,7 +78,7 @@ An example of a denied admission would be:
 1. No valid signature or attestation was obtained for `policy2` with at least one of the `policy2` authorities
 1. The image is not admitted
 
-In addition to that, the policy controller offers a configurable behavior defining whether to allow, deny or warn whenever an image does not match a policy. This behavior can be configured using the `config-policy-controller` ConfigMap created under the release namespace (by default `cosign-system`), and by adding an entry with the property `no-match-policy` and its value `warn|allow|deny`.
+In addition to that, Policy Controller offers a configurable behavior defining whether to allow, deny or warn whenever an image does not match a policy. This behavior can be configured using the `config-policy-controller` ConfigMap created under the release namespace (by default `cosign-system`), and by adding an entry with the property `no-match-policy` and its value `warn|allow|deny`.
 By default, any image that does not match a policy is rejected whenever `no-match-policy` is not configured in the ConfigMap.
 
 ## Configuring policy-controller `ClusterImagePolicy`
@@ -304,7 +304,7 @@ spec:
 CTLog specifies the URL to a certificate transparency log that holds signature
 and public key information.
 
-When `ctlog` key is not specified, the public rekor instance will be used.
+When `ctlog` key is not specified, the public Rekor instance will be used.
 
 ```yaml
 spec:

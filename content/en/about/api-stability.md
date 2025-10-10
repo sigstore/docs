@@ -13,7 +13,7 @@ This document covers API stability and the deprecation policy for Sigstore APIs 
 The deprecation policy encompasses:
 * The client API for Fulcio
 * The client API for Rekor
-* Features provided by [cosign](https://github.com/sigstore/cosign)
+* Features provided by [Cosign](https://github.com/sigstore/cosign)
 * The [sigstore/sigstore](https://github.com/sigstore/sigstore) client library
 * The [cosign/pkg/oci](https://github.com/sigstore/cosign/tree/main/pkg/oci) client library
 

@@ -5,7 +5,7 @@ title: CLI
 weight: 1825
 ---
 
-The following guide is targeted towards developers / software maintainers who would like to make a provenance entry into the rekor transparency log.
+The following guide is targeted towards developers / software maintainers who would like to make a provenance entry into the Rekor transparency log.
 
 The steps outlined below will show how to sign your software and use the Rekor CLI to make and verify an entry. It uses GPG to demonstrate, but other types are outlined in the [Signing and Uploading Other Types]({{< relref "logging/sign-upload">}}) page.
 
@@ -29,9 +29,9 @@ You will also need to export your public key
 gpg --export --armor "jdoe@example.com" > mypublickey.key
 ```
 
-## Upload an entry rekor
+## Upload an entry to Rekor
 
-The `upload` command sends your public key / signature and artifact URL to the rekor transparency log.
+The `upload` command sends your public key / signature and artifact URL to the Rekor transparency log.
 
 ```bash
 rekor-cli upload --rekor_server https://rekor.sigstore.dev --signature <artifact_signature> --public-key <your_public_key> --artifact <url_to_artifact>|<local_path_artifact>
