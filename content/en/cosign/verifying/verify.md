@@ -254,7 +254,7 @@ export SIGSTORE_ROOT_FILE="/home/jdoe/myrootCA.pem"
 
 ## New bundle format
 
-Cosign has recently added support for the [Sigstore bundle format]({{< relref "about/bundle" >}}), which is a new format for storing and sharing software signatures, attestations, and other metadata needed to verify an artifact. This carries a number of advantages over the previous bundle format: it supports offline verification, and includes additional information (like signed timestamps and attestations) in a single file. Additionally, language client support for the new format is widely available for Go, Python, Javascript, and Java. 
+Cosign has recently added support for the [Sigstore bundle format]({{< relref "about/bundle" >}}), which is a new format for storing and sharing software signatures, attestations, and other metadata needed to verify an artifact. This carries a number of advantages over the previous bundle format: it supports offline verification, and includes additional information (like signed timestamps and attestations) in a single file. Additionally, language client support for the new format is widely available for Go, Python, JavaScript, and Java. 
 
 The new format is disabled by default in Cosign v2.x. As of Cosign v2.4.x, the new bundle format is implemented for `sign-blob`, `verify-blob`, `attest-blob`, and `verify-blob-attestation` commands. As of Cosign v2.5.x, the new bundle format is implemented for `attest` and `verify-attestation`. Support for `sign` and `verify` is coming soon.
 
