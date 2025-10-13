@@ -43,12 +43,12 @@ jobs:
       id-token: write
     steps:
         # This step ensures that your project is available in the workflow environment.
-        - uses: actions/checkout@v4
+        - uses: actions/checkout@v5
         with:
           persist-credentials: false
 
         # This step uses 'gh-action-sigstore-python' to sign the file designated in the inputs field.
-        - uses: sigstore/gh-action-sigstore-python@v3.0.0
+        - uses: sigstore/gh-action-sigstore-python@v3
           with:
             inputs: to_be_signed.txt
 ```
@@ -60,7 +60,7 @@ When run, this workflow returns the ephemeral certificate used to sign the file,
 The `gh-action-sigstore-python` GitHub Action includes an option to verify your generated signature. This is optional but a great way to understand the GitHub Action as you are integrating it into your CI for the first time. To verify the signature you just created, set the `verify` setting to true and include your expected `verify-cert-identity` and `verify-oidc-issuer` settings.
 
 ```yaml
-- uses: sigstore/gh-action-sigstore-python@v3.0.0
+- uses: sigstore/gh-action-sigstore-python@v3
   with:
     inputs: to_be_signed.txt
     verify: true
@@ -97,7 +97,7 @@ jobs:
       id-token: write
     steps:
       - name: Install Cosign
-        uses: sigstore/cosign-installer@v3.7.0
+        uses: sigstore/cosign-installer@v4
       - name: Check install!
         run: cosign version
 ```
@@ -129,29 +129,29 @@ jobs:
           persist-credentials: false
 
       - name: Install Cosign
-        uses: sigstore/cosign-installer@v3.7.0
+        uses: sigstore/cosign-installer@v4
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2.1.0
+        uses: docker/setup-qemu-action@v3.6
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2.5.0
+        uses: docker/setup-buildx-action@v3.1
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2.1.0
+        uses: docker/login-action@v3.6
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - id: docker_meta
-        uses: docker/metadata-action@v4.4.0
+        uses: docker/metadata-action@v5.8
         with:
           images: ghcr.io/USERNAME/REPOSITORY_NAME
           tags: type=sha,format=long
 
       - name: Build and Push container images
-        uses: docker/build-push-action@v4.0.0
+        uses: docker/build-push-action@v6.18
         id: build-and-push
         with:
           platforms: linux/amd64,linux/arm/v7,linux/arm64
@@ -180,10 +180,10 @@ The cosign-installer GitHub Action can also do simpler tasks, like signing a blo
 ```yaml
 # This step makes sure your project is available in the workflow environment.
 - name: Import project
-  uses: actions/checkout@v4
+  uses: actions/checkout@v5
 # This step signs a blob (a text file in the root directory named to_be_signed.txt). The `--yes` flag agrees to Sigstore's terms of use.
 - name: Sign Blob
-  run: cosign sign-blob to_be_signed.txt --bundle cosign.bundle --yes
+  run: cosign sign-blob to_be_signed.txt --bundle artifact.sigstore.json --yes
 ```
 
 ### Verifying a blob
@@ -193,7 +193,7 @@ To verify the signature that you just created, add the following step to your wo
 ```yaml
 - name: Verify blob
   run: >
-    cosign verify-blob README.md --bundle cosign.bundle
+    cosign verify-blob README.md --bundle artifact.sigstore.json
     --certificate-identity=https://github.com/USERNAME/REPOSITORY_NAME/.github/workflows/WORKFLOW_NAME@refs/heads/BRANCH_NAME
     --certificate-oidc-issuer=https://token.actions.githubusercontent.com
 ```

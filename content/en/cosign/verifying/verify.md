@@ -28,11 +28,11 @@ cosign verify <image URI> --certificate-identity=name@example.com
 
 The oidc-issuer for Google is https://accounts.google.com, Microsoft is https://login.microsoftonline.com, GitHub is https://github.com/login/oauth, and GitLab is https://gitlab.com.
 
-The following example verifies the signature on file.txt from user name@example.com issued by accounts@example.com. It uses a provided bundle cosign.bundle that contains the certificate and signature.
+The following example verifies the signature on file.txt from user name@example.com issued by accounts@example.com. It uses a provided bundle `artifact.sigstore.json` that contains the certificate and signature.
 
 ```shell
-cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@example.com
-                          --certificate-oidc-issuer=https://accounts.example.com
+cosign verify-blob <file> --bundle artifact.sigstore.json \
+  --certificate-identity=name@example.com --certificate-oidc-issuer=https://accounts.example.com
 ```
 
 With container images, the signature and certificate are attached to the container.  For blobs, the signature and certificate can be stored in a bundle file that is created at the time of signing.  Either the bundle must be specified, or the individual signature and certificate must be specified.
