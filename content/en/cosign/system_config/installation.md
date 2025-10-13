@@ -169,7 +169,7 @@ You will retrieve the artifact verification key from the trusted TUF repository 
 
 ##### For Cosign v3.x
 
-_Note: Cosign v3.0.1 is missing artifact key signatures. Use the [instructions below](#verifying-cosign-with-identity-based-verification) to verify using the code signing certificate._
+_Note: Cosign v3.0.1 is missing artifact key signatures. Upgrade to Cosign v3.0.2+, or use the [instructions below](#verifying-cosign-with-identity-based-verification) to verify using the code signing certificate._
 
 _Note: Cosign v3 defaults to signatures stored in [bundles](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto), which is the default output and input for other Sigstore SDKs._
 
