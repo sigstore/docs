@@ -252,9 +252,15 @@ You can override the public good instance CA using the environment variable `SIG
 export SIGSTORE_ROOT_FILE="/home/jdoe/myrootCA.pem"
 ```
 
-## New bundle format coming soon
+## New bundle format
 
-There's a new bundle format using [bundle protobuf-specs](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) that has a number of advantages over the previous bundle format: it supports offline verification, and includes additional information (like signed timestamps and attestations) in a single file.
+Cosign has recently added support for the [Sigstore bundle format]({{< relref "about/bundle" >}}), which is a new format for storing and sharing software signatures, attestations, and other metadata needed to verify an artifact. This carries a number of advantages over the previous bundle format: it supports offline verification, and includes additional information (like signed timestamps and attestations) in a single file. Additionally, language client support for the new format is widely available for Go, Python, JavaScript, and Java. 
+
+The new format is disabled by default in Cosign v2.x. As of Cosign v2.4.x, the new bundle format is implemented for `sign-blob`, `verify-blob`, `attest-blob`, and `verify-blob-attestation` commands. As of Cosign v2.5.x, the new bundle format is implemented for `attest` and `verify-attestation`. Support for `sign` and `verify` is coming soon.
+
+In order to use the new bundle format, you must set `--new-bundle-format=true` when signing or verifying. The new bundle format is coupled with an internal restructuring of the verification logic, including the switch to the Trusted Root file. For users operating a private Sigstore instance, this means that the `--trusted-root` flag is now required for verification.
+
+When using the new bundle format for signing container image attestations, Cosign now uses the OCI 1.1 Referrers API to store the attestation bundle in the registry as a referrer to the image. This is in contrast to the previous bundle format, which stored the individual signature, certificate, and other metadata as annotations on specially-tagged manifests. This makes image signatures more portable and easier to manage.
 
 You can take existing signed material and make a new protobuf bundle with `cosign bundle create ...`.
 
