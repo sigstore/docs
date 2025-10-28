@@ -12,14 +12,15 @@ You can use Cosign for signing and verifying standard files and blobs (or binary
 Cosign supports identity-based signing, associating an ephemeral signing key with an identity from an OpenID Connect provider. We refer to this process as "keyless signing". You use `cosign sign-blob` to sign standard files as well as blobs. You can store signature and certificate information either as separate file, or in a bundled text file, but using a bundle is the recommended way of signing a blob, as users can specify just the bundle name instead of separate files for the signature and certificate.  Use the `cosign` command to sign:
 
 ```shell
-$ cosign sign-blob <file> --bundle cosign.bundle
+$ cosign sign-blob <file> --bundle artifact.sigstore.json 
 ```
-The bundle is output as a `base64` encoded string that contains the certificate and signature. In addition, signatures are output as `base64` encoded strings to stdout by default. 
+The bundle contains verification metadata, including an artifact's signature, certificate and proof of transparency log inclusion.
 
-When using `cosign sign-blob` in keyless mode, you need to store the bundle for verification. If you don't want to use the bundle, you can direct the output of the certificate by using the `--output-certificate` and `--output-signature` flags. The result from using the output flags:
+When using `cosign sign-blob` in keyless mode, you need to store the bundle for verification. If you don't want to use the bundle, you can direct the output of the certificate by using the `--output-certificate` and `--output-signature` flags. Note that this will be removed in future versions of Cosign, as the
+bundle format is standardized across Sigstore clients. The result from using the output flags:
 
 ```shell
-$ cosign sign-blob README.md --output-certificate cert.pem --output-signature sig
+$ cosign sign-blob README.md --new-bundle-format=false --output-certificate cert.pem --output-signature sig
 Using payload from: README.md
 Generating ephemeral keys...
 Retrieving signed certificate...
@@ -56,7 +57,7 @@ Certificate wrote in the file cert.pem
 While keyless signing is recommended, you may specify your own keys for signing.  You will need the password for the private key to sign:
 
 ```shell
-$ cosign sign-blob --key cosign.key README.md
+$ cosign sign-blob --key cosign.key --bundle artifact.sigstore.json README.md
 Using payload from: README.md
 Enter password for private key:
 MEQCIAU4wPBpl/U5Vtdx/eJFgR0nICiiNCgyWPWarupH0onwAiAv5ycIKgztxHNVG7bzUjqHuvK2gsc4MWxwDgtDh0JINw==
@@ -101,5 +102,5 @@ $ cosign sign gcr.io/user/demo/artifact
 In situations where automated signing is required, such as within CI/CD pipelines, the `--yes` flag becomes essential. This flag, when used with signing commands, bypasses any confirmation prompts, enabling a smooth, uninterrupted signing process. This is particularly crucial in automated environments where manual input isn't feasible. The `--yes` flag ensures that your signing operations can proceed without manual intervention, maintaining the efficiency and speed of your automated workflows.
 
 ```
-cosign sign-blob --yes -key cosign.key myregistry/myimage:latest
+cosign sign-blob --yes --key cosign.key --bundle artifact.sigstore.json myregistry/myimage:latest
 ```

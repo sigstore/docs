@@ -26,13 +26,13 @@ To sign software artifacts and verify signatures using Sigstore, you need to ins
 
 The basic signing format for a blob is as follows:
 
-```
-$ cosign sign-blob <file> --bundle cosign.bundle
+```bash
+cosign sign-blob <file> --bundle artifact.sigstore.json
 ```
 
-The bundle contains signing metadata, including the signature and certificate.
+The bundle contains signing metadata, including the signature, certificate, timestamp and proof of transparency log inclusion.
 
-The Cosign command requests a certificate from the Sigstore certificate authority, Fulcio. Fulcio checks your identity by using an authentication protocol (OpenID Connect) to confirm your email address. If your identity is correct, Fulcio grants a short-lived, time-stamped certificate. The certificate is bound to the public key to attest to your identity. This activity is logged using the Sigstore transparency and timestamping log, Rekor.
+The Cosign command requests a certificate from the Sigstore certificate authority, Fulcio. Fulcio checks your identity by using an authentication protocol (OpenID Connect) to confirm your email address. If your identity is correct, Fulcio grants a short-lived, time-stamped certificate. The certificate is bound to the public key to attest to your identity. This activity is logged using the Sigstore signature transparency log, Rekor.
 
 Note that you don’t need to use a key to sign. Currently, you can authenticate with Google, GitHub, or Microsoft, which will associate your identity with a short-lived signing key. 
 
@@ -46,20 +46,21 @@ cosign sign-blob --help
 
 To verify a signed blob, you need to provide three pieces of information:
 
-- The certificate
-- The signature
+- The artifact blob
+- The verification bundle, containing the signature, certificate, and proof of log inclusion
 - The identity used in signing
 
-You may be provided with a bundle that includes the certificate and signature. The blob maintainer should provide the trusted identity.
+The following example verifies the signature on `file.txt` from user `name@example.com` issued by `accounts@example.com`. It uses a provided bundle `artifact.sigstore.json` that contains the certificate and signature.
 
-The following example verifies the signature on `file.txt` from user `name@example.com` issued by `accounts@example.com`. It uses a provided bundle `cosign.bundle` that contains the certificate and signature.
-
-```
-$ cosign verify-blob <file> --bundle cosign.bundle --certificate-identity=name@example.com
-                              --certificate-oidc-issuer=https://accounts.example.com
+```bash
+cosign verify-blob file.txt --bundle artifact.sigstore.json \
+  --certificate-identity=name@example.com --certificate-oidc-issuer=https://accounts.example.com
 ```
 
-To verify, Cosign queries the transparency log (Rekor) to compare the public key bound to the certificate, and checks the timestamp on the signature against the artifact’s entry in the transparency log. The signature is valid if its timestamp falls within the small window of time that the key pair and certificate issued by the certificate authority were valid.
+Cosign verifies the signed timestamp in the bundle, and uses the timestamp when verifying the short-lived code signing certificate containing the ephemeral public key.
+A signature is valid if the timestamp falls within the small time window of certificate issuance.
+Cosign then uses the certificate's public key to verify the artifact signature. Cosign also verifies the proof of transparency log inclusion
+artifact and its certificate.
 
 ## Example: Working with containers
 

@@ -43,7 +43,7 @@ jobs:
       id-token: write
     steps:
         # This step ensures that your project is available in the workflow environment.
-        - uses: actions/checkout@v4
+        - uses: actions/checkout@v5
         with:
           persist-credentials: false
 
@@ -180,10 +180,10 @@ The cosign-installer GitHub Action can also do simpler tasks, like signing a blo
 ```yaml
 # This step makes sure your project is available in the workflow environment.
 - name: Import project
-  uses: actions/checkout@v4
+  uses: actions/checkout@v5
 # This step signs a blob (a text file in the root directory named to_be_signed.txt). The `--yes` flag agrees to Sigstore's terms of use.
 - name: Sign Blob
-  run: cosign sign-blob to_be_signed.txt --bundle cosign.bundle --yes
+  run: cosign sign-blob to_be_signed.txt --bundle artifact.sigstore.json --yes
 ```
 
 ### Verifying a blob
@@ -193,7 +193,7 @@ To verify the signature that you just created, add the following step to your wo
 ```yaml
 - name: Verify blob
   run: >
-    cosign verify-blob README.md --bundle cosign.bundle
+    cosign verify-blob README.md --bundle artifact.sigstore.json
     --certificate-identity=https://github.com/USERNAME/REPOSITORY_NAME/.github/workflows/WORKFLOW_NAME@refs/heads/BRANCH_NAME
     --certificate-oidc-issuer=https://token.actions.githubusercontent.com
 ```
