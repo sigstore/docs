@@ -25,7 +25,7 @@ Additional information and optional settings can be found in the [project's READ
 
 ### Signing files using your CI system
 
-To following workflow will sign the file `to_be_signed.txt` in the project's root directory whenever a push is made to the main branch. To try it out, make sure to add the file `to_be_signed.txt` to your project, or substitute the file for one in your project.
+The following workflow will sign the file `to_be_signed.txt` in the project's root directory whenever a push is made to the main branch. To try it out, make sure to add the file `to_be_signed.txt` to your project, or substitute the file for one in your project.
 
 ```yaml
 name: signing_files
@@ -48,7 +48,7 @@ jobs:
           persist-credentials: false
 
         # This step uses 'gh-action-sigstore-python' to sign the file designated in the inputs field.
-        - uses: sigstore/gh-action-sigstore-python@v3
+        - uses: sigstore/gh-action-sigstore-python@v3.1.0
           with:
             inputs: to_be_signed.txt
 ```
@@ -60,7 +60,7 @@ When run, this workflow returns the ephemeral certificate used to sign the file,
 The `gh-action-sigstore-python` GitHub Action includes an option to verify your generated signature. This is optional but a great way to understand the GitHub Action as you are integrating it into your CI for the first time. To verify the signature you just created, set the `verify` setting to true and include your expected `verify-cert-identity` and `verify-oidc-issuer` settings.
 
 ```yaml
-- uses: sigstore/gh-action-sigstore-python@v3
+- uses: sigstore/gh-action-sigstore-python@v3.1.0
   with:
     inputs: to_be_signed.txt
     verify: true
@@ -97,7 +97,7 @@ jobs:
       id-token: write
     steps:
       - name: Install Cosign
-        uses: sigstore/cosign-installer@v4
+        uses: sigstore/cosign-installer@v4.0.0
       - name: Check install!
         run: cosign version
 ```
@@ -129,29 +129,29 @@ jobs:
           persist-credentials: false
 
       - name: Install Cosign
-        uses: sigstore/cosign-installer@v4
+        uses: sigstore/cosign-installer@v4.0.0
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6
+        uses: docker/setup-qemu-action@v3.6.0
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3.1
+        uses: docker/setup-buildx-action@v3.11.1
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3.6
+        uses: docker/login-action@v3.6.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - id: docker_meta
-        uses: docker/metadata-action@v5.8
+        uses: docker/metadata-action@5.8.0
         with:
           images: ghcr.io/USERNAME/REPOSITORY_NAME
           tags: type=sha,format=long
 
       - name: Build and Push container images
-        uses: docker/build-push-action@v6.18
+        uses: docker/build-push-action@v6.18.0
         id: build-and-push
         with:
           platforms: linux/amd64,linux/arm/v7,linux/arm64
