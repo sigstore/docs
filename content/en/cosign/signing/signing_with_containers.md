@@ -209,8 +209,8 @@ $ cosign download signature us-central1-docker.pkg.dev/user/test/taskrun > signa
 Extract a payload and signature value and dump into their own respective files:
 
 ```shell
-$ cat signatures.json | tail -1 | jq -r .Payload | base64 -D > payload
-$ cat signatures.json | tail -1 | jq -r .Base64Signature | base64 -D > signature
+$ cat signatures.json | tail -1 | jq -r .Payload | base64 -d > payload
+$ cat signatures.json | tail -1 | jq -r .Base64Signature | base64 -d > signature
 ```
 
 Download (on the same machine as the previous step) the public key:
@@ -268,8 +268,8 @@ $ cosign download signature docker.io/davivcgarcia/hello-world:latest > signatur
 Extract the payload and signature value and dump into their own respective files:
 
 ```shell
-$ cat signatures.json | tail -1 | jq -r .Base64Signature | base64 -D > remote_payload.sig
-$ cat signatures.json | tail -1 | jq -r .Payload | base64 -D > remote_payload.json
+$ cat signatures.json | tail -1 | jq -r .Base64Signature | base64 -d > remote_payload.sig
+$ cat signatures.json | tail -1 | jq -r .Payload | base64 -d > remote_payload.json
 ```
 
 Verify with AWS KMS using the CMK key we created in the first step:
