@@ -25,7 +25,7 @@ Additional information and optional settings can be found in the [project's READ
 
 ### Signing files using your CI system
 
-To following workflow will sign the file `to_be_signed.txt` in the project's root directory whenever a push is made to the main branch. To try it out, make sure to add the file `to_be_signed.txt` to your project, or substitute the file for one in your project.
+The following workflow will sign the file `to_be_signed.txt` in the project's root directory whenever a push is made to the main branch. To try it out, make sure to add the file `to_be_signed.txt` to your project, or substitute the file for one in your project.
 
 ```yaml
 name: signing_files
