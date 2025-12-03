@@ -14,7 +14,8 @@ Full project documentation can be found in the [sigstore-python](https://github.
 * Support for keyless signature generation and verification with Sigstore
 * Support for signing with ["ambient" OpenID Connect identities](https://github.com/sigstore/sigstore-python#signing-with-ambient-credentials)
 * A comprehensive [CLI](https://github.com/sigstore/sigstore-python#usage) and corresponding [importable Python API](https://sigstore.github.io/sigstore-python)
-* An official [GitHub Action](https://github.com/sigstore/gh-action-sigstore-python)
+* An official [GitHub Action](https://github.com/sigstore/gh-action-sigstore-python). See [Sigstore CI Quickstart]({{< relref "quickstart/quickstart-ci">}}) for more information on using the action in a CI system.
+
 
 ## Installation
 
@@ -27,22 +28,6 @@ python -m pip install sigstore
 ```
 
 Optionally, you can install `sigstore` and all its dependencies with [hash-checking mode](https://pip.pypa.io/en/stable/topics/secure-installs/#hash-checking-mode) enabled. Learn more about it in the [project documentation](https://github.com/sigstore/sigstore-python#installation).
-
-### GitHub Action Installation
-
-You can install the official sigstore-python [GitHub Action](https://github.com/sigstore/gh-action-sigstore-python) from the
-[GitHub Marketplace](https://github.com/marketplace/actions/gh-action-sigstore-python).
-
-You can also manually add the sigstore-python action to your CI:
-
-```yaml
-jobs:
-  sigstore-python:
-    steps:
-      - uses: sigstore/gh-action-sigstore-python@v3.0.0
-        with:
-          inputs: foo.txt
-```
 
 ## Example
 
