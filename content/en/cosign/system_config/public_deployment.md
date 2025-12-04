@@ -25,22 +25,8 @@ These instances are operated and maintained in the same manner as the public pro
 
 ### Usage
 
-To use this instance, follow the steps below:
-
-1. `rm -r ~/.sigstore`
-1. `curl -O https://raw.githubusercontent.com/sigstore/root-signing-staging/main/metadata/root_history/1.root.json`
-1. `cosign initialize --mirror=https://tuf-repo-cdn.sigstage.dev --root=1.root.json`
-1. `curl -O https://raw.githubusercontent.com/sigstore/root-signing-staging/refs/heads/main/targets/signing_config.v0.2.json`
-1. `cosign sign --signing-config signing_config.v0.2.json ${IMAGE_DIGEST}`
-1. `cosign verify --certificate-identity=name@example.com --certificate-oidc-issuer=https://accounts.example.com ${IMAGE}`
-
-* Steps 1-4 configure your local environment to use the staging keys and certificates, along with the service URLs.
-* Step 5 specifies the staging environment with flags needed for signing.
-* Step 6 specifies the staging environment with flags needed for verifying.
+To use this instance, run `cosign initialize --staging`.
 
 #### Revert Back to Production
 
-In order to revert, we need to clear the local TUF root data and re-initialize with the default production TUF root data.
-
-1. `rm -r ~/.sigstore`
-1. `cosign initialize`
+To revert, run `cosign initialize`.
