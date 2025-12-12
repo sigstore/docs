@@ -44,6 +44,14 @@ If you are using Homebrew (or Linuxbrew), you can install Cosign by running:
 brew install cosign
 ```
 
+## Mise
+
+If you are using [Mise](https://github.com/jdx/mise), you can install Cosign by running:
+
+```bash
+mise use -g cosign@latest
+```
+
 ## Arch Linux
 
 If you are using Arch Linux, you can install Cosign by running:
