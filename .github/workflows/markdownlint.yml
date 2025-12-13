@@ -1,4 +1,4 @@
-name: MarkdownLint
+name: WALMART MarkdownLint
 
 on:
   pull_request:
