@@ -240,6 +240,33 @@ AcxvLtLEgRjRI4TKnMAXtIGp8K4X4CTWPEXMqSYZZUa2I1YvHyLLY2bEzA==
 -----END PUBLIC KEY-----
 ```
 
+## Container registry discovery options
+
+Cosign can discover signatures stored in a container registry using two options:
+
+1. **Referrers API (OCI 1.1)**: Queries the container registry's referrers endpoint to find linked artifacts.
+2. **Tag-based (OCI 1.0)**: Looks for signatures stored with predictable tags like `sha256-<digest>.sig`
+
+### Default verification
+
+By default (cosign 3.0+), verification first checks for OCI 1.1 signatures via the referrers API, then falls back to tag-based discovery for OCI 1.0 signatures:
+
+```shell
+cosign verify $IMAGE \
+  --certificate-identity=... --certificate-oidc-issuer=...
+```
+
+### Force OCI 1.0 discovery
+
+To skip the OCI 1.1 referrers check and use only the OCI 1.0 tag-based discovery:
+
+```shell
+cosign verify --new-bundle-format=false $IMAGE \
+  --certificate-identity=... --certificate-oidc-issuer=...
+```
+
+For more information about cosign's support for OCI and the referrers API, see [OCI and Referrers]({{< relref "cosign/container_registry/oci_referrers">}}).
+
 ## Custom Components
 
 For configuring Cosign to work with custom components, checkout the [Configuring Cosign with Custom Components]({{< relref "cosign/system_config/custom_components">}}) docs to find out how to achieve this.
