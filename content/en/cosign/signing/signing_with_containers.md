@@ -299,49 +299,6 @@ $ cosign generate $IMAGE | openssl... | cosign attach signature --signature - $I
 Pushing signature to: user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def.sig
 ```
 
-## Signature location and management
-
-Signatures are uploaded to an OCI artifact stored with a predictable name.
-This name can be located with the `cosign triangulate` command:
-
-```shell
-$ cosign triangulate $IMAGE
-index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
-```
-
-They can be reviewed with `crane`:
-
-```shell
-$ crane manifest $(cosign triangulate $IMAGE) | jq .
-{
-  "schemaVersion": 2,
-  "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
-  "config": {
-    "mediaType": "application/vnd.docker.container.image.v1+json",
-    "size": 342,
-    "digest": "sha256:f5de0db6e714055d48b4bb3a374e9630c4923fa704d9311da6a2740cf625aaba"
-  },
-  "layers": [
-    {
-      "mediaType": "application/vnd.dev.cosign.simplesigning.v1+json",
-      "size": 210,
-      "digest": "sha256:1119abab63e605dcc281019bad0424744178b6f61ba57378701fe7391994c999",
-      "annotations": {
-        "dev.cosignproject.cosign/signature": "MEUCIG0ZmgqE3qTrHWp+HF9CrxsNH57Cck3cQI+zNNrUwSHfAiEAm+2eY/Z6ixQwjLbTraDN5ZB/P1Z5k/KwIoblry65r+s="
-      }
-    },
-    {
-      "mediaType": "application/vnd.dev.cosign.simplesigning.v1+json",
-      "size": 219,
-      "digest": "sha256:583246418c2afd5bfe29694793d07da37ffd552aadf8879b1d98047178b80398",
-      "annotations": {
-        "dev.cosignproject.cosign/signature": "MEUCIF/+szLKKA2q2+c86AXeWR7UeD5yYpW7p0waHordxNjhAiEAm5e+Hm7Jhv9JpSwHpTc6aGLSkL6/Acm/z+b8mhfGXqY="
-      }
-    }
-  ]
-}
-```
-
 Some registries support deletion too (DockerHub does not):
 
 ```shell
