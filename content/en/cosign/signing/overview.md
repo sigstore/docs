@@ -57,16 +57,13 @@ When a software consumer wants to verify the software’s signature, Sigstore co
 
 ### On Google Cloud Platform
 
-From a Google Cloud Engine (GCE) virtual machine, you can use the VM's service account identity to sign an image:
+From a Google Compute Engine (GCE) virtual machine, the VM's service account identity is automatically detected from the [metadata server](https://docs.cloud.google.com/compute/docs/metadata/overview) and used to sign an image:
 
 ```shell
-$ cosign sign --identity-token=$(
-    gcloud auth print-identity-token \
-        --audiences=sigstore) \
-    gcr.io/user-vmtest2/demo
+$ cosign sign gcr.io/user-vmtest2/demo
 ```
 
-From outside a GCE VM, you can impersonate a GCP IAM service account to sign an image:
+From outside a GCE VM, you can [impersonate a GCP IAM service account](https://docs.cloud.google.com/docs/authentication/use-service-account-impersonation) to sign an image:
 
 ```shell
 $ cosign sign --identity-token=$(
@@ -77,15 +74,7 @@ $ cosign sign --identity-token=$(
     gcr.io/user-vmtest2/demo
 ```
 
-In order to impersonate an IAM service account, your account must have the `roles/iam.serviceAccountTokenCreator` role.
-
-**Note**: On Google Cloud Build, standard identity tokens are not supported through the GCE metadata server. Cosign has a special flow for this case, where you can instruct the Cloud Build service account to impersonate another service account. To configure this flow:
-
-1. Create a service account to use for signatures (the email address will be present in the certificate subject).
-2. Grant the Cloud Build service account the `roles/iam.serviceAccountTokenCreator` role for this target account.
-3. Set the `GOOGLE_SERVICE_ACCOUNT_NAME` environment variable to the name of the target account in your cloudbuild.yaml
-4. Sign images in GCB, without keys!
-
+On Google Cloud Build, the standard identity tokens endpoint is also available thorugh its metadata server as described [here](https://docs.cloud.google.com/build/docs/securing-builds/authorize-service-to-service-access).
 ## Custom infrastructure
 
 If you're running your own Sigstore services flags are available to set your own endpoint's, e.g
