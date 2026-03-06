@@ -48,7 +48,7 @@ jobs:
           persist-credentials: false
 
         # This step uses 'gh-action-sigstore-python' to sign the file designated in the inputs field.
-        - uses: sigstore/gh-action-sigstore-python@v3.1.0
+        - uses: sigstore/gh-action-sigstore-python@v3.2.0
           with:
             inputs: to_be_signed.txt
 ```
