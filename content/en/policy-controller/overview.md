@@ -212,10 +212,10 @@ spec:
       identities:
         - issuer: https://accounts.google.com
           subject:
-  signatureFormat: bundle
-  attestations:
-  - name: require-attestation
-    predicateType: https://slsa.dev/provenance/v1
+    signatureFormat: bundle
+    attestations:
+    - name: require-attestation
+      predicateType: https://sigstore.dev/cosign/sign/v1
 ```
 
 ### Configuring `static` authorities
