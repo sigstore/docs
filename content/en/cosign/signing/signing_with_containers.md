@@ -15,7 +15,7 @@ $ cosign sign $IMAGE
 
 > NOTE: You will need access to a container registry for Cosign to work with. If you're not sure what container registry to use, you can set up a local one for testing.
 
-[google/go-containerregistry](https://github.com/google/go-containerregistry) allows you to run a container registry locally, and [ko-build/ko] lets you build an image:
+[google/go-containerregistry](https://github.com/google/go-containerregistry) allows you to run a container registry locally, and [ko-build/ko](https://github.com/ko-build/ko) lets you build an image:
 
 ```shell
 google/go-containerregistry$ go run cmd/registry/main.go
