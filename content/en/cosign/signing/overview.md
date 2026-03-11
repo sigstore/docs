@@ -84,6 +84,8 @@ $ cosign signing-config create \
     --fulcio="url=https://fulcio.example.com,api-version=1,start-time=2024-01-01T00:00:00Z,operator=example.com" \
     --rekor="url=https://rekor.example.com,api-version=2,start-time=2024-01-01T00:00:00Z,operator=example.com" \
     --rekor-config="ANY" \
+    --tsa="url=https://tsa.example.com,api-version=1,start-time=2024-01-01T00:00:00Z,operator=example.com" \
+    --tsa-config="ANY" \
     --output-file custom.signingconfig.json
 ```
 
