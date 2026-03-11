@@ -118,6 +118,12 @@ $ cosign sign --key gcpkms://projects/[PROJECT]/locations/global/keyRings/[KEYRI
 $ cosign sign --key hashivault://[KEY] $IMAGE
 ```
 
+### Key stored in OpenBao
+
+```shell
+$ cosign sign --key openbao://[KEY] $IMAGE
+```
+
 ### Key stored in a Kubernetes secret
 
 ```shell

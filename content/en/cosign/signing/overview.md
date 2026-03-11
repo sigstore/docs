@@ -74,7 +74,8 @@ $ cosign sign --identity-token=$(
     gcr.io/user-vmtest2/demo
 ```
 
-On Google Cloud Build, the standard identity tokens endpoint is also available thorugh its metadata server as described [here](https://docs.cloud.google.com/build/docs/securing-builds/authorize-service-to-service-access).
+On Google Cloud Build, the standard identity tokens endpoint is also available through its metadata server as described [here](https://docs.cloud.google.com/build/docs/securing-builds/authorize-service-to-service-access).
+
 ## Custom infrastructure
 
 If you're running your own Sigstore services flags are available to set your own endpoint's, e.g
