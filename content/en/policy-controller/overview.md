@@ -155,6 +155,7 @@ Each `key` authority can contain these properties:
   - `awskms://[ENDPOINT]/{ARN}` where `ARN` can be either key ARN or alias ARN.
   - `gcpkms://projects/[PROJECT]/locations/global/keyRings/[KEYRING]/cryptoKeys/[KEY]`
   - `hashivault://[KEY]`
+  - `openbao://[key]`
 
 ### Configuring `keyless` authorities
 

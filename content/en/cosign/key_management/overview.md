@@ -6,13 +6,13 @@ weight: 500
 ---
 
 Sigstore handles keys and key management internally by default.  However, while the default makes it unnecessary, you can configure Sigstore, through Cosign, to work with KMS providers. This page contains detailed instructions on how to configure `cosign` to work with KMS providers.
-Right now `cosign` supports [AWS KMS](https://aws.amazon.com/kms/), [GCP KMS](https://cloud.google.com/security-key-management), [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault), [Hashicorp Vault](https://www.vaultproject.io/) and [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with the hope to support more in the future!
+Right now `cosign` supports [AWS KMS](https://aws.amazon.com/kms/), [GCP KMS](https://cloud.google.com/security-key-management), [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault), [Hashicorp Vault](https://www.vaultproject.io/), [OpenBao](https://openbao.org) and [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) and  with the hope to support more in the future!
 
 ## Basic Usage
 
 When referring to a key managed by a KMS provider, `cosign` takes a [go-cloud](https://gocloud.dev) style URI to refer to the specific provider.
 
-For example: `awskms://`, `gcpkms://`, `azurekms://`, `hashivault://` and `k8s://`. The URI path syntax is provider specific and explained in the section for each provider.
+For example: `awskms://`, `gcpkms://`, `azurekms://`, `hashivault://`, `openbao://` and `k8s://`. The URI path syntax is provider specific and explained in the section for each provider.
 
 ### Key Generation and Management
 
@@ -145,12 +145,13 @@ To create a key using `cosign generate-key-pair --kms azurekms://[VAULT_NAME][VA
 
 To sign images using `cosign sign --key azurekms://[VAULT_NAME][VAULT_URI]/[KEY] [IMAGE_DIGEST]` you will need a user which has permissions to the sign action such as the `Key Vault Crypto User` role.
 
-### Hashicorp Vault
+### Hashicorp Vault and OpenBao
 
-Hashicorp Vault keys can be used in `cosign` for signing and verification.
-The URI format for Hashicorp Vault KMS is: `hashivault://$keyname`
+Hashicorp Vault and OpenBao keys can be used in `cosign` for signing and verification.
+The URI format for Hashicorp Vault KMS is: `hashivault://$keyname`.
+For OpenBao KMS `openbao://$keyname` is also supported.
 
-This provider requires that the standard Vault environment variables (`$VAULT_ADDR`, `$VAULT_TOKEN`) are set correctly.
+This provider requires that the standard Vault or OpenBao environment variables (`$VAULT_ADDR`, `$VAULT_TOKEN`, `$BAO_ADDR`, `$BAO_TOKEN`) are set correctly.
 This provider also requires that the `transit` secret engine is enabled.
 
 The token needs (at least) the following permissions, that will be defined as an ACL policy in the next example. Suppose that the `transit` secret engine is mounted at the path `/transit`, and the `$keyname` is `cosign`, the policy would look like this:
