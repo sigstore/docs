@@ -75,12 +75,6 @@ Verify with an on-disk signed image from `cosign save`:
 cosign verify --key cosign.pub --local-image PATH/to/user/demo
 ```
 
-Verify image with local certificate and local certificate chain:
-
-```shell
-cosign verify --certificate cosign.crt --certificate-chain chain.crt --certificate-oidc-issuer https://issuer.example.com --certificate-identity foo@example.com user/demo
-```
-
 ## Verify image with user-provided trusted chain
 
 Verify image with the provided certificate chain(s) and identity parameters (intended for
