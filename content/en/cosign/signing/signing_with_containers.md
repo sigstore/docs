@@ -305,17 +305,53 @@ $ cosign generate $IMAGE | openssl... | cosign attach signature --signature - $I
 Pushing signature to: user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def.sig
 ```
 
-## Signature location and management
+## Container registry storage options
 
-Signatures are uploaded to an OCI artifact stored with a predictable name.
-This name can be located with the `cosign triangulate` command:
+Cosign supports two options for storing and discovering signatures in container registries:
+
+- **Referrers API (OCI 1.1)**: Signatures are linked to images via the `subject` field in the artifact manifest, enabling discovery through the container registry's referrers API. This is the default in cosign 3.0+. On registries without OCI 1.1 support, cosign will automatically fall back to the referrers tag schema.
+- **Tag-based (OCI 1.0)**: Signatures are stored as separate images with a predictable tag name: `sha256-<digest>.sig`. Use this when you need compatibility with older tooling that does not implement the OCI 1.1 referrers tag schema.
+
+For more information about cosign's support for OCI and the referrers API, see [OCI and Referrers]({{< relref "cosign/container_registry/oci_referrers">}}).
+
+## Signing with OCI 1.1 (default)
+
+In cosign 3.0+, the default behavior uses the new bundle format which stores signatures via the OCI 1.1 referrers API:
+
+```shell
+$ cosign sign $IMAGE
+```
+
+## New format on OCI 1.0 registries
+
+When signing with the new bundle format against a registry that does not support the OCI 1.1 referrers API, cosign automatically falls back to the **referrers tag schema** defined in the OCI Distribution Specification. The signature is stored under a `sha256-<digest>` tag (an OCI image index listing all referrers), and signing and verification will both work transparently.
+
+> **Note:** This fallback is only available to clients that implement the OCI 1.1 referrers tag schema. Tools written to look for old-format `.sig` tags will not find new-format signatures stored this way.
+
+## Signing with OCI 1.0 (tag-based)
+
+To explicitly use the old bundle format with tag-based storage (i.e. for maximum compatibility with older tooling):
+
+```shell
+$ cosign sign --new-bundle-format=false --use-signing-config=false $IMAGE
+```
+
+The signature is stored at a tag (`sha256-<digest>.sig`).
+
+> **Note:** The `--use-signing-config=false` flag is required when using `--new-bundle-format=false`. The default signing config (from TUF) requires the new bundle format, so it must be disabled for old format signing.
+
+### Locating signatures
+
+Use the `cosign triangulate` command to find the signature tag:
 
 ```shell
 $ cosign triangulate $IMAGE
 index.docker.io/user/demo:sha256-87ef60f558bad79beea6425a3b28989f01dd417164150ab3baab98dcbf04def8.sig
 ```
 
-They can be reviewed with `crane`:
+### Inspecting the signature manifest
+
+The signature manifest can be reviewed with `crane`:
 
 ```shell
 $ crane manifest $(cosign triangulate $IMAGE) | jq .
@@ -353,3 +389,50 @@ Some registries support deletion too (DockerHub does not):
 ```shell
 $ cosign clean $IMAGE
 ```
+
+## Discovering OCI 1.1 signatures
+
+With OCI 1.1 (the default in cosign 3.0+), signatures are linked to the image via the `subject` field and discovered through the referrers API. Use [ORAS](https://oras.land/) to list all artifacts referencing an image:
+
+```shell
+$ oras discover $IMAGE
+<image>@sha256:1882fa4569e0c591ea092d3766c4893e19b8901a8e649de7067188aba3cc0679
+├── application/vnd.dev.cosign.artifact.sig.v1+json
+│   └── sha256:441a6e4fcf6131ea979df3ec34c141f55eb5c371e7e81bc90860e460eecaa5fb
+└── application/vnd.dev.sigstore.bundle.v0.3+json
+    └── sha256:9a8458d9d9dda45bdf230e901eeb9695ec3c64c3750f76ee7beab59c0978193c
+```
+
+### Inspecting the signature manifest
+
+Retrieve the signature manifest using the referrers endpoint or `oras`:
+
+```shell
+$ oras manifest fetch $REGISTRY/$REPO@sha256:441a6e4fcf6131ea979df3ec34c141f55eb5c371e7e81bc90860e460eecaa5fb | jq .
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "config": {
+    "mediaType": "application/vnd.dev.cosign.artifact.sig.v1+json",
+    "size": 233,
+    "digest": "sha256:da96469741fd76728fb29c10514f722ea0c38c0a275d30b38231591216c0f99e"
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.dev.cosign.simplesigning.v1+json",
+      "size": 242,
+      "digest": "sha256:4af22300d43719854f07d484efbfbabd4c31f5e7cbd0362cd1a8f9ec4c0f052c",
+      "annotations": {
+        "dev.cosignproject.cosign/signature": "MEYCIQDIg1nynEQPoxYS77beWo0iRn2V8oJg2RaNJzVA/YR3cAIhAOATaFrEonE2r7eUVS2fJStPOWO00InIruhsXHcvw1OT"
+      }
+    }
+  ],
+  "subject": {
+    "mediaType": "application/vnd.oci.image.manifest.v1+json",
+    "size": 1022,
+    "digest": "sha256:1882fa4569e0c591ea092d3766c4893e19b8901a8e649de7067188aba3cc0679"
+  }
+}
+```
+
+The `subject` field links the signature back to the original image.
