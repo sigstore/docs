@@ -78,14 +78,23 @@ On Google Cloud Build, the standard identity tokens endpoint is also available t
 
 ## Custom infrastructure
 
-If you're running your own Sigstore services flags are available to set your own endpoint's, e.g
+If you're running your own Sigstore services, first create a signing config to point to your servers:
 
+```shell
+$ cosign signing-config create \
+    --fulcio="url=https://fulcio.example.com,api-version=1,start-time=2024-01-01T00:00:00Z,operator=example.com" \
+    --rekor="url=https://rekor.example.com,api-version=2,start-time=2024-01-01T00:00:00Z,operator=example.com" \
+    --rekor-config="ANY" \
+    --tsa="url=https://tsa.example.com,api-version=1,start-time=2024-01-01T00:00:00Z,operator=example.com" \
+    --tsa-config="ANY" \
+    --output-file custom.signingconfig.json
 ```
- cosign sign --oidc-issuer "https://oauth2.example.com/auth" \
-                        --fulcio-url "https://fulcio.example.com" \
-                        --rekor-url "https://rekor.example.com"  \
-                        ghcr.io/jdoe/somerepo/testcosign
 
+Then sign an image with your custom signing config:
+
+```shell
+$ cosign sign --signing-config custom.signingconfig.json \
+    ghcr.io/jdoe/somerepo/testcosign
 ```
 
 ### Custom roots of trust
