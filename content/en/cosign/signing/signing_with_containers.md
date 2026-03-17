@@ -61,11 +61,21 @@ $ cosign sign $IMAGE
 If you have metadata you want to include along with the signature, use `cosign attest`:
 
 ```shell
-$ echo '{"foo": "bar"}' > attest.predicate.json
+$ echo '{"foo": "bar", "baz": "bat"}' > attest.predicate.json
 $ cosign attest --type custom --predicate attest.predicate.json $IMAGE
 ```
 
 They can be verified with the `--policy` flag as part of the `cosign verify-attestation` command.
+
+## Add annotations to a signature
+
+Attesting works with any JSON content. But if you just have a few key value pairs, you can use the `-a` flag to add annotations to a signature:
+
+```shell
+$ cosign sign -a foo=bar -a baz=bat $IMAGE
+```
+
+Annotations can be verified with the `-a` flag as part of the `cosign verify` command.
 
 ## Sign with a key pair stored elsewhere
 

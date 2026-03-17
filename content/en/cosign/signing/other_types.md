@@ -17,7 +17,7 @@ Cosign can sign anything in a registry. Most of our examples show signing a sing
 
 ## SBOMs (Software Bill Of Materials)
 
-There's a couple of different approaches SBOMs, depending on if you're working with container images or not.
+You can use SBOMs with Cosign both if you're working with container images (`sign`, `attest`), as well as if you're using files on disk (`sign-blob`, `attest-blob`).
 
 If your SBOM is stored in a OCI registry, you can sign it and verify it like any other OCI object:
 
@@ -35,6 +35,8 @@ $ cosign attest --type custom --predicate sbom.predicate.json $IMAGE
 ```
 
 These approaches also work with files on disk, except you use `sign-blob` or `attest-blob` instead of the OCI versions `sign` or `attest`.
+
+Note that there are also SBOM predicate types, but they are not recommended. Using a SBOM predicate type will result in the entire SBOM being included in the signature bundle, and so you will have to download the entire SBOM every time you want to verify the signature on the container.
 
 ## Tekton Bundles
 
