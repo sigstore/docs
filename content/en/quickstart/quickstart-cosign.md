@@ -64,16 +64,19 @@ artifact and its certificate.
 
 ## Example: Working with containers
 
-> NOTE: In this example, we will create a container using [ttl.sh](https://ttl.sh/).  It offers free, short-lived (as in minutes or hours), anonymous container image hosting so you can try out signing and verifying commands in a sample workflow
+> NOTE: You will need access to a container registry for Cosign to work with. If you're not sure what container registry to use, you can set up a local one for testing.
 
-To use `ttl.sh` and [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) to prepare the image to sign, run the following:
+[google/go-containerregistry](https://github.com/google/go-containerregistry) allows you to run a container registry locally, and [ko-build/ko](https://github.com/ko-build/ko) lets you build an image:
 
+```shell
+google/go-containerregistry$ go run cmd/registry/main.go
+serving on port 1338
 ```
-$ SRC_IMAGE=busybox
-$ SRC_DIGEST=$(crane digest busybox)
-$ IMAGE_URI=ttl.sh/$(uuidgen | head -c 8 | tr 'A-Z' 'a-z')
-$ crane cp $SRC_IMAGE@$SRC_DIGEST $IMAGE_URI:1h
-$ IMAGE_URI_DIGEST=$IMAGE_URI@$SRC_DIGEST
+
+```shell
+sigstore/cosign$ ko build cmd/conformance/main.go
+Published localhost:1338/demo/main.go-38af7bca496e2316e5b02c5d5bafd5f3@sha256:a5a6744c9d069ac7081ceccc2291995a999f02b027995cd5e8508f35e40e7dd1
+$ export IMAGE_URI_DIGEST=localhost:1338/demo/main.go-38af7bca496e2316e5b02c5d5bafd5f3@sha256:a5a6744c9d069ac7081ceccc2291995a999f02b027995cd5e8508f35e40e7dd1
 ```
 
 ### Keyless signing of a container
