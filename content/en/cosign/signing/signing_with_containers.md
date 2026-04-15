@@ -28,6 +28,13 @@ Published localhost:1338/demo/main.go-38af7bca496e2316e5b02c5d5bafd5f3@sha256:a5
 $ export IMAGE=localhost:1338/demo/main.go-38af7bca496e2316e5b02c5d5bafd5f3@sha256:a5a6744c9d069ac7081ceccc2291995a999f02b027995cd5e8508f35e40e7dd1
 ```
 
+Another option for a local registry is [zot](https://github.com/project-zot/zot); note that you will need to modify the config to run on a port compatible with `ko`:
+
+```shell
+project-zot/zot$ go run cmd/zot/main.go serve examples/config-minimal.json
+```
+
+
 ## General signing format
 
 The general signing format with the `cosign sign` command is as follows.

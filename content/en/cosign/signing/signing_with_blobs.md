@@ -23,9 +23,9 @@ While keyless signing is recommended, you may specify your own keys for signing.
 
 ```shell
 $ cosign sign-blob --key cosign.key --bundle bundle.sigstore.json README.md
-Using payload from: README.md
 Enter password for private key:
-MEQCIAU4wPBpl/U5Vtdx/eJFgR0nICiiNCgyWPWarupH0onwAiAv5ycIKgztxHNVG7bzUjqHuvK2gsc4MWxwDgtDh0JINw==
+Using payload from: README.md
+Wrote bundle to file bundle.sigstore.json
 ```
 
 This supports all the same flags and features as `cosign sign`, including KMS support, hardware tokens, and keyless signatures. See [Signing with Self-Managed Keys]({{< relref "cosign/key_management/signing_with_self-managed_keys">}}) for more information.
