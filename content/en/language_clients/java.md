@@ -61,17 +61,29 @@ Use the `sign-base` plugin to sign individual files without tying into Maven pub
 
 ```kotlin
 plugins {
-    id("dev.sigstore.sign-base")
+    id("dev.sigstore.sign-base") version "2.0.0"
 }
 
-val signHelloProps by tasks.registering(SigstoreSignFilesTask::class) {
+val signHelloProps by tasks.registering(dev.sigstore.sign.tasks.SigstoreSignFilesTask::class) {
     signFile(/* File or Provider<RegularFile> */)
 }
 ```
 
+### GitHub Actions
+
+To use keyless signing in a GitHub Actions workflow, the workflow must request an OIDC token. Grant the necessary permissions on the job or workflow:
+
+```yaml
+permissions:
+  id-token: write
+  contents: read
+```
+
+See [GitHub's documentation on OIDC permissions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers#adding-permissions-settings) for details.
+
 ## API Usage
 
-The stable public API consists of [`KeylessSigner`](https://javadoc.io/doc/dev.sigstore/sigstore-java) and [`KeylessVerifier`](https://javadoc.io/doc/dev.sigstore/sigstore-java). Other library classes may change between releases without notice.
+The stable public API consists of [`KeylessSigner`](https://javadoc.io/doc/dev.sigstore/sigstore-java) and [`KeylessVerifier`](https://javadoc.io/doc/dev.sigstore/sigstore-java) and the classes exposed by those APIs. Other library classes may change between releases without notice.
 
 ### Signing
 
@@ -108,7 +120,7 @@ Bundle bundle = Bundle.from(bundleFile, StandardCharsets.UTF_8);
 #### Configure verification options
 
 ```java
-import dev.sigstore.verification.VerificationOptions;
+import dev.sigstore.VerificationOptions;
 import dev.sigstore.strings.StringMatcher;
 
 VerificationOptions verificationOptions = VerificationOptions.builder()
@@ -153,7 +165,7 @@ String bundleJson = bundle.toJson();
 
 ## Known Limitations
 
-* **Offline signing** is not supported.
+* **Offline signing and verification** are not supported by default — the client expects to reach Sigstore infrastructure (Fulcio, Rekor, the TUF root mirror). Verification can be configured against a custom trusted root for restricted environments.
 * **Multi-module Maven builds**: each module that signs artifacts requires its own OIDC authentication step.
 * **Long-running builds**: the OIDC token has a 10-minute validity window. Builds that take longer than 10 minutes may require re-authentication partway through.
 
