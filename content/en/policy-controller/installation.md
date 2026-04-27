@@ -10,7 +10,7 @@ The [`policy-controller`](https://github.com/sigstore/policy-controller) is a Ku
 
 ## Prerequisites
 
-- Kubernetes cluster (1.27+)
+- Kubernetes cluster — policy-controller `> 0.10.x` supports Kubernetes 1.27, 1.28, and 1.29; starting with v0.12.0, supported versions are Kubernetes 1.29, 1.30, 1.31, and 1.32. See the [policy-controller support matrix](https://github.com/sigstore/policy-controller#support-policy).
 - [Helm](https://helm.sh/docs/intro/install/) 3.x
 - `kubectl` configured to access your cluster
 
@@ -25,12 +25,7 @@ kubectl create namespace cosign-system
 helm install policy-controller -n cosign-system sigstore/policy-controller
 ```
 
-The chart installs the `ClusterImagePolicy` and `TrustRoot` Custom Resource Definitions (CRDs) automatically. To skip CRD installation (when upgrading and managing CRDs separately):
-
-```bash
-helm install policy-controller -n cosign-system sigstore/policy-controller \
-  --set installCRDs=false
-```
+The chart installs the `ClusterImagePolicy` and `TrustRoot` Custom Resource Definitions (CRDs) automatically.
 
 ## Enable Policy Enforcement for Namespaces
 
