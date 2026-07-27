@@ -6,13 +6,13 @@ weight: 500
 ---
 
 Sigstore handles keys and key management internally by default.  However, while the default makes it unnecessary, you can configure Sigstore, through Cosign, to work with KMS providers. This page contains detailed instructions on how to configure `cosign` to work with KMS providers.
-Right now `cosign` supports [AWS KMS](https://aws.amazon.com/kms/), [GCP KMS](https://cloud.google.com/security-key-management), [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault), [Hashicorp Vault](https://www.vaultproject.io/), [OpenBao](https://openbao.org) and [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) and  with the hope to support more in the future!
+Right now `cosign` supports [AWS KMS](https://aws.amazon.com/kms/), [GCP KMS](https://cloud.google.com/security-key-management), [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault), [Hashicorp Vault](https://www.vaultproject.io/), [OpenBao](https://openbao.org), [OVHcloud KMS](https://docs.ovhcloud.com/en/guides/manage-and-operate/kms/quick-start) and [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) and with the hope to support more in the future!
 
 ## Basic Usage
 
 When referring to a key managed by a KMS provider, `cosign` takes a [go-cloud](https://gocloud.dev) style URI to refer to the specific provider.
 
-For example: `awskms://`, `gcpkms://`, `azurekms://`, `hashivault://`, `openbao://` and `k8s://`. The URI path syntax is provider specific and explained in the section for each provider.
+For example: `awskms://`, `gcpkms://`, `azurekms://`, `hashivault://`, `openbao://`, `ovhcloud://` and `k8s://`. The URI path syntax is provider specific and explained in the section for each provider.
 
 ### Key Generation and Management
 
@@ -101,7 +101,7 @@ Example:
 
 ```shell
 $ export AWS_REGION=us-east-1
-$ export AWS_CMK_ID=$(aws kms create-key 
+$ export AWS_CMK_ID=$(aws kms create-key
                            --customer-master-key-spec RSA_4096 \
                            --key-usage SIGN_VERIFY \
                            --description "Cosign Signature Key Pair" \
@@ -222,3 +222,18 @@ If you enabled `transit` secret engine at different path with the use of `-path`
 ```shell
 TRANSIT_SECRET_ENGINE_PATH="someotherpath" cosign generate-key-pair --kms hashivault://testkey
 ```
+
+### OVHcloud
+
+[OVHcloud KMS](https://docs.ovhcloud.com/en/guides/manage-and-operate/kms/quick-start) can be used in `cosign` for signing and verification.
+OVHcloud is provided as an external plugin: install the [sigstore-kms-ovhcloud](https://github.com/ovh/sigstore-kms-ovhcloud) binary and make it available in your `PATH`.
+The URI format is: `ovhcloud://<key_id>`, where `key_id` is a UUID.
+
+```shell
+cosign generate-key-pair --kms ovhcloud://<key_id>
+cosign public-key --key ovhcloud://<key_id>
+cosign sign --key ovhcloud://<key_id> $IMAGE_DIGEST
+cosign verify --key ovhcloud://<key_id> $IMAGE_DIGEST
+```
+
+See the [plugin's documentation](https://github.com/ovh/sigstore-kms-ovhcloud#sigstore-kms-ovhcloud) for installation and authentication configuration.
