@@ -49,7 +49,7 @@ the format of the hint must be agreed upon out of band by the signer and the ver
 
 ```json
 "verificationMaterial": {
-  "publicKeyIdentifier": {
+  "publicKey": {
     "hint": "<HINT>"
   }
 }
