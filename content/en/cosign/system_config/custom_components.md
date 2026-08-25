@@ -111,19 +111,3 @@ cosign verify-blob \
     --certificate-identity=https://expected-identity \
     artifact.txt
 ```
-
-### Use URL flags with cosign v3
-
-To use `--fulcio-url` and `--rekor-url` flags with cosign v3, disable
-automatic signing configuration resolution:
-
-```shell
-cosign sign-blob \
-    --use-signing-config=false \
-    --fulcio-url=https://fulcio.internal:5555 \
-    --rekor-url=https://rekor.internal:3000 \
-    ...
-```
-
-The `--use-signing-config` and `--signing-config` flags are mutually
-exclusive.
