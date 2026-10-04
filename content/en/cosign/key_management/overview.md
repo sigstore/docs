@@ -174,6 +174,24 @@ path "transit/verify/cosign" {
 }
 ```
 
+#### Local Setup
+
+For a local setup, you can run Vault yourself or use the `docker-compose` file from [sigstore/sigstore](https://github.com/sigstore/sigstore/blob/main/test/e2e/docker-compose.yml) as an example.
+
+After running it:
+
+```shell
+export VAULT_ADDR=http://localhost:8200
+export VAULT_TOKEN=testtoken
+vault secrets enable transit
+```
+
+If you enabled `transit` secret engine at different path with the use of `-path` flag (i.e., `$ vault secrets enable -path="someotherpath" transit`), you can use `TRANSIT_SECRET_ENGINE_PATH` environment variable to specify this path while generating a key pair like the following:
+
+```shell
+TRANSIT_SECRET_ENGINE_PATH="someotherpath" cosign generate-key-pair --kms hashivault://testkey
+```
+
 ### Kubernetes Secret
 
 Cosign can use keys stored in Kubernetes Secrets to so sign and verify signatures. In order to generate a secret you have to pass `cosign generate-key-pair` a `k8s://[NAMESPACE]/[NAME]` URI specifying the namespace and secret name:
@@ -204,24 +222,6 @@ data:
 ```
 
 When verifying an image signature using `cosign verify`, the key will be automatically decrypted using the password stored in the kubernetes secret under the `cosign.password` field.
-
-#### Local Setup
-
-For a local setup, you can run Vault yourself or use the `docker-compose` file from [sigstore/sigstore](https://github.com/sigstore/sigstore/blob/main/test/e2e/docker-compose.yml) as an example.
-
-After running it:
-
-```shell
-export VAULT_ADDR=http://localhost:8200
-export VAULT_TOKEN=testtoken
-vault secrets enable transit
-```
-
-If you enabled `transit` secret engine at different path with the use of `-path` flag (i.e., `$ vault secrets enable -path="someotherpath" transit`), you can use `TRANSIT_SECRET_ENGINE_PATH` environment variable to specify this path while generating a key pair like the following:
-
-```shell
-TRANSIT_SECRET_ENGINE_PATH="someotherpath" cosign generate-key-pair --kms hashivault://testkey
-```
 
 ### OVHcloud
 
