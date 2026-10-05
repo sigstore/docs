@@ -6,6 +6,17 @@ title: Sharding
 weight: 1820
 ---
 
+**NOTE**: The suggestions on this page are no longer recommended. This page only covers Rekor v1, aka `rekor.sigstore.dev`.
+New Rekor deployments should use [Rekor v2](https://github.com/sigstore/rekor-tiles/) only. We recommend creating
+new log instances periodically depending on the growth of the log. Each log instance should be accessible via a unique
+URL.
+
+For the public infrastructure, we aim to create a new log every year, publishing the new log's URL in the
+[TUF-distributed signing configuration file](https://github.com/sigstore/root-signing/blob/main/targets/signing_config.v0.2.json)
+and its key in the [trusted root file](https://github.com/sigstore/root-signing/blob/main/targets/trusted_root.json).
+
+---------------
+
 This document covers what Rekor log sharding is and how to shard the log.
 
 ## What is sharding?
