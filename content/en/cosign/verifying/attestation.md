@@ -51,7 +51,7 @@ Let's give a try by following the links above:
 * Check out the documentation of
   the [verify-attestation](https://github.com/sigstore/cosign/blob/main/doc/cosign_verify-attestation.md) command.
 
-### [Cosign Custom Predicate](/system_config/specifications/#in-toto-attestation-predicate) type and CUE policy
+### [Cosign Custom Predicate](/cosign/system_config/specifications/#in-toto-attestation-predicate) type and CUE policy
 
 ```shell
 $ cosign attest --key cosign.key --predicate foo gcr.io/rekor-testing/distroless
@@ -108,7 +108,7 @@ There are 1 number of errors occurred during the validation:
 Error: 1 validation errors occurred
 ```
 
-### [Cosign Custom Predicate](/system_config/specifications/#in-toto-attestation-predicate) type and Rego policy
+### [Cosign Custom Predicate](/cosign/system_config/specifications/#in-toto-attestation-predicate) type and Rego policy
 
 ```shell
 $ cosign attest --key cosign.key -predicate foo gcr.io/rekor-testing/distroless
