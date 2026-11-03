@@ -65,7 +65,7 @@ plugins {
 }
 
 val signHelloProps by tasks.registering(dev.sigstore.sign.tasks.SigstoreSignFilesTask::class) {
-    signFile(/* File or Provider<RegularFile> */)
+    signFile(/* Provider<File>; use sign(...) for a File or Provider<RegularFile> */)
 }
 ```
 
