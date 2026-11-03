@@ -31,7 +31,7 @@ Release information is available on the [releases page](https://github.com/sigst
 <plugin>
   <groupId>dev.sigstore</groupId>
   <artifactId>sigstore-maven-plugin</artifactId>
-  <version>2.0.0</version>
+  <version>2.4.0</version>
   <executions>
     <execution>
       <id>sign</id>
@@ -49,7 +49,7 @@ More information on the Maven plugin is available in the [project repository](ht
 
 ```kotlin
 plugins {
-    id("dev.sigstore.sign") version "2.0.0"
+    id("dev.sigstore.sign") version "2.4.0"
 }
 ```
 
@@ -61,7 +61,7 @@ Use the `sign-base` plugin to sign individual files without tying into Maven pub
 
 ```kotlin
 plugins {
-    id("dev.sigstore.sign-base") version "2.0.0"
+    id("dev.sigstore.sign-base") version "2.4.0"
 }
 
 val signHelloProps by tasks.registering(dev.sigstore.sign.tasks.SigstoreSignFilesTask::class) {
@@ -79,7 +79,7 @@ permissions:
   contents: read
 ```
 
-See [GitHub's documentation on OIDC permissions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers#adding-permissions-settings) for details.
+See [GitHub's documentation on OIDC permissions](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-cloud-providers#adding-permissions-settings) for details.
 
 ## API Usage
 
