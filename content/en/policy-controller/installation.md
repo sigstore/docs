@@ -13,7 +13,7 @@ official [Helm chart](https://github.com/sigstore/helm-charts/tree/main/charts/p
 
 ## Prerequisites
 
-- A Kubernetes cluster and [`kubectl`](https://kubernetes.io/docs/tasks/tools/) configured to access it. policy-controller `> 0.10.x` supports Kubernetes 1.27, 1.28, and 1.29; starting with v0.12.0, supported versions are Kubernetes 1.29, 1.30, 1.31, and 1.32. See the [policy-controller support matrix](https://github.com/sigstore/policy-controller#support-policy).
+- A Kubernetes cluster and [`kubectl`](https://kubernetes.io/docs/tasks/tools/) configured to access it. The [policy-controller support policy](https://github.com/sigstore/policy-controller#support-policy) lists the Kubernetes versions each release line runs on; current releases are tested in CI against Kubernetes 1.33 and 1.34.
 - [Helm](https://helm.sh/docs/intro/install/) v3
 
 ## Install with Helm
@@ -28,7 +28,7 @@ helm install policy-controller -n cosign-system sigstore/policy-controller
 ```
 
 This deploys the `policy-controller` admission webhook into the `cosign-system`
-namespace. The chart installs the `ClusterImagePolicy` and `TrustRoot` Custom Resource Definitions (CRDs) automatically. For the full list of configurable values, see the
+namespace. The chart installs the `ClusterImagePolicy` and `TrustRoot` Custom Resource Definitions (CRDs) automatically (`installCRDs: true`). For the full list of configurable values, see the
 [chart README](https://github.com/sigstore/helm-charts/tree/main/charts/policy-controller).
 
 ## Verify the installation
@@ -66,7 +66,7 @@ kubectl patch configmap config-policy-controller -n cosign-system \
   -p '{"data":{"no-match-policy":"warn"}}'
 ```
 
-Valid values: `deny` (default), `warn`, `allow`.
+Valid values: `deny` (default), `warn`, `allow`. The chart's `webhook.configData` value sets the same ConfigMap entries at install time.
 
 ## Using a private Sigstore instance (custom TUF root)
 
