@@ -33,7 +33,7 @@ Optionally, you can install `sigstore` and all its dependencies with [hash-check
 
 ### Signing example
 
-For this example, we will sign a a file named `foo.txt`. [`sigstore`](https://pypi.org/project/sigstore/) will use OpenID Connect (OIDC) to verify your email address.
+For this example, we will sign a file named `foo.txt`. [`sigstore`](https://pypi.org/project/sigstore/) will use OpenID Connect (OIDC) to verify your email address.
 
 Use the following command to sign `foo.txt`:
 
