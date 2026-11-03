@@ -98,8 +98,6 @@ For example purposes, you can use [`sboms/example.spdx.json`](https://github.com
 Then attach the SBOM to your image using [`cosign attest`](https://github.com/sigstore/cosign/blob/main/doc/cosign_attest.md) along with the flag `--type 'https://spdx.dev/Document'`, signing keylessly against the public Fulcio root:
 
 ```
-export COSIGN_EXPERIMENTAL=1
-
 cosign attest --yes --type https://spdx.dev/Document \
   --predicate sboms/example.spdx.json \
   "${IMAGE}"
