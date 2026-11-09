@@ -13,7 +13,7 @@ official [Helm chart](https://github.com/sigstore/helm-charts/tree/main/charts/p
 
 ## Prerequisites
 
-- A Kubernetes cluster and [`kubectl`](https://kubernetes.io/docs/tasks/tools/) configured to access it. The [policy-controller support policy](https://github.com/sigstore/policy-controller#support-policy) lists the Kubernetes versions each release line runs on; current releases are tested in CI against Kubernetes 1.33 and 1.34.
+- A Kubernetes cluster and [`kubectl`](https://kubernetes.io/docs/tasks/tools/) configured to access it. See the [policy-controller support policy](https://github.com/sigstore/policy-controller#support-policy) for the Kubernetes versions each release is tested against.
 - [Helm](https://helm.sh/docs/intro/install/) v3
 
 ## Install with Helm
