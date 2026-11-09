@@ -53,7 +53,7 @@ plugins {
 }
 ```
 
-This automatically signs all Maven publications. More information is available in the [project repository](https://github.com/sigstore/sigstore-java/tree/main/sigstore-gradle#sigstore-gradle).
+This automatically signs all Maven publications, generating a `<filename>.sigstore.json` bundle for each file. More information is available in the [project repository](https://github.com/sigstore/sigstore-java/tree/main/sigstore-gradle#sigstore-gradle).
 
 #### Signing individual files
 
