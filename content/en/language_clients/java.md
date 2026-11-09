@@ -43,7 +43,7 @@ Release information is available on the [releases page](https://github.com/sigst
 </plugin>
 ```
 
-More information on the Maven plugin is available in the [project repository](https://github.com/sigstore/sigstore-java/tree/main/sigstore-maven-plugin#sigstore-maven-plugin).
+More information on the Maven plugin is available in the [project repository](https://github.com/sigstore/sigstore-java/tree/main/sigstore-maven-plugin#sigstore-maven-plugin). Each published file gets a matching `<filename>.sigstore.json` bundle. If you also GPG-sign for Maven Central, use maven-gpg-plugin 3.2.5 or higher so the `.sigstore.json` files aren't GPG-signed.
 
 ### Gradle
 
