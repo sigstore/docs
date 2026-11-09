@@ -64,7 +64,15 @@ plugins {
     id("dev.sigstore.sign-base") version "2.4.0"
 }
 
+val helloProps by tasks.registering(WriteProperties::class) {
+    outputFile = file("build/helloProps.txt")
+    property("helloProps", "world")
+}
+
 val signHelloProps by tasks.registering(dev.sigstore.sign.tasks.SigstoreSignFilesTask::class) {
+    signFile(helloProps.map { it.outputFile })
+    // Alternatives: sign(File), sign(Provider<RegularFile>)
+}
     signFile(/* Provider<File>; use sign(...) for a File or Provider<RegularFile> */)
 }
 ```
