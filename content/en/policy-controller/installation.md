@@ -92,6 +92,9 @@ webhook:
     - name: tuf-root
       secret:
         secretName: tuf-root
+        items:
+          - key: root
+            path: root.json
   volumeMounts:
     - name: tuf-root
       mountPath: /var/run/tuf
