@@ -15,6 +15,7 @@ weight: 20
 * [DSSE](https://github.com/secure-systems-lab/dsse) (Dead Simple Signing Envelope) attestation verification, plus attestation signing on staging (testing only)
 * [TUF](https://theupdateframework.io) (The Update Framework) integration for trusted root management
 * GitHub Actions OIDC support for CI/CD pipelines
+* Verification of bundles without a transparency log entry, using RFC 3161 timestamps (for private deployments)
 
 ## Requirements
 
