@@ -175,7 +175,8 @@ String bundleJson = bundle.toJson();
 
 ## Known Limitations
 
-* **Offline signing and verification** are not supported by default — the client expects to reach Sigstore infrastructure (Fulcio, Rekor, the TUF root mirror). Verification can be configured against a custom trusted root for restricted environments.
+* **Offline signing** is not supported.
+* **Offline verification** is not supported by default, since the client checks the TUF repository for trusted root updates. For restricted environments, configure `KeylessVerifier` with a cached or custom `SigstoreTrustedRoot`.
 * **Multi-module Maven builds**: each module that signs artifacts requires its own OIDC authentication step.
 * **Long-running builds**: the OIDC token has a 10-minute validity window. Builds that take longer than 10 minutes may require re-authentication partway through.
 
