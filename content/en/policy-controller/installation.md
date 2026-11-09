@@ -124,7 +124,7 @@ Customize the resync period by using the `--policy-resync-period` argument and
 defining a duration for the `policy-webhook` deployment:
 
 ```shell
-helm upgrade policy-controller -n cosign-system sigstore/policy-controller \
+helm upgrade policy-controller -n cosign-system sigstore/policy-controller --reuse-values \
   --set webhook.extraArgs.policy-resync-period=2h
 ```
 
