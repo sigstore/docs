@@ -91,7 +91,7 @@ See [GitHub's documentation on OIDC permissions](https://docs.github.com/en/acti
 
 ## API Usage
 
-The stable public API consists of [`KeylessSigner`](https://javadoc.io/doc/dev.sigstore/sigstore-java) and [`KeylessVerifier`](https://javadoc.io/doc/dev.sigstore/sigstore-java) and the classes exposed by those APIs. Other library classes may change between releases without notice.
+The stable public API consists of [`KeylessSigner`](https://javadoc.io/doc/dev.sigstore/sigstore-java/latest/dev/sigstore/KeylessSigner.html) and [`KeylessVerifier`](https://javadoc.io/doc/dev.sigstore/sigstore-java/latest/dev/sigstore/KeylessVerifier.html) and the classes exposed by those APIs. Other library classes may change between releases without notice.
 
 ### Signing
 
