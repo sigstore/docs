@@ -155,7 +155,9 @@ try {
 }
 ```
 
-### DSSE Attestation Signing
+### DSSE Attestation Signing (staging only)
+
+DSSE attestation signing is currently only available for testing on the staging instance, which uses [Rekor]({{< relref "logging/overview" >}}) V2, Sigstore's append-only transparency log:
 
 DSSE attestation signing requires [Rekor](https://docs.sigstore.dev/logging/overview/) V2, Sigstore's append-only transparency log. The following example uses the staging instance, which has Rekor V2 enabled:
 
