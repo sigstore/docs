@@ -171,6 +171,8 @@ Bundle bundle = signer.attest(payload);
 String bundleJson = bundle.toJson();
 ```
 
+`KeylessVerifier` can verify DSSE bundles using the same workflow as above. It checks that the artifact is a subject of the in-toto statement but makes no further assertions about the payload, so inspect the payload with a tool like [slsa-verifier](https://github.com/slsa-framework/slsa-verifier).
+
 [Additional examples](https://github.com/sigstore/sigstore-java/tree/main/examples/hello-world#sigstore-examples) are available in the project repository.
 
 ## Known Limitations
