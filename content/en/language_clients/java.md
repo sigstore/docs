@@ -177,6 +177,7 @@ String bundleJson = bundle.toJson();
 
 * **Offline signing** is not supported.
 * **Offline verification** is not supported by default, since the client checks the TUF repository for trusted root updates. For restricted environments, configure `KeylessVerifier` with a cached or custom `SigstoreTrustedRoot`.
-* **Multi-module Maven builds**: each module that signs artifacts requires its own OIDC authentication step.
+* **Maven plugin, multi-module builds**: each module requires its own OIDC authentication.
+* **Maven plugin, long-running builds**: the signing session lasts 10 minutes. Longer builds require a new OIDC authentication every 10 minutes.
 * **Long-running builds**: the OIDC token has a 10-minute validity window. Builds that take longer than 10 minutes may require re-authentication partway through.
 
