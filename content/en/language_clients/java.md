@@ -12,7 +12,7 @@ weight: 20
 * [Maven](https://github.com/sigstore/sigstore-java/tree/main/sigstore-maven-plugin) and [Gradle](https://github.com/sigstore/sigstore-java/tree/main/sigstore-gradle) signing plugins
 * Keyless signing and verification
 * Java API ([Javadoc](https://javadoc.io/doc/dev.sigstore/sigstore-java))
-* [DSSE](https://github.com/secure-systems-lab/dsse) (Dead Simple Signing Envelope) attestation signing and verification
+* [DSSE](https://github.com/secure-systems-lab/dsse) (Dead Simple Signing Envelope) attestation verification, plus attestation signing on staging (testing only)
 * [TUF](https://theupdateframework.io) (The Update Framework) integration for trusted root management
 * GitHub Actions OIDC support for CI/CD pipelines
 
