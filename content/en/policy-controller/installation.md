@@ -58,15 +58,21 @@ admitted.
 
 ## Unmatched images
 
-Images that do not match any `ClusterImagePolicy` are **denied** by default. Edit the `config-policy-controller` ConfigMap to change this:
+Images that do not match any `ClusterImagePolicy` are **denied** by default. To change this, set `no-match-policy` in your Helm values:
+
+```yaml
+webhook:
+  configData:
+    no-match-policy: warn
+```
+
+Valid values: `deny` (default), `warn`, `allow`. If you didn't install with Helm, patch the `config-policy-controller` ConfigMap directly:
 
 ```shell
 kubectl patch configmap config-policy-controller -n cosign-system \
   --type merge \
   -p '{"data":{"no-match-policy":"warn"}}'
 ```
-
-Valid values: `deny` (default), `warn`, `allow`. The chart's `webhook.configData` value sets the same ConfigMap entries at install time.
 
 ## Using a private Sigstore instance (custom TUF root)
 
