@@ -137,7 +137,7 @@ instructions for more details on configuration.
 
 ## Test a policy without a cluster
 
-The `policy-tester` tool validates a `ClusterImagePolicy` against an image locally without a running cluster. Clone the repository and build it:
+The `policy-tester` tool validates a `ClusterImagePolicy` against an image locally, without a running cluster. Download the `tester-<os>-<arch>` binary for your platform from the [releases page](https://github.com/sigstore/policy-controller/releases), or build it from source:
 
 ```shell
 git clone https://github.com/sigstore/policy-controller
