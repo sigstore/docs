@@ -104,7 +104,7 @@ webhook:
 Then point the webhook at the mounted root:
 
 ```shell
-helm upgrade policy-controller -n cosign-system sigstore/policy-controller \
+helm upgrade policy-controller -n cosign-system sigstore/policy-controller --reuse-values \
   -f your-values.yaml \
   --set webhook.extraArgs.tuf-root=/var/run/tuf/root \
   --set webhook.extraArgs.tuf-mirror=https://tuf.example.com
