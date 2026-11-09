@@ -113,7 +113,7 @@ helm upgrade policy-controller -n cosign-system sigstore/policy-controller --reu
 To disable TUF entirely (for air-gapped environments or when using only `sigstoreKeys`-based `TrustRoot` resources):
 
 ```shell
-helm upgrade policy-controller -n cosign-system sigstore/policy-controller \
+helm upgrade policy-controller -n cosign-system sigstore/policy-controller --reuse-values \
   --set webhook.extraArgs.disable-tuf=true
 ```
 
