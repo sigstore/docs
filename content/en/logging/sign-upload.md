@@ -14,7 +14,6 @@ The following are covered:
 - [PKIX/X509](#pkixx509)
 - [RPM](#rpm)
 - [Alpine](#alpine)
-- [RPM](#rpm-1)
 - [TSR](#tsr)
 - [TUF](#tuf)
 
@@ -206,10 +205,6 @@ Body: {
 TODO
 
 ## Alpine
-
-TODO
-
-## RPM
 
 TODO
 
