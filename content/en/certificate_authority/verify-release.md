@@ -47,14 +47,15 @@ gh attestation verify "oci://ghcr.io/sigstore/fulcio:<version>" \
 You can retrieve `artifact.pub` securely using [The Update Framework (TUF)](https://theupdateframework.io/) client:
 
 ```bash
-go install github.com/theupdateframework/go-tuf/cmd/tuf-client@latest
+go install github.com/theupdateframework/go-tuf/v2/examples/cli/tuf-client@latest
 
-curl -sSfLo sigstore-root.json https://raw.githubusercontent.com/sigstore/root-signing/refs/heads/main/metadata/root_history/10.root.json
-tuf-client init https://tuf-repo-cdn.sigstore.dev sigstore-root.json
-tuf-client get https://tuf-repo-cdn.sigstore.dev artifact.pub > artifact.pub
+curl -sSfLo root.json https://raw.githubusercontent.com/sigstore/root-signing/refs/heads/main/metadata/root_history/10.root.json
+tuf-client init --url https://tuf-repo-cdn.sigstore.dev -f root.json
+tuf-client get --url https://tuf-repo-cdn.sigstore.dev -t https://tuf-repo-cdn.sigstore.dev/targets artifact.pub
+cp tuf_download/artifact.pub ./artifact.pub
 ```
 
-Alternatively, you can download `artifact.pub` from the [`sigstore/root-signing` repository](https://github.com/sigstore/root-signing/blob/main/targets/artifact.pub) (also attached to each Fulcio GitHub release as `release-cosign.pub`):
+Alternatively, you can download `artifact.pub` from the [`sigstore/root-signing` repository](https://github.com/sigstore/root-signing/blob/main/targets/artifact.pub):
 
 ```bash
 curl -sSfLO https://raw.githubusercontent.com/sigstore/root-signing/main/targets/artifact.pub
@@ -62,7 +63,7 @@ curl -sSfLO https://raw.githubusercontent.com/sigstore/root-signing/main/targets
 
 ### Verify the Fulcio binary
 
-#### For Fulcio v1.10.0 and later
+#### For Fulcio v1.8.2 and later
 
 Download the binary and its corresponding `.sigstore.json` bundle from the release, then verify with `cosign verify-blob`:
 
@@ -76,9 +77,9 @@ cosign verify-blob \
   "fulcio-<os>-<arch>"
 ```
 
-#### For Fulcio v1.9.x and earlier
+#### For Fulcio v1.8.1 and earlier
 
-Releases prior to v1.10.0 published detached base64-encoded `.sig` signatures instead of `.sigstore.json` bundles:
+Releases prior to v1.8.2 published detached base64-encoded `.sig` signatures instead of `.sigstore.json` bundles:
 
 ```bash
 curl -sSfLO "https://github.com/sigstore/fulcio/releases/download/<version>/fulcio-<os>-<arch>"
