@@ -144,13 +144,13 @@ Before using Cosign, you will need to download and also initialize the TUF envir
 To do this, install and use [go-tuf](https://github.com/theupdateframework/go-tuf)'s CLI tools:
 
 ```bash
-go install github.com/theupdateframework/go-tuf/cmd/tuf-client@latest
+go install github.com/theupdateframework/go-tuf/v2/examples/cli/tuf-client@latest
 ```
 
 Then, obtain trusted root keys for Sigstore. You will use the 10th iteration of Sigstore's TUF root to start the root of trust, due to a backward incompatible change. The TUF client uses this root to start a chain of roots, and will download the latest, unexpired root as part of [its workflow](https://theupdateframework.github.io/specification/latest/#update-root).
 
 ```bash
-curl -o sigstore-root.json https://raw.githubusercontent.com/sigstore/root-signing/refs/heads/main/metadata/root_history/10.root.json
+curl -o root.json https://raw.githubusercontent.com/sigstore/root-signing/refs/heads/main/metadata/root_history/10.root.json
 ```
 
 Note that you can verify the 10th TUF root against the 1st TUF root, which was signed in a publicly documented signing ceremony. However, due to the backward incompatible change, this requires manual verification steps. See the [Sigstore root repo](https://github.com/sigstore/root-signing) for more information.
@@ -160,7 +160,7 @@ Note that you can verify the 10th TUF root against the 1st TUF root, which was s
 Then initialize the tuf client with the previously obtained root key and the remote repository;
 
 ```bash
-tuf-client init https://tuf-repo-cdn.sigstore.dev sigstore-root.json
+tuf-client init --url https://tuf-repo-cdn.sigstore.dev -f root.json
 ```
 
 #### Verifying with key
@@ -174,7 +174,8 @@ _Note: Cosign v3.0.1 is missing artifact key signatures. Upgrade to Cosign v3.0.
 _Note: Cosign v3 defaults to signatures stored in [bundles](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto), which is the default output and input for other Sigstore SDKs._
 
 ```bash
-tuf-client get https://tuf-repo-cdn.sigstore.dev artifact.pub > artifact.pub
+tuf-client get --url https://tuf-repo-cdn.sigstore.dev -t https://tuf-repo-cdn.sigstore.dev/targets artifact.pub
+cp tuf_download/artifact.pub ./artifact.pub
 
 curl -o cosign-kms.sigstore.json -L https://github.com/sigstore/cosign/releases/download/<version>/cosign-<os>-kms.sigstore.json
 cat cosign-kms.sigstore.json | jq -r .messageSignature.signature | base64 -d > cosign-kms.sig.decoded
@@ -193,7 +194,8 @@ cosign verify-blob --bundle cosign-kms.sigstore.json --key artifact.pub cosign
 ##### For Cosign v1.x or Cosign v2.x
 
 ```bash
-tuf-client get https://tuf-repo-cdn.sigstore.dev artifact.pub > artifact.pub
+tuf-client get --url https://tuf-repo-cdn.sigstore.dev -t https://tuf-repo-cdn.sigstore.dev/targets artifact.pub
+cp tuf_download/artifact.pub ./artifact.pub
 
 curl -o cosign-release.sig -L https://github.com/sigstore/cosign/releases/download/<version>/cosign-<os>.sig
 base64 -d cosign-release.sig > cosign-release.sig.decoded
