@@ -3,7 +3,7 @@ type: docs
 category: Transparency Log
 menuTitle: Verifying Releases
 title: Verifying Rekor Releases
-weight: 1860
+weight: 1845
 ---
 
 Before running a downloaded Rekor binary or deploying a Rekor container image, you should verify its authenticity.
@@ -84,7 +84,7 @@ Releases prior to v1.4.3 published detached base64-encoded `.sig` signatures ins
 ```bash
 curl -sSfLO "https://github.com/sigstore/rekor/releases/download/<version>/<binary>-<os>-<arch>"
 curl -sSfLO "https://github.com/sigstore/rekor/releases/download/<version>/<binary>-<os>-<arch>.sig"
-base64 -d "<binary>-<os>-<arch>.sig" > "<binary>-<os>-<arch>.sig.decoded"
+base64 -d < "<binary>-<os>-<arch>.sig" > "<binary>-<os>-<arch>.sig.decoded"
 
 openssl dgst -sha256 -verify artifact.pub -signature "<binary>-<os>-<arch>.sig.decoded" "<binary>-<os>-<arch>"
 ```
